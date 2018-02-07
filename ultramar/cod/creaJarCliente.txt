@@ -1,0 +1,1 @@
+jar cmvf mainClass BarClient.jar Client.conf mysql-prod-bin.jar alphanet/ultra/digibar/bd/*.class alphanet/ultra/digibar/servidor/*.class alphanet/ultra/digibar/cliente/*.class imas sounds

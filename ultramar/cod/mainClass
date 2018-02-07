@@ -1,0 +1,3 @@
+Main-Class: alphanet/ultra/digibar/servidor/BarServer
+Class-Path:  mysql-prod-bin.jar
+
