@@ -1,0 +1,26 @@
+	    <!-- Ultramarina Context -->
+	    <Context path="/ultramarina" docBase="ultramarina" debug="0" reloadable="true">
+	      <Enviroment name="maxExemptions" type="java.lang.Integer" value="15" />
+	      <Parameter name="context.param.name" value="context.param.value" override="false"/>
+	      <Resource name="mail/session" auth="CONTAINER" type="javax.mail.Session" />
+	      <ResourceParams name="mail/Session">
+		<parameter>
+		  <name>mail.smtp.host</name>
+		  <value>localhost</value>
+		 </parameter>
+	      </ResourceParams>
+	    </Context>
+
+
+	    <!-- PuertaMar Context -->
+	    <Context path="/delmar" docBase="delmar" debug="0" reloadable="true">
+	      <Enviroment name="maxExemptions" type="java.lang.Integer" value="15" />
+	      <Parameter name="context.param.name" value="context.param.value" override="false"/>
+	      <Resource name="mail/session" auth="CONTAINER" type="javax.mail.Session" />
+	      <ResourceParams name="mail/Session">
+	        <parameter>
+	          <name>mail.smtp.host</name>
+	          <value>localhost</value>
+	         </parameter>
+	      </ResourceParams>
+	    </Context>

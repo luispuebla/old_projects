@@ -1,0 +1,85 @@
+td {
+	font-family: "Agency FB";
+	font-size: 13px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #000000;
+	border: 1px solid #000000;
+	text-align: left;
+}
+
+th {
+	font-family: "Agency FB";
+	font-size: 13px;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+	text-align: center;
+	border: 1px solid #000000;	
+}
+
+table, th, td {
+	margin: 0px;
+	padding: 0px;
+}
+
+.titulos{
+	font-size:20px;
+	font-weight:bold;
+	color:#070b79;
+	text-align:center;
+}
+
+.aviso{
+	font-size:20px;
+	font-weight:bold;
+	color:#194b79;
+	text-align:center;
+}
+
+.roj{
+	font-size:15px;
+	font-weight:bold;
+	color:#FF0000;
+}
+
+.formato{
+	font-family: "Agency FB";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+	text-align: center;
+}
+
+body {
+	font-family: "Eras Medium ITC";
+	font-size: 14px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+}
+
+caption {
+	font-family: "Agency FB";
+	font-size: 18px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-align: center;	
+	text-transform: none;
+	color: #000000;
+}
+
+table {
+	margin: 0px;
+	padding: 0px;
+}

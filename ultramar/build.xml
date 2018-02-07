@@ -1,0 +1,86 @@
+<project name="Ultramarina" default="dist" basedir=".">
+  <property name="tomcatdir" value="/Tomcat"/>
+  <property name="appdir" value="${tomcatdir}/webapps/ultramarina"/>
+  <property name="jarfile" value="ultramarinaclasses.jar"/>
+
+  <target name="init">
+    <tstamp/>
+  </target>
+ 
+  <target name="compile" depends="init">
+       <mkdir dir="${appdir}/WEB-INF/lib"/>
+       <mkdir dir="${appdir}/WEB-INF/classes"/>
+     <javac srcdir="src">
+       <classpath>
+         <pathelement path="${classpath}"/>
+	 <pathelement path="src"/>
+         <fileset dir="C:\tomcat\webapps\ultramarina\WEB-INF\lib\">
+           <include name="**/*.jar"/>
+	   <exclude name="ultramarinaclasses.jar"/>
+         </fileset>
+       </classpath>
+     </javac>
+  </target>
+  
+
+  <target name="clean">
+   <delete>
+    <fileset dir="src/com/ret" includes="**/*.class"/>
+   </delete>
+  </target>
+
+
+  <target name="dist" depends="compile"> <!-- AGREGAR , javadoc despues de depends= -->
+     <mkdir dir="${appdir}/WEB-INF/lib"/>
+     <mkdir dir="${appdir}/WEB-INF/classes"/>
+     <mkdir dir="${appdir}/logs"/>
+     <jar jarfile="${appdir}/WEB-INF/lib/${jarfile}">
+      </jar>     
+     <copy todir="${appdir}/WEB-INF/lib">
+         <fileset dir="." includes="mysql-prod-bin.jar"/>
+     </copy>       
+     <copy todir="${appdir}/WEB-INF/classes">
+        <fileset dir="src" includes="com/ult/bd/*.class"/>
+     </copy> 
+     <copy todir="${appdir}/WEB-INF">
+        <fileset dir="." includes="web.xml"/>
+     </copy>
+     <mkdir dir="${appdir}/jsp"/>
+     <copy todir="${appdir}/jsp">
+        <fileset dir="jsp"/>
+     </copy>
+     <delete dir="${tomcatdir}/work/localhost/ultramarina"/>
+  </target>
+
+  <target name="javadoc">
+    <!-- <mkdir dir="${appdir}/WEB-INF/javadoc"/> -->
+     <javadoc sourcepath="src" destdir="javadoc" author="true"
+              version="true" use="true" packagenames="com.ult.*">
+       <classpath>
+         <pathelement path="${classpath}"/>
+         <fileset dir="C:\Tomcat\common\lib">
+           <include name="**/*.jar"/>
+         </fileset>
+       </classpath>
+     </javadoc>
+  </target>
+
+
+  <target name="start">
+     <exec dir="${tomcatdir}/bin" executable="startup.bat" 
+           os="Windows 2000" vmlauncher="false">
+     </exec>
+  </target>
+
+  <target name="stop">
+     <exec dir="${tomcatdir}/bin" executable="shutdown.bat" 
+           os="Windows 2000" vmlauncher="false">
+     </exec>
+  </target>
+
+  <target name="restart" depends="stop,start">
+  </target>
+  
+</project>
+
+

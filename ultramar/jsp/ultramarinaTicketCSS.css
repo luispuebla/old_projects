@@ -1,0 +1,95 @@
+td {
+	font-family: "Agency FB";
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	font-variant: normal;
+	text-transform: none;
+	color:#000000;
+}
+
+table, th, td {
+	margin: 0px;
+	padding: 0px;
+}
+
+
+
+.formato{
+	font-size:12px;
+	font-weight:bold;
+	text-align:center;
+}
+
+.titulos{
+	font-size:17px;
+	font-weight:bold;
+	color:#000000;
+	text-align:center;
+}
+
+.aviso{
+	font-size:20px;
+	font-weight:bold;
+	color:#000000;
+	text-align:center;
+}
+
+.roj{
+	font-size:15px;
+	font-weight:bold;
+	color:#FF0000;
+}
+
+th {
+	font-family: "Agency FB";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color:#000000;
+	text-align: center;
+}
+
+html {
+margin: 0;
+}
+
+body {
+margin: 0;
+}
+
+body {
+	font-family: "Eras Medium ITC";
+	font-size: 14px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color:#000000;
+}
+caption {
+	font-family: "Agency FB";
+	font-size: 15px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color:#000000;
+}
+
+h1 {
+	font-family: "Agency FB";
+	font-size: 18px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	letter-spacing: normal;
+	text-align: center;
+	color:#000000;
+}

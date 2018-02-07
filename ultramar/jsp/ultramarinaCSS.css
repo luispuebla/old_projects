@@ -1,0 +1,88 @@
+td {
+	font-family: "Eras Medium ITC";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #070b79;
+}
+
+table, th, td {
+	margin: 0px;
+	padding: 0px;
+}
+
+.titulos{
+	font-size:20px;
+	font-weight:bold;
+	color:#070b79;
+	text-align:center;
+}
+
+.aviso{
+	font-size:20px;
+	font-weight:bold;
+	color:#194b79;
+	text-align:center;
+}
+
+.roj{
+	font-size:15px;
+	font-weight:bold;
+	color:#FF0000;
+}
+
+th {
+	font-family: "Eras Medium ITC";
+	font-size: 15px;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #070b79;
+	text-align: center;
+	background-color:#CCCCCC
+}
+
+body {
+	font-family: "Eras Medium ITC";
+	font-size: 14px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #070b79;
+	text-align: center;
+}
+caption {
+	font-family: "Eras Medium ITC";
+	font-size: 15px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #070b79;
+}
+
+h1 {
+	font-family: "Eras Medium ITC";
+	font-size: 18px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	letter-spacing: normal;
+	text-align: center;
+	vertical-align: middle;
+	white-space: normal;
+	color: #070b79;	
+}
+
+table {
+	margin: 0px;
+	padding: 0px;
+}
