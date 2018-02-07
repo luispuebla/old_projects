@@ -1,0 +1,92 @@
+
+
+[Version]
+signature  = "$CHICAGO$"
+SetupClass = BASE
+Class      = SYSTEM
+ClassGUID  = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider   = %Msft%
+LayoutFile = layout.inf, layout1.inf, layout2.inf
+
+[BaseWinOptions]
+SWENUM_BASE
+
+[SWENUM_BASE]
+AddReg    = swenum.base.addreg
+CopyFiles = swenum.base.copy
+
+[DefaultInstall]
+AddReg    = swenum.base.addreg
+CopyFiles = swenum.base.copy
+
+[swenum.base.addreg]
+HKLM,Enum\Root\SwEnum\0000,HardwareID,,SWENUM
+
+[swenum.base.copy]
+swenum.inf
+
+[DestinationDirs]
+DefaultDestDir   = 10,system32\drivers
+SWENUM.CopyDlls  = 11
+swenum.base.copy = 17
+
+[Manufacturer]
+%Msft%=Microsoft
+
+[Microsoft]
+%SWENUM.DeviceDesc%=SWENUM,SWENUM
+
+[SWENUM]
+CopyFiles=SWENUM.CopyFiles,SWENUM.CopyDlls
+AddReg=SWENUM.AddReg
+
+[SWENUM.HW]
+AddReg=SWENUM.HW.AddReg
+
+[SWENUM.NT]
+CopyFiles=SWENUM.CopyFiles
+
+[SWENUM.CopyDlls]
+streamci.dll
+
+[SWENUM.CopyFiles]
+swenum.sys
+ks.sys
+
+[SWENUM.AddReg]
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,swenum.sys
+HKR,,NoUseClass,,1
+
+[SWENUM.HW.AddReg]
+HKR,,ConfigFlags,1,00,40,00,00
+
+[SWENUM.NT.Services]
+AddService=swenum, 0x00000002, SWENUM.ServiceInstall
+
+[SWENUM.ServiceInstall]
+DisplayName=%SWENUM.DeviceDesc%
+ServiceType=%SERVICE_KERNEL_DRIVER%
+StartType=%SERVICE_DEMAND_START%
+ErrorControl=%SERVICE_ERROR_NORMAL%
+ServiceBinary=%10%\system32\drivers\SWENUM.sys
+LoadOrderGroup=ExtendedBase
+
+[Strings]
+; non-localizable
+Msft = "Microsoft"
+
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_DEMAND_START = 3
+SERVICE_ERROR_NORMAL = 1
+
+REG_SZ = 0x00000000
+REG_MULTI_SZ = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_BINARY = 0x00000001
+REG_DWORD = 0x00010001
+
+; localizeable
+SWENUM.DeviceDesc = "Enumerador de dispositivos con software Plug and Play"
+
+

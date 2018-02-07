@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Adaptador de Acceso telefónico a redes
+infpath=NETPPP.INF                                                                      
+infsection=PPPMAC.ndi
+MatchingDeviceId=*PNP8387
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Adaptadores de red
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

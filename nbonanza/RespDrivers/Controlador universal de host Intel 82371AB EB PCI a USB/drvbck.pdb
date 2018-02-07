@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Controlador universal de host Intel 82371AB/EB PCI a USB
+infpath=USB.INF                                                                         
+infsection=UniversalHCD.Dev
+MatchingDeviceId=PCI\VEN_8086&DEV_7112
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Controladores de bus serie universal
+filenum=6
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

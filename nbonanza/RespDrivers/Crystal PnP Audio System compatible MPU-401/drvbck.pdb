@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Crystal PnP Audio System compatible MPU-401
+infpath=CWBAUD98.INF                                                                    
+infsection=CSC0003_Device
+MatchingDeviceId=*CSC0003
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sonido, vídeo y juegos
+filenum=4
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

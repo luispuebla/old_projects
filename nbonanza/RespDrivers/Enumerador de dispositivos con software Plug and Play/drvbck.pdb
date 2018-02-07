@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Enumerador de dispositivos con software Plug and Play
+infpath=SWENUM.INF                                                                      
+infsection=SWENUM
+MatchingDeviceId=SWENUM
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sistema
+filenum=4
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

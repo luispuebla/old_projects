@@ -1,0 +1,43 @@
+
+; DISKDRV.INF  -- This file contains general description of Disk Drive devices
+;
+;
+;*** Created 6/22/94  (Creation Date)
+
+[Version]
+CatalogFile=diskdrv.cat
+LayoutFile=Layout.inf, Layout1.inf, Layout2.inf
+signature="$CHICAGO$"
+Class=DiskDrive
+ClassGUID={4d36e967-e325-11ce-bfc1-08002be10318}
+Provider=%Msft%
+
+; Class Install
+[ClassInstall]
+Addreg=DiskReg
+
+[DiskReg]
+HKR,,,,%DiskClassName%
+HKR,,EnumPropPages,,"iosclass.dll,EnumPropPages"
+HKR,,SilentInstall,,1
+HKR,,NoInstallClass,,1
+HKR,,Icon,,"3"
+
+; Table of Contents
+[Manufacturer]
+%MSFT%=Generic.Devices
+
+[Generic.Devices]
+%GenDiskDesc%=GenDiskInstall,GenDisk
+
+[GenDiskInstall]
+Addreg=ForceMPCopy
+
+;********************************Common section
+[ForceMPCopy]
+HKR,,NoSetupUI,,1
+
+[Strings]
+Msft = "(Unidades de disco estándar)"
+DiskClassName = "Unidades de disco"
+GenDiskDesc = "Unidad de disco"

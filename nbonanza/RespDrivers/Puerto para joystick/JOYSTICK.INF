@@ -1,0 +1,396 @@
+
+
+
+
+[Version]
+CatalogFile=joystick.cat
+layoutfile=layout.inf,layout1.inf,layout2.inf
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%Microsoft%
+
+[ClassInstall]
+Addreg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,%MediaClassName%
+HKR,,Icon,,"-1"
+HKR,,Installer,,mmci.dll
+
+[Manufacturer]
+%StdMfgName%=StdMfg
+%Microsoft%=Microsoft
+%ThrustMaster%=ThrustMaster
+%Logitech%=Logitech
+%Genius%=Genius
+%Guillemot%=Guillemot
+
+
+[StdMfg]
+;
+; This is the compatible id for HID game devices;
+; it will be matched when the primary id is not recognized.
+;
+%HID_DEVICE_SYSTEM_GAME%=HIDGameDevice,HID_DEVICE_SYSTEM_GAME
+
+
+[Microsoft]
+%*PNPB02F.DeviceDesc%=MSJSTICK, *PNPB02F
+%*PNPB02F.DeviceDesc%=MSJSTICK, *CTL7001
+%*PNPB02F.DeviceDesc%=MSJSTICK, *CTL7002
+%*PNPB02F.DeviceDesc%=MSJSTICK, *CTL7005
+%*PNPB02F.DeviceDesc%=MSJSTICK, *CSC0001
+%*PNPB02F.DeviceDesc%=MSJSTICK, MF\PNPB00D_Dev2
+%*PNPB02F.DeviceDesc%=MSJSTICK, MF\PNPB00E_Dev3
+%*PNPB02F.DeviceDesc%=MSJSTICK, MF\PNPB019_Dev2
+%*PNPB02F.DeviceDesc%=MSJSTICK, *AZT0003
+%*PNPB02F.DeviceDesc%=MSJSTICK, *AZT3001
+%*PNPB02F.DeviceDesc%=MSJSTICK, *YMH0006
+%*PNPB02F.DeviceDesc%=MSJSTICK, *ESS0005
+
+%USB\VID_045E&PID_0007.DeviceDesc%=MSUSBGAMEPAD1, USB\VID_045E&PID_0007
+%USB\VID_045E&PID_0008.DeviceDesc%=MSUSBJSTICK1, USB\VID_045E&PID_0008
+%USB\VID_045E&PID_000E.DeviceDesc%=MSUSBJSTICK2, USB\VID_045E&PID_000E
+
+[ThrustMaster]
+%ThrustMaster.DeviceDesc%=TM, *PNPB02F
+%USB\VID_044F&PID_A0A0.DeviceDesc%=THRUSTMASTERUSBJSTICK1,USB\VID_044F&PID_A0A0
+%USB\VID_044F&PID_A0A1.DeviceDesc%=THRUSTMASTERUSBJSTICK2,USB\VID_044F&PID_A0A1
+%USB\VID_044F&PID_A201.DeviceDesc%=THRUSTMASTERUSBJSTICK3,USB\VID_044F&PID_A201
+%USB\VID_044F&PID_A01B.DeviceDesc%=THRUSTMASTERUSBJSTICK4,USB\VID_044F&PID_A01B
+%USB\VID_044F&PID_A003.DeviceDesc%=THRUSTMASTERUSBGAMEPAD1,USB\VID_044F&PID_A003
+
+[Logitech]
+%USB\VID_046D&PID_0200.DeviceDesc%=LOGITECHUSBJSTICK1, USB\VID_046d&PID_0200
+%USB\VID_046D&PID_C201.DeviceDesc%=LOGITECHUSBJSTICK2, USB\VID_046d&PID_C201
+
+[Genius]
+%USB\VID_0458&PID_1001.DeviceDesc%=GENIUSUSBJSTICK1, USB\VID_0458&PID_1001
+%USB\VID_0458&PID_1002.DeviceDesc%=GENIUSUSBGAMEPAD1, USB\VID_0458&PID_1002
+
+[Guillemot]
+%USB\VID_06F8&PID_0002.DeviceDesc%=GUILLEMOTUSBJSTICK1, USB\VID_06F8&PID_0002
+
+;---------------------------------------------------------------;
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+[DestinationDirs]
+MSJSTICK.CopyList = 11          ; LDID_SYS
+GAMEPORT.CopyList = 11          ; LDID_SYS
+STDUSBJSTICK.CopyFiles = 10,system32\drivers
+STDUSBJSTICK.DelFiles = 11
+HIDGameDevice.Copy = 11         ; LDID_SYS
+
+;---------------------------------------------------------------;
+
+[MSJSTICK]
+LogConfig=BasicJoyStick.LC0,BasicJoystick.LC1
+CopyFiles=MSJSTICK.CopyList, GAMEPORT.CopyList
+AddReg=JOYSTICK.AddReg, MSJSTICK.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=MSJSTICK.KnownFiles
+
+[TM]
+LogConfig=ThrustMaster.LC0, ThrustMaster.LC1, ThrustMaster.LC2, ThrustMaster.LC3
+CopyFiles=MSJSTICK.CopyList, GAMEPORT.CopyList
+AddReg=JOYSTICK.AddReg, ThrustMaster.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=MSJSTICK.KnownFiles
+
+[*PNPB02F.det]
+AddReg=PreCopySection
+
+[BasicJoyStick.LC0]
+ConfigPriority=HARDWIRED
+IOConfig=201-201(3ff::)
+
+[BasicJoyStick.LC1]
+ConfigPriority=HARDWIRED
+IOConfig=200-207(3ff::)
+
+[ThrustMaster.LC0]
+ConfigPriority=HARDWIRED
+IOConfig=201-201(3ff::)
+IOConfig=209-209(3ff::)
+
+[ThrustMaster.LC1]
+ConfigPriority=HARDWIRED
+IOConfig=201-201(3ff::), 203-203(3ff::), 205-205(3ff::), 207-207(3ff::)
+IOConfig=209-209(3ff::), 20b-20b(3ff::), 20d-20d(3ff::), 20f-20f(3ff::)
+
+[ThrustMaster.LC2]
+ConfigPriority=HARDWIRED
+IOConfig=201-201(3ff::), 203-203(3ff::), 205-205(3ff::), 207-207(3ff::)
+
+[ThrustMaster.LC3]
+ConfigPriority=HARDWIRED
+IOConfig=209-209(3ff::), 20b-20b(3ff::), 20d-20d(3ff::), 20f-20f(3ff::)
+
+;---------------------------------------------------------------;
+
+[MSUSBGAMEPAD1]
+CopyFiles=STDUSBJSTICK.CopyFiles
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=MSUSBGAMEPAD1.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[MSUSBGAMEPAD1.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_045E&PID_0007,OEMName,,%USB\VID_045E&PID_0007.DeviceDesc%
+
+[MSUSBJSTICK1]
+CopyFiles=STDUSBJSTICK.CopyFiles,MSJSTICK.CopyList
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=MSUSBJSTICK1.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[MSUSBJSTICK1.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_045E&PID_0008,OEMName,,%USB\VID_045E&PID_0008.DeviceDesc%
+
+[MSUSBJSTICK2]
+CopyFiles=STDUSBJSTICK.CopyFiles,MSJSTICK.CopyList
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=MSUSBJSTICK2.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[MSUSBJSTICK2.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_045E&PID_000E,OEMName,,%USB\VID_045E&PID_000E.DeviceDesc%
+
+[THRUSTMASTERUSBJSTICK1]
+CopyFiles=STDUSBJSTICK.CopyFiles
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=THRUSTMASTERUSBJSTICK1.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[THRUSTMASTERUSBJSTICK1.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_044F&PID_A0A0,OEMName,,%USB\VID_044F&PID_A0A0.DeviceDesc%
+
+[THRUSTMASTERUSBJSTICK2]
+CopyFiles=STDUSBJSTICK.CopyFiles
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=THRUSTMASTERUSBJSTICK2.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[THRUSTMASTERUSBJSTICK2.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_044F&PID_A0A1,OEMName,,%USB\VID_044F&PID_A0A1.DeviceDesc%
+
+[THRUSTMASTERUSBJSTICK3]
+CopyFiles=STDUSBJSTICK.CopyFiles
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=THRUSTMASTERUSBJSTICK3.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[THRUSTMASTERUSBJSTICK3.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_044F&PID_A201,OEMName,,%USB\VID_044F&PID_A201.DeviceDesc%
+
+[THRUSTMASTERUSBJSTICK4]
+CopyFiles=STDUSBJSTICK.CopyFiles
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=THRUSTMASTERUSBJSTICK4.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[THRUSTMASTERUSBJSTICK4.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_044F&PID_A01B,OEMName,,%USB\VID_044F&PID_A01B.DeviceDesc%
+
+[THRUSTMASTERUSBGAMEPAD1]
+CopyFiles=STDUSBJSTICK.CopyFiles
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=THRUSTMASTERUSBGAMEPAD1.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[THRUSTMASTERUSBGAMEPAD1.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_044F&PID_A003,OEMName,,%USB\VID_044F&PID_A003.DeviceDesc%
+
+[LOGITECHUSBJSTICK1]
+CopyFiles=STDUSBJSTICK.CopyFiles
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=LOGITECHUSBJSTICK1.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[LOGITECHUSBJSTICK1.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys,"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_0200,OEMName,,%USB\VID_046D&PID_0200.DeviceDesc%
+
+[LOGITECHUSBJSTICK2]
+CopyFiles=STDUSBJSTICK.CopyFiles
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=LOGITECHUSBJSTICK2.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[LOGITECHUSBJSTICK2.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys,"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C201,OEMName,,%USB\VID_046D&PID_C201.DeviceDesc%
+
+[GENIUSUSBJSTICK1]
+CopyFiles=STDUSBJSTICK.CopyFiles,MSJSTICK.CopyList
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=GENIUSUSBJSTICK1.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[GENIUSUSBJSTICK1.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_0458&PID_1001,OEMName,,%USB\VID_0458&PID_1001.DeviceDesc%
+
+[GENIUSUSBGAMEPAD1]
+CopyFiles=STDUSBJSTICK.CopyFiles
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=GENIUSUSBGAMEPAD1.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[GENIUSUSBGAMEPAD1.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_0458&PID_1002,OEMName,,%USB\VID_0458&PID_1002.DeviceDesc%
+
+[GUILLEMOTUSBJSTICK1]
+CopyFiles=STDUSBJSTICK.CopyFiles,MSJSTICK.CopyList
+DelFiles=STDUSBJSTICK.DelFiles
+AddReg=GUILLEMOTUSBJSTICK1.AddReg
+UpdateInis=MSJSTICK.UpdateInis
+KnownFiles=STDUSBJSTICK.KnownFiles
+
+[GUILLEMOTUSBJSTICK1.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys"
+HKLM,System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_06F8&PID_0002,OEMName,,%USB\VID_06F8&PID_0002.DeviceDesc%
+
+
+
+;---------------------------------------------------------------;
+
+[STDUSBJSTICK.CopyFiles]
+hidusb.sys
+hidclass.sys
+hidparse.sys
+
+[STDUSBJSTICK.KnownFiles]
+hidusb.sys=safe
+
+[STDUSBJSTICK.DelFiles]
+hidusb.sys
+hidclass.sys
+hidparse.sys
+
+;---------------------------------------------------------------;
+
+[MSJSTICK.CopyList]
+vjoyd.vxd,,
+msjstick.drv,,
+
+[MSJSTICK.KnownFiles]
+essjoy.vxd.4.3.0=force
+essjoy.drv.4.3.0=force
+
+[GAMEPORT.CopyList]
+msanalog.vxd,,
+
+[JOYSTICK.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\joystick,,,
+
+[MSJSTICK.AddReg]
+HKR,,Driver,,vjoyd.vxd
+HKR,Drivers\joystick\msjstick.drv,Description,,%*PNPB02F.DeviceDesc%
+HKR,Drivers\joystick\msjstick.drv,Driver,,msjstick.drv
+HKR,Drivers,SubClasses,,"joystick"
+
+[ThrustMaster.AddReg]
+HKR,,Driver,,vjoyd.vxd
+HKR,Drivers\joystick\msjstick.drv,Description,,%ThrustMaster.DeviceDesc%
+HKR,Drivers\joystick\msjstick.drv,Driver,,msjstick.drv
+HKR,Drivers,SubClasses,,"joystick"
+
+[MSJSTICK.UpdateInis]
+system.ini,drivers,"joystick="
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;  Install section for HID game devices  ;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[HIDGameDevice]
+CopyFiles=HIDGameDevice.Copy,MSJSTICK.CopyList
+AddReg=HIDGameDevice.AddReg
+KnownFiles=HIDGameDevice.KnownFiles
+
+[HIDGameDevice.Copy]
+joyhid.vxd
+
+[HIDGameDevice.KnownFiles]
+joyhid.vxd=safe
+
+[HIDGameDevice.AddReg]
+HKR,,DevLoader,,"*ntkern,mmdevldr.vxd"
+HKR,,NTMPDriver,,"joyhid.vxd"
+HKR,,Driver,,vjoyd.vxd
+HKR,Drivers\joystick\msjstick.drv,Driver,,msjstick.drv
+HKR,Drivers,SubClasses,,"joystick"
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\joystick,,,
+HKR,Drivers\joystick\msjstick.drv,Description,,%HID_DEVICE_SYSTEM_GAME%
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;---------------------------------------------------------------;
+
+[Strings]
+
+StdMfgName = "(Dispositivo de juegos estándar)"
+Microsoft = "Microsoft"
+ThrustMaster = "ThrustMaster"
+Logitech = "Logitech"
+Genius = "Genius"
+Guillemot = "Guillemot"
+
+*PNPB02F.DeviceDesc = "Puerto para joystick"
+ThrustMaster.DeviceDesc = "Tarjeta de juegos ThrustMaster ACM"
+MediaClassName = "Dispositivos de sonido, vídeo y juegos"
+USB\VID_045E&PID_0007.DeviceDesc = "Controlador para juegos SideWinder USB versión 1.0"
+USB\VID_045E&PID_0008.DeviceDesc = "Microsoft SideWinder Precision Pro (USB)"
+USB\VID_045E&PID_000E.DeviceDesc = "Microsoft SideWinder Freestyle Pro (USB)"
+USB\VID_046D&PID_0200.DeviceDesc = "Joystick Logitech USB WingMan Extreme"
+USB\VID_046D&PID_C201.DeviceDesc = "Joystick Logitech USB WingMan Extreme con acelerador"
+USB\VID_044F&PID_A0A0.DeviceDesc = "Joystick ThrustMaster Top Gun USB"
+USB\VID_044F&PID_A0A1.DeviceDesc = "ThrustMaster Top Gun USB Joystick (rev2)"
+USB\VID_044F&PID_A201.DeviceDesc = "NEC PK-GP201 PlayStick"
+USB\VID_044F&PID_A01B.DeviceDesc = "Volante NEC PK-GP301"
+USB\VID_044F&PID_A003.DeviceDesc = "Controlador de juegos ThrustMaster Rage 3D USB"
+USB\VID_0458&PID_1001.DeviceDesc = "Joystick Genius USB"
+USB\VID_0458&PID_1002.DeviceDesc = "Controlador de juegos Genius USB"
+USB\VID_06F8&PID_0002.DeviceDesc = "Joystick USB Guillemot Jet Leader"
+
+HID_DEVICE_SYSTEM_GAME = "Controlador de juegos HID"

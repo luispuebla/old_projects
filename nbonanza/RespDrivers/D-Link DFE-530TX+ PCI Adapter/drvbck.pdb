@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=D-Link DFE-530TX+ PCI Adapter
+infpath=D-LINK~1.INF                                                                    
+infsection=DFE530_A.ndi
+MatchingDeviceId=PCI\VEN_1186&DEV_1300&SUBSYS_13011186
+driverversion=5.397.0823.2001
+driverdate=08/23/2001
+providername=D-Link Corporation.
+class=Adaptadores de red
+filenum=3
+signature=All Windows Operating Systems
+needrestore=yes
+backuptime=Domingo, Marzo 02, 2008

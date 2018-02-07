@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Logitech First/Pilot Mouse serie (M34,M35,C43)
+infpath=MSMOUSE.INF                                                                     
+infsection=LogiSerPnP
+MatchingDeviceId=SERENUM\LGI8001
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Mouse
+filenum=5
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

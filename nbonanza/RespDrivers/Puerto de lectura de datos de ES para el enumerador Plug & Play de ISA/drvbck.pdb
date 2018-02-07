@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Puerto de lectura de datos de ES para el enumerador Plug & Play de ISA
+infpath=MACHINE.INF                                                                     
+infsection=ISARDP_DRV
+MatchingDeviceId=ISAPNP\ReadDataPort
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sistema
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

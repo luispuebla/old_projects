@@ -1,0 +1,696 @@
+
+
+; MACHINE2.INF
+
+; Copyright (c) 1993-1995, Microsoft Corporation
+
+[version]
+CatalogFile=machine2.cat
+LayoutFile= Layout.inf, Layout1.inf, Layout2.inf
+signature="$CHICAGO$"
+Class=System
+ClassGUID={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%MS%
+
+[ClassInstall]
+AddReg=System_Class_Reg
+DelReg=System_Class_DelReg
+
+[System_Class_Reg]
+HKR,,,,%SystemClassName%
+HKR,,Installer,,sysclass.dll
+
+[System_Class_DelReg]
+HKR,,NoInstallClass
+
+[DestinationDirs]
+EISA_Copyfiles             = 11          ; LDID_SYS
+EISA_DelFiles              = 11          ; LDID_SYS
+MCA_Copyfiles              = 11          ; LDID_SYS
+ISAPNP_Copyfiles           = 11          ; LDID_SYS
+
+[Manufacturer]
+%GENDEV_MFG%=GENDEV_SYS
+%ACC_MFG%=ACC_SYS
+%ACER_MFG%=ACER_SYS
+%ALI_MFG%=ALI_SYS
+%AMD_MFG%=AMD_SYS
+%COMPAQ_MFG%=COMPAQ_SYS
+%CONTAQ_MFG%=CONTAQ_SYS
+%CYRIX_MFG%=CYRIX_SYS
+%DEC_MFG%=DEC_SYS
+%IBM_MFG%=IBM_SYS
+%INTEL_MFG%=INTEL_SYS
+%NATSEMI_MFG%=NATSEMI_SYS
+%OPTI_MFG%=OPTI_SYS
+%MICRON_MFG%=MICRON_SYS
+%SIS_MFG%=SIS_SYS
+%TEXAS_MFG%=TEXAS_SYS
+%TOSHIBA_MFG%=TOSHIBA_SYS
+%UMC_MFG%=UMC_SYS
+%VIA_MFG%=VIA_SYS
+%VLSI_MFG%=VLSI_SYS
+
+[GENDEV_SYS]
+%*PNP0A00.DeviceDesc%   = ISA_DRV,      *PNP0A00        ; ISA BUS
+%*PNP0A01.DeviceDesc%   = EISA_DRV,     *PNP0A01        ; EISA BUS
+%*PNP0A02.DeviceDesc%   = MCA_DRV,      *PNP0A02        ; MCA BUS
+%*PNP0A04.DeviceDesc%   = ISA_DRV,      *PNP0A04        ; VL BUS
+%PCI\CC_0500.DeviceDesc%=NO_DRV,PCI\CC_0500
+%PCI\CC_0600.DeviceDesc%=NO_DRV,PCI\CC_0600
+%PCI\CC_0601.DeviceDesc%=ISA_DRV,PCI\CC_0601
+%PCI\CC_0602.DeviceDesc%=EISA_DRV,PCI\CC_0602
+%PCI\CC_0603.DeviceDesc%=MCA_DRV,PCI\CC_0603
+%PCI\CC_0604.DeviceDesc%=PCI_BRIDGE_DRV,PCI\CC_0604
+
+[ACC_SYS]
+%PCI\VEN_10AA&DEV_0000.DeviceDesc%=NO_DRV,PCI\VEN_10AA&DEV_0000
+
+[ACER_SYS]
+%PCI\VEN_1025&DEV_1435.DeviceDesc%=ISA_DRV,PCI\VEN_1025&DEV_1435
+
+[AMD_SYS]
+%PCI\VEN_1022&DEV_7408.DeviceDesc%=ISA_DRV,PCI\VEN_1022&DEV_7408
+%PCI\VEN_1022&DEV_740B.DeviceDesc%=NO_DRV,PCI\VEN_1022&DEV_740B
+
+[ALI_SYS]
+%PCI\VEN_10B9&DEV_1445.DeviceDesc%=ISA_DRV,PCI\VEN_10B9&DEV_1445
+%PCI\VEN_10B9&DEV_1449.DeviceDesc%=ISA_DRV,PCI\VEN_10B9&DEV_1449
+%PCI\VEN_10B9&DEV_1451.DeviceDesc%=NO_DRV,PCI\VEN_10B9&DEV_1451
+%PCI\VEN_10B9&DEV_1521.DeviceDesc%=NO_DRV,PCI\VEN_10B9&DEV_1521
+%PCI\VEN_10B9&DEV_1531.DeviceDesc%=NO_DRV,PCI\VEN_10B9&DEV_1531
+%PCI\VEN_10B9&DEV_1523.DeviceDesc%=ISA_DRV,PCI\VEN_10B9&DEV_1523
+%PCI\VEN_10B9&DEV_1533.DeviceDesc%=ISA_DRV,PCI\VEN_10B9&DEV_1533
+%PCI\VEN_10B9&DEV_7101.DeviceDesc%=NO_DRV, PCI\VEN_10B9&DEV_7101
+%PCI\VEN_10B9&DEV_1541.DeviceDesc%=AGP_BRIDGE_DRV, PCI\VEN_10B9&DEV_1541
+
+[COMPAQ_SYS]
+%PCI\VEN_0E11&DEV_0001.DeviceDesc%=EISA_DRV,PCI\VEN_0E11&DEV_0001
+%PCI\VEN_0E11&DEV_0002.DeviceDesc%=ISA_DRV,PCI\VEN_0E11&DEV_0002
+%PCI\VEN_0E11&DEV_1000.DeviceDesc%=NO_DRV,PCI\VEN_0E11&DEV_1000
+%PCI\VEN_0E11&DEV_2000.DeviceDesc%=NO_DRV,PCI\VEN_0E11&DEV_2000
+%PCI\VEN_0E11&DEV_AE29.DeviceDesc%=NO_DRV,PCI\VEN_0E11&DEV_AE29
+%PCI\VEN_0E11&DEV_AE2B.DeviceDesc%=ISA_DRV,PCI\VEN_0E11&DEV_AE2B
+%PCI\VEN_0E11&DEV_A0F3.DeviceDesc%=ISA_DRV,PCI\VEN_0E11&DEV_A0F3
+%PCI\VEN_0E11&DEV_AE2A.DeviceDesc%=NO_DRV,PCI\VEN_0E11&DEV_AE2A
+%PCI\VEN_0E11&DEV_AE69.DeviceDesc%=NO_DRV,PCI\VEN_0E11&DEV_AE69
+%PCI\VEN_0E11&DEV_AE6C&CC_0600.DeviceDesc%=NO_DRV,PCI\VEN_0E11&DEV_AE6C&CC_0600
+%PCI\VEN_0E11&DEV_AE6C&CC_0604.DeviceDesc%=NO_DRV,PCI\VEN_0E11&DEV_AE6C&CC_0604
+%PCI\VEN_0E11&DEV_AE6D.DeviceDesc%=NO_DRV,PCI\VEN_0E11&DEV_AE6D
+
+[CONTAQ_SYS]
+%PCI\VEN_1080&DEV_0600.DeviceDesc%=ISA_DRV,PCI\VEN_1080&DEV_0600
+
+[CYRIX_SYS]
+%PCI\VEN_1078&DEV_0000.DeviceDesc%=ISA_DRV,PCI\VEN_1078&DEV_0000
+%PCI\VEN_1078&DEV_0002.DeviceDesc%=ISA_DRV,PCI\VEN_1078&DEV_0002
+
+[DEC_SYS]
+%PCI\VEN_1011&DEV_0001.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1011&DEV_0001
+%PCI\VEN_1011&DEV_0021.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1011&DEV_0021
+%PCI\VEN_1011&DEV_0022.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1011&DEV_0022
+%PCI\VEN_1011&DEV_0024.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1011&DEV_0024
+%PCI\VEN_1011&DEV_0025.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1011&DEV_0025
+%PCI\VEN_1011&DEV_0026.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1011&DEV_0026
+
+[IBM_SYS]
+%PCI\VEN_1014&DEV_0002.DeviceDesc%=MCA_DRV,PCI\VEN_1014&DEV_0002
+%PCI\VEN_1014&DEV_000A.DeviceDesc%=ISA_DRV,PCI\VEN_1014&DEV_000A
+%PCI\VEN_1014&DEV_0017.DeviceDesc%=NO_DRV,PCI\VEN_1014&DEV_0017
+%PCI\VEN_1014&DEV_0022&REV_00.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1014&DEV_0022&REV_00
+%PCI\VEN_1014&DEV_0022.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1014&DEV_0022
+%PCI\VEN_1014&DEV_0095.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1014&DEV_0095
+%PCI\VEN_104C&DEV_AC22&SUBSYS_00E31014.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_104C&DEV_AC22&SUBSYS_00E31014
+
+[INTEL_SYS]
+%PCI\VEN_8086&DEV_0008.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0008
+%PCI\VEN_8086&DEV_0482.DeviceDesc%=EISA_DRV,PCI\VEN_8086&DEV_0482
+%PCI\VEN_8086&DEV_0483.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0483
+%PCI\VEN_8086&DEV_0484.DeviceDesc%=PCI_SIO_DRV,PCI\VEN_8086&DEV_0484
+%PCI\VEN_8086&DEV_0486.DeviceDesc%=ISA_DRV,PCI\VEN_8086&DEV_0486
+%PCI\VEN_8086&DEV_04A3_OLD.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_04A3&REV_00
+%PCI\VEN_8086&DEV_04A3_OLD.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_04A3&REV_01
+%PCI\VEN_8086&DEV_04A3_OLD.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_04A3&REV_02
+%PCI\VEN_8086&DEV_04A3_OLD.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_04A3&REV_03
+%PCI\VEN_8086&DEV_04A3.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_04A3
+%PCI\VEN_8086&DEV_1225.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1225
+%PCI\VEN_8086&DEV_122D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_122D
+%PCI\VEN_8086&DEV_122E.DeviceDesc%=ISA_DRV,PCI\VEN_8086&DEV_122E
+%PCI\VEN_8086&DEV_1234.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1234
+%PCI\VEN_8086&DEV_1235.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1235
+%PCI\VEN_8086&DEV_1237.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1237
+%PCI\VEN_8086&DEV_123B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_123B
+%PCI\VEN_8086&DEV_123C.DeviceDesc%=ISA_DRV,PCI\VEN_8086&DEV_123C
+%PCI\VEN_8086&DEV_1250.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1250
+%PCI\VEN_8086&DEV_2410.DeviceDesc%=ISA_DRV,PCI\VEN_8086&DEV_2410
+%PCI\VEN_8086&DEV_2413.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2413
+%PCI\VEN_8086&DEV_2418.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_8086&DEV_2418
+%PCI\VEN_8086&DEV_2420.DeviceDesc%=ISA_DRV,PCI\VEN_8086&DEV_2420
+%PCI\VEN_8086&DEV_2423.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2423
+%PCI\VEN_8086&DEV_2428.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_8086&DEV_2428
+%PCI\VEN_8086&DEV_2500.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2500
+%PCI\VEN_8086&DEV_250F.DeviceDesc%=AGP_BRIDGE_DRV,PCI\VEN_8086&DEV_250F
+%PCI\VEN_8086&DEV_7000.DeviceDesc%=ISA_DRV,PCI\VEN_8086&DEV_7000
+%PCI\VEN_8086&DEV_7030.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7030
+%PCI\VEN_8086&DEV_7100.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7100
+%PCI\VEN_8086&DEV_7110_OLD_EIO.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7110&REV_00&CC_0680
+%PCI\VEN_8086&DEV_7110_OLD_ISA.DeviceDesc%=ISA_DRV,PCI\VEN_8086&DEV_7110&REV_00&CC_0601
+%PCI\VEN_8086&DEV_7110_OLD_EIO.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7110&REV_01&CC_0680
+%PCI\VEN_8086&DEV_7110_OLD_ISA.DeviceDesc%=ISA_DRV,PCI\VEN_8086&DEV_7110&REV_01&CC_0601
+%PCI\VEN_8086&DEV_7110_EIO.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7110&CC_0680
+%PCI\VEN_8086&DEV_7110_ISA.DeviceDesc%=ISA_DRV,PCI\VEN_8086&DEV_7110&CC_0601
+%PCI\VEN_8086&DEV_7113_OLD.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7113&REV_00
+%PCI\VEN_8086&DEV_7113_OLD.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7113&REV_01
+%PCI\VEN_8086&DEV_7113.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7113
+%PCI\VEN_8086&DEV_7120.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7120
+%PCI\VEN_8086&DEV_7122.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7122
+%PCI\VEN_8086&DEV_7180.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7180
+%PCI\VEN_8086&DEV_7181.DeviceDesc%=AGP_BRIDGE_DRV,PCI\VEN_8086&DEV_7181
+%PCI\VEN_8086&DEV_7190.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7190
+%PCI\VEN_8086&DEV_7191.DeviceDesc%=AGP_BRIDGE_DRV,PCI\VEN_8086&DEV_7191
+%PCI\VEN_8086&DEV_7192.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7192
+%PCI\VEN_8086&DEV_7194.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7194
+%PCI\VEN_8086&DEV_7198.DeviceDesc%=ISA_DRV,PCI\VEN_8086&DEV_7198
+%PCI\VEN_8086&DEV_719B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_719B
+%PCI\VEN_8086&DEV_71A0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_71A0
+%PCI\VEN_8086&DEV_71A1.DeviceDesc%=AGP_BRIDGE_DRV,PCI\VEN_8086&DEV_71A1
+%PCI\VEN_8086&DEV_71A2.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_71A2
+%PCI\VEN_8086&DEV_7600.DeviceDesc%=ISA_DRV,PCI\VEN_8086&DEV_7600
+%PCI\VEN_8086&DEV_7603.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_7603
+%PCI\VEN_8086&DEV_84C4.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_84C4
+%PCI\VEN_8086&DEV_84C5.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_84C5
+
+[NATSEMI_SYS]
+%PCI\VEN_1066&DEV_0001.DeviceDesc%=NO_DRV,PCI\VEN_1066&DEV_0001
+%PCI\VEN_1066&DEV_8002.DeviceDesc%=ISA_DRV,PCI\VEN_1066&DEV_8002
+%PCI\VEN_1066&DEV_0002.DeviceDesc%=ISA_DRV,PCI\VEN_1066&DEV_0002
+%PCI\VEN_100B&DEV_0011.DeviceDesc%=ISA_DRV,PCI\VEN_100B&DEV_0011
+
+[OPTI_SYS]
+%PCI\VEN_1045&DEV_C822.DeviceDesc%=ISA_DRV,PCI\VEN_1045&DEV_C822
+%PCI\VEN_1045&DEV_C557.DeviceDesc%=NO_DRV,PCI\VEN_1045&DEV_C557
+%PCI\VEN_1045&DEV_C558.DeviceDesc%=ISA_DRV,PCI\VEN_1045&DEV_C558
+%PCI\VEN_1045&DEV_C567.DeviceDesc%=NO_DRV,PCI\VEN_1045&DEV_C567
+%PCI\VEN_1045&DEV_C568.DeviceDesc%=ISA_DRV,PCI\VEN_1045&DEV_C568
+%PCI\VEN_1045&DEV_C700.DeviceDesc%=ISA_DRV,PCI\VEN_1045&DEV_C700
+%PCI\VEN_1045&DEV_C701.DeviceDesc%=NO_DRV,PCI\VEN_1045&DEV_C701
+
+[MICRON_SYS]
+%PCI\VEN_1042&DEV_3000.DeviceDesc%=NO_DRV,PCI\VEN_1042&DEV_3000
+%PCI\VEN_1042&DEV_3010.DeviceDesc%=NO_DRV,PCI\VEN_1042&DEV_3010
+
+[SIS_SYS]
+%PCI\VEN_1039&DEV_0008.DeviceDesc%=ISA_DRV,PCI\VEN_1039&DEV_0008
+%PCI\VEN_1039&DEV_0406.DeviceDesc%=NO_DRV,PCI\VEN_1039&DEV_0406
+%PCI\VEN_1039&DEV_0496.DeviceDesc%=ISA_DRV,PCI\VEN_1039&DEV_0496
+%PCI\VEN_1039&DEV_0009.DeviceDesc%=NO_DRV,PCI\VEN_1039&DEV_0009
+
+[TEXAS_SYS]
+%PCI\VEN_104C&DEV_AC20.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_104C&DEV_AC20
+%PCI\VEN_104C&DEV_AC22.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_104C&DEV_AC22
+
+[TOSHIBA_SYS]
+%PCI\VEN_1179&DEV_0601.DeviceDesc%=NO_DRV,PCI\VEN_1179&DEV_0601
+%PCI\VEN_1179&DEV_0602.DeviceDesc%=ISA_DRV,PCI\VEN_1179&DEV_0602
+%PCI\VEN_1179&DEV_0603.DeviceDesc%=NO_DRV,PCI\VEN_1179&DEV_0603
+%PCI\VEN_1179&DEV_0604.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1179&DEV_0604
+%PCI\VEN_1179&DEV_0605.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1179&DEV_0605
+%PCI\VEN_1179&DEV_0609.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1179&DEV_0609
+
+[UMC_SYS]
+%PCI\VEN_1060&DEV_8886.DeviceDesc%=ISA_DRV,PCI\VEN_1060&DEV_8886
+%PCI\VEN_1060&DEV_886A.DeviceDesc%=ISA_DRV,PCI\VEN_1060&DEV_886A
+%PCI\VEN_1060&DEV_E886.DeviceDesc%=ISA_DRV,PCI\VEN_1060&DEV_E886
+%PCI\VEN_1060&DEV_8881.DeviceDesc%=NO_DRV,PCI\VEN_1060&DEV_8881
+%PCI\VEN_1060&DEV_0891.DeviceDesc%=NO_DRV,PCI\VEN_1060&DEV_0891
+%PCI\VEN_1060&DEV_E881.DeviceDesc%=NO_DRV,PCI\VEN_1060&DEV_E881
+%PCI\VEN_1060&DEV_E891.DeviceDesc%=NO_DRV,PCI\VEN_1060&DEV_E891
+
+[VIA_SYS]
+%PCI\VEN_1106&DEV_0501.DeviceDesc%=NO_DRV,PCI\VEN_1106&DEV_0501
+%PCI\VEN_1106&DEV_0505.DeviceDesc%=ISA_DRV,PCI\VEN_1106&DEV_0505
+%PCI\VEN_1106&DEV_0586.DeviceDesc%=ISA_DRV,PCI\VEN_1106&DEV_0586
+%PCI\VEN_1106&DEV_0596.DeviceDesc%=ISA_DRV,PCI\VEN_1106&DEV_0596
+%PCI\VEN_1106&DEV_0597.DeviceDesc%=NO_DRV,PCI\VEN_1106&DEV_0597
+%PCI\VEN_1106&DEV_0598.DeviceDesc%=NO_DRV,PCI\VEN_1106&DEV_0598
+%PCI\VEN_1106&DEV_0686.DeviceDesc%=ISA_DRV,PCI\VEN_1106&DEV_0686
+%PCI\VEN_1106&DEV_0691.DeviceDesc%=NO_DRV,PCI\VEN_1106&DEV_0691
+%PCI\VEN_1106&DEV_3040.DeviceDesc%=NO_DRV,PCI\VEN_1106&DEV_3040
+%PCI\VEN_1106&DEV_3050.DeviceDesc%=NO_DRV,PCI\VEN_1106&DEV_3050
+%PCI\VEN_1106&DEV_3057.DeviceDesc%=NO_DRV,PCI\VEN_1106&DEV_3057
+%PCI\VEN_1106&DEV_8501.DeviceDesc%=AGP_BRIDGE_DRV,PCI\VEN_1106&DEV_8501
+%PCI\VEN_1106&DEV_8597.DeviceDesc%=AGP_BRIDGE_DRV,PCI\VEN_1106&DEV_8597
+%PCI\VEN_1106&DEV_8598.DeviceDesc%=AGP_BRIDGE_DRV,PCI\VEN_1106&DEV_8598
+
+[VLSI_SYS]
+%PCI\VEN_1004&DEV_0005.DeviceDesc%=NO_DRV,PCI\VEN_1004&DEV_0005
+%PCI\VEN_1004&DEV_0006.DeviceDesc%=ISA_DRV,PCI\VEN_1004&DEV_0006
+%PCI\VEN_1004&DEV_0101.DeviceDesc%=NO_DRV,PCI\VEN_1004&DEV_0101
+%PCI\VEN_1004&DEV_0102.DeviceDesc%=PCI_BRIDGE_DRV,PCI\VEN_1004&DEV_0102
+%PCI\VEN_1004&DEV_0103.DeviceDesc%=ISA_DRV,PCI\VEN_1004&DEV_0103
+%PCI\VEN_1004&DEV_0104.DeviceDesc%=NO_DRV,PCI\VEN_1004&DEV_0104
+
+;
+;   Force all system components to be installed with no UI during setup.
+;
+
+[*pnp0a00.Det]
+AddReg=ForceInstall
+
+[*pnp0a01.Det]
+AddReg=ForceInstall
+
+[*pnp0a02.Det]
+AddReg=ForceInstall
+
+[ForceInstall]
+HKR,,NoSetupUI,,1
+
+[NO_DRV]
+DelReg=RemoveDevLoader
+
+[RemoveDevLoader]
+HKR,,DevLoader
+
+[AGP_BRIDGE_DRV]
+
+[PCI_BRIDGE_DRV]
+
+[EISA_DRV]
+AddReg=EISA_DRV_AddReg,System_Dev_Properties_AddReg
+copyfiles=EISA_Copyfiles
+DelFiles=EISA_DelFiles
+
+[ISA_DRV]
+AddReg=ISA_DRV_AddReg,System_Dev_Properties_AddReg
+copyfiles=ISAPNP_Copyfiles
+
+[ISA_DRV.NoResDup]
+*PNP0A00
+
+[MCA_DRV]
+;Add when we will want it.
+;AddReg=MCA_DRV_AddReg,System_Dev_Properties_AddReg
+;copyfiles=MCA_Copyfiles
+AddReg=System_Dev_Properties_AddReg
+
+[MCA_DRV_AddReg]
+HKR,,DevLoader,,mca.vxd
+
+[PCI_SIO_DRV]
+AddReg=ISA_DRV_AddReg,PCI_SIO_Dev_Properties_AddReg
+copyfiles=ISAPNP_Copyfiles
+
+[PCI_SIO_DRV.NoResDup]
+*PNP0A00
+
+[PCI_SIO_Dev_Properties_AddReg]
+HKR,,EnumPropPages,,"sysclass.dll,GATEnumPropPages"
+
+[EISA_DRV_AddReg]
+HKR,,DevLoader,,eisa.vxd
+
+[ISA_DRV_AddReg]
+HKR,,DevLoader,,isapnp.vxd
+; Devices specific settings (value name is devid (whole card) without the *)
+; Bit 0: Devices are not enumerated at all 
+; Bit 1: Devices are always considered activated
+; Bit 2: Devices have no boot config
+HKLM,System\CurrentControlSet\Services\VxD\ISAPNP,TCM5090,3,02,00,00,00
+HKLM,System\CurrentControlSet\Services\VxD\ISAPNP,TCM5091,3,02,00,00,00
+HKLM,System\CurrentControlSet\Services\VxD\ISAPNP,TCM5094,3,02,00,00,00
+HKLM,System\CurrentControlSet\Services\VxD\ISAPNP,TCM5095,3,02,00,00,00
+
+[System_Dev_Properties_AddReg]
+HKR,,EnumPropPages,,"sysclass.dll,EnumPropPages"
+
+;------------------------------------
+
+[EISA_Copyfiles]
+eisa.vxd
+
+[EISA_DelFiles]
+eisa.386
+
+[MCA_Copyfiles]
+mca.vxd
+
+[ISAPNP_Copyfiles]
+isapnp.vxd
+
+[ControlFlags]
+ExcludeFromSelect=PCI\CC_0500
+ExcludeFromSelect=PCI\CC_0600
+ExcludeFromSelect=PCI\CC_0601
+ExcludeFromSelect=PCI\CC_0602
+ExcludeFromSelect=PCI\CC_0603
+ExcludeFromSelect=PCI\CC_0604
+ExcludeFromSelect=PCI\VEN_0E11&DEV_0001
+ExcludeFromSelect=PCI\VEN_0E11&DEV_0002
+ExcludeFromSelect=PCI\VEN_0E11&DEV_1000
+ExcludeFromSelect=PCI\VEN_0E11&DEV_2000
+ExcludeFromSelect=PCI\VEN_0E11&DEV_AE29
+ExcludeFromSelect=PCI\VEN_0E11&DEV_AE2B
+ExcludeFromSelect=PCI\VEN_0E11&DEV_A0F3
+ExcludeFromSelect=PCI\VEN_0E11&DEV_AE2A
+ExcludeFromSelect=PCI\VEN_0E11&DEV_AE69
+ExcludeFromSelect=PCI\VEN_0E11&DEV_AE6C&CC_0600
+ExcludeFromSelect=PCI\VEN_0E11&DEV_AE6C&CC_0604
+ExcludeFromSelect=PCI\VEN_0E11&DEV_AE6D
+ExcludeFromSelect=PCI\VEN_1004&DEV_0005
+ExcludeFromSelect=PCI\VEN_1004&DEV_0006
+ExcludeFromSelect=PCI\VEN_1004&DEV_0101
+ExcludeFromSelect=PCI\VEN_1004&DEV_0102
+ExcludeFromSelect=PCI\VEN_1004&DEV_0103
+ExcludeFromSelect=PCI\VEN_1004&DEV_0104
+ExcludeFromSelect=PCI\VEN_100B&DEV_0011
+ExcludeFromSelect=PCI\VEN_1011&DEV_0001
+ExcludeFromSelect=PCI\VEN_1011&DEV_0021
+ExcludeFromSelect=PCI\VEN_1011&DEV_0022
+ExcludeFromSelect=PCI\VEN_1011&DEV_0024
+ExcludeFromSelect=PCI\VEN_1011&DEV_0025
+ExcludeFromSelect=PCI\VEN_1011&DEV_0026
+ExcludeFromSelect=PCI\VEN_1014&DEV_0002
+ExcludeFromSelect=PCI\VEN_1014&DEV_000A
+ExcludeFromSelect=PCI\VEN_1014&DEV_0017
+ExcludeFromSelect=PCI\VEN_1014&DEV_0022&REV_00
+ExcludeFromSelect=PCI\VEN_1014&DEV_0022
+ExcludeFromSelect=PCI\VEN_1014&DEV_0095
+ExcludeFromSelect=PCI\VEN_1022&DEV_7408
+ExcludeFromSelect=PCI\VEN_1022&DEV_740B
+ExcludeFromSelect=PCI\VEN_1025&DEV_1435
+ExcludeFromSelect=PCI\VEN_1039&DEV_0008
+ExcludeFromSelect=PCI\VEN_1039&DEV_0406
+ExcludeFromSelect=PCI\VEN_1039&DEV_0496
+ExcludeFromSelect=PCI\VEN_1039&DEV_0009
+ExcludeFromSelect=PCI\VEN_1042&DEV_3000
+ExcludeFromSelect=PCI\VEN_1042&DEV_3010
+ExcludeFromSelect=PCI\VEN_1045&DEV_C822
+ExcludeFromSelect=PCI\VEN_1045&DEV_C557
+ExcludeFromSelect=PCI\VEN_1045&DEV_C558
+ExcludeFromSelect=PCI\VEN_1045&DEV_C567
+ExcludeFromSelect=PCI\VEN_1045&DEV_C568
+ExcludeFromSelect=PCI\VEN_1045&DEV_C700
+ExcludeFromSelect=PCI\VEN_1045&DEV_C701
+ExcludeFromSelect=PCI\VEN_104C&DEV_AC20
+ExcludeFromSelect=PCI\VEN_104C&DEV_AC22
+ExcludeFromSelect=PCI\VEN_104C&DEV_AC22&SUBSYS_00E31014
+ExcludeFromSelect=PCI\VEN_1060&DEV_8886
+ExcludeFromSelect=PCI\VEN_1060&DEV_886A
+ExcludeFromSelect=PCI\VEN_1060&DEV_E886
+ExcludeFromSelect=PCI\VEN_1060&DEV_8881
+ExcludeFromSelect=PCI\VEN_1060&DEV_0891
+ExcludeFromSelect=PCI\VEN_1060&DEV_E881
+ExcludeFromSelect=PCI\VEN_1060&DEV_E891
+ExcludeFromSelect=PCI\VEN_1066&DEV_0001
+ExcludeFromSelect=PCI\VEN_1066&DEV_8002
+ExcludeFromSelect=PCI\VEN_1066&DEV_0002
+ExcludeFromSelect=PCI\VEN_1078&DEV_0000
+ExcludeFromSelect=PCI\VEN_1078&DEV_0002
+ExcludeFromSelect=PCI\VEN_1080&DEV_0600
+ExcludeFromSelect=PCI\VEN_10AA&DEV_0000
+ExcludeFromSelect=PCI\VEN_10B9&DEV_1445
+ExcludeFromSelect=PCI\VEN_10B9&DEV_1449
+ExcludeFromSelect=PCI\VEN_10B9&DEV_1451
+ExcludeFromSelect=PCI\VEN_10B9&DEV_1521
+ExcludeFromSelect=PCI\VEN_10B9&DEV_1531
+ExcludeFromSelect=PCI\VEN_10B9&DEV_1523
+ExcludeFromSelect=PCI\VEN_10B9&DEV_1533
+ExcludeFromSelect=PCI\VEN_10B9&DEV_7101
+ExcludeFromSelect=PCI\VEN_10B9&DEV_1541
+ExcludeFromSelect=PCI\VEN_1106&DEV_0501
+ExcludeFromSelect=PCI\VEN_1106&DEV_0505
+ExcludeFromSelect=PCI\VEN_1106&DEV_0586
+ExcludeFromSelect=PCI\VEN_1106&DEV_0596
+ExcludeFromSelect=PCI\VEN_1106&DEV_0597
+ExcludeFromSelect=PCI\VEN_1106&DEV_0598
+ExcludeFromSelect=PCI\VEN_1106&DEV_0686
+ExcludeFromSelect=PCI\VEN_1106&DEV_0691
+ExcludeFromSelect=PCI\VEN_1106&DEV_3040
+ExcludeFromSelect=PCI\VEN_1106&DEV_3050
+ExcludeFromSelect=PCI\VEN_1106&DEV_3057
+ExcludeFromSelect=PCI\VEN_1106&DEV_8501
+ExcludeFromSelect=PCI\VEN_1106&DEV_8597
+ExcludeFromSelect=PCI\VEN_1106&DEV_8598
+ExcludeFromSelect=PCI\VEN_1179&DEV_0601
+ExcludeFromSelect=PCI\VEN_1179&DEV_0602
+ExcludeFromSelect=PCI\VEN_1179&DEV_0603
+ExcludeFromSelect=PCI\VEN_1179&DEV_0604
+ExcludeFromSelect=PCI\VEN_1179&DEV_0605
+ExcludeFromSelect=PCI\VEN_1179&DEV_0609
+ExcludeFromSelect=PCI\VEN_8086&DEV_0008
+ExcludeFromSelect=PCI\VEN_8086&DEV_0482
+ExcludeFromSelect=PCI\VEN_8086&DEV_0484
+ExcludeFromSelect=PCI\VEN_8086&DEV_0483
+ExcludeFromSelect=PCI\VEN_8086&DEV_0486
+ExcludeFromSelect=PCI\VEN_8086&DEV_04A3
+ExcludeFromSelect=PCI\VEN_8086&DEV_04A3&REV_00
+ExcludeFromSelect=PCI\VEN_8086&DEV_04A3&REV_01
+ExcludeFromSelect=PCI\VEN_8086&DEV_04A3&REV_02
+ExcludeFromSelect=PCI\VEN_8086&DEV_04A3&REV_03
+ExcludeFromSelect=PCI\VEN_8086&DEV_1225
+ExcludeFromSelect=PCI\VEN_8086&DEV_122D
+ExcludeFromSelect=PCI\VEN_8086&DEV_122E
+ExcludeFromSelect=PCI\VEN_8086&DEV_1234
+ExcludeFromSelect=PCI\VEN_8086&DEV_1235
+ExcludeFromSelect=PCI\VEN_8086&DEV_1237
+ExcludeFromSelect=PCI\VEN_8086&DEV_123B
+ExcludeFromSelect=PCI\VEN_8086&DEV_123C
+ExcludeFromSelect=PCI\VEN_8086&DEV_1250
+ExcludeFromSelect=PCI\VEN_8086&DEV_2410
+ExcludeFromSelect=PCI\VEN_8086&DEV_2413
+ExcludeFromSelect=PCI\VEN_8086&DEV_2418
+ExcludeFromSelect=PCI\VEN_8086&DEV_2420
+ExcludeFromSelect=PCI\VEN_8086&DEV_2423
+ExcludeFromSelect=PCI\VEN_8086&DEV_2428
+ExcludeFromSelect=PCI\VEN_8086&DEV_2500
+ExcludeFromSelect=PCI\VEN_8086&DEV_250F
+ExcludeFromSelect=PCI\VEN_8086&DEV_7000
+ExcludeFromSelect=PCI\VEN_8086&DEV_7030
+ExcludeFromSelect=PCI\VEN_8086&DEV_7100
+ExcludeFromSelect=PCI\VEN_8086&DEV_7110&REV_00&CC_0601
+ExcludeFromSelect=PCI\VEN_8086&DEV_7110&REV_00&CC_0680
+ExcludeFromSelect=PCI\VEN_8086&DEV_7110&REV_01&CC_0601
+ExcludeFromSelect=PCI\VEN_8086&DEV_7110&REV_01&CC_0680
+ExcludeFromSelect=PCI\VEN_8086&DEV_7110&CC_0601
+ExcludeFromSelect=PCI\VEN_8086&DEV_7110&CC_0680
+ExcludeFromSelect=PCI\VEN_8086&DEV_7113&REV_00
+ExcludeFromSelect=PCI\VEN_8086&DEV_7113&REV_01
+ExcludeFromSelect=PCI\VEN_8086&DEV_7113
+ExcludeFromSelect=PCI\VEN_8086&DEV_7120
+ExcludeFromSelect=PCI\VEN_8086&DEV_7122
+ExcludeFromSelect=PCI\VEN_8086&DEV_7180
+ExcludeFromSelect=PCI\VEN_8086&DEV_7181
+ExcludeFromSelect=PCI\VEN_8086&DEV_7190
+ExcludeFromSelect=PCI\VEN_8086&DEV_7191
+ExcludeFromSelect=PCI\VEN_8086&DEV_7192
+ExcludeFromSelect=PCI\VEN_8086&DEV_7194
+ExcludeFromSelect=PCI\VEN_8086&DEV_7198
+ExcludeFromSelect=PCI\VEN_8086&DEV_719B
+ExcludeFromSelect=PCI\VEN_8086&DEV_71A0
+ExcludeFromSelect=PCI\VEN_8086&DEV_71A1
+ExcludeFromSelect=PCI\VEN_8086&DEV_71A2
+ExcludeFromSelect=PCI\VEN_8086&DEV_7600
+ExcludeFromSelect=PCI\VEN_8086&DEV_7603
+ExcludeFromSelect=PCI\VEN_8086&DEV_84C4
+ExcludeFromSelect=PCI\VEN_8086&DEV_84C5
+
+[Strings]
+SystemClassName = "Dispositivos de sistema"
+GENDEV_MFG = "(Dispositivos de sistema estándar)"
+MS = "Microsoft"
+NULL = ""
+WINBASE = "Componentes base de Windows"
+SRCPATH = "Directorio de distribución"
+*pnp0a00.DeviceDesc = "Bus ISA Plug and Play"
+*pnp0a01.DeviceDesc = "Bus EISA"
+*pnp0a02.DeviceDesc = "Bus MCA"
+*pnp0a04.DeviceDesc = "Bus ISA Plug and Play con ranuras VL"
+PCI\CC_0500.DeviceDesc = "Controlador PCI de RAM estándar"
+PCI\CC_0600.DeviceDesc = "Puente PCI de CPU host estándar"
+PCI\CC_0601.DeviceDesc = "Puente PCI ISA estándar"
+PCI\CC_0602.DeviceDesc = "Puente PCI EISA estándar"
+PCI\CC_0603.DeviceDesc = "Puente PCI MCA estándar"
+PCI\CC_0604.DeviceDesc = "Puente PCI estándar de PCI a PCI"
+
+ACC_MFG = "ACC"
+PCI\VEN_10AA&DEV_0000.DeviceDesc = "Puente ACC Microelectronics de CPU Pentium(r) a PCI"
+
+ACER_MFG = "ACER"
+PCI\VEN_1025&DEV_1435.DeviceDesc = "Puente de CPU ACER 486 a PCI & PCI a ISA"
+
+ALI_MFG = "ALI"
+PCI\VEN_10B9&DEV_1445.DeviceDesc = "Puente ALI de CPU 486 a PCI & PCI a ISA"
+PCI\VEN_10B9&DEV_1449.DeviceDesc = "Puente ALI PCI a ISA"
+PCI\VEN_10B9&DEV_1451.DeviceDesc = "Puente ALI Pentium(r) CPI a PCI"
+PCI\VEN_10B9&DEV_1521.DeviceDesc = "Puente de CPU ALI a PCI"
+PCI\VEN_10B9&DEV_1531.DeviceDesc = "Puente ALi M1531 de CPU a PCI"
+PCI\VEN_10B9&DEV_1523.DeviceDesc = "Puente ALi M1523 PCI a ISA"
+PCI\VEN_10B9&DEV_1533.DeviceDesc = "Puente ALi M1533 PCI a ISA"
+PCI\VEN_10B9&DEV_7101.DeviceDesc = "Controlador de administración de energía ALi 7101"
+PCI\VEN_10B9&DEV_1541.DeviceDesc = "Controlador de sistema ALi M1541 AGP"
+
+AMD_MFG = "AMD"
+PCI\VEN_1022&DEV_7408.DeviceDesc = "Puente AMD 756 de PCI a ISA"
+PCI\VEN_1022&DEV_740B.DeviceDesc = "Controladora de administración de energía AMD 756"
+
+COMPAQ_MFG = "Compaq"
+PCI\VEN_0E11&DEV_0001.DeviceDesc = "Puente Compaq PCI a EISA"
+PCI\VEN_0E11&DEV_0002.DeviceDesc = "Puente Compaq PCI a ISA"
+PCI\VEN_0E11&DEV_1000.DeviceDesc = "Puente Compaq CPU a PCI [modelo original 1000]"
+PCI\VEN_0E11&DEV_2000.DeviceDesc = "Puente Compaq CPU a PCI [modelo original 2000]"
+PCI\VEN_0E11&DEV_AE29.DeviceDesc = "Puente Compaq MIS-L PCI a ISA interno"
+PCI\VEN_0E11&DEV_AE2B.DeviceDesc = "Puente Compaq MIS-E PCI a ISA Plug and Play"
+PCI\VEN_0E11&DEV_A0F3.DeviceDesc = "Puente Compaq OSB PCI a ISA Plug and Play"
+PCI\VEN_0E11&DEV_AE2A.DeviceDesc = "Puente Compaq MPC CPU a PCI"
+PCI\VEN_0E11&DEV_AE69.DeviceDesc = "Puente Compaq CETUS-L PCI a ISA interno"
+PCI\VEN_0E11&DEV_AE6C&CC_0600.DeviceDesc = "Puente Compaq DRACO CPU a PCI"
+PCI\VEN_0E11&DEV_AE6C&CC_0604.DeviceDesc = "Puente Compaq DRACO PCI a PCI"
+PCI\VEN_0E11&DEV_AE6D.DeviceDesc = "Puente Compaq NorthStar CPU a PCI"
+
+CONTAQ_MFG = "CONTAQ"
+PCI\VEN_1080&DEV_0600.DeviceDesc = "&Puente CONTAQ 82C596 CPU a PCI y PCI a ISA [modelo original]"
+
+CYRIX_MFG = "CYRIX"
+PCI\VEN_1078&DEV_0000.DeviceDesc = "Puente de PCI a ISA Cyrix Cx5520 Rev 0"
+PCI\VEN_1078&DEV_0002.DeviceDesc = "Puente de PCI a ISA Cyrix Cx5520 Rev 1"
+
+DEC_MFG = "DEC"
+PCI\VEN_1011&DEV_0001.DeviceDesc = "Puente DEC 21050 PCI a PCI"
+PCI\VEN_1011&DEV_0021.DeviceDesc = "Puente DEC 21052 PCI a PCI"
+PCI\VEN_1011&DEV_0022.DeviceDesc = "Puente DEC 21150 PCI a PCI"
+PCI\VEN_1011&DEV_0024.DeviceDesc = "Puente DEC 21152 PCI a PCI"
+PCI\VEN_1011&DEV_0025.DeviceDesc = "DEC 21153 PCI to PCI bridge"
+PCI\VEN_1011&DEV_0026.DeviceDesc = "DEC 21154 PCI to PCI bridge"
+
+IBM_MFG = "IBM"
+PCI\VEN_1014&DEV_0002.DeviceDesc = "Puente IBM PCI a MCA"
+PCI\VEN_1014&DEV_000A.DeviceDesc = "Puente IBM PCI a ISA Plug and Play"
+PCI\VEN_1014&DEV_0017.DeviceDesc = "Puente IBM PCI a CPU"
+PCI\VEN_1014&DEV_0022&REV_00.DeviceDesc = "Puente IBM 82351 PCI a PCI"
+PCI\VEN_1014&DEV_0022.DeviceDesc = "Puente IBM 82352 PCI a PCI"
+PCI\VEN_1014&DEV_0095.DeviceDesc = "Puente de acoplamiento IBM 20H2999 PCI a PCI"
+PCI\VEN_104C&DEV_AC22&SUBSYS_00E31014.DeviceDesc = "IBM Oak PCI to PCI Docking bridge"
+
+INTEL_MFG = "Intel"
+PCI\VEN_8086&DEV_0008.DeviceDesc = "Controlador de compatibilidad de sistema Intel Extended Express"
+PCI\VEN_8086&DEV_0482.DeviceDesc = "Puente Intel 82375EB/SB PCI a EISA"
+PCI\VEN_8086&DEV_0483.DeviceDesc = "Puente Intel 82420 i486 CPU a PCI"
+PCI\VEN_8086&DEV_0484.DeviceDesc = "Puente Intel 82378 SIO PCI a ISA"
+PCI\VEN_8086&DEV_0486.DeviceDesc = "PCIset Intel 82420EX i486 con puente ISA"
+PCI\VEN_8086&DEV_04A3_OLD.DeviceDesc = "Puente Intel 82434LX de procesador Pentium(r) a PCI"
+PCI\VEN_8086&DEV_04A3.DeviceDesc = "Puente Intel 82434NX de procesador Pentium(r) a PCI"
+PCI\VEN_8086&DEV_1225.DeviceDesc = "Puente Extended Express de procesador Intel Pentium(r) a PCI"
+PCI\VEN_8086&DEV_122D.DeviceDesc = "Puente Intel 82437FX de procesador Pentium(r) a PCI"
+PCI\VEN_8086&DEV_122E.DeviceDesc = "Puente Intel 82371FB PCI a ISA"
+PCI\VEN_8086&DEV_1234.DeviceDesc = "Puente Intel 82371MX PCI a ISA"
+PCI\VEN_8086&DEV_1235.DeviceDesc = "Puente Intel 82437MX de procesador Pentium(r) a PCI"
+PCI\VEN_8086&DEV_123B.DeviceDesc = "Puente de acoplamiento Intel 82380PB PCI a PCI"
+PCI\VEN_8086&DEV_123C.DeviceDesc = "Puente de acoplamiento Intel 82380AB PCI a ISA"
+PCI\VEN_8086&DEV_1237.DeviceDesc = "Puente Intel 82441FX de procesador Pentium(r) Pro a PCI"
+PCI\VEN_8086&DEV_1250.DeviceDesc = "Puente Intel 82439HX de procesador Pentium(r) a PCI"
+PCI\VEN_8086&DEV_2410.DeviceDesc = "Controladora de interfaz LPC Intel 82801AA"
+PCI\VEN_8086&DEV_2413.DeviceDesc = "Controladora de SMBus Intel 82801AA"
+PCI\VEN_8086&DEV_2418.DeviceDesc = "Puente PCI Intel 82801AA"
+PCI\VEN_8086&DEV_2420.DeviceDesc = "Controladora de interfaz LPC Intel 82801AB"
+PCI\VEN_8086&DEV_2423.DeviceDesc = "Controladora de SMBus Intel 82801AB"
+PCI\VEN_8086&DEV_2428.DeviceDesc = "Puente PCI Intel 82801AB"
+PCI\VEN_8086&DEV_2500.DeviceDesc = "Controladora de procesador a E/S Intel 82820"
+PCI\VEN_8086&DEV_250F.DeviceDesc = "Controladora de procesador a AGP Intel 82820"
+PCI\VEN_8086&DEV_7000.DeviceDesc = "Puente Intel 82371SB PCI a ISA"
+PCI\VEN_8086&DEV_7030.DeviceDesc = "Puente Intel 82437VX de procesador Pentium(r) a PCI"
+PCI\VEN_8086&DEV_7100.DeviceDesc = "Puente Intel 82439TX de procesador Pentium(r) a PCI"
+PCI\VEN_8086&DEV_7110_OLD_EIO.DeviceDesc = "Puente Intel 82371AB de PCI a ISA (modo EIO)"
+PCI\VEN_8086&DEV_7110_OLD_ISA.DeviceDesc = "Puente Intel 82371AB de PCI a ISA (modo ISA)"
+PCI\VEN_8086&DEV_7110_EIO.DeviceDesc = "Puente Intel 82371EB de PCI a ISA (modo EIO)"
+PCI\VEN_8086&DEV_7110_ISA.DeviceDesc = "Puente Intel 82371EB de PCI a ISA (modo ISA)"
+PCI\VEN_8086&DEV_7113_OLD.DeviceDesc = "Controlador de administración de energía Intel 82371AB"
+PCI\VEN_8086&DEV_7113.DeviceDesc = "Controlador de administración de energía Intel 82371EB"
+PCI\VEN_8086&DEV_7120.DeviceDesc = "Controladora de sistema y gráfica Intel 82810"
+PCI\VEN_8086&DEV_7122.DeviceDesc = "Controladora de sistema y gráfica Intel 82810 DC-100"
+PCI\VEN_8086&DEV_7180.DeviceDesc = "Puente Intel 82443LX/EX Pentium(r) II Processor a puente PCI"
+PCI\VEN_8086&DEV_7181.DeviceDesc = "Controladora Intel 82443LX/EX Pentium(r) II Processor a AGP"
+PCI\VEN_8086&DEV_7190.DeviceDesc = "Puente Intel 82443BX del procesador Pentium(r) II a PCI (con compatibilidad GART)"
+PCI\VEN_8086&DEV_7191.DeviceDesc = "Controladora Intel 82443BX Pentium(r) II Processor a AGP"
+PCI\VEN_8086&DEV_7192.DeviceDesc = "Puente Intel 82443BX del procesador Pentium(r) II a PCI (sin compatibilidad GART)"
+PCI\VEN_8086&DEV_7194.DeviceDesc = "Controlador de procesador Intel 82440MX a E/S"
+PCI\VEN_8086&DEV_7198.DeviceDesc = "Puente de Intel 82440MX PCI a ISA"
+PCI\VEN_8086&DEV_719B.DeviceDesc = "Controlador administración de energía Intel 82440MX"
+PCI\VEN_8086&DEV_71A0.DeviceDesc = "Intel 82443GX Pentium(r) II Xeon(tm) Processor to PCI bridge (with GART support)"
+PCI\VEN_8086&DEV_71A1.DeviceDesc = "Intel 82443GX Pentium(r) II Xeon(tm) Processor to AGP controller"
+PCI\VEN_8086&DEV_71A2.DeviceDesc = "Puente Intel 82443GX Pentium(r) II Xeon(tm) Processor a PCI (sin compatibilidad con GART)"
+PCI\VEN_8086&DEV_7600.DeviceDesc = "Puente Intel 82372FB PCI a ISA"
+PCI\VEN_8086&DEV_7603.DeviceDesc = "Controlador Intel 82372FB System Management Bus"
+PCI\VEN_8086&DEV_84C4.DeviceDesc = "Puente Intel 82454KX/GX PCI"
+PCI\VEN_8086&DEV_84C5.DeviceDesc = "Controlador de memoria Intel 82453KX/GX"
+
+NATSEMI_MFG = "National Semiconductor"
+PCI\VEN_1066&DEV_0001.DeviceDesc = "Puente National PT86C521 de CPU Pentium(r) a PCI"
+PCI\VEN_1066&DEV_8002.DeviceDesc = "Puente National PT86C523 de PCI a ISA"
+PCI\VEN_1066&DEV_0002.DeviceDesc = "Puente National PT86C523 de PCI a ISA"
+
+PCI\VEN_100B&DEV_0011.DeviceDesc = "E/S del sistema PCI de National"
+
+OPTI_MFG = "Opti"
+PCI\VEN_1045&DEV_C822.DeviceDesc = "Puente Opti 82C822 de CPU Pentium(r) a PCI & PCI a ISA Plug and Play"
+PCI\VEN_1045&DEV_C557.DeviceDesc = "Puente Opti 82C557 de CPU a PCI"
+PCI\VEN_1045&DEV_C558.DeviceDesc = "Puente Opti 82C558 de PCI a ISA Plug and Play"
+PCI\VEN_1045&DEV_C567.DeviceDesc = "Puente Opti Viper Max de CPU a PCI"
+PCI\VEN_1045&DEV_C568.DeviceDesc = "Puente Opti Viper Max de PCI a ISA Plug and Play"
+PCI\VEN_1045&DEV_C700.DeviceDesc = "Puente Opti FireStar de PCI a ISA Plug and Play"
+PCI\VEN_1045&DEV_C701.DeviceDesc = "Puente Opti FireStar de CPU a PCI"
+
+MICRON_MFG = "Micron Electronics"
+PCI\VEN_1042&DEV_3000.DeviceDesc = "Puente Micron Samurai(tm) procesador Pentium(r) II a PCI"
+PCI\VEN_1042&DEV_3010.DeviceDesc = "Puente Micron Samurai(tm) procesador Pentium(r) II a PCI"
+
+SIS_MFG = "Silicon Integrated Systems"
+PCI\VEN_1039&DEV_0008.DeviceDesc = "Puente SIS de PCI a ISA"
+PCI\VEN_1039&DEV_0406.DeviceDesc = "Puente SIS de Pentium(r) a PCI [modelo original]"
+PCI\VEN_1039&DEV_0496.DeviceDesc = "Puente SIS de CPU a PCI & PCI a ISA [modelo original]"
+PCI\VEN_1039&DEV_0009.DeviceDesc = "Dispositivo SIS PMU"
+
+TEXAS_MFG = "Texas Instruments"
+PCI\VEN_104C&DEV_AC20.DeviceDesc = "Puente TI 2030 de PCI a PCI"
+PCI\VEN_104C&DEV_AC22.DeviceDesc = "TI 2032 PCI Docking bridge"
+
+TOSHIBA_MFG = "Toshiba"
+PCI\VEN_1179&DEV_0601.DeviceDesc = "Puente Toshiba de CPU a PCI"
+PCI\VEN_1179&DEV_0602.DeviceDesc = "Puente Toshiba de PCI a ISA"
+PCI\VEN_1179&DEV_0603.DeviceDesc = "Controlador Toshiba compatible con el estándar PC Card"
+PCI\VEN_1179&DEV_0604.DeviceDesc = "Puente host Toshiba de PCI a acoplamiento"
+PCI\VEN_1179&DEV_0605.DeviceDesc = "Puente Toshiba de PCI a acoplamiento"
+PCI\VEN_1179&DEV_0609.DeviceDesc = "Puente Toshiba de PCI a acoplamiento"
+
+UMC_MFG = "UMC"
+PCI\VEN_1060&DEV_8886.DeviceDesc = "Puente UMC PCI a ISA para PCs de escritorio [sin compatibilidad IDE]"
+PCI\VEN_1060&DEV_886A.DeviceDesc = "Puente UMC PCI a ISA para PCs de escritorio [con compatibilidad IDE]"
+PCI\VEN_1060&DEV_E886.DeviceDesc = "Puente UMC PCI a ISA para PCs portátiles [con compatibilidad IDE]"
+PCI\VEN_1060&DEV_8881.DeviceDesc = "Puente UMC 486 CPU a PCI para PCs de escritorio"
+PCI\VEN_1060&DEV_0891.DeviceDesc = "Puente UMC de CPU Pentium(r) a PCI para PCs de escritorio"
+PCI\VEN_1060&DEV_E881.DeviceDesc = "Puente UMC de CPU 486 a PCI para PCs portátiles"
+PCI\VEN_1060&DEV_E891.DeviceDesc = "Puente UMC de CPU Pentium(r) a PCI para PCs portátiles"
+
+VIA_MFG = "VIA"
+PCI\VEN_1106&DEV_0501.DeviceDesc = "Puente VIA Tech VT501 de CPU a PCI"
+PCI\VEN_1106&DEV_0505.DeviceDesc = "&Puente VIA Tech 82C5x5 CPU a PCI y PCI a ISA"
+PCI\VEN_1106&DEV_0586.DeviceDesc = "Puente VIA Tech 82C586B (PIPC) PCI a ISA"
+PCI\VEN_1106&DEV_0596.DeviceDesc = "Puente PCI a ISA VIA Tech VT82C596"
+PCI\VEN_1106&DEV_0597.DeviceDesc = "Puente VIA Tech V82C597 CPU a PCI"
+PCI\VEN_1106&DEV_0598.DeviceDesc = "Puente VIA Tech V82C598 CPU a PCI"
+PCI\VEN_1106&DEV_0686.DeviceDesc = "Puente PCI a ISA VIA Tech VT82C686"
+PCI\VEN_1106&DEV_0691.DeviceDesc = "Puente CPU a PCI VIA Tech VT82C69x"
+PCI\VEN_1106&DEV_3040.DeviceDesc = "Controlador de administración de energía VIA Tech 82C586B"
+PCI\VEN_1106&DEV_3050.DeviceDesc = "Controladora de administración de energía VIA Tech VT82C596"
+PCI\VEN_1106&DEV_3057.DeviceDesc = "Controladora de administración de energía VIA Tech VT82C686"
+PCI\VEN_1106&DEV_8501.DeviceDesc = "Controladora VIA Tech 8501 de CPU a AGP"
+PCI\VEN_1106&DEV_8597.DeviceDesc = "Controlador VIA Tech V82C597 CPU a AGP"
+PCI\VEN_1106&DEV_8598.DeviceDesc = "Controlador VIA Tech 8598 CPU a AGP"
+
+VLSI_MFG = "VLSI"
+PCI\VEN_1004&DEV_0005.DeviceDesc = "Puente CPU Pentium(r) VLSI a PCI"
+PCI\VEN_1004&DEV_0006.DeviceDesc = "Puente VLSI PCI a ISA Plug and Play"
+PCI\VEN_1004&DEV_0101.DeviceDesc = "controlador de periféricos VLSI VL82C532 PCI"
+PCI\VEN_1004&DEV_0102.DeviceDesc = "Puente VLSI VL82C534 PCI a PCI"
+PCI\VEN_1004&DEV_0103.DeviceDesc = "Puente VLSI VL82C538 PCI a ISA"
+PCI\VEN_1004&DEV_0104.DeviceDesc = "Puente VLSI VL82C535 CPU a PCI"

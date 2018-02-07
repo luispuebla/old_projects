@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Monitor Plug and Play
+infpath=MONITOR.INF                                                                     
+infsection=VESADDC.Install
+MatchingDeviceId=*PNP09FF
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Monitores
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

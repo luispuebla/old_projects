@@ -1,0 +1,9 @@
+#
+# Structure for the `facturas` table : 
+#
+
+CREATE TABLE `facturas` (
+  `Clave_Orden` int(11) default NULL,
+  `factura` varchar(11) collate latin1_spanish_ci default NULL,
+  `fecha_factura` date default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;

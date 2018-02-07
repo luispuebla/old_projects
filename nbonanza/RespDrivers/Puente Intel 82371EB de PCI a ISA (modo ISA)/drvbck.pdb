@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Puente Intel 82371EB de PCI a ISA (modo ISA)
+infpath=MACHINE2.INF                                                                    
+infsection=ISA_DRV
+MatchingDeviceId=PCI\VEN_8086&DEV_7110&CC_0601
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sistema
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

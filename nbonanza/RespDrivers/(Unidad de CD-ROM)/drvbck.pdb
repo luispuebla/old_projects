@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=(Unidad de CD-ROM)
+infpath=MSCDROM.INF                                                                     
+infsection=GenCDInstall
+MatchingDeviceId=GenCD
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=CD-ROM
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Puerto de mouse compatible con PS/2
+infpath=MSMOUSE.INF                                                                     
+infsection=StdPS2
+MatchingDeviceId=*PNP0F13
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Mouse
+filenum=4
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

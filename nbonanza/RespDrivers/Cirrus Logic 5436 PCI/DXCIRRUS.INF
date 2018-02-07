@@ -1,0 +1,485 @@
+
+;
+; Cirrus Logic Display INF
+;
+[version]
+CatalogFile=dxcirrus.cat
+LayoutFile= Layout.inf, Layout1.inf, Layout2.inf
+signature="$CHICAGO$"
+Class=Display
+ClassGUID={4d36e968-e325-11ce-bfc1-08002be10318}
+Provider=%MS%
+
+[DestinationDirs]
+DefaultDestDir  =11             ;LDID_SYS
+Orchid.RenFiles =11             ;LDID_SYS
+Chips.RenFiles  =11             ;LDID_SYS
+Compaq.RenFiles =11             ;LDID_SYS
+Driver.Copy     =11
+S3MM.Ini        =10
+S3V.Ini         =10
+CpqIni.Copy     =10
+
+; Manufacturers
+; ---------------------------------------------------------
+[Manufacturer]
+%Actix%   =Mfg.Actix
+%Boca%    =Mfg.Boca
+%Cardinal%=Mfg.Cardinal
+%Cirrus%  =Mfg.Cirrus
+%Creative%=Mfg.Creative
+%Diamond% =Mfg.Diamond
+%DFI%     =Mfg.DFI
+%Genoa%   =Mfg.Genoa
+%Number9% =Mfg.Number9
+%Orchid%  =Mfg.Orchid
+%Spider%  =Mfg.Spider
+%STB%     =Mfg.STB
+
+
+; Driver Sections
+; ---------------------------------------------------------
+
+[Mfg.Actix]
+%ProSTAR%=CirrusMemMap,, *PNP0914
+%ProSTAR64%=CirrusMemMap,, *PNP0914
+
+[Mfg.Boca]
+%BocaSVGA%=Cirrus,, *PNP0905
+%SuperX%=Cirrus,, *PNP0905
+
+[Mfg.Cardinal]
+%VidColor%=Cirrus,, *PNP0905
+%VidSpect%=Cirrus,, *PNP0905
+
+[Mfg.Cirrus]
+%*PNP0905.DeviceDesc%=Cirrus, *PNP0905          ; Cirrus Logic
+%*PNP0905.DeviceDesc%=Cirrus, *PNP0904          ; Cirrus Logic laptop
+%*PNP0914.DeviceDesc%=CirrusMemMap, *PNP0914    ; Cirrus memory mapped
+%PCI\VEN_1013&DEV_1200.DeviceDesc%=Cirrus, PCI\VEN_1013&DEV_1200
+%PCI\VEN_1013&DEV_1202.DeviceDesc%=Cirrus, PCI\VEN_1013&DEV_1202
+%PCI\VEN_1013&DEV_00A0.DeviceDesc%=CirrusMemMap,  PCI\VEN_1013&DEV_00A0  ; 5430/40
+%PCI\VEN_1013&DEV_00A8.DeviceDesc%=CirrusMemMap,  PCI\VEN_1013&DEV_00A8  ; 5434
+%PCI\VEN_1013&DEV_00AC.DeviceDesc%=CirrusMemMap2, PCI\VEN_1013&DEV_00AC  ; 5436
+%PCI\VEN_1013&DEV_0038.DeviceDesc%=CirrusMemMap2, PCI\VEN_1013&DEV_0038  ; 7548
+%PCI\VEN_1013&DEV_00B8.DeviceDesc%=CirrusMemMap2, PCI\VEN_1013&DEV_00B8  ; 5446
+;%PCI\VEN_1013&DEV_00BC.DeviceDesc%=CirrusMemMap2, PCI\VEN_1013&DEV_00BC  ; 5480
+%PCI\VEN_1013&DEV_00D0.DeviceDesc%=CirrusLaguna, PCI\VEN_1013&DEV_00D0	;Install for 5462
+%PCI\VEN_1013&DEV_00D4.DeviceDesc%=CirrusLaguna, PCI\VEN_1013&DEV_00D4	;Install for 5464
+;%PCI\VEN_1013&DEV_00D6.DeviceDesc%=CirrusLaguna, PCI\VEN_1013&DEV_00D6	;Install for 5465
+
+[Mfg.Creative]
+%PCI\VEN_1013&DEV_00D4&SUBSYS_10051102%=CirrusLaguna,PCI\VEN_1013&DEV_00D4&SUBSYS_10051102 ;CL 5464
+
+[Mfg.Diamond]
+;Other
+%SpeedStarPro%=Cirrus,, *PNP0905
+%SpeedStar64Graphics2000%=Cirrus,, *PNP0905
+%Diamond&DEV_00A0.DeviceDesc%=CirrusMemMap,,PCI\VEN_1013&DEV_00A0, *PNP0914
+%Diamond&DEV_00A8.DeviceDesc%=CirrusMemMap,,PCI\VEN_1013&DEV_00A8, *PNP0914
+
+[Mfg.DFI]
+%WG1000%=Cirrus,, *PNP0905
+%WG1000VLPlus%=Cirrus,, *PNP0905
+%WG1000VL4%=Cirrus,, *PNP0905
+
+[Mfg.Genoa]
+%DVW1000%=CirrusMemMap,, *PNP0914
+%WinVGA24%=Cirrus,, *PNP0905
+%WinVGA64%=CirrusMemMap,, *PNP0914
+
+[Mfg.Number9]
+%FlashPoint32%=CirrusMemMap,, *PNP0914
+%FlashPoint64%=CirrusMemMap,, *PNP0914
+
+[Mfg.Orchid]
+%Kelvin64%=CirrusMemMap,, *PNP0914
+%KelvinEZ%=CirrusMemMap,, *PNP0914
+
+[Mfg.Spider]
+%Spi32VLB%=Cirrus,, *PNP0905
+%Spi32Pls%=Cirrus,, *PNP0905
+%Spi64%=Cirrus,, *PNP0905
+
+[Mfg.STB]
+%Horizon%=Cirrus,, *PNP0905
+%HorizonPlus%=CirrusMemMap,, *PNP0914
+%Nitro64%=CirrusMemMap,, *PNP0914
+%Nitro64Video%=CirrusMemMap,, *PNP0914
+
+; Install Sections
+; ---------------------------------------------------------
+
+; -------------- Obsolete utility removal sections
+
+[Diamond.Ini]
+control.ini, MMCPL,"TurboWin=*TURBOWIN.DLL",,1
+
+[Diamond.IniFields]
+win.ini, windows, load, *dcshkey.exe,,1
+
+[STB.IniFields]
+win.ini, windows, load, *stbvisn.exe,,1
+
+; -------------- Common sections
+
+[Prev.DelReg]
+HKR,,Ver
+HKR,,DevLoader
+HKR,,EnumPropPages
+HKR,INFO
+HKR,DEFAULT
+HKR,MODES
+HKR,CURRENT
+
+[VGA.LogConfig]
+ConfigPriority=HARDWIRED
+IOConfig=3B0-3BB
+IOConfig=3C0-3DF
+MemConfig=A0000-AFFFF
+MemConfig=B8000-BFFFF
+MemConfig=C0000-C7FFF,D0000-D7FFF,E0000-E5FFF,E0000-E7FFF
+
+; -------------- Cirrus Logic
+[Cirrus]
+CopyFiles=Cirrus.Copy
+DelReg=Prev.DelReg
+AddReg=Cirrus.AddReg
+UpdateInis=Diamond.Ini
+UpdateIniFields=Diamond.IniFields, STB.IniFields
+LogConfig=VGA.LogConfig
+
+[Cirrus.Copy]
+cirrus.drv,,,12
+cirrus.vxd,,,12
+supervga.drv,,,12
+cirrus.dll,,,12
+
+[Cirrus.AddReg]
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,cirrus.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,cirrus.vxd
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\8\640,480",,,"60,75"
+HKR,"MODES\8\800,600",,,"56,60,72,75"
+HKR,"MODES\8\1024,768",,,"43,60,70,75"
+HKR,"MODES\8\1280,1024",,,"43,60,70,75"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\24\640,480"
+HKR,"MODES\24\800,600"
+
+[Cirrus.PosDup]
+*PNP0905, *PNP0914
+
+; -------------- Cirrus Logic memory mapped
+[CirrusMemMap]
+CopyFiles=CirrusMemMap.Copy
+DelReg=Prev.DelReg
+AddReg=CirrusMemMap.AddReg
+UpdateInis=Diamond.Ini
+UpdateIniFields=Diamond.IniFields, STB.IniFields
+LogConfig=VGA.LogConfig
+
+[CirrusMemMap.Copy]
+cirrusmm.drv,,,12
+cirrus.vxd,,,12
+supervga.drv,,,12
+cirrusmm.dll,,,12
+
+[CirrusMemMap.AddReg]
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,cirrusmm.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,cirrus.vxd
+HKR,DEFAULT,RefreshRate,,0
+HKR,DEFAULT,PCIRebalance,,1
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\8\640,480",,,"60,75"
+HKR,"MODES\8\800,600",,,"56,60,72,75"
+HKR,"MODES\8\1024,768",,,"43,60,70,75"
+HKR,"MODES\8\1280,1024",,,"43,60,70,75"
+HKR,"MODES\8\1600,1200",,,"43,60,70,75"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\16\1600,1200"
+HKR,"MODES\24\640,480"
+HKR,"MODES\24\800,600"
+HKR,"MODES\24\1024,768"
+HKR,"MODES\24\1280,1024"
+HKR,"MODES\32\640,480"
+HKR,"MODES\32\800,600"
+HKR,"MODES\32\1024,768"
+HKR,"MODES\32\1280,1024"
+
+[CirrusMemMap.PosDup]
+*PNP0905,*PNP0914
+
+; -------------- Cirrus Logic Laguna
+[CirrusLaguna]
+CopyFiles=CirrusLaguna.Copy
+DelReg=Prev.DelReg,CirrusLaguna.DelReg
+AddReg=CirrusLaguna.AddReg
+LogConfig=VGA.LogConfig
+
+[CirrusLaguna.Copy]
+cirruslg.vxd,,,12
+cirruslg.drv,,,12
+cirruslg.dll,,,12
+cld3d.dll,,,12
+clmodesw.dll,,,12
+clmode62.bin,,,12
+clmode64.bin,,,12
+clmode65.bin,,,12
+
+[CirrusLaguna.DelReg]
+HKLM,"Software\CirrusLogic\Laguna\Performance"
+HKLM,"Software\CirrusLogic\ModeData"
+
+[CirrusLaguna.AddReg]
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,TVLOAD,1,00,00          ; First build, we'll default this to OFF
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,cirruslg.drv
+;;HKR,DEFAULT,drv2,,cirruslg.drv
+HKR,DEFAULT,vdd,,"*vdd"
+HKR,DEFAULT,minivdd,,cirruslg.vxd
+HKR,DEFAULT,DDC,,"1"
+HKR,DEFAULT,REFRESHRATE,,"-1"
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\8\640,480",,,"43,60,70,72,75,85,100"
+HKR,"MODES\8\800,600",,,"43,56,60,72,75,85,100"
+HKR,"MODES\8\1024,768",,,"43,60,70,75,85,100"
+HKR,"MODES\8\1152,864",,,"43,60,70,75,85,100"
+HKR,"MODES\8\1280,960",,,"43,60,70,75,85,100"
+HKR,"MODES\8\1280,1024",,,"43,60,70,75,85,100"
+HKR,"MODES\8\1600,1200",,,"48,60,70,75,80,85"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1152,864"
+HKR,"MODES\16\1280,960"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\16\1600,1200"
+HKR,"MODES\24\640,480"
+HKR,"MODES\24\800,600"
+HKR,"MODES\24\1024,768"
+HKR,"MODES\24\1152,864"
+HKR,"MODES\24\1280,960"
+HKR,"MODES\24\1280,1024"
+HKR,"MODES\32\640,480"
+HKR,"MODES\32\800,600"
+HKR,"MODES\32\1024,768"
+
+; DirectDraw Modes
+HKR,"DDMODES\8\320,200"
+HKR,"DDMODES\8\320,240"
+HKR,"DDMODES\8\320,400"
+HKR,"DDMODES\8\320,480"
+HKR,"DDMODES\8\360,400"
+HKR,"DDMODES\8\400,300"
+HKR,"DDMODES\8\512,384"
+HKR,"DDMODES\8\512,480"
+HKR,"DDMODES\8\640,350"
+HKR,"DDMODES\8\640,400"
+HKR,"DDMODES\16\320,200"
+HKR,"DDMODES\16\320,240"
+HKR,"DDMODES\16\320,400"
+HKR,"DDMODES\16\320,480"
+HKR,"DDMODES\16\360,400"
+HKR,"DDMODES\16\400,300"
+HKR,"DDMODES\16\512,384"
+HKR,"DDMODES\16\512,480"
+HKR,"DDMODES\16\640,350"
+HKR,"DDMODES\16\640,400"
+HKR,"DDMODES\24\640,400"
+HKR,"DDMODES\32\320,200"
+HKR,"DDMODES\32\320,240"
+HKR,"DDMODES\32\320,400"
+HKR,"DDMODES\32\320,480"
+HKR,"DDMODES\32\360,400"
+HKR,"DDMODES\32\400,300"
+HKR,"DDMODES\32\512,384"
+HKR,"DDMODES\32\512,480"
+HKR,"DDMODES\32\640,350"
+HKR,"DDMODES\32\640,400"
+
+HKLM,"SOFTWARE\CirrusLogic\Laguna\Performance","PageControl",REG_SZ,"1"
+HKLM,"SOFTWARE\CirrusLogic\Laguna\Performance","User",,"11"
+HKLM,"SOFTWARE\CirrusLogic\Laguna\Performance","WC",,"1"
+HKLM,"Software\CirrusLogic\ModeData\VEN_1013&DEV_00D0\DEFAULT","ModeFile",,"clmode62.bin"
+HKLM,"Software\CirrusLogic\ModeData\VEN_1013&DEV_00D0\SUBSYS_BEEFDEAD","ModeFile",,"clmode62.bin"
+HKLM,"Software\CirrusLogic\ModeData\VEN_1013&DEV_00D4\DEFAULT","ModeFile",,"clmode64.bin"
+HKLM,"Software\CirrusLogic\ModeData\VEN_1013&DEV_00D4\SUBSYS_BEEFDEAD","ModeFile",,"clmode64.bin"
+HKLM,"Software\CirrusLogic\ModeData\VEN_1013&DEV_00D6\DEFAULT","ModeFile",,"clmode65.bin"
+HKLM,"Software\CirrusLogic\ModeData\VEN_1013&DEV_00D6\SUBSYS_00000000","ModeFile",,"clmode65.bin"
+HKLM,"Software\CirrusLogic\ModeData\VEN_1013&DEV_00D6\SUBSYS_BEEFDEAD","ModeFile",,"clmode65.bin"
+HKLM,"Software\CirrusLogic\ModeData\VEN_1013&DEV_00D6\SUBSYS_3EEFDEAD","ModeFile",,"clmode65.bin"
+HKLM,"Software\CirrusLogic\ModeData\VEN_1013&DEV_00D6\SUBSYS_80001013","ModeFile",,"clmode65.bin"
+HKLM,"Software\CirrusLogic\ModeData\VEN_1013&DEV_00D6\SUBSYS_00001013","ModeFile",,"clmode65.bin"
+
+
+; 3D Performance Parameters
+HKLM,"SOFTWARE\CirrusLogic\Laguna\Performance","Enable TextureJet",0,0
+HKLM,"SOFTWARE\CirrusLogic\Laguna\Performance","Previous TextureJet",1,4
+HKLM,"SOFTWARE\CirrusLogic\Laguna\Performance","TextureJet Control",1,4
+HKLM,"SOFTWARE\CirrusLogic\Laguna\Performance","Default TextureJet",1,4
+HKLM,"SOFTWARE\CirrusLogic\Laguna\Performance","Previous Speed",1,4
+HKLM,"SOFTWARE\CirrusLogic\Laguna\Performance","Speed Control",1,4
+HKLM,"SOFTWARE\CirrusLogic\Laguna\Performance","Default Speed",1,4
+
+[CirrusLaguna.PosDup]
+*PNP0900
+
+; -------------- Cirrus Logic memory mapped multimonitor
+[CirrusMemMap2]
+CopyFiles=CirrusMemMap.Copy
+DelReg=Prev.DelReg
+AddReg=CirrusMemMap.AddReg,CirrusMemMap2.AddReg
+UpdateInis=Diamond.Ini
+UpdateIniFields=Diamond.IniFields, STB.IniFields
+LogConfig=VGA.LogConfig
+
+[CirrusMemMap2.AddReg]
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,cirrusmm.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,cirrus.vxd
+HKR,DEFAULT,RefreshRate,,0
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\8\640,480",,,"60,72,75,85"
+HKR,"MODES\8\800,600",,,"56,60,72,75,85"
+HKR,"MODES\8\1024,768",,,"43,60,70,72,75,85"
+HKR,"MODES\8\1280,1024",,,"43,60,70,75,85"
+HKR,"MODES\8\1600,1200",,,"43,60,70,75,85"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\16\1600,1200"
+HKR,"MODES\24\640,480"
+HKR,"MODES\24\800,600"
+HKR,"MODES\24\1024,768"
+HKR,"MODES\24\1280,1024"
+HKR,"MODES\32\640,480"
+HKR,"MODES\32\800,600"
+HKR,"MODES\32\1024,768"
+HKR,"MODES\32\1280,1024"
+HKR,DEFAULT,drv2,,cirrusmm.drv
+
+
+[CirrusMemMap2.PosDup]
+*PNP0905,*PNP0914
+
+; User visible strings
+; ---------------------------------------------------------
+[Strings]
+MS="Microsoft"
+
+Actix="Actix Systems"
+Boca="Boca Research"
+Cardinal="Cardinal Technologies"
+Cirrus="Cirrus Logic"
+Creative="Creative Labs"
+Diamond="Diamond Multimedia Systems"
+DFI="DFI"
+Genoa="Genoa Systems"
+Number9="Number Nine Visual Technology"
+Orchid="Orchid Technology"
+Spider="Spider Graphics"
+STB="STB Systems"
+
+*PNP0904.DeviceDesc="Cirrus Logic"
+*PNP0905.DeviceDesc="Cirrus Logic"
+*PNP0914.DeviceDesc="Cirrus Logic 5429/30/34"
+
+PCI\VEN_1013&DEV_00A0.DeviceDesc="Cirrus Logic 5430/40 PCI"
+PCI\VEN_1013&DEV_00A8.DeviceDesc="Cirrus Logic 5434 PCI"
+PCI\VEN_1013&DEV_00AC.DeviceDesc="Cirrus Logic 5436 PCI"
+PCI\VEN_1013&DEV_00B8.DeviceDesc="Cirrus Logic 5446 PCI"
+PCI\VEN_1013&DEV_00BC.DeviceDesc="Cirrus Logic 5480 PCI"
+PCI\VEN_1013&DEV_1200.DeviceDesc="Cirrus Logic 7542 PCI"
+PCI\VEN_1013&DEV_1202.DeviceDesc="Cirrus Logic 7543 PCI"
+PCI\VEN_1013&DEV_0038.DeviceDesc="Cirrus Logic 7548 PCI"
+PCI\VEN_1013&DEV_00D0.DeviceDesc="Cirrus Logic 5462 PCI"
+PCI\VEN_1013&DEV_00D4.DeviceDesc="Cirrus Logic 5464 PCI"
+PCI\VEN_1013&DEV_00D6.DeviceDesc="Cirrus Logic 5465 PCI"
+
+PCI\VEN_1013&DEV_00D4&SUBSYS_10051102="Creative Labs Graphics Blaster 3D (Cirrus Logic)"
+
+ProSTAR="Actix ProSTAR (Cirrus Logic)"
+ProSTAR64="Actix ProSTAR 64 (Cirrus Logic)"
+
+BocaSVGA="Boca SuperVGA (Cirrus Logic)"
+SuperX="Boca SuperX (Cirrus Logic)"
+
+VidColor="Cardinal VIDEOcolor (Cirrus Logic)"
+VidSpect="Cardinal VIDEOspectrum (Cirrus Logic)"
+
+
+SpeedStarPro="Diamond Speedstar Pro (Cirrus Logic)"
+SpeedStar64Graphics2000="Diamond Speedstar 64 Graphics 2000 (Cirrus Logic)" ;CL 5434
+Diamond&DEV_00A0.DeviceDesc="Diamond Speedstar Pro SE (Cirrus Logic)"
+Diamond&DEV_00A8.DeviceDesc="Diamond Speedstar 64 (Cirrus Logic)" 
+
+WG1000="DFI WG-1000 (Cirrus Logic)"
+WG1000VLPlus="DFI WG-1000VL Plus (Cirrus Logic)"
+WG1000VL4="DFI WG-1000VL/4 Plus (Cirrus Logic)"
+
+DVW1000="Genoa Digital Video Wizard 1000 (Cirrus Logic)"
+WinVGA24="Genoa WindowsVGA 24 Turbo (Cirrus Logic)"
+WinVGA64="Genoa WindowsVGA 64 Turbo (Cirrus Logic)"
+
+FlashPoint32="Number Nine FlashPoint 32 (Cirrus Logic)"
+FlashPoint64="Number Nine FlashPoint 64 (Cirrus Logic)"
+
+Kelvin64="Orchid Kelvin 64 (Cirrus Logic)"
+KelvinEZ="Orchid Kelvin EZ (Cirrus Logic)"
+
+Spi32VLB="Spider 32 VLB (Cirrus Logic)"
+Spi32Pls="Spider 32Plus VLB (Cirrus Logic)"
+Spi64="Spider 64 (Cirrus Logic)"
+
+Horizon="STB Horizon (Cirrus Logic)"
+HorizonPlus="STB Horizon Plus (Cirrus Logic)"
+Nitro64="STB Nitro 64 (Cirrus Logic)"
+Nitro64Video="STB Nitro 64 Video (Cirrus Logic)"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

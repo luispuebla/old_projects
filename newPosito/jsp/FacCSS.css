@@ -1,0 +1,49 @@
+td {
+	font-family: "Century";
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+}
+
+table, th, td {
+	border-spacing: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+al{
+	font-family: "Century";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;	
+	color: #000000;	
+}
+
+th {
+	font-family: "Century";
+	font-size: 11px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+}
+
+.petit{
+	font-family: "Century";
+	font-size: 9px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+}
+
+table {
+	margin: 0px;
+	padding: 0px;
+}

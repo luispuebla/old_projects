@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=CD-ROM DRIVE:282
+infpath=MSCDROM.INF                                                                     
+infsection=NEC_CD-ROM_DRIVE:2823
+MatchingDeviceId=NEC_____CD-ROM_DRIVE:2823
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=CD-ROM
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

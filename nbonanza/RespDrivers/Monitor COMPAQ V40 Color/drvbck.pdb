@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Monitor COMPAQ V40 Color
+infpath=MONITOR6.INF                                                                    
+infsection=CPQ-V40.Install
+MatchingDeviceId=Monitor\CPQ1334
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Monitores
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

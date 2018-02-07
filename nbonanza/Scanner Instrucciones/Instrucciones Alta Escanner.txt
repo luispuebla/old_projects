@@ -1,0 +1,7 @@
+1. Ubicar la localización de Java:
+2. En ../jreVER/lib, copiar:
+	a. javax.com.properties
+3. Dentro de ..\jreVER\lib\ext, copiar:
+	a. comm.jar	
+4. Dentro de ..\jreVER\bin	, copiar:
+	a.win32com.dll

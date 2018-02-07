@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Creative Sound Blaster 16 Plug and Play
+infpath=SB16AWE.INF                                                                     
+infsection=CTL0001_Device
+MatchingDeviceId=*CTL0001
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sonido, vídeo y juegos
+filenum=14
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

@@ -1,0 +1,19 @@
+REM PARA ENVIAR:
+
+$QUELLE
+PNUM,  6, N, 0, 1
+ABNU,  2, N, 0, 1
+ANKE,  1, N, 0, 1
+SLFD,  1, N, 0, 1
+SGEW,  6, N, 0, 1
+SPGS,  6, N, 0, 1
+SSTA,  2, N, 0, 1
+PABS,  1, N, 0, 1
+PIDE,  1, N, 0, 1
+cr,    1, S, 0, 1, 13
+eol,   1, S, 0, 1, 10
+
+$SWZ
+
+$CODE
+WALO = 0

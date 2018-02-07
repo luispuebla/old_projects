@@ -1,0 +1,15 @@
+CREATE TABLE `productos_venta` (
+  `claveVenta` int(11) default NULL,
+  `ClaveProducto` varchar(12) collate latin1_spanish_ci default NULL,
+  `Cantidad` int(7) default NULL,
+  `Costo` double(8,2) default NULL,
+  `Importe` double(8,2) default NULL,
+  `Llegan` int(7) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci COMMENT='InnoDB free: 11264 kB';
+
+CREATE TABLE `regalos_venta` (
+  `claveVenta` int(11) default NULL,
+  `ClaveProducto` varchar(12) collate latin1_spanish_ci default NULL,
+  `Cantidad` int(7) default NULL,
+  `Llego` int(7) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;

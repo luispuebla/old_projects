@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Cirrus Logic 5436 PCI
+infpath=DXCIRRUS.INF                                                                    
+infsection=CirrusMemMap2
+MatchingDeviceId=PCI\VEN_1013&DEV_00AC
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Adaptadores de pantalla
+filenum=6
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

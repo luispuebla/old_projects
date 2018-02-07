@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Controlador estándar de disquetes
+infpath=MSFDC.INF                                                                       
+infsection=MS_FDC_Inst
+MatchingDeviceId=*PNP0700
+driverversion=null
+driverdate=5- 5-1999
+providername=(Controladores estándar de disquete)
+class=Controladores de disquete
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

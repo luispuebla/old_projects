@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Cliente para redes Microsoft
+infpath=NETCLI.INF                                                                      
+infsection=VREDIR.ndi
+MatchingDeviceId=
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Cliente de red
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

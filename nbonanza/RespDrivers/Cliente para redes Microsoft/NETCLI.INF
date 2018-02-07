@@ -1,0 +1,425 @@
+
+
+; NETCLI.INF
+;
+; Network Clients
+;
+; Copyright 1993-1997, Microsoft Corporation
+
+[version]
+CatalogFile=netcli.cat
+LayoutFile=Layout.inf,Layout1.inf,Layout2.inf
+signature="$CHICAGO$"
+Class=NetClient
+ClassGUID={4d36e973-e325-11ce-bfc1-08002be10318}
+provider=%V_MS%
+
+[CLassInstall]
+AddReg=NetClientReg
+[NetClientReg]
+HKR,,,,%V_CLASSNAME%
+HKR,,Installer,,"netdi.dll"
+HKR,,Icon,,-7
+HKR,,NoUseClass,,1
+
+[Manufacturer]
+%V_MS%=MS
+
+[MS]
+%VREDIR.DeviceDesc%=  VREDIR.ndi,  VREDIR
+%NWREDIR.DeviceDesc%= NWREDIR.ndi, NWREDIR
+
+;*********************************************
+;    VREDIR section
+;*********************************************
+[VREDIR.ndi]
+AddReg=VREDIR.ndi.reg
+DeviceID=VREDIR
+
+[VREDIR.ndi.reg]
+HKR,Ndi,DeviceID,,VREDIR
+HKR,Ndi,NdiInstaller,,"netdi.dll,MSClientNdiProc"
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"winnet4,vredir"
+HKR,Ndi\Interfaces,UpperRange,,"winnet4,vredir"
+HKR,Ndi\Interfaces,DefLower,,"netbios,ipxDHost"
+HKR,Ndi\Interfaces,LowerRange,,"netbios,ipxDHost"
+HKR,Ndi\Interfaces,ExcludeAny,,"winnet31"
+; Install-Remove Section
+HKR,Ndi\Install,,,"VREDIR.Install"
+HKR,Ndi\Remove,,,"VREDIR.Remove"
+; Network provider
+; should be the same as HKLM\system\ccs\msnp32\networkprovider\name
+HKR,Ndi,NetworkProvider,,"Microsoft Network"
+; Context help
+HKR,Ndi,HelpText,,%VREDIR_HELP%
+
+[VREDIR.Install]
+AddReg=VREDIR.AddReg, MSNP32.AddReg, winpopup.addreg
+UpdateInis=MSNP32.Inis
+UpdateIniFields=MSNP32.Rmv.Fields
+;Cannot have UpdateAutoBat because net.exe paths will get changed
+CopyFiles=VREDIR.Files,MSNP32.Files,SECURITY.Files,NET.Files,winpopup.files,winpopup.help
+DelFiles=winpopup.del.files
+
+[VREDIR.AddReg]
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,vredir.vxd
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\VREDIR",StaticVxD,,"vredir.vxd"
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\VREDIR",Start,1,00
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\VREDIR",NetClean,1,1
+HKLM,SYSTEM\CurrentControlSet\Services\VxD\VNETSUP,StaticVxD,,"vnetsup.vxd"
+HKLM,SYSTEM\CurrentControlSet\Services\VxD\VNETSUP,Start,1,00
+HKLM,SYSTEM\CurrentControlSet\Services\VxD\VNETSUP,NetClean,1,1
+;DFS
+HKLM,SYSTEM\CurrentControlSet\Services\VxD\DFS,StaticVxD,,"dfs.vxd"
+HKLM,SYSTEM\CurrentControlSet\Services\VxD\DFS,Start,1,00
+HKLM,SYSTEM\CurrentControlSet\Services\VxD\DFS,NetClean,1,1
+;RPC
+HKLM,"Software\Microsoft\Rpc\ClientProtocols",ncacn_np,,rpcltc1.dll
+
+[MSNP32.AddReg]
+HKLM,"SYSTEM\CurrentControlSet\Control\Print\Providers\Microsoft Networks Print Provider",Name,,"mspp32.dll"
+HKCR,Microsoft_Network\shellex\ContextMenuHandlers\MSNetMenus,,,"{F25C14C0-FBCF-101A-A58B-08002B2F4B0B}"
+HKCR,CLSID\{F25C14C0-FBCF-101A-A58B-08002B2F4B0B},,,"MS Networking objects"
+HKCR,CLSID\{F25C14C0-FBCF-101A-A58B-08002B2F4B0B}\InProcServer32,,,"msnp32.dll"
+HKCR,CLSID\{F25C14C0-FBCF-101A-A58B-08002B2F4B0B}\InProcServer32,ThreadingModel,,"Apartment"
+HKCR,Microsoft_Network\shellex\ContextMenuHandlers\MSNetworkMenus,,,"{F25C14C0-FBCF-101A-A58B-08002B2F4B0B}"
+HKCR,CLSID\{F25C14C0-FBCF-101A-A58B-08002B2F4B0B},,,"MS Network objects"
+HKCR,CLSID\{F25C14C0-FBCF-101A-A58B-08002B2F4B0B}\InProcServer32,,,"msnp32.dll"
+HKCR,CLSID\{F25C14C0-FBCF-101A-A58B-08002B2F4B0B}\InProcServer32,ThreadingModel,,"Apartment"
+HKCR,Microsoft_Network\shellex\PropertySheetHandlers\MSNetPage,,,"{614DD2C0-7B09-101B-9B38-00AA000C4F5D}"
+HKCR,CLSID\{614DD2C0-7B09-101B-9B38-00AA000C4F5D},,,"MSNet Pages"
+HKCR,CLSID\{614DD2C0-7B09-101B-9B38-00AA000C4F5D}\InProcServer32,,,"msnp32.dll"
+HKCR,CLSID\{614DD2C0-7B09-101B-9B38-00AA000C4F5D}\InProcServer32,ThreadingModel,,"Apartment"
+;Net provider info
+HKLM,"SYSTEM\CurrentControlSet\Control\NetworkProvider\Order",MSNP32,,
+HKLM,"SYSTEM\CurrentControlSet\Services\MSNP32\NetworkProvider",Name,,"Microsoft Network"
+HKLM,"SYSTEM\CurrentControlSet\Services\MSNP32\NetworkProvider",ProviderPath,,"msnp32.dll"
+HKLM,"SYSTEM\CurrentControlSet\Services\MSNP32\NetworkProvider",Description,,"Microsoft Network"
+HKLM,"SYSTEM\CurrentControlSet\Services\MSNP32\NetworkProvider",NetID,1,00,00,01,00
+HKLM,"SYSTEM\CurrentControlSet\Services\MSNP32\NetworkProvider",CallOrder,1,00,00,00,40
+
+[MSNP32.Inis]
+system.ini,boot,"network.drv="
+system.ini,MSNP32,"NPProvider="
+system.ini,MSNP32,"NPName="
+system.ini,MSNP32,"NPDescription="
+system.ini,MSNP32,"NPWinnet16="
+
+[VREDIR.Files]
+vredir.vxd
+vnetsup.vxd
+;DFS
+dfs.vxd
+;RPC
+rpcltc1.dll
+; MS Client
+pmspl.dll
+msnet32.dll
+msab32.dll
+mssp.vxd
+
+[MSNP32.Files]
+msnp32.dll
+mspp32.dll
+lmscript.exe
+lmscript.pif
+
+[NET.Files]
+net.exe
+net.msg
+neth.msg
+
+[VREDIR.Remove]
+AddReg=winpopup.rmv.addreg
+DelReg=VREDIR.Rmv.DelReg, winpopup.delreg
+UpdateInis=MSNP32.Inis, WINPOPUP.Rem.Inis
+UpdateIniFields=MSNP32.Rmv.Fields
+
+[VREDIR.Rmv.DelReg]
+HKLM,"System\CurrentControlSet\Services\VxD\VREDIR",StaticVxD
+HKLM,"SYSTEM\CurrentControlSet\Control\Print\Providers\Microsoft Networks Print Provider"
+HKCR,Microsoft_Network\shellex
+HKCR,CLSID\{F25C14C0-FBCF-101A-A58B-08002B2F4B0B}
+HKCR,CLSID\{614DD2C0-7B09-101B-9B38-00AA000C4F5D}
+HKLM,"SYSTEM\CurrentControlSet\Control\NetworkProvider\Order",MSNP32
+HKLM,"SYSTEM\CurrentControlSet\Services\MSNP32"
+; RPC
+HKLM,"Software\Microsoft\Rpc\ClientProtocols",ncacn_np,
+
+[MSNP32.Rmv.Fields]
+system.ini,Boot,Networks32,MSNP32
+win.ini,windows,load,wdls
+
+
+;*********************************************
+;    NWREDIR section
+;*********************************************
+[NWREDIR.ndi]
+AddReg=NWREDIR.ndi.reg,NWREDIR.params
+DeviceID=NWREDIR
+
+[NWREDIR.ndi.reg]
+HKR,Ndi,DeviceID,,NWREDIR
+HKR,Ndi,NdiInstaller,,"netdi.dll,NWClientNdiProc"
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"winnet4,nwredir"
+HKR,Ndi\Interfaces,UpperRange,,"winnet4,nwredir"
+HKR,Ndi\Interfaces,DefLower,,"ipxDHost"
+HKR,Ndi\Interfaces,LowerRange,,"ipxDHost"
+HKR,Ndi\Interfaces,ExcludeAny,,"winnet31"
+HKR,Ndi\Compatibility,RequireAll,,"NWLINK"
+HKR,Ndi\Compatibility,ExcludeAll,,"NETWARE,NETWARE3,NETWARE4"
+; Install-Remove Section
+HKR,Ndi\Install,,,"NWREDIR.Install"
+HKR,Ndi\Remove,,,"NWREDIR.Remove"
+; Network provider
+; should be the same as HKLM\system\ccs\nwnp32\networkprovider\name
+HKR,Ndi,NetworkProvider,,"NetWare"
+; Context help
+HKR,Ndi,HelpText,,%NWREDIR_HELP%
+
+[NWREDIR.params]
+HKR,Ndi\params\PreserveCase,location,,"System\CurrentControlSet\Services\Vxd\NWREDIR"
+HKLM,System\CurrentControlSet\Services\VxD\NWREDIR\Ndi\params\PreserveCase,ParamDesc,,%PreserveCaseDesc%
+HKLM,System\CurrentControlSet\Services\VxD\NWREDIR\Ndi\params\PreserveCase,default,,%PreserveCaseDefault%
+HKLM,System\CurrentControlSet\Services\VxD\NWREDIR\Ndi\params\PreserveCase,type,,enum
+HKLM,System\CurrentControlSet\Services\VxD\NWREDIR\Ndi\params\PreserveCase\enum,0,,%PreserveCase_0%
+HKLM,System\CurrentControlSet\Services\VxD\NWREDIR\Ndi\params\PreserveCase\enum,1,,%PreserveCase_1%
+
+[NWREDIR.Install]
+;Cannot have UpdateAutoBat because net.exe paths will get changed
+AddReg=NWREDIR.AddReg, NWNP32.AddReg, SAPNSP.AddReg, winpopup.addreg
+UpdateInis=NWNP32.Inis, NWREDIR.CleanInis
+UpdateIniFields=NWNP32.Rmv.Fields
+CopyFiles=NWREDIR.Files,NWNP32.Files,SECURITY.Files, NET.Files, winpopup.files, winpopup.help
+DelFiles=winpopup.del.files
+
+[NWREDIR.AddReg]
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,NWREDIR.VXD
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWREDIR",StaticVxD,,nwredir.vxd
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWREDIR",Start,1,00
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWREDIR",NetClean,1,1
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NSCL",StaticVxD,,nscl.vxd
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NSCL",Start,1,00
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NSCL",NetClean,1,1
+
+[NWNP32.AddReg]
+; net provider
+HKLM,"SYSTEM\CurrentControlSet\Control\NetworkProvider\Order",NWNP32,,
+HKLM,"SYSTEM\CurrentControlSet\Services\NWNP32\NetworkProvider",Name,,"NetWare"
+HKLM,"SYSTEM\CurrentControlSet\Services\NWNP32\NetworkProvider",ProviderPath,,"nwnp32.dll"
+HKLM,"SYSTEM\CurrentControlSet\Services\NWNP32\NetworkProvider",Description,,"Microsoft Provider for Netware"
+HKLM,"SYSTEM\CurrentControlSet\Services\NWNP32\NetworkProvider",NetID,1,00,00,03,00
+HKLM,"SYSTEM\CurrentControlSet\Services\NWNP32\NetworkProvider",CallOrder,1,00,00,00,20
+HKLM,"SYSTEM\CurrentControlSet\Services\NWNP32\NetworkProvider",ValidPrinters,1,07,00,00,00
+; print provider
+HKLM,"System\CurrentControlSet\Control\Print\Providers\Microsoft Print Provider for NetWare",Name,,"nwpp32.dll"
+
+HKCR,Netware\shellex\ContextMenuHandlers\NWAdminMenus,,,"{9C358B60-02A2-101B-9A16-00AA0033819A}"
+HKCR,CLSID\{9C358B60-02A2-101B-9A16-00AA0033819A},,,"Netware objects"
+HKCR,CLSID\{9C358B60-02A2-101B-9A16-00AA0033819A}\InProcServer32,,,"nwpp32.dll"
+HKCR,CLSID\{9C358B60-02A2-101B-9A16-00AA0033819A}\InProcServer32,ThreadingModel,,"Apartment"
+
+HKCR,Printers\shellex\PropertySheetHandlers\CaptureConfig,,,"{971A71A0-449B-101B-A9B9-4AF3EEDDA3E3}"
+HKCR,CLSID\{971A71A0-449B-101B-A9B9-4AF3EEDDA3E3},,,"Capture Settings"
+HKCR,CLSID\{971A71A0-449B-101B-A9B9-4AF3EEDDA3E3}\InProcServer32,,,"nwpp32.dll"
+HKCR,CLSID\{971A71A0-449B-101B-A9B9-4AF3EEDDA3E3}\InProcServer32,ThreadingModel,,"Apartment"
+
+; context menus
+HKCR,Netware\shellex\ContextMenuHandlers\NetWareMenus,,,"{4E046421-F7BC-101A-8A87-00AA000C4F5D}"
+HKCR,CLSID\{4E046421-F7BC-101A-8A87-00AA000C4F5D},,,"Netware Objects"
+HKCR,CLSID\{4E046421-F7BC-101A-8A87-00AA000C4F5D}\InProcServer32,,,"nwnp32.dll"
+HKCR,CLSID\{4E046421-F7BC-101A-8A87-00AA000C4F5D}\InProcServer32,ThreadingModel,,"Apartment"
+
+; Hood context menu verbs
+HKCR,CLSID\{208D2C60-3AEA-1069-A2D7-08002B30309D}\shellex\ContextMenuHandlers\NetWareMenus,,,"{D824F840-ABCB-101B-9B38-00AA000C4F5D}"
+HKCR,CLSID\{D824F840-ABCB-101B-9B38-00AA000C4F5D},,,"Netware hood verbs"
+HKCR,CLSID\{D824F840-ABCB-101B-9B38-00AA000C4F5D}\InProcServer32,,,"nwnp32.dll"
+HKCR,CLSID\{D824F840-ABCB-101B-9B38-00AA000C4F5D}\InProcServer32,ThreadingModel,,"Apartment"
+
+HKCR,Folder\shellex\ContextMenuHandlers\NetwareUNCMenu,,,"{B91C21C0-0050-101B-8A87-00AA000C4F5D}"
+HKCR,CLSID\{B91C21C0-0050-101B-8A87-00AA000C4F5D},,,"Netware UNC Folder Menu"
+HKCR,CLSID\{B91C21C0-0050-101B-8A87-00AA000C4F5D}\InProcServer32,,,"mpr.dll"
+HKCR,CLSID\{B91C21C0-0050-101B-8A87-00AA000C4F5D}\InProcServer32,ThreadingModel,,"Apartment"
+
+; property sheets
+HKCR,Netware\shellex\PropertySheetHandlers\NetwarePage,,,"{AB2662E1-083B-101B-B4C7-00AA000C4F5D}"
+HKCR,CLSID\{AB2662E1-083B-101B-B4C7-00AA000C4F5D},,,"Netware Pages"
+HKCR,CLSID\{AB2662E1-083B-101B-B4C7-00AA000C4F5D}\InProcServer32,,,"nwnp32.dll"
+HKCR,CLSID\{AB2662E1-083B-101B-B4C7-00AA000C4F5D}\InProcServer32,ThreadingModel,,"Apartment"
+
+[SAPNSP.AddReg]
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWREDIR\ServiceProvider",Class,1,08,00,00,00
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWREDIR\ServiceProvider",ProviderPath,,sapnsp.dll
+HKLM,"SYSTEM\CurrentControlSet\Control\ServiceProvider\Order\ProviderOrder",NWREDIR,,""
+HKLM,"SYSTEM\CurrentControlSet\Control\ServiceProvider\Order\ExcludedProviders"
+HKLM,"SYSTEM\CurrentControlSet\Services\Winsock\Parameters",NWREDIR,,""
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWREDIR\Parameters\Winsock",HelperDllName,,sapnsp.dll
+
+[NWNP32.Inis]
+system.ini,nwnp32,"NPProvider="
+system.ini,nwnp32,"NPName="
+system.ini,nwnp32,"NPDescription="
+
+[NWNP32.sbs]
+UpdateInis=NWNP32.sbs.inis
+
+[NWNP32.sbs.inis]
+%31%\msdos.sys,Options,,"LoadTop=0"
+
+[NWREDIR.CleanInis]
+system.ini,boot,"network.drv="
+system.ini,boot.description,"network.drv="
+system.ini,386Enh,"network="
+system.ini,386Enh,"UniqueDosPSP="
+system.ini,386Enh,"PSPIncrement="
+system.ini,386Enh,"TimerCriticalSection="
+system.ini,386Enh,"ReflectDOSInt2A="
+
+[NWREDIR.Files]
+nwredir.vxd
+netware.drv,netware.ms,netware.tmp
+nscl.vxd
+nwsp.vxd
+nwab32.dll
+sapnsp.dll
+;Client files
+pmspl.dll
+
+[NWNP32.Files]
+nwlscon.exe
+nwlsproc.exe
+nwnp32.dll
+nw16.dll
+nwnet32.dll
+nwapi32.dll
+nwpp32.dll
+
+[NWREDIR.Remove]
+AddReg=winpopup.rmv.addreg
+DelReg=NWREDIR.Rmv.DelReg, SAPNSP.Rmv.DelReg, winpopup.delreg
+UpdateInis=NWNP32.Inis, NWREDIR.CleanInis, WINPOPUP.Rem.Inis
+UpdateIniFields=NWNP32.Rmv.Fields
+DelFiles=NWREDIR.Rmv.DelFiles
+
+[NWREDIR.Rmv.DelFiles]
+netware.drv
+
+[NWREDIR.Rmv.DelReg]
+HKLM,"System\CurrentControlSet\Services\VxD\NWREDIR",StaticVxD
+HKLM,"System\CurrentControlSet\Services\VxD\NSCL",StaticVxD
+HKLM,"System\CurrentControlSet\Control\Print\Providers\Microsoft Print Provider for NetWare"
+HKCR,Netware\shellex
+HKCR,CLSID\{4E046421-F7BC-101A-8A87-00AA000C4F5D}
+HKCR,CLSID\{AB2662E1-083B-101B-B4C7-00AA000C4F5D}
+HKLM,"SYSTEM\CurrentControlSet\Control\NetworkProvider\Order",NWNP32
+HKLM,"SYSTEM\CurrentControlSet\Services\NWNP32"
+HKCR,Folder\shellex\ContextMenuHandlers\NetwareUNCMenu
+HKCR,CLSID\{B91C21C0-0050-101B-8A87-00AA000C4F5D}
+HKCR,CLSID\{208D2C60-3AEA-1069-A2D7-08002B30309D}\shellex\ContextMenuHandlers\NetWareMenus
+HKCR,CLSID\{D824F840-ABCB-101B-9B38-00AA000C4F5D}
+; remove print provider info
+HKCR,Netware\shellex\ContextMenuHandlers\NWAdminMenus
+HKCR,CLSID\{9C358B60-02A2-101B-9A16-00AA0033819A}
+HKCR,Printers\shellex\PropertySheetHandlers\CaptureConfig
+HKCR,CLSID\{971A71A0-449B-101B-A9B9-4AF3EEDDA3E3}
+
+
+[SAPNSP.Rmv.DelReg]
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWREDIR",ServiceProvider
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWREDIR",Parameters
+HKLM,"SYSTEM\CurrentControlSet\Services\Winsock\Parameters",NWREDIR
+HKLM,"SYSTEM\CurrentControlSet\Control\ServiceProvider\Order\ProviderOrder",NWREDIR
+
+[NWNP32.Rmv.Fields]
+system.ini,Boot,Networks32,NWNP32
+
+
+;*********************************************
+;    SECURITY section
+;*********************************************
+[SECURITY.Files]
+filesec.vxd
+choosusr.dll
+vlb32.dll
+
+;*********************************************
+;    WINPOPUP section
+;*********************************************
+[winpopup.files]
+winpopup.exe
+
+[winpopup.del.files]
+; Delete Win 3.x help files (they are copied to HELP dir now)
+winpopup.hlp
+
+[winpopup.help]
+winpopup.hlp
+winpopup.cnt
+
+[winpopup.addreg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents,"winpopup",,"winpopup"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents\winpopup,INF,,"winpopup.inf"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents\winpopup,Section,,"Winpopup"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents\winpopup,Installed,,"1"
+
+[winpopup.delreg]
+;Remove entries for Maint Mode Setup
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents,"winpopup"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents\winpopup
+
+[WINPOPUP.Rem.Inis]
+; make sure winpopup is no longer in startup group
+setup.ini, progman.groups,, "group1=%StartUp_DESC%"         ;creates folder
+setup.ini, group1,, """%Winpopup_Desc%"""                      ;deletes link
+
+[winpopup.rmv.addreg]
+; Run Once Wrapper entry to run Group converter:
+HKLM,Software\Microsoft\Windows\CurrentVersion\RunOnce,"%Grpconv_Desc%",,"%25%\grpconv.exe -o"
+
+;****************************************************************************
+; Destinations
+;****************************************************************************
+
+[DestinationDirs]
+VREDIR.Files            = 11    ;LDID_SYS
+MSNP32.Files            = 11    ;LDID_SYS
+NWREDIR.Files           = 11    ;LDID_SYS
+NWREDIR.Ren.Files       = 11    ;LDID_SYS
+NWREDIR.Rmv.DelFiles    = 11    ;LDID_SYS
+NWNP32.Files            = 11    ;LDID_SYS
+SECURITY.Files          = 11    ;LDID_SYS
+NET.Files               = 25    ;LDID_SHARED
+winpopup.files          = 25    ;LDID_SHARED
+winpopup.del.files      = 25    ;LDID_SHARED
+winpopup.help           = 18    ;LDID_HELP
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+
+[strings]
+V_MS = "Microsoft"
+V_CLASSNAME = "Cliente de red"
+
+;Devices
+VREDIR.DeviceDesc = "Cliente para redes Microsoft"
+NWREDIR.DeviceDesc = "Cliente para redes NetWare"
+
+; Context help
+VREDIR_HELP = "El Cliente para redes Microsoft le permite conectarse a otros equipos y servidores de Microsoft Windows, y utilizar impresoras y  archivos compartidos en estos equipos."
+NWREDIR_HELP = "El Cliente para redes NetWare le permite conectarse a servidores NetWare, y utilizar impresoras y archivos compartidos en estos equipos."
+
+; NWREDIR parameters
+PreserveCaseDesc = "Conservar mayús./minús."
+PreserveCaseDefault = "1"
+PreserveCase_0 = "No"
+PreserveCase_1 = "Sí"
+
+; also in winpopup.inf
+StartUp_DESC = "Inicio"
+Winpopup_Desc = "Mensajes emergentes"
+Grpconv_Desc = "Programas en el menú Inicio"	;MUST MATCH EXACTLY WITH Grpconv_Desc in WINVER.INX

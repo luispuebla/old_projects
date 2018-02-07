@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Bus PCI
+infpath=MACHINE.INF                                                                     
+infsection=PCI_DRV
+MatchingDeviceId=*PNP0A03
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sistema
+filenum=4
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

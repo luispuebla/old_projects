@@ -1,0 +1,167 @@
+
+; Copyright (c) 1993-1995 Microsoft Corporation
+
+[version]
+CatalogFile=msfdc.cat
+LayoutFile= Layout.inf, Layout1.inf, Layout2.inf
+signature="$CHICAGO$"
+Class=fdc
+ClassGUID={4d36e969-e325-11ce-bfc1-08002be10318}
+Provider=%MS%
+
+;Class Install
+[ClassInstall]
+AddReg=FDC_Reg
+
+[FDC_Reg]
+HKR,,,,%FDCClassName%
+HKR,,Icon,,-9
+
+[Manufacturer]
+%MS%=MS_FDC
+%Compaq%=Compaq
+%BLC%=BLC
+%Adaptec%=Adaptec
+%Zenith%=Zenith
+
+[MS_FDC]
+%*PNP0700.DeviceDesc% = MS_FDC_Inst, *PNP0700   ; MS Floppy Disk Controller
+
+[Zenith]
+%MF\EISA_ZDS2000_DEV1.DeviceDesc% = MS_FDC_Inst, MF\EISA_ZDS2000_DEV1
+
+[Compaq]
+%*CPQA0DB.DeviceDesc% = MS_FDC_Inst, *CPQA0DB   ; MS Floppy Disk Controller
+%CPQPFDC.DeviceDesc% = CPQ_PCMCIA_FDC, PCMCIA\COMPAQ_COMPUTER_CORP.-FDCard_Ver._1.01-C399   ; Compaq PCMCIA Floppy Disk Controller
+%CPQPFDC.DeviceDesc% = CPQ_PCMCIA_FDC, PCMCIA\Canon_Electronics_INC.-FDCard_Ver._1.00-F05E  ; Early Compaq PCMCIA Floppy Disk Controller
+
+[Adaptec]
+%ADAPTECFLOPPY%       = MS_FDC_Inst, ISAPNP\ADP1522_DEV0001
+%ADAPTECFLOPPY%       = MS_FDC_Inst, ISAPNP\ADP2215_DEV0001
+%ADAPTECFLOPPY%       = MS_FDC_Inst, ISAPNP\ADP1532_DEV0001
+%ADAPTECFLOPPY%       = MS_FDC_Inst, ISAPNP\ADP3215_DEV0001
+%ADAPTECFLOPPY%       = MS_FDC_Inst, ISAPNP\ADP1582_DEV0001
+%ADAPTECFLOPPY%       = MS_FDC_Inst, ISAPNP\ADP8215_DEV0001
+%ADAPTECFLOPPY%       = MS_FDC_Inst, ISAPNP\ADP4215_DEV0001
+%ADAPTECFLOPPY%       = MS_FDC_Inst, ISAPNP\ADP1542_DEV0001
+%ADAPTECFLOPPY%       = MS_FDC_Inst, *ADP154F
+
+[BLC]
+%MF\EISA_BUS4201_DEV1.DeviceDesc%=MS_FDC_Inst, MF\EISA_BUS4201_DEV1
+
+[MS_FDC.PosDup]
+*PNP0700
+
+[*pnp0700.det]
+AddReg = FDC_HW_Reg
+LogConfig=floppylc1,floppylc2
+
+[MS_FDC_Inst]
+AddReg = MS_FDC_AddReg
+LogConfig=floppylc1,floppylc2,floppylcany
+
+[floppylc1]
+ConfigPriority=HARDWIRED
+IOConfig=3f2-3f5(3ff::)
+IRQConfig=6
+DMAConfig=2
+
+[floppylc2]
+ConfigPriority=HARDWIRED
+IOConfig=8@0-ffff%fff8(ffff::)
+IRQConfig=3, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15
+DMAConfig=0, 1, 2, 3
+
+[floppylcany]
+
+[FDC_HW_Reg] 
+HKR,,NoSetupUI,,1
+
+[MS_FDC_AddReg]
+HKR,,DevLoader,,*IOS
+HKR,,PortDriver,,HSFLOP.pdr
+
+[ControlFlags]
+CopyFilesOnly=MF\EISA_ZDS2000_DEV1,ISAPNP\ADP1522_DEV0001,ISAPNP\ADP2215_DEV0001
+CopyFilesOnly=ISAPNP\ADP1532_DEV0001,ISAPNP\ADP3215_DEV0001,ISAPNP\ADP1582_DEV0001
+CopyFilesOnly=ISAPNP\ADP8215_DEV0001,ISAPNP\ADP1542_DEV0001,ISAPNP\ADP4215_DEV0001
+CopyFilesOnly=*ADP154F
+
+[CPQ_PCMCIA_FDC]
+AddReg = CPQ_PCMCIA_FDC_AddReg
+
+[CPQ_PCMCIA_FDC.PosDup]
+*PNP0700
+
+[CPQ_PCMCIA_FDC_AddReg]
+HKR,,DevLoader,,*PCCARD
+HKR,Override,0000,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,00,00,00, \
+;
+; I/O
+;
+24,00,00,00, \
+02,00,00,00, \
+01,00,0C,00, \
+00,00,00,00, \
+00,00,00,00, \
+F8,FF,06,00, \
+F0,03,F5,03, \
+00,00,00,00, \
+00,00,00,00, \
+;
+; I/O
+;
+24,00,00,00, \
+02,00,00,00, \
+01,00,0C,00, \
+00,00,00,00, \
+00,00,00,00, \
+FF,FF,01,00, \
+F7,03,F7,03, \
+00,00,00,00, \
+00,00,00,00, \
+;
+; IRQ
+;
+14,00,00,00, \
+04,00,00,00, \
+00,00,00,00, \
+40,00,00,00, \
+20,00,00,00, \
+;
+; REQUEST_CONFIG_PKT
+;
+19,00,00,00, \
+7C,89,00,00, \
+00,00,02,00, \
+32,32,32,02, \
+00,04,00,00, \
+00,00,00,21, \
+03, \
+;
+; TERMINATOR
+;
+00,00,00,00
+
+
+[Strings]
+MS = "(Controladores estándar de disquete)"
+Adaptec = "Adaptec"
+Compaq = "Compaq"
+BLC = "BusLogic"
+Zenith = "Zenith Data Systems"
+*PNP0700.DeviceDesc = "Controlador estándar de disquetes"
+*CPQA0DB.DeviceDesc = "Controlador Compaq de disquetes"
+CPQPFDC.DeviceDesc = "Controlador de disquetes Compaq PCMCIA"
+FDCClassName = "Controladores de disquete"
+ADAPTECFLOPPY = "Controlador adaptador de disquetes SCSI Adaptec"
+MF\EISA_BUS4201_DEV1.DeviceDesc = "Controlador adaptador SCSI de disquetes BusLogic"
+MF\EISA_ZDS2000_DEV1.DeviceDesc = "Controlador estándar de disquete en tarjeta  Zenith EISA"

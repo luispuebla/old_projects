@@ -1,0 +1,133 @@
+
+; NETPPP.INF
+;
+; Microsoft Point-To-Point Media Access Control.
+;
+; Copyright 1993-1997, Microsoft Corporation
+
+[version]
+CatalogFile=netppp.cat
+LayoutFile= Layout.inf, Layout1.inf, Layout2.inf
+signature="$CHICAGO$"
+Class=Net
+ClassGUID={4d36e972-e325-11ce-bfc1-08002be10318}
+provider=%V_MS%
+
+[Manufacturer]
+%V_PPP%=PPPMAC
+
+[PPPMAC]
+%*pnp8387.DeviceDesc%=PPPMAC.ndi, *PNP8387   ;RNA Point To Point Protocol Driver
+
+;****************************************************************************
+; PPPMAC Driver
+;****************************************************************************
+[PPPMAC.ndi]
+AddReg=PPPMAC.ndi.reg
+;CopyFiles=PPPMAC.Ndi.Copy
+DeviceID=*PNP8387
+MaxInstance=2
+
+[PPPMAC.ndi.reg]
+HKR,Ndi,DeviceID,,"*PNP8387"
+HKR,Ndi,NetType,,1
+HKR,,AdapterName,,"MS$PPP"
+HKR,Ndi,NdiInstaller,,"pppndi.dll,PPPNdiProc"
+
+HKR,Ndi,CardType,,"FORCEENUM"
+
+HKR,Ndi\params\Logging,ParamDesc,,%PPP_PARAM_LOGGING%
+HKR,Ndi\params\Logging,default,,0
+HKR,Ndi\params\Logging,type,,enum
+HKR,Ndi\params\Logging\enum,"0",,%PARM_NO%
+HKR,Ndi\params\Logging\enum,"1",,%PARM_YES%
+
+;IPX Header compression (global)
+HKR,Ndi\params\IPXHeaderCompression,ParamDesc,,%PPP_PARAM_IPXHEADERCOMPRESSION%
+HKR,Ndi\params\IPXHeaderCompression,default,,1
+HKR,Ndi\params\IPXHeaderCompression,type,,enum
+HKR,Ndi\params\IPXHeaderCompression\enum,"0",,%PARM_NO%
+HKR,Ndi\params\IPXHeaderCompression\enum,"1",,%PARM_YES%
+
+;Point To Point IP
+HKR,Ndi\params\PointToPointIP,ParamDesc,,%PPP_PARAM_POINTTOPOINTIP%
+HKR,Ndi\params\PointToPointIP,default,,1
+HKR,Ndi\params\PointToPointIP,type,,enum
+HKR,Ndi\params\PointToPointIP\enum,"0",,%PARM_NO%
+HKR,Ndi\params\PointToPointIP\enum,"1",,%PARM_YES%
+
+
+; IP MTU Size
+HKR,Ndi\params\IPMTU,ParamDesc,,%PPP_PARAM_IP_MTU%
+HKR,Ndi\params\IPMTU,default,,0
+HKR,Ndi\params\IPMTU,type,,enum
+HKR,Ndi\params\IPMTU\enum,"0",,%PARM_MTU_AUTO%
+HKR,Ndi\params\IPMTU\enum,"1500",,%PARM_MTU_LARGE%
+HKR,Ndi\params\IPMTU\enum,"1000",,%PARM_MTU_MEDIUM%
+HKR,Ndi\params\IPMTU\enum,"576",,%PARM_MTU_SMALL%
+
+; NDIS Info
+HKR,NDIS,LogDriverName,,"PPPMAC"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"ndis3"
+HKR,Ndi\Interfaces,DefLower,,"vcomm"
+HKR,Ndi\Interfaces,UpperRange,,"ndis3"
+HKR,Ndi\Interfaces,LowerRange,,"vcomm"
+
+; Install sections
+HKR,Ndi\Install,,,"PPPMAC.Install"
+
+; Context help
+HKR,Ndi,HelpText,,%PPPMAC_HELP%
+
+[PPPMAC.Install]
+AddReg=PPPMAC.AddReg
+CopyFiles=PPPMAC.CopyFiles
+
+[PPPMAC.AddReg]
+HKR,,DevLoader,,*ndis
+HKR,,EnumPropPages,,"netdi.dll,EnumPropPages"
+HKR,,DeviceVxDs,,pppmac.vxd
+HKR,,SLOWNET,1,01
+HKR,,REDIRSESSIONTIMEOUT,1,F0
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\PPP\CPList","Shiva SPAP Auth CP",,"spap.vxd"
+
+[PPPMAC.CopyFiles]
+pppmac.vxd
+
+[PPPMAC.Ndi.Copy]
+pppndi.dll
+
+;****************************************************************************
+; Destination Directories
+;****************************************************************************
+[DestinationDirs]
+PPPMAC.Ndi.Copy        = 11 ; LDID_SYS
+PPPMAC.CopyFiles       = 11 ; LDID_SYS
+
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+; Provider
+V_MS = "Microsoft"
+; Manufacturers
+V_PPP = "Microsoft"
+; Devices
+*pnp8387.DeviceDesc = "Adaptador de Acceso telefónico a redes"
+; Context Help
+PPPMAC_HELP = "El adaptador de acceso telefónico le permite conectarse a PPP, RAS y a servidores de llamadas Netware Connect utilizando un módem o dispositivo ISDN."
+PPP_PARAM_LOGGING = "Grabar un archivo de registro"
+PPP_PARAM_IPXHEADERCOMPRESSION = "Compresión de encabezados IPX"	; do nt enlarge because it causes truncation (t-martac)
+PPP_PARAM_POINTTOPOINTIP = "Activar Point To Point IP"
+PPP_PARAM_IP_MTU = "Tamaño del paquete IP"
+PARM_MTU_AUTO = "Automático"
+PARM_MTU_LARGE = "Grande"
+PARM_MTU_MEDIUM = "Medio"
+PARM_MTU_SMALL = "Pequeño"
+PARM_YES = "Sí"
+PARM_NO = "No"

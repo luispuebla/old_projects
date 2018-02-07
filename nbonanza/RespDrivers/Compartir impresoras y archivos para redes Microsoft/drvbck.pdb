@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Compartir impresoras y archivos para redes Microsoft
+infpath=NETSERVR.INF                                                                    
+infsection=VSERVER.ndi
+MatchingDeviceId=
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Servicio de red
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

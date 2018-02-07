@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Compatible con el procesador
+infpath=MACHINE.INF                                                                     
+infsection=PROCESSOR_UPDATE_DRV
+MatchingDeviceId=PROCESSOR_UPDATE
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sistema
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

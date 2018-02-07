@@ -1,0 +1,9 @@
+UPDATE productos SET existencia = existencia - 50 WHERE claveProducto = 'bebbon01';
+UPDATE productos SET existencia = existencia - 20 WHERE claveProducto = 'bebbon02';
+UPDATE productos SET existencia = existencia - 15 WHERE claveProducto = 'bebbon04';
+UPDATE productos SET existencia = existencia - 5 WHERE claveProducto = 'manchi01';
+UPDATE productos SET existencia = existencia - 5 WHERE claveProducto = 'manchi02';
+UPDATE productos SET existencia = existencia - 50 WHERE claveProducto = 'maribe01';
+UPDATE productos SET existencia = existencia - 50 WHERE claveProducto = 'marpri01';
+UPDATE productos SET existencia = existencia - 5 WHERE claveProducto = 'queraa01';
+UPDATE productos SET existencia = existencia - 5 WHERE claveProducto = 'yogbon01';

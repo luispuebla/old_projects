@@ -1,0 +1,1574 @@
+
+; NETTRANS.INF
+;
+; Network Transports
+;
+; Copyright 1993-1995, Microsoft Corporation
+;       Install.WSock2 -> Sets up for WSock2
+;       Install.OldWSock -> Preserves existing WSock config
+;       Remove -> Removes WSock1 and WSock2 settings
+; 
+
+[version]
+CatalogFile=nettrans.cat
+LayoutFile= Layout.inf, Layout1.inf, Layout2.inf
+signature="$CHICAGO$"
+Class=NetTrans
+ClassGUID={4d36e975-e325-11ce-bfc1-08002be10318}
+provider=%V_MS%
+
+[CLassInstall]
+AddReg=NetTrans.AddReg
+[NetTrans.AddReg]
+HKR,,,,%V_CLASSNAME%
+HKR,,Installer,,netdi.dll
+HKR,,Icon,,-6
+HKR,,NoUseClass,,1
+
+[Manufacturer]
+%V_MS%=MS
+%V_BANYAN%=BAN
+%V_SUN%=SUN
+%V_DEC%=DEC
+%V_NOVELL%=NOVELL
+%V_IBM%=IBM
+
+[MS]
+%NETBEUI.DeviceDesc%=   NETBEUI.ndi, NETBEUI    ;NetBeui
+%NWLINK.DeviceDesc%=    NWLINK.ndi,  NWLINK     ;NWLink
+%NWNBLINK.DeviceDesc%=  NWNBLINK.ndi,  NWNBLINK     ;NWNBLink
+%MSTCP.DeviceDesc%=     MSTCP.ndi,   MSTCP      ;TCP/IP
+
+[IBM]
+%IBMDLC.DeviceDesc%=    IBMDLC.ndi,  IBMDLC     ;IBMDLC
+
+[NOVELL]
+%IPXODI.DeviceDesc%=   IPXODI.ndi, IPXODI      ;Ipx Odi
+
+[BAN]
+%NDISBAN.DeviceDesc%=   NDISBAN.ndi, NDISBAN    ;Baynan ndis protocol
+%NDTOKBAN.DeviceDesc%=  NDTOKBAN.ndi, NDTOKBAN  ;Banyan ndis protocol Token Ring
+
+[SUN]
+%NFSLINK.DeviceDesc%=   NFSLINK.ndi, NFSLINK    ;PC-NFS ndis protocol
+
+[DEC]
+%DEC40.DeviceDesc%=     DEC40.ndi,   DEC40      ;Pathworks V4.1 Ethernet
+%DEC40T.DeviceDesc%=    DEC40T.ndi,  DEC40T     ;Pathworks V4.1 Tokenring
+%DEC50.DeviceDesc%=     DEC50.ndi,   DEC50      ;Pathworks V5.0A Ethernet NDIS
+%DEC50T.DeviceDesc%=    DEC50T.ndi,  DEC50T     ;Pathworks V5.0A Tokenring NDIST
+
+%DEC50O.DeviceDesc%=    DEC50O.ndi,  DEC50O     ;Pathworks V5.x DLLODI
+%DEC50U.DeviceDesc%=    DEC50U.ndi,  DEC50U     ;V5.x DLLDLC, ewrk3, depca
+
+[ControlFlags]
+; NWNBLINK should not appear in select device
+ExcludeFromSelect=NWNBLINK
+ExcludeFromSelect=DEC50U
+ExcludeFromSelect=NFSLINK
+ExcludeFromSelect=DEC40
+ExcludeFromSelect=DEC40T
+ExcludeFromSelect=DEC50
+ExcludeFromSelect=DEC50T
+ExcludeFromSelect=DEC50O
+ExcludeFromSelect=DEC50U
+
+;****************************************************************************
+; IBMDLC
+;****************************************************************************
+[IBMDLC.ndi]
+AddReg=IBMDLC.ndi.reg
+DeviceID=IBMDLC
+
+[IBMDLC.ndi.reg]
+HKR,Ndi,DeviceID,,IBMDLC
+HKR,Ndi,MaxInstance,,0  ;prevent multiple bindings
+HKR,Ndi,NdiInstaller,,"netdi.dll,IBMDLCNdiProc"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"ibmdlc"
+HKR,Ndi\Interfaces,DefLower,,"odi,ndis2"
+HKR,Ndi\Interfaces,UpperRange,,"ibmdlc"
+HKR,Ndi\Interfaces,LowerRange,,"odi,ndis2"
+; compatibilities
+HKR,Ndi\Compatibility,ExcludeAll,,"MSDLC"
+
+;****************************************************************************
+; IPXODI
+;****************************************************************************
+[IPXODI.ndi]
+AddReg=IPXODI.ndi.reg
+DeviceID=IPXODI
+
+[IPXODI.ndi.reg]
+HKR,Ndi,DeviceID,,IPXODI
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"nwipxodi,ipx"
+HKR,Ndi\Interfaces,DefLower,,"odi"
+HKR,Ndi\Interfaces,UpperRange,,"nwipxodi,ipx"
+HKR,Ndi\Interfaces,LowerRange,,"odi"
+; compatibilities
+HKR,Ndi\Compatibility,ExcludeAll,,"IPXMONO"
+
+
+;****************************************************************************
+; NETBEUI
+;****************************************************************************
+[NETBEUI.ndi]
+AddReg=NETBEUI.ndi.reg
+;Unique PnP ID, entry need to be present so that setup can back track
+;the device name from the driver
+DeviceID=NETBEUI
+;Specify if the device can be installed more than once
+;if not specify, default is MaxInstance=1
+MaxInstance=8
+
+[NETBEUI.ndi.reg]
+HKR,Ndi,DeviceID,,NETBEUI
+HKR,Ndi,MaxInstance,,8
+; NDIS Info
+HKR,NDIS,LogDriverName,,NETBEUI
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+HKR,NDIS\NDIS2,DriverName,,"NETBEUI$"
+HKR,NDIS\NDIS2,FileName,,"*netbeui"
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"netbios"
+HKR,Ndi\Interfaces,DefLower,,"ndis2,ndis3,odi"
+HKR,Ndi\Interfaces,UpperRange,,"netbios"
+HKR,Ndi\Interfaces,LowerRange,,"ndis2,ndis3,odi"
+; Install sections
+HKR,Ndi\Install,,,"NETBEUI.Install"
+HKR,Ndi\Remove,,,"NETBEUI.Remove"
+;Sessions Parameter (global)
+HKR,Ndi\params\sessions,location,,"System\CurrentControlSet\Services\Vxd\NetBeui"
+HKLM,System\CurrentControlSet\Services\VxD\NETBEUI\Ndi\params\sessions,ParamDesc,,%NETBEUI_PARAM_SESSIONS%
+HKLM,System\CurrentControlSet\Services\VxD\NETBEUI\Ndi\params\sessions,default,,10
+HKLM,System\CurrentControlSet\Services\VxD\NETBEUI\Ndi\params\sessions,type,,int
+HKLM,System\CurrentControlSet\Services\VxD\NETBEUI\Ndi\params\sessions,min,,3
+HKLM,System\CurrentControlSet\Services\VxD\NETBEUI\Ndi\params\sessions,max,,117
+;NCBS Parameter (global)
+HKR,Ndi\params\ncbs,location,,"System\CurrentControlSet\Services\Vxd\NetBeui"
+HKLM,System\CurrentControlSet\Services\VxD\NETBEUI\Ndi\Params\ncbs,ParamDesc,,%NETBEUI_PARAM_NCBS%
+HKLM,System\CurrentControlSet\Services\VxD\NETBEUI\Ndi\Params\ncbs,default,,12
+HKLM,System\CurrentControlSet\Services\VxD\NETBEUI\Ndi\Params\ncbs,type,,int
+HKLM,System\CurrentControlSet\Services\VxD\NETBEUI\Ndi\Params\ncbs,min,,7
+HKLM,System\CurrentControlSet\Services\VxD\NETBEUI\Ndi\Params\ncbs,max,,255
+; Context help
+HKR,Ndi,HelpText,,%NETBEUI_HELP%
+
+
+
+[NETBEUI.Install]
+AddReg=NETBEUI.AddReg
+CopyFiles=NETBEUI.CopyFiles
+[NETBEUI.AddReg]
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,netbeui.vxd
+; RPC
+HKLM,"Software\Microsoft\Rpc\ClientProtocols",ncacn_nb_nb,,rpcltc5.dll
+HKLM,"Software\Microsoft\Rpc\ServerProtocols",ncacn_nb_nb,,rpclts5.dll
+[NETBEUI.CopyFiles]
+netbeui.vxd
+; RPC
+rpcltc5.dll
+rpclts5.dll
+
+[NETBEUI.Remove]
+AddReg=NETBEUI.Rmv.AddReg
+[NETBEUI.Rmv.AddReg]
+; RPC
+HKLM,"Software\Microsoft\Rpc\ClientProtocols",ncacn_nb_nb,
+HKLM,"Software\Microsoft\Rpc\ServerProtocols",ncacn_nb_nb,
+
+;****************************************************************************
+; NWNBLINK
+;****************************************************************************
+[NWNBLINK.ndi]
+AddReg=NWNBLINK.ndi.reg
+DeviceID=NWNBLINK
+MaxInstance=1
+
+[NWNBLINK.ndi.reg]
+HKR,Ndi,DeviceID,,NWNBLINK
+HKR,Ndi,MaxInstance,,1
+HKR,Ndi,StaticVxd,,"nwnblink.vxd"
+HKR,Ndi\Compatibility,RequireAll,,"NWLINK"
+; NDIS info
+HKR,NDIS,LogDriverName,,"NWNBLINK"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"netbios"
+HKR,Ndi\Interfaces,DefLower,,"ipx"
+HKR,Ndi\Interfaces,UpperRange,,"netbios"
+HKR,Ndi\Interfaces,LowerRange,,"ipx"
+; Install sections
+HKR,Ndi\Install,netbios,,"NWNBLINK.Install"
+
+; Context help
+HKR,Ndi,HelpText,,%NWNBLINK_HELP%
+
+[NWNBLINK.Install]
+AddReg=NWNBLINK.AddReg
+CopyFiles=NWNBLINK.copy
+[NWNBLINK.AddReg]
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,nwnblink.vxd
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWNBLINK",StaticVxD,,nwnblink.vxd
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWNBLINK",Start,1,00
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWNBLINK",NetClean,1,1
+[NWNBLINK.copy]
+nwnblink.vxd
+
+[NWNBLINK.Remove]
+DelReg=NWNBLINK.rmv.AddReg
+[NWNBLINK.rmv.AddReg]
+HKLM,"System\CurrentControlSet\Services\VxD\NWNBLINK",StaticVxD
+
+
+;****************************************************************************
+; NWLINK
+;****************************************************************************
+[NWLINK.ndi]
+DelReg=NWLINK.ndi.delreg
+AddReg=NWLINK.ndi.reg
+DeviceID=NWLINK
+MaxInstance=4
+
+[NWLINK.ndi.reg]
+HKR,Ndi,DeviceID,,NWLINK
+HKR,Ndi,MaxInstance,,8
+HKR,Ndi,NdiInstaller,,"netdi.dll,NwlinkNdiProc"
+;HKR,Ndi,StaticVxd,,"nwlink.vxd" ; The NDI proc now does this for compatibility
+; NDIS info
+HKR,NDIS,LogDriverName,,"NWLINK"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+HKR,NDIS\NDIS2,DriverName,,"nwlink$"
+HKR,NDIS\NDIS2,FileName,,"*nwlink"
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"ipx,ipxDHost,winsock"
+HKR,Ndi\Interfaces,DefLower,,"ndis2,ndis3,odi"
+HKR,Ndi\Interfaces,UpperRange,,"ipx,ipxDHost,winsock"
+HKR,Ndi\Interfaces,LowerRange,,"ndis2,ndis3,odi"
+; Install sections
+HKR,Ndi\Install,,,"NWLINK.Install"
+HKR,Ndi\Remove,,,"NWLINK.Remove"
+;Network Address Parameter (per instance)
+HKR,Ndi\params\Network_Id,flag,1,20,00,00,00
+HKR,Ndi\params\Network_Id,default,,0
+HKR,Ndi\params\Network_Id,ParamDesc,,%NWLINK_PARAM_NETWORK_ID%
+HKR,Ndi\params\Network_Id,type,,dword
+HKR,Ndi\params\Network_Id,base,,16
+;Flags (per instance)
+;HKR,Ndi\params\Flags,default,,0
+;HKR,Ndi\params\Flags,ParamDesc,,%NWLINK_PARAM_FLAGS%
+;HKR,Ndi\params\Flags,type,,dword
+;HKR,Ndi\params\Flags,base,,16
+;Frame Type Parameter (per instance)
+HKR,Ndi\params\Frame_Type,ParamDesc,,%NWLINK_PARAM_FRAMETYPE%
+HKR,Ndi\params\Frame_Type,default,,4
+HKR,Ndi\params\Frame_Type,type,,enum
+HKR,Ndi\params\Frame_Type\enum,"4",,"Auto"
+HKR,Ndi\params\Frame_Type\enum,"1",,"Ethernet 802.2"
+HKR,Ndi\params\Frame_Type\enum,"0",,"Ethernet 802.3"
+HKR,Ndi\params\Frame_Type\enum,"2",,"Ethernet II"
+HKR,Ndi\params\Frame_Type\enum,"5",,"Token Ring"
+HKR,Ndi\params\Frame_Type\enum,"6",,"Token Ring SNAP"
+;Maximum Connections (global)
+HKR,Ndi\params\maxconnect,location,,"System\CurrentControlSet\Services\Vxd\NWLink"
+
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\maxconnect,ParamDesc,,%NWLINK_PARAM_MAXCONNECT%
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\maxconnect,optional,,1
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\maxconnect,type,,int
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\maxconnect,min,,1
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\maxconnect,max,,128
+;Maximum Sockets (global)
+HKR,Ndi\params\maxsockets,location,,"System\CurrentControlSet\Services\Vxd\NWLink"
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\maxsockets,ParamDesc,,%NWLINK_PARAM_MAXSOCKETS%
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\maxsockets,optional,,1
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\maxsockets,type,,int
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\maxsockets,min,,2
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\maxsockets,max,,255
+;Force Even Length Packets (global)
+HKR,Ndi\params\forceeven,location,,"System\CurrentControlSet\Services\Vxd\NWLink"
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\forceeven,ParamDesc,,%NWLINK_PARAM_FORCEEVEN%
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\forceeven,optional,,1
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\forceeven,default,,0
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\forceeven,type,,enum
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\forceeven\enum,0,,%PARAM_NO%
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\forceeven\enum,1,,%PARAM_YES%
+;Source Routing Cache Size (global)
+HKR,Ndi\params\cachesize,location,,"System\CurrentControlSet\Services\Vxd\NWLink"
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\cachesize,ParamDesc,,%NWLINK_PARAM_CACHESIZE%
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\cachesize,type,,enum
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\cachesize,default,,0
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\cachesize\enum,0,,%PARAM_OFF%
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\cachesize\enum,16,,%PARAM_16%
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\cachesize\enum,32,,%PARAM_32%
+HKLM,System\CurrentControlSet\Services\VxD\NWLink\Ndi\params\cachesize\enum,64,,%PARAM_64%
+; Context help
+HKR,Ndi,HelpText,,%NWLINK_HELP%
+
+[NWLINK.ndi.delreg]
+;Clean up from Win95 version of INF
+HKR,"Ndi","RenameBase"
+
+[NWLINK.Install]
+AddReg=NWLINK.AddReg
+CopyFiles=NWLINK.CopyFiles
+
+[NWLINK.AddReg]
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,nwlink.vxd
+
+[NWLINK.CopyFiles]
+nwlink.vxd
+
+[NWLINK.Install.WSock2]
+CopyFiles=NWLINK.Ins.WSock2.CopyFiles,WSOCK.sys.copyfiles
+AddReg=NWLINK.Ins.WSock2.AddReg
+
+[NWLINK.Ins.WSock2.CopyFiles]
+wsipx.vxd
+rpcltc6.dll
+rpclts6.dll
+
+[NWLINK.Ins.WSock2.AddReg]
+;Backup the file to prevent overwrites
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\Winsock","IPX/SPX Winsock Provider",,"wsipx.vxd"
+HKLM,"Software\Microsoft\Rpc\ClientProtocols",ncacn_spx,,rpcltc6.dll
+HKLM,"Software\Microsoft\Rpc\ServerProtocols",ncacn_spx,,rpclts6.dll
+HKLM,"SYSTEM\CurrentControlSet\Services\Winsock2\Providers\IPX","ProviderName",,"Microsoft IPX"
+; Winsock 2.0
+HKR,Ndi\ExecuteAPI\NwInstall,,,WSCInstallProvider
+HKR,Ndi\ExecuteAPI\NwInstall,GUID,1, \
+E1,7D,01,FF, E9,CA, CF,11, 8A,99,00,AA,00,62,C6,09 ; MSWSOSP
+HKR,Ndi\ExecuteAPI\NwInstall,Provider,,"%11%\mswsosp.dll"
+;3
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,ServiceFlags1,1, \
+1E,00,02,00 ;Guarenteed_Delivery, Guaranteed_Order, Message_Oriented, Pseudo_Stream, Ifs_Handles
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,ServiceFlags2,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,ServiceFlags3,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,ServiceFlags4,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,ProviderFlags,1,08,00,00,00 ; PFL_MATCHES_PROTOCOL_ZERO
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,ChainLen,1,01,00,00,00      ; BASE_PROTOCOL
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,Version,1,01,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,AddressFamily,1,06,00,00,00 ; AF_NS
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,MaxSockAddr,1,0E,00,00,00   ; 14
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,MinSockAddr,1,10,00,00,00   ; 16
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,SocketType,1,01,00,00,00    ; SOCK_STREAM
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,Protocol,1,E8,04,00,00      ; NSPROTO_SPX
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,ProtocolMaxOffset,1,00,00,00,00  
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,NetworkByteOrder,1,00,00,00,00 ; BIGENDIAN
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,SecurityScheme,1,00,00,00,00 ; SECURITY_PROTOCOL_NONE
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,MessageSize,1,FF,FF,FF,FF
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,ProviderReserved,1,00,00,00,00 
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\1,ProtocolString,,"MS.w95.spi.spx"
+;4
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,ServiceFlags1,1, \
+3E,00,02,00 ;Guarenteed_Delivery, Guaranteed_Order, Pseudo_Stream,Message_Oriented, Graceful_Close, Ifs_Handles
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,ServiceFlags2,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,ServiceFlags2,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,ServiceFlags3,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,ServiceFlags4,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,ProviderFlags,1,08,00,00,00 ; PFL_MATCHES_PROTOCOL_ZERO
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,ChainLen,1,01,00,00,00      ; BASE_PROTOCOL
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,Version,1,01,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,AddressFamily,1,06,00,00,00 ; AF_NS
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,MaxSockAddr,1,0E,00,00,00   ; 14
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,MinSockAddr,1,10,00,00,00   ; 16
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,SocketType,1,05,00,00,00    ; SOCK_SEQPACKET
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,Protocol,1,E8,04,00,00      ; NSPROTO_SPX
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,ProtocolMaxOffset,1,00,00,00,00  
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,NetworkByteOrder,1,00,00,00,00 ; BIGENDIAN
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,SecurityScheme,1,00,00,00,00 ; SECURITY_PROTOCOL_NONE
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,MessageSize,1,FF,FF,FF,FF
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,ProviderReserved,1,00,00,00,00 
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\2,ProtocolString,,"MS.w95.spi.spx/seq"
+;5
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,ServiceFlags1,1, \
+09,06,02,00 ;Connectonless, Message_Oriented, Support_Broadcast, Support_Multipoint, Ifs_Handles
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,ServiceFlags2,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,ServiceFlags3,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,ServiceFlags4,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,ProviderFlags,1,08,00,00,00 ; PFL_MATCHES_PROTOCOL_ZERO
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,ChainLen,1,01,00,00,00      ; BASE_PROTOCOL
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,Version,1,01,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,AddressFamily,1,06,00,00,00 ; AF_NS
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,MaxSockAddr,1,10,00,00,00   ; 16
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,MinSockAddr,1,0E,00,00,00   ; 14
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,SocketType,1,02,00,00,00    ; SOCK_DGRAM
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,Protocol,1,E8,03,00,00      ; NSPROTO_IPX
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,ProtocolMaxOffset,1,FF,00,00,00 ; 255
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,NetworkByteOrder,1,00,00,00,00 ; BIGENDIAN
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,SecurityScheme,1,00,00,00,00 ; SECURITY_PROTOCOL_NONE
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,MessageSize,1,40,02,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,ProviderReserved,1,00,00,00,00 
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\3,ProtocolString,,"MS.w95.spi.ipx"
+;6
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,ServiceFlags1,1, \
+09,06,02,00 ;Connectonless, Message_Oriented, Support_Broadcast, Support_Multipoint, Ifs_Handles
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,ServiceFlags2,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,ServiceFlags3,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,ServiceFlags4,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,ProviderFlags,1,0c,00,00,00 ; PFL_MATCHES_PROTOCOL_ZERO, PFL_HIDDEN
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,ChainLen,1,01,00,00,00      ; BASE_PROTOCOL
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,Version,1,01,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,AddressFamily,1,ce,fa,ce,fa ; bogus address family (i.e AF_xxx)
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,MaxSockAddr,1,10,00,00,00   ; 16
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,MinSockAddr,1,0E,00,00,00   ; 14
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,SocketType,1,ce,fa,ce,fa    ; bogus socket type (i.e. SOCK_xxx)
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,Protocol,1,ce,fa,ce,fa      ; bogus protocol
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,ProtocolMaxOffset,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,NetworkByteOrder,1,00,00,00,00 ; BIGENDIAN
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,SecurityScheme,1,00,00,00,00 ; SECURITY_PROTOCOL_NONE
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,MessageSize,1,40,02,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,ProviderReserved,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwInstall\ProtocolInfo\4,ProtocolString,,"MS.w95.spi.osp"
+
+;Executed if WSock1 has been restored or left on the machine
+;Section name embeded in ndiproc, don't change
+;[NWLINK.Install.OldWSock]
+; Do nothing if leaving old Winsock in place
+
+;======================================= Remove ==========================================
+
+[NWLINK.Remove]
+DelReg=NWLINK.Rmv.DelReg
+
+[NWLINK.Rmv.DelReg]
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\Winsock","IPX/SPX Winsock Provider",
+; RPC
+HKLM,"Software\Microsoft\Rpc\ClientProtocols",ncacn_spx,
+HKLM,"Software\Microsoft\Rpc\ServerProtocols",ncacn_spx,
+
+[NWLINK.Remove.WSock2]
+AddReg=NWLINK.Rmv.WSock2.AddReg
+
+[NWLINK.Rmv.WSock2.AddReg]
+;Install the OSP protocol for WS 1.0 support
+HKR,Ndi\ExecuteAPI\NwRemove1,,,WSCInstallProvider
+HKR,Ndi\ExecuteAPI\NwRemove1,GUID,1, \
+E1,7D,01,FF, E9,CA, CF,11, 8A,99,00,AA,00,62,C6,09 ; MSWSOSP
+HKR,Ndi\ExecuteAPI\NwRemove1,Provider,,"%11%\mswsosp.dll"
+;
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,ServiceFlags1,1, \
+09,06,02,00 ;Connectonless, Message_Oriented, Support_Broadcast, Support_Multipoint, Ifs_Handles
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,ServiceFlags2,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,ServiceFlags3,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,ServiceFlags4,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,ProviderFlags,1,0c,00,00,00 ; PFL_MATCHES_PROTOCOL_ZERO, PFL_HIDDEN
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,ChainLen,1,01,00,00,00      ; BASE_PROTOCOL
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,Version,1,01,00,00,00
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,AddressFamily,1,ce,fa,ce,fa ; bogus address family (i.e AF_xxx)
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,MaxSockAddr,1,10,00,00,00   ; 16
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,MinSockAddr,1,0E,00,00,00   ; 14
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,SocketType,1,ce,fa,ce,fa    ; bogus socket type (i.e. SOCK_xxx)
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,Protocol,1,ce,fa,ce,fa      ; bogus protocol
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,ProtocolMaxOffset,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,NetworkByteOrder,1,00,00,00,00 ; BIGENDIAN
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,SecurityScheme,1,00,00,00,00 ; SECURITY_PROTOCOL_NONE
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,MessageSize,1,40,02,00,00
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,ProviderReserved,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\NwRemove1\ProtocolInfo\1,ProtocolString,,"MS.w95.spi.osp"
+
+
+;****************************************************************************
+; TCP/IP
+;****************************************************************************
+[MSTCP.ndi]
+DelReg=MSTCP.ndi.delreg
+AddReg=MSTCP.ndi.reg
+DeviceID=MSTCP
+MaxInstance=6
+
+[MSTCP.ndi.reg]
+HKR,Ndi,DeviceID,,MSTCP
+HKR,Ndi,MaxInstance,,8
+HKR,Ndi,NdiInstaller,,"mstcp.dll,TcpNdiProc"
+; NDIS info
+HKR,NDIS,LogDriverName,,"MSTCP"
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+; Interfaces
+HKR,Ndi\Interfaces,DefUpper,,"netbios,tdi,winsock"
+HKR,Ndi\Interfaces,DefLower,,"ndis2,ndis3,odi,ndisatm"
+HKR,Ndi\Interfaces,UpperRange,,"netbios,tdi,winsock"
+HKR,Ndi\Interfaces,LowerRange,,"ndis2,ndis3,odi,broadcastip,ndisatm"
+; Third party TCPIPs that have conflicting WS implementations
+HKR,Ndi\Compatibility,ExcludeAll,,"FTPTCP96,NMNDIS3,NEWTNDIS,NEWTODI,NEWTDIAL,MULTINET"
+; Install-Remove Sections
+HKR,Ndi\Install,,,"MSTCP.Install"
+HKR,Ndi\Remove,,,"MSTCP.Remove"
+; Context help
+HKR,Ndi,HelpText,,%MSTCP_HELP%
+
+;Allow ATM Binding
+HKR,Ndi\params\AllowATM,location,,"System\CurrentControlSet\Services\Vxd\MSTCP"
+HKLM,System\CurrentControlSet\Services\VxD\MSTCP\Ndi\params\AllowATM,ParamDesc,,%MSTCP_PARAM_ALLOWATM%
+;HKLM,System\CurrentControlSet\Services\VxD\MSTCP\Ndi\params\AllowATM,optional,,1
+HKLM,System\CurrentControlSet\Services\VxD\MSTCP\Ndi\params\AllowATM,default,,0
+HKLM,System\CurrentControlSet\Services\VxD\MSTCP\Ndi\params\AllowATM,type,,enum
+HKLM,System\CurrentControlSet\Services\VxD\MSTCP\Ndi\params\AllowATM\enum,0,,%PARAM_NO%
+HKLM,System\CurrentControlSet\Services\VxD\MSTCP\Ndi\params\AllowATM\enum,1,,%PARAM_YES%
+
+;Default for lmhost
+HKLM,System\CurrentControlSet\Services\VxD\MSTCP,LMHostFile,,"%10%\lmhosts"
+
+;ATM Defaults
+HKLM,System\CurrentControlSet\Services\VxD\MSTCP\Ndi\ATMDefaults,ARPServerList,,"4700790001020000000000000000A03E00000200"
+HKLM,System\CurrentControlSet\Services\VxD\MSTCP\Ndi\ATMDefaults,MARServerList,,"4700790001020000000000000000A03E00000200"
+HKLM,System\CurrentControlSet\Services\VxD\MSTCP\Ndi\ATMDefaults,SapSelector,1,01,00,00,00
+HKLM,System\CurrentControlSet\Services\VxD\MSTCP\Ndi\ATMDefaults,MTU,1,dc,23,00,00
+
+[MSTCP.ndi.delreg]
+;Clean up from Win95 version of INF
+HKR,"Ndi","RenameBase"
+
+[MSTCP.Install]
+AddReg=MSTCP.AddReg
+CopyFiles=MSTCP.CopyFiles.sys,MSTCP.CopyFiles.win
+UpdateAutoBat=MSTCP.UpdateAutoBat
+UpdateCfgSys=MSTCP.UpdateCfgSys
+
+[MSTCP.AddReg]
+HKR,,DevLoader,,*ndis
+
+[MSTCP.CopyFiles.sys]
+vtdi.386
+vip.386
+vtcp.386
+vdhcp.386
+locproxy.exe
+locprxy2.exe
+dhcpcsvc.dll
+vnbt.386
+vudp.386
+icmp.dll
+iphlpapi.dll
+ipcfgdll.dll
+telnet.hlp
+
+[MSTCP.CopyFiles.win]
+ping.exe
+telnet.exe
+ftp.exe
+hosts.sam
+lmhosts.sam
+networks
+protocol
+; Keep the original services file, some net configs have modified it
+services,,,16
+arp.exe
+nbtstat.exe
+netstat.exe
+route.exe
+tracert.exe
+winipcfg.exe
+ipconfig.exe
+inetmib1.dll
+snmpapi.dll
+
+[MSTCP.UpdateAutoBat]
+; Remove real mode TCP/IP
+CmdDelete=umb
+CmdDelete=tcptsr
+CmdDelete=tinyrfc
+CmdDelete=nmtsr
+CmdDelete=emsbfr
+CmdDelete=dnr
+CmdDelete=sockets
+
+[MSTCP.UpdateCfgSys]
+; Remove real mode TCP/IP devices
+DevDelete=tcpdrv.dos
+DevDelete=nemm.dos
+
+;Executed if WSock2 was installed
+;Section name embeded in ndiproc, don't change
+[MSTCP.Install.WSock2]
+DelReg=MSTCP.Ins.WSock2.DelReg
+AddReg=MSTCP.Ins.WSock2.AddReg,MSTCPRSVP.Ins.WSock2.AddReg
+CopyFiles=MSTCP.Ins.WSock2.Copy.Sys,WSOCK.sys.copyfiles,MSTCPRSVP.Ins.WSock2.Copy.Sys
+
+[MSTCP.Ins.WSock2.DelReg]
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\Winsock","TCP/IP Winsock Provider",
+;This setting moves to Winsock2
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\Winsock","Ancillary Function Driver for Winsock"
+
+[MSTCP.Ins.WSock2.AddReg]
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\Winsock2","Ancillary Function Driver for Winsock",,"afvxd.vxd"
+HKLM,"SYSTEM\CurrentControlSet\Services\Winsock2\Providers\INET","ProviderName",,"Microsoft TCP"
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\AFVXD","MSTCP Helper for Winsock",,"wshtcp.vxd"
+HKLM,"System\CurrentControlSet\Services\VxD\MSTCP\Parameters\Winsock",MaxSockAddrLength,1,10,0,0,0
+HKLM,"System\CurrentControlSet\Services\VxD\MSTCP\Parameters\Winsock",MinSockAddrLength,1,10,0,0,0
+
+HKLM,"Software\Microsoft\Rpc\ClientProtocols",ncacn_ip_tcp,,rpcltc3.dll
+HKLM,"Software\Microsoft\Rpc\ServerProtocols",ncacn_ip_tcp,,rpclts3.dll
+; winsock registry info
+HKLM,"System\CurrentControlSet\Control\ServiceProvider\Order\ExcludedProviders"
+HKLM,"System\CurrentControlSet\Control\ServiceProvider\Order\ProviderOrder",MSTCP,,""
+HKLM,"System\CurrentControlSet\Services\VxD\MSTCP\ServiceProvider",LocalPriority,1,f3,01,00,00
+HKLM,"System\CurrentControlSet\Services\VxD\MSTCP\ServiceProvider",HostsPriority,1,f4,01,00,00
+HKLM,"System\CurrentControlSet\Services\VxD\MSTCP\ServiceProvider",DnsPriority,1,d0,07,00,00
+HKLM,"System\CurrentControlSet\Services\VxD\MSTCP\ServiceProvider",NetbtPriority,1,d1,07,00,00
+HKLM,"System\CurrentControlSet\Services\VxD\MSTCP\ServiceProvider",Class,1,08,00,00,00
+HKLM,"System\CurrentControlSet\Services\VxD\MSTCP\ServiceProvider",ProviderPath,,"%windir%\system\wsock32.dll"
+HKLM,"System\CurrentControlSet\Services\VxD\MSTCP\Parameters\Winsock",HelperDllName,,"%windir%\system\wsock32.dll"
+HKLM,"System\CurrentControlSet\Services\Winsock\Parameters",MSTCP,,""
+; Winsock 2.0
+HKR,Ndi\ExecuteAPI\TcpInstall,,,WSCInstallProvider
+HKR,Ndi\ExecuteAPI\TcpInstall,GUID,1, \
+E0,7D,01,FF, E9,CA, CF,11, 8A,99,00,AA,00,62,C6,09 ; MSAFD
+HKR,Ndi\ExecuteAPI\TcpInstall,Provider,,"%11%\msafd.dll"
+;0
+HKR,%STR_TCPPROTO%\1,ServiceFlags1,1, \
+66,00,02,00 ;Guarenteed_Delivery, Gaurenteed_Order, Graceful_Close, Expedited_Data, Ifs_Handles
+HKR,%STR_TCPPROTO%\1,ServiceFlags2,1,00,00,00,00
+HKR,%STR_TCPPROTO%\1,ServiceFlags3,1,00,00,00,00
+HKR,%STR_TCPPROTO%\1,ServiceFlags4,1,00,00,00,00
+HKR,%STR_TCPPROTO%\1,ProviderFlags,1,08,00,00,00 ; PFL_MATCHES_PROTOCOL_ZERO
+HKR,%STR_TCPPROTO%\1,ChainLen,1,01,00,00,00      ; BASE_PROTOCOL
+HKR,%STR_TCPPROTO%\1,Version,1,01,00,00,00
+HKR,%STR_TCPPROTO%\1,AddressFamily,1,02,00,00,00 ; AF_INET
+HKR,%STR_TCPPROTO%\1,MaxSockAddr,1,10,00,00,00   ; 16
+HKR,%STR_TCPPROTO%\1,MinSockAddr,1,10,00,00,00   ; 16
+HKR,%STR_TCPPROTO%\1,SocketType,1,01,00,00,00    ; SOCK_STREAM
+HKR,%STR_TCPPROTO%\1,Protocol,1,06,00,00,00      ; IPPROTO_TCP
+HKR,%STR_TCPPROTO%\1,ProtocolMaxOffset,1,00,00,00,00  
+HKR,%STR_TCPPROTO%\1,NetworkByteOrder,1,00,00,00,00 ; BIGENDIAN
+HKR,%STR_TCPPROTO%\1,SecurityScheme,1,00,00,00,00 ; SECURITY_PROTOCOL_NONE
+HKR,%STR_TCPPROTO%\1,MessageSize,1,00,00,00,00
+HKR,%STR_TCPPROTO%\1,ProviderReserved,1,00,00,00,00 
+HKR,%STR_TCPPROTO%\1,ProtocolString,,"MS.w95.spi.tcp"
+;1
+HKR,%STR_TCPPROTO%\2,ServiceFlags1,1, \
+09,06,02,00 ;Connectionless, Message_Oriented, Support_Broadcast, Support_MultiPoint, Ifs_Handles
+HKR,%STR_TCPPROTO%\2,ServiceFlags2,1,00,00,00,00
+HKR,%STR_TCPPROTO%\2,ServiceFlags2,1,00,00,00,00
+HKR,%STR_TCPPROTO%\2,ServiceFlags3,1,00,00,00,00
+HKR,%STR_TCPPROTO%\2,ServiceFlags4,1,00,00,00,00
+HKR,%STR_TCPPROTO%\2,ProviderFlags,1,08,00,00,00 ; PFL_MATCHES_PROTOCOL_ZERO
+HKR,%STR_TCPPROTO%\2,ChainLen,1,01,00,00,00      ; BASE_PROTOCOL
+HKR,%STR_TCPPROTO%\2,Version,1,01,00,00,00
+HKR,%STR_TCPPROTO%\2,AddressFamily,1,02,00,00,00 ; AF_INET
+HKR,%STR_TCPPROTO%\2,MaxSockAddr,1,10,00,00,00   ; 16
+HKR,%STR_TCPPROTO%\2,MinSockAddr,1,10,00,00,00   ; 16
+HKR,%STR_TCPPROTO%\2,SocketType,1,02,00,00,00    ; SOCK_DGRAM
+HKR,%STR_TCPPROTO%\2,Protocol,1,11,00,00,00      ; IPPROTO_UDP
+HKR,%STR_TCPPROTO%\2,ProtocolMaxOffset,1,00,00,00,00  
+HKR,%STR_TCPPROTO%\2,NetworkByteOrder,1,00,00,00,00 ; BIGENDIAN
+HKR,%STR_TCPPROTO%\2,SecurityScheme,1,00,00,00,00 ; SECURITY_PROTOCOL_NONE
+HKR,%STR_TCPPROTO%\2,MessageSize,1,01,00,00,00
+HKR,%STR_TCPPROTO%\2,ProviderReserved,1,00,00,00,00 
+HKR,%STR_TCPPROTO%\2,ProtocolString,,"MS.w95.spi.udp"
+;2
+HKR,%STR_TCPPROTO%\3,ServiceFlags1,1, \
+09,02,02,00 ;Connectonless, Message_Oriented, Support_Broadcast, Ifs_Handles
+HKR,%STR_TCPPROTO%\3,ServiceFlags2,1,00,00,00,00
+HKR,%STR_TCPPROTO%\3,ServiceFlags3,1,00,00,00,00
+HKR,%STR_TCPPROTO%\3,ServiceFlags4,1,00,00,00,00
+HKR,%STR_TCPPROTO%\3,ProviderFlags,1,0c,00,00,00 ; PFL_MATCHES_PROTOCOL_ZERO, PFL_HIDDEN
+HKR,%STR_TCPPROTO%\3,ChainLen,1,01,00,00,00      ; BASE_PROTOCOL
+HKR,%STR_TCPPROTO%\3,Version,1,01,00,00,00
+HKR,%STR_TCPPROTO%\3,AddressFamily,1,02,00,00,00 ; AF_INET
+HKR,%STR_TCPPROTO%\3,MaxSockAddr,1,10,00,00,00   ; 16
+HKR,%STR_TCPPROTO%\3,MinSockAddr,1,10,00,00,00   ; 16
+HKR,%STR_TCPPROTO%\3,SocketType,1,03,00,00,00    ; SOCK_RAW
+HKR,%STR_TCPPROTO%\3,Protocol,1,00,00,00,00      
+HKR,%STR_TCPPROTO%\3,ProtocolMaxOffset,1,FF,00,00,00 ; 255
+HKR,%STR_TCPPROTO%\3,NetworkByteOrder,1,00,00,00,00 ; BIGENDIAN
+HKR,%STR_TCPPROTO%\3,SecurityScheme,1,00,00,00,00 ; SECURITY_PROTOCOL_NONE
+HKR,%STR_TCPPROTO%\3,MessageSize,1,01,00,00,00
+HKR,%STR_TCPPROTO%\3,ProviderReserved,1,00,00,00,00 
+HKR,%STR_TCPPROTO%\3,ProtocolString,,"MS.w95.spi.raw"
+
+; Winsock 2.0 Install Name Space Provider
+HKR,Ndi\ExecuteAPI\TcpInstall2,,,WSCInstallNameSpace
+HKR,Ndi\ExecuteAPI\TcpInstall2,Identifier,,"DNS Name Space Provider."
+HKR,Ndi\ExecuteAPI\TcpInstall2,Provider,,"%11%\rnr20.dll"
+HKR,Ndi\ExecuteAPI\TcpInstall2,NameSpace,1,0C,00,00,00   ; NS_DNS
+HKR,Ndi\ExecuteAPI\TcpInstall2,Version,1,00,00,00,00   
+HKR,Ndi\ExecuteAPI\TcpInstall2,GUID,1, \
+E2,7D,01,FF, E9,CA, CF,11, 8A,99,00,AA,00,62,C6,09 ; RNR20
+
+[MSTCPRSVP.Ins.WSock2.AddReg]
+; Remove Old GUID for RSVP
+HKR,Ndi\ExecuteAPI\TcpRSVPCleanup,,,WSCDeinstallProvider
+HKR,Ndi\ExecuteAPI\TcpRSVPCleanup,GUID,1, \
+A0,1A,0F,E7, 8B,AB, CF,11, 8C,A3,00,80,5F,48,A1,92 ; RSVPSPOLD
+; Install RSVP Provider
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall,,,WSCInstallProvider
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall,GUID,1, \
+A0,CB,BD,EC, 4a,33, d0,11, BD,88,00,00,c0,82,E6,9A ; RSVPSP
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall,Provider,,"%11%\rsvpsp.dll"
+;Protocol 1
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,ServiceFlags1,1, \
+66,20,02,00 ;Guarenteed_Delivery, Gaurenteed_Order, Graceful_Close, Expedited_Data, Support QOS, Ifs_Handles
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,ServiceFlags2,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,ServiceFlags3,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,ServiceFlags4,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,ProviderFlags,1,08,00,00,00 ; PFL_MATCHES_PROTOCOL_ZERO
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,ChainLen,1,01,00,00,00      ; BASE_PROTOCOL
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,Version,1,01,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,AddressFamily,1,02,00,00,00 ; AF_INET
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,MaxSockAddr,1,10,00,00,00   ; 16
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,MinSockAddr,1,10,00,00,00   ; 16
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,SocketType,1,01,00,00,00    ; SOCK_STREAM
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,Protocol,1,06,00,00,00      ; IPPROTO_TCP
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,ProtocolMaxOffset,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,NetworkByteOrder,1,00,00,00,00 ; BIGENDIAN
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,SecurityScheme,1,00,00,00,00 ; SECURITY_PROTOCOL_NONE
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,MessageSize,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,ProviderReserved,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\1,ProtocolString,,"MS.w95.spi.rsvptcp"
+;Protocol 2
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,ServiceFlags1,1, \
+09,26,02,00 ;Connectionless, Message_Oriented, Support QOS, Support_Broadcast, Support_MultiPoint, Ifs_Handles
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,ServiceFlags2,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,ServiceFlags2,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,ServiceFlags3,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,ServiceFlags4,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,ProviderFlags,1,00,00,00,00 ; PFL_MATCHES_PROTOCOL_ZERO
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,ChainLen,1,01,00,00,00      ; BASE_PROTOCOL
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,Version,1,01,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,AddressFamily,1,02,00,00,00 ; AF_INET
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,MaxSockAddr,1,10,00,00,00   ; 16
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,MinSockAddr,1,10,00,00,00   ; 16
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,SocketType,1,02,00,00,00    ; SOCK_DGRAM
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,Protocol,1,11,00,00,00      ; IPPROTO_UDP
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,ProtocolMaxOffset,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,NetworkByteOrder,1,00,00,00,00 ; BIGENDIAN
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,SecurityScheme,1,00,00,00,00 ; SECURITY_PROTOCOL_NONE
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,MessageSize,1,01,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,ProviderReserved,1,00,00,00,00
+HKR,Ndi\ExecuteAPI\TcpRSVPInstall\ProtocolInfo\2,ProtocolString,,"MS.w95.spi.rsvpudp"
+
+
+[MSTCP.Ins.WSock2.Copy.Sys]
+rnr20.dll
+msafd.dll
+afvxd.vxd
+wshtcp.vxd
+rpcltc3.dll
+rpclts3.dll
+
+[MSTCPRSVP.Ins.WSock2.Copy.Sys]
+Rsvp.exe
+Rapilib.dll
+Rsvpsp.dll
+Routetab.dll
+Qosname.dll
+
+;Executed if WSock1 has been restored or WS2 isn't installed
+;Section name embeded in ndiproc, don't change
+;[MSTCP.Install.OldWSock]
+
+; Executed when TCP/IP is installed bound via NDISATM
+[Install_ATMARPC]
+Copyfiles=Install_ATMARPC.sys
+
+[Install_ATMARPC.sys]
+atmarpc.sys
+
+;============================== Remove =====================================================
+
+[MSTCP.Remove]
+DelReg=MSTCP.Rmv.DelReg
+
+[MSTCP.Rmv.DelReg]
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\Winsock","TCP/IP Winsock Provider",
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\Winsock","Ancillary Function Driver for Winsock"
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\Winsock2","Ancillary Function Driver for Winsock"
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\AFVXD","MSTCP Helper for Winsock",
+HKLM,"Software\Microsoft\Rpc\ClientProtocols",ncacn_ip_tcp
+HKLM,"Software\Microsoft\Rpc\ServerProtocols",ncacn_ip_tcp
+; remove tcp winsock registry info
+HKLM,"System\CurrentControlSet\Control\ServiceProvider\ProviderOrder",MSTCP
+HKLM,"System\CurrentControlSet\Services\VxD\MSTCP",ServiceProvider
+HKLM,"System\CurrentControlSet\Services\VxD\MSTCP",Parameters
+HKLM,"System\CurrentControlSet\Services\Winsock\Parameters",MSTCP
+
+[MSTCP.Remove.WSock2]
+AddReg=MSTCP.Remove.WSock2.AddReg,MSTCPRSVP.Remove.WSock2.AddReg
+
+[MSTCP.Remove.WSock2.AddReg]
+; Winsock 2.0 Deinstall the provider
+HKR,Ndi\ExecuteAPI\TcpRemove1,,,WSCDeinstallProvider
+HKR,Ndi\ExecuteAPI\TcpRemove1,GUID,1, \
+E0,7D,01,FF, E9,CA, CF,11, 8A,99,00,AA,00,62,C6,09 ; MSAFD
+; Winsock 2.0 UnInstall the Name Space Provider
+HKR,Ndi\ExecuteAPI\TcpRemove2,,,WSCUnInstallNameSpace
+HKR,Ndi\ExecuteAPI\TcpRemove2,GUID,1, \
+E2,7D,01,FF, E9,CA, CF,11, 8A,99,00,AA,00,62,C6,09 ; RNR20
+
+[MSTCPRSVP.Remove.WSock2.AddReg]
+; RSVP Deinstall the provider
+HKR,Ndi\ExecuteAPI\TcpRSVPRemove,,,WSCDeinstallProvider
+HKR,Ndi\ExecuteAPI\TcpRSVPRemove,GUID,1, \
+A0,CB,BD,EC, 4a,33, d0,11, BD,88,00,00,c0,82,E6,9A ; RSVPSP
+
+[MSTCP.VnbtOff.Install]
+AddReg=MSTCP.VnbtOff.reg
+
+[MSTCP.VnbtOn.Install]
+AddReg=MSTCP.VnbtOn.reg
+
+[MSTCP.VnbtOn.reg]
+HKR,,DeviceVxDs,,"vtdi.386,vip.386,vtcp.386,vdhcp.386,vnbt.386"
+
+[MSTCP.VnbtOff.reg]
+HKR,,DeviceVxDs,,"vtdi.386,vip.386,vtcp.386,vdhcp.386"
+
+
+;****************************************************************************
+; DEC40
+;****************************************************************************
+[DEC40.ndi]
+AddReg=DEC40.ndi.reg,DEC40.ether
+DeviceID=DEC40
+MaxInstance=1
+[DEC40.ether]
+HKR,NDIS\NDIS2,FileName,,"dllndis.exe"
+HKR,Ndi,DeviceID,,DEC40
+HKR,Ndi\Install,,,"DEC40NDIS.inst"
+
+[DEC40T.ndi]
+AddReg=DEC40.ndi.reg,DEC40.Token
+DeviceID=DEC40T
+MaxInstance=1
+[DEC40.Token]
+HKR,NDIS\NDIS2,FileName,,"dllndist.exe"
+HKR,Ndi,DeviceID,,DEC40T
+HKR,Ndi\Install,,,"DEC40NDIST.inst"
+
+[DEC40.ndi.reg]
+HKR,NDIS,LogDriverName,,DECNET
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+HKR,NDIS\NDIS2,DriverName,,DLL$MAC
+HKR,Ndi\Interfaces,DefUpper,,"netbios"
+HKR,Ndi\Interfaces,UpperRange,,"netbios"
+HKR,Ndi\Interfaces,DefLower,,"ndis2,odi"
+HKR,Ndi\Interfaces,LowerRange,,"ndis2,odi"
+HKR,Ndi\Compatibility,RequireAll,,"VREDIR"
+HKR,Ndi\Remove,,,"DEC40NDIS.rmv"
+; params
+HKR,Ndi\params\LG_BUFFERS,location,,"System\CurrentControlSet\Services\Vxd\DECPW"
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\LG_BUFFERS,ParamDesc,,Large Buffers
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\LG_BUFFERS,flag,1,10,00,00,00
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\LG_BUFFERS,type,,int
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\LG_BUFFERS,default,,16
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\LG_BUFFERS,min,,1
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\LG_BUFFERS,max,,16
+; SM_BUFFERS
+HKR,Ndi\params\SM_BUFFERS,location,,"System\CurrentControlSet\Services\Vxd\DECPW"
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\SM_BUFFERS,ParamDesc,,"Small Buffers"
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\SM_BUFFERS,flag,1,10,00,00,00
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\SM_BUFFERS,type,,int
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\SM_BUFFERS,default,,6
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\SM_BUFFERS,min,,1
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\SM_BUFFERS,max,,16
+; OUTSTANDING
+HKR,Ndi\params\OUTSTANDING,location,,"System\CurrentControlSet\Services\Vxd\DECPW"
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\OUTSTANDING,ParamDesc,,"Out Standing"
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\OUTSTANDING,flag,1,10,00,00,00
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\OUTSTANDING,type,,int
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\OUTSTANDING,default,,32
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\OUTSTANDING,min,,1
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\OUTSTANDING,max,,256
+; DECPARM
+HKR,Ndi\params\DECPARM,location,,"System\CurrentControlSet\Services\Vxd\DECPW"
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\DECPARM,ParamDesc,,"DECnet database path"
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\DECPARM,flag,1,10,00,00,00
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\DECPARM,type,,edit
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\DECPARM,LimitText,,64
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\DECPARM,UpperCase,,1
+HKLM,System\CurrentControlSet\Services\Vxd\DECPW\Ndi\params\DECPARM,default,,"C:\DECNET"
+
+[DEC40NDIS.inst]
+UpdateInis=DEC40NDIS.Inis
+AddReg=DEC40NDIS.inst.reg
+CopyFiles=DEC40NDIS.Copyfiles.sys,DEC40NDIS.Copyfiles.winboot
+
+[DEC40NDIST.inst]
+UpdateInis=DEC40NDIS.Inis
+AddReg=DEC40NDIS.inst.reg
+CopyFiles=DEC40NDIS.Copyfiles.sys,DEC40NDIST.Copyfiles.winboot
+
+[DEC40NDIS.inst.reg]
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,decnet.386
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\DECNET",StaticVxD,,"decnet.386"
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\DECNET",Start,1,00
+
+[DEC40NDIS.Inis]
+system.ini,386Enh,,"TimerCriticalSection=10000"
+system.ini,386Enh,,"NetHeapSize=42"
+system.ini,386Enh,,"DNETHeapSize=64"
+[DEC40NDIS.Copyfiles.sys]
+decnet.386
+;pwconfig.dll
+pwwfwcfg.exe
+pwwfwcfg.dat
+pwwfwcfg.tpl
+pwwfw.hlp
+cmdialog.vbx
+pwicon.exe
+pwgroup.tpl
+[DEC40NDIS.Copyfiles.winboot]
+dllndis.exe
+srm.exe
+[DEC40NDIST.Copyfiles.winboot]
+dllndist.exe
+srm.exe
+
+[DEC40NDIS.rmv]
+DelReg=DEC40NDIS.delreg.rmv
+[DEC40NDIS.delreg.rmv]
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\DECNET"
+
+;****************************************************************************
+; DEC50
+;****************************************************************************
+; DLLNDIS
+
+[DEC50.ndi]
+AddReg=DEC50.ndi.reg,DEC50.ether
+DeviceID=DEC50
+MaxInstance=1
+[DEC50.ether]
+HKR,NDIS\NDIS2,FileName,,"dllndis.exe"
+HKR,Ndi,DeviceID,,DEC50
+HKR,Ndi\Install,,,"DEC50NDIS.inst"
+
+; DLLNDIST
+
+[DEC50T.ndi]
+AddReg=DEC50.ndi.reg,DEC50.Token
+DeviceID=DEC50T
+MaxInstance=1
+[DEC50.Token]
+HKR,NDIS\NDIS2,FileName,,"dllndist.exe"
+HKR,Ndi,DeviceID,,DEC50T
+HKR,Ndi\Install,,,"DEC50NDIST.inst"
+
+; ODI
+
+[DEC50O.ndi]
+AddReg=DEC50.ndi.reg, DEC50O.ODI
+DeviceID=DEC50O
+MaxInstance=1
+[DEC50O.ODI]
+HKR,NDIS\NDIS2,FileName,,"dllodi.exe"
+HKR,Ndi,DeviceID,,DEC50O
+HKR,Ndi\Install,,,"DEC50ODI.inst"
+
+; dlc, depca, ewrk3 - installs ndis; difference is files copied
+
+[DEC50U.ndi]
+AddReg=DEC50.ndi.reg, DEC50U.Upgrade
+DeviceID=DEC50O
+MaxInstance=1
+[DEC50U.Upgrade]
+HKR,NDIS\NDIS2,FileName,,"dllndis.exe"
+HKR,Ndi,DeviceID,,DEC50U
+HKR,Ndi\Install,,,"DEC50UPG.inst"
+
+;; all dec sections share this block
+[DEC50.ndi.reg]
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+HKR,NDIS\NDIS2,DriverName,,DLL$MAC
+HKR,Ndi\Interfaces,DefUpper,,"netbios"
+HKR,Ndi\Interfaces,UpperRange,,"netbios"
+HKR,Ndi\Interfaces,DefLower,,"ndis2,odi"
+HKR,Ndi\Interfaces,LowerRange,,"ndis2,odi"
+HKR,Ndi\Compatibility,RequireAll,,"VREDIR"
+HKR,Ndi\Remove,,,"DEC50NDIS.rmv"
+;
+; autoexec.bat line placements
+;
+; call dec licensing stuff
+HKR,Ndi\autoexec.bat\Order,KeyOrder,,"pwmove"
+
+HKR,Ndi\autoexec.bat\pwmove,Line,,"call %26%\_pwmove.bat %26% `pcsa`"
+HKR,Ndi\autoexec.bat\pwmove,Search,,"*startnet*"
+HKR,Ndi\autoexec.bat\pwmove,Replace,,""
+HKR,Ndi\autoexec.bat\pwmove,Skip,,"*_pwmove*"
+HKR,Ndi\autoexec.bat\pwmove,Position,1,00,00,00,00
+
+
+
+[DEC50NDIS.inst]
+UpdateInis=DEC50NDIS.Inis
+AddReg=DEC50NDIS.inst.reg
+CopyFiles=DEC50NDIS.Copyfiles.sys,DEC50NDIS.Copyfiles.winboot
+
+[DEC50NDIST.inst]
+UpdateInis=DEC50NDIS.Inis
+AddReg=DEC50NDIST.inst.reg
+CopyFiles=DEC50NDIS.Copyfiles.sys,DEC50NDIST.Copyfiles.winboot
+
+; Do Ini updates need to be done?  is Addreg section right?
+[DEC50ODI.inst]
+UpdateInis=DEC50NDIS.Inis
+AddReg=DEC50ODI.inst.reg
+CopyFiles=DEC50NDIS.Copyfiles.sys,DEC50ODI.Copyfiles.winboot
+
+[DEC50UPG.inst]
+UpdateInis=DEC50NDIS.Inis
+AddReg=DEC50NDIS.inst.reg
+CopyFiles=DEC50NDIS.Copyfiles.sys,DEC50UPG.Copyfiles.winboot
+
+[DEC50NDIS.inst.reg]
+HKR,,DevLoader,,*ndis
+;HKLM,"SYSTEM\CurrentControlSet\Control\NetworkProvider\Order",PATHWRKS
+;HKLM,"SYSTEM\CurrentControlSet\Services\PATHWRKS\NetworkProvider",Name,,"PATHWORKS"
+;HKLM,"SYSTEM\CurrentControlSet\Services\PATHWRKS\NetworkProvider",ProviderPath,,"pathwrks.drv"
+;HKLM,"SYSTEM\CurrentControlSet\Services\PATHWRKS\NetworkProvider",Description,,"DEC PATHWORKS"
+;HKLM,"SYSTEM\CurrentControlSet\Services\PATHWRKS\NetworkProvider",NetID,1,00,00,00,00
+;HKLM,"SYSTEM\CurrentControlSet\Services\PATHWRKS\NetworkProvider",Windows31DLL,1,01,00,00,00
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net",dllndis.exe,,low
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net",ipxndis.exe,,low
+HKR,,DeviceVxDs,,decpw.386
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\DECNET",StaticVxD,,"decpw.386"
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\DECNET",Start,1,00
+
+[DEC50NDIST.inst.reg]
+HKR,,DevLoader,,*ndis
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net",dllndist.exe,,low
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net",ipxndis.exe,,low
+HKR,,DeviceVxDs,,decpw.386
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\DECNET",StaticVxD,,"decpw.386"
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\DECNET",Start,1,00
+
+[DEC50ODI.inst.reg]
+HKR,,DevLoader,,*ndis
+;HKLM,"SYSTEM\CurrentControlSet\Control\NetworkProvider\Order",PATHWRKS
+;HKLM,"SYSTEM\CurrentControlSet\Services\PATHWRKS\NetworkProvider",Name,,"PATHWORKS"
+;HKLM,"SYSTEM\CurrentControlSet\Services\PATHWRKS\NetworkProvider",ProviderPath,,"pathwrks.drv"
+;HKLM,"SYSTEM\CurrentControlSet\Services\PATHWRKS\NetworkProvider",Description,,"DEC PATHWORKS"
+;HKLM,"SYSTEM\CurrentControlSet\Services\PATHWRKS\NetworkProvider",NetID,1,00,00,00,00
+;HKLM,"SYSTEM\CurrentControlSet\Services\PATHWRKS\NetworkProvider",Windows31DLL,1,01,00,00,00
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net",dllodi.exe,,low
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net",ipxodi.exe,,low
+HKR,,DeviceVxDs,,decpw.386
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\DECNET",StaticVxD,,"decpw.386"
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\DECNET",Start,1,00
+
+
+[DEC50NDIS.Inis]
+system.ini,386Enh,,"NetHeapSize=64"
+system.ini,386Enh,,"DNETCriticalSection=FALSE"
+system.ini,386Enh,,"PSPIncrement=5"
+system.ini,386Enh,,"UniqueDOSPSP=ON"
+system.ini,386Enh,,"TimerCriticalSection=10000"
+system.ini,386Enh,,"DNETHeapSize=16"
+system.ini,386Enh,,"NumHCBs=64"
+system.ini,Network,,"logonvalidated=no"
+system.ini,Network,,"LMAnnounce=Yes"
+[DEC50NDIS.Copyfiles.sys]
+;pathwrks.drv,,,16
+;pwconfig.dll,,,16
+decpw.386,,,16
+
+[DEC50NDIS.Copyfiles.winboot]
+
+dllndis.exe,dllndis.new,,16
+srm.exe,srm.new,,16
+
+
+
+
+pcsa.exe,,,16
+select.exe,,,16
+_pwmove.bat,,,16
+instl50.dll,,,16
+instl51.dll,,,16
+deccore.vxd,,,16
+declicl.vxd,,,16
+
+[DEC50NDIST.Copyfiles.winboot]
+
+dllndist.exe,dllndist.new,,16
+srm.exe,srm.new,,16
+
+
+
+
+pcsa.exe,,,16
+select.exe,,,16
+_pwmove.bat,,,16
+instl50.dll,,,16
+instl51.dll,,,16
+deccore.vxd,,,16
+declicl.vxd,,,16
+
+[DEC50ODI.Copyfiles.winboot]
+dllodi.exe,,,16
+pcsa.exe,,,16
+select.exe,,,16
+_pwmove.bat,,,16
+
+srm.exe,srm.new,,16
+
+
+
+instl50.dll,,,16
+instl51.dll,,,16
+deccore.vxd,,,16
+declicl.vxd,,,16
+
+[DEC50UPG.Copyfiles.winboot]
+
+dllndis.exe,dllndis.new,,16
+srm.exe,srm.new,,16
+
+
+
+
+pcsa.exe,,,16
+select.exe,,,16
+_pwmove.bat,,,16
+instl50.dll,,,16
+instl51.dll,,,16
+deccore.vxd,,,16
+declicl.vxd,,,16
+
+
+[DEC50NDIS.rmv]
+DelReg=DEC50NDIS.delreg.rmv
+[DEC50NDIS.delreg.rmv]
+HKLM,"SYSTEM\CurrentControlSet\Control\NetworkProvider\Order",PATHWRKS
+HKLM,"SYSTEM\CurrentControlSet\Services\PATHWRKS"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net",dllndis.exe
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net",dllndist.exe
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net",ipxndis.exe
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\DECNET"
+
+;****************************************************************************
+; NDISBAN
+;****************************************************************************
+;
+; ETHERNET
+; 
+[NDISBAN.ndi]
+AddReg=NDISBAN.ndi.reg,BAN.ndi.reg
+DeviceID=NDISBAN
+MaxInstance=1
+
+[NDISBAN.ndi.reg]
+HKR,Ndi,DeviceID,,NDISBAN
+HKR,NDIS,LogDriverName,,NDISBAN
+HKR,NDIS\NDIS2,DriverName,,NDISBAN$
+;
+; autoexec.bat line placements
+;
+; ndis ban
+HKR,Ndi\autoexec.bat\ndisban,Line,,"ndisban"
+HKR,Ndi\autoexec.bat\ndisban,Search,,"*ban /nc*"
+HKR,Ndi\autoexec.bat\ndisban,Replace,,""
+HKR,Ndi\autoexec.bat\ndisban,Skip,,"*ndisban*"
+HKR,Ndi\autoexec.bat\ndisban,Position,1,01,00,00,00
+; redirall
+HKR,Ndi\autoexec.bat\redirall,Line,,"redirall"
+HKR,Ndi\autoexec.bat\redirall,Search,,"*ndisban*"
+HKR,Ndi\autoexec.bat\redirall,Replace,,""
+HKR,Ndi\autoexec.bat\redirall,Skip,,"*redirall*"
+HKR,Ndi\autoexec.bat\redirall,Position,1,01,00,00,00
+
+;
+; TOKEN RING
+;
+
+[NDTOKBAN.ndi]
+AddReg=NDTOKBAN.ndi.reg,BAN.ndi.reg
+DeviceID=NDTOKBAN
+MaxInstance=1
+
+[NDTOKBAN.ndi.reg]
+HKR,Ndi,DeviceID,,NDTOKBAN
+HKR,NDIS,LogDriverName,,NDTOKBAN
+HKR,NDIS\NDIS2,DriverName,,NDISBAN$
+;
+; autoexec.bat line placements
+;
+; ndis ban
+HKR,Ndi\autoexec.bat\ndisban,Line,,"ndtokban"
+HKR,Ndi\autoexec.bat\ndisban,Search,,"*ban /nc*"
+HKR,Ndi\autoexec.bat\ndisban,Replace,,""
+HKR,Ndi\autoexec.bat\ndisban,Skip,,"*ndtokban*"
+HKR,Ndi\autoexec.bat\ndisban,Position,1,01,00,00,00
+; redirall
+HKR,Ndi\autoexec.bat\redirall,Line,,"redirall"
+HKR,Ndi\autoexec.bat\redirall,Search,,"*ndtokban*"
+HKR,Ndi\autoexec.bat\redirall,Replace,,""
+HKR,Ndi\autoexec.bat\redirall,Skip,,"*redirall*"
+HKR,Ndi\autoexec.bat\redirall,Position,1,01,00,00,00
+
+;
+; COMMON BANYAN SECTIONS
+;
+
+[BAN.ndi.reg]
+HKR,Ndi,MaxInstance,,0  ;prevent multiple bindings
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+HKR,Ndi\Interfaces,DefUpper,,"vines"
+HKR,Ndi\Interfaces,DefLower,,"ndis2,odi"
+HKR,Ndi\Interfaces,LowerRange,,"ndis2,odi"
+HKR,Ndi\Interfaces,UpperRange,,"vines"
+HKR,Ndi\Install,,,"NDISBAN.inst"
+HKR,Ndi\Remove,,,"NDISBAN.rmv"
+;
+; autoexec.bat line placements
+;
+HKR,Ndi\autoexec.bat\Order,KeyOrder,,"netinit,ban,ndisban,redirall,netstart,arswait,login"
+; net init
+HKR,Ndi\autoexec.bat\netinit,Line,,"net initialize"
+HKR,Ndi\autoexec.bat\netinit,Search,,"*ban*"
+HKR,Ndi\autoexec.bat\netinit,Replace,,""
+HKR,Ndi\autoexec.bat\netinit,Skip,,"*net init*"
+HKR,Ndi\autoexec.bat\netinit,Position,1,00,00,00,00
+HKR,Ndi\autoexec.bat\netinit,LDID,1,1A,00,00,00     ;winboot dir (26)
+; ban
+HKR,Ndi\autoexec.bat\ban,Line,,"ban /nc"
+HKR,Ndi\autoexec.bat\ban,Search,,"*net init*"
+HKR,Ndi\autoexec.bat\ban,Replace,,"*ban*"
+HKR,Ndi\autoexec.bat\ban,Skip,,"*ban /nc*"
+HKR,Ndi\autoexec.bat\ban,Position,1,01,00,00,00
+; net start
+HKR,Ndi\autoexec.bat\netstart,Line,,"net start"
+HKR,Ndi\autoexec.bat\netstart,Search,,"*redirall*"
+HKR,Ndi\autoexec.bat\netstart,Replace,,""
+HKR,Ndi\autoexec.bat\netstart,Skip,,"*net start*"
+HKR,Ndi\autoexec.bat\netstart,Position,1,01,00,00,00
+HKR,Ndi\autoexec.bat\netstart,LDID,1,1A,00,00,00     ;winboot dir (26)
+; arswait
+HKR,Ndi\autoexec.bat\arswait,Line,,"arswait"
+HKR,Ndi\autoexec.bat\arswait,Search,,"*net start*"
+HKR,Ndi\autoexec.bat\arswait,Replace,,""
+HKR,Ndi\autoexec.bat\arswait,Skip,,"*arswait*"
+HKR,Ndi\autoexec.bat\arswait,Position,1,01,00,00,00
+; login
+HKR,Ndi\autoexec.bat\login,Line,,"z:login"
+HKR,Ndi\autoexec.bat\login,Search,,"*arswait*"
+HKR,Ndi\autoexec.bat\login,Replace,,"*login*"
+HKR,Ndi\autoexec.bat\login,Skip,,"*z:login*"
+HKR,Ndi\autoexec.bat\login,Position,1,01,00,00,00
+
+
+[NDISBAN.inst]
+AddReg=NDISBAN.inst.reg
+UpdateAutoBat=NDISBAN.autobat
+
+[NDISBAN.inst.reg]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net",dynamic,1,01,00,00,00
+
+[NDISBAN.autobat]
+CmdDelete=net
+CmdDelete=netbind
+CmdDelete=call
+
+[NDISBAN.rmv]
+DelReg=NDISBAN.rmv.reg
+[NDISBAN.rmv.reg]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Network\Real Mode Net",dynamic
+
+;****************************************************************************
+; NFSLINK
+;****************************************************************************
+[NFSLINK.ndi]
+AddReg=NFSLINK.ndi.reg
+DeviceID=NFSLINK
+MaxInstance=1
+[NFSLINK.ndi.reg]
+HKR,Ndi,DeviceID,,NFSLINK
+HKR,NDIS,LogDriverName,,NFSLINK
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0A
+HKR,NDIS\NDIS2,SectionName,,"NFS-NDIS"
+HKR,NDIS\NDIS2,DriverName,,NFSLINK$
+HKR,NDIS\NDIS2,FileName,,"nfs-ndis.sys,pcnfs.sys,sockdrv.sys"
+HKR,Ndi\Interfaces,DefUpper,,"pcnfs"
+HKR,Ndi\Interfaces,DefLower,,"ndis2,odi"
+HKR,Ndi\Interfaces,LowerRange,,"ndis2,odi"
+HKR,Ndi\Interfaces,UpperRange,,"pcnfs"
+HKR,Ndi\Install,,,NFSLINK.inst
+[NFSLINK.inst]
+CopyFiles=NFSLINK.copyfiles
+UpdateInis=NFSLINK.inis
+UpdateAutoBat=NFSLINK.autobat
+UpdateCfgSys=NFSLINK.cfgsys
+
+[NFSLINK.inis]
+system.ini,"Network Drivers",,"pcnfs.sys=/F30 /C^"
+
+[NFSLINK.autobat]
+CmdDelete=netbind
+
+[NFSLINK.cfgsys]
+DevDelete=pcnfs.sys
+DevDelete=sockdrv.sys
+DevDelete=protman.sys
+DevDelete=nfs-ndis.sys
+
+[NFSLINK.copyfiles]
+nfs-ndis.sys,,,16
+pcnfs.sys,,,16
+sockdrv.sys,,,16
+
+
+[WSOCK.sys.copyfiles]
+;wsock32.dll is copied by netdi directly to deal with chaining issues.
+wsock.vxd
+wsock2.vxd
+ws2thk.dll
+ws2_32.dll
+ws2help.dll
+mswsock.dll
+wsasrv.exe
+wscthunk.dll
+mswsosp.dll
+
+;*********************************************
+;    WINSOCK2 INSTALL <netdi calls>
+;*********************************************
+; Note: WSock32.dll and winsock.dll are installed by NetDi code 
+; directly to work around chaining issues
+[WSock2.Install]
+CopyFiles=WSOCK.sys.copyfiles
+AddReg=WSock2.Install.AddReg
+
+[WSock2.Install.AddReg]
+;Install the OSP protocol for WS 1.0 support
+HKLM,%STR_QUEUEDAPI%\Item0\1,,,WSCInstallProvider
+HKLM,%STR_QUEUEDAPI%\Item0\1,GUID,1, \
+E1,7D,01,FF, E9,CA, CF,11, 8A,99,00,AA,00,62,C6,09 ; MSWSOSP
+HKLM,%STR_QUEUEDAPI%\Item0\1,Provider,,"%11%\mswsosp.dll"
+;
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,ServiceFlags1,1,09,06,02,00 ;Connectonless, Message_Oriented, Support_Broadcast, Support_Multipoint, Ifs_Handles
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,ServiceFlags2,1,00,00,00,00
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,ServiceFlags3,1,00,00,00,00
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,ServiceFlags4,1,00,00,00,00
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,ProviderFlags,1,0c,00,00,00 ; PFL_MATCHES_PROTOCOL_ZERO, PFL_HIDDEN
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,ChainLen,1,01,00,00,00      ; BASE_PROTOCOL
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,Version,1,01,00,00,00
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,AddressFamily,1,ce,fa,ce,fa ; bogus address family (i.e AF_xxx)
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,MaxSockAddr,1,10,00,00,00   ; 16
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,MinSockAddr,1,0E,00,00,00   ; 14
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,SocketType,1,ce,fa,ce,fa    ; bogus socket type (i.e. SOCK_xxx)
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,Protocol,1,ce,fa,ce,fa      ; bogus protocol
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,ProtocolMaxOffset,1,00,00,00,00
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,NetworkByteOrder,1,00,00,00,00 ; BIGENDIAN
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,SecurityScheme,1,00,00,00,00 ; SECURITY_PROTOCOL_NONE
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,MessageSize,1,40,02,00,00
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,ProviderReserved,1,00,00,00,00
+HKLM,%STR_QUEUEDAPI%\Item0\1\ProtocolInfo\1,ProtocolString,,"MS.w95.spi.osp"
+
+;*********************************************
+;    WINSOCK2 FORCE INSTALL <netdi calls>
+;*********************************************
+[WSock2.ForceInstall]
+; Called in additon to WSock2.Install when user chooses to force WSOCK2 to be installed
+CopyFiles=Wsock2Force.sys.copy, WSock2Force.win.copy
+DelFiles=WSock2Force.sys.delfile
+
+[WSock2Force.addreg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\RunOnce,"@NetDi_RegFlush",,"FlushRegistry"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RunOnce,NetSetup,,"rundll.exe netdi.dll,FirstBootCall"
+[WSock2Force.sys.copy]
+wsock32.dll
+[WSock2Force.win.copy]
+winsock.dll
+[WSock2Force.sys.delfile]
+winsock.dll
+
+;*********************************************
+;    WINSOCK BACKUP
+;*********************************************
+; Executed first time setting up over Winsock 1.X
+[WSock.Backup]
+BackupFile=%11%\owsock.vxo, %11%\wsock.vxd
+BackupFile=%11%\oafvxd.vxo,%11%\afvxd.vxd
+BackupFile=%11%\owshtcp.vxo,%11%\wshtcp.vxd
+BackupFile=%11%\owsipx.vxo,%11%\wsipx.vxd
+BackupFile=%11%\owsock32.dlo, %11%\wsock32.dll
+BackupFile=%11%\owsasrv.exo, %11%\wsasrv.exe
+BackupFile=%25%\owinsoc.dlo,%25%\winsock.dll
+BackupFile=%11%\owinsoc.dlo,%11%\winsock.dll
+;
+BackupFile=%25%\osnmpapi.dlo,%25%\snmpapi.dll
+BackupFile=%25%\oinetmib.dlo,%25%\inetmib1.dll
+
+; Netdi calls this directly
+[WSock.SetupRestoreAdd]
+AddReg=WSock.SetupRestoreAdd.reg
+
+[WSock.SetupRestoreAdd.reg]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Uninstall\MSWinsock",DisplayName,,%RESTORE_WINSOCK_STR%
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Uninstall\MSWinsock",UninstallString,,"rundll.exe netdi.dll,RestoreWSock"
+
+;*********************************************
+;    WINSOCK RESTORE
+;*********************************************
+; Executed if necessary to restore Winsock 1.X
+[WSock.Restore]
+DelReg=WSock.RemoveRestoreOption
+UpdateInis=WSock.Restore.DelFiles
+RestoreFile=%11%\wsock.vxd,%11%\owsock.vxo 
+RestoreFile=%11%\afvxd.vxd,%11%\oafvxd.vxo
+RestoreFile=%11%\wshtcp.vxd,%11%\owshtcp.vxo
+RestoreFile=%11%\wsipx.vxd,%11%\owsipx.vxo
+RestoreFile=%11%\wsock32.dll,%11%\owsock32.dlo 
+RestoreFile=%25%\winsock.dll,%25%\owinsoc.dlo
+RestoreFile=%11%\wsasrv.exe,%11%\owsasrv.exo
+;
+RestoreFile=%25%\snmpapi.dll,%25%\osnmpapi.dlo
+RestoreFile=%25%\inetmib1.dll,%25%\oinetmib.dlo
+
+[WSock.Restore.DelFiles]
+wininit.ini, Rename,,"NUL=%11%\WS2_32.dll",1
+
+[WSock.RemoveRestoreOption]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Uninstall\MSWinsock"
+
+[WSock.DoUninstallSave]
+;This section is never executed, but is necessary for uninstall to work
+CopyFiles=WSock.DoUninstallSaveCopy
+[WSock.DoUninstallSaveCopy]
+_msrws32.dll
+
+;****************************************************************************
+; Destination Directories
+;****************************************************************************
+[DestinationDirs]
+NetTrans.CopyFiles          = 11 ; LDID-SYS
+NETBEUI.CopyFiles           = 11 ; LDID_SYS
+NWLINK.CopyFiles            = 11 ; LDID_SYS
+NWLINK.Ins.WSock2.CopyFiles = 11 ; LDID_SYS
+MSTCP.CopyFiles.sys         = 11 ; LDID_SYS
+MSTCP.CopyFiles.win         = 25 ; LDID_SHARED
+MSTCP.Ins.WSock2.Copy.Sys   = 11 ; LDID_SYS
+MSTCPRSVP.Ins.WSock2.Copy.Sys = 11; LDID_SYS
+MSTCP.Ins.OldWSock.CopyFiles = 11 ; LDID_SYS
+NFSLINK.copyfiles           = 26 ; LDID_WINBOOT
+DEC50NDIS.Copyfiles.sys     = 11 ; LDID_SYS
+DEC50NDIS.Copyfiles.winboot = 26 ; LDID_WINBOOT
+DEC50NDIST.Copyfiles.winboot= 26   
+DEC50ODI.Copyfiles.winboot  = 26
+DEC50UPG.Copyfiles.winboot  = 26
+WSOCK.sys.copyfiles         = 11 ; LDID_SYS
+NWNBLINK.Copy               = 11 ; LDID_SYS
+WSock.Restore.DelFiles      = 11 
+WSock2Force.sys.copy            = 11 
+WSock2Force.win.copy            = 25 ; LDID_SHARED
+WSock2Force.sys.delfile         = 11 
+WSock.DoUninstallSaveCopy   = 11 
+Install_ATMARPC.sys = 11
+
+[SourceDisksNames]
+;NOTE: USE ONLY DISK NUMBERS 45-54:
+45=%DSK_DEC%,      "", 0001
+46=%DSK_NFS%,      "", 0001
+
+[SourceDisksFiles]
+;pathwrks.drv    =45,,1024
+decpw.386       =45,,1024
+decnet.386      =45,,1024
+pwwfwcfg.exe    =45,,1024
+pwwfwcfg.dat    =45,,1024
+pwwfwcfg.tpl    =45,,1024
+pwwfw.hlp       =45,,1024 
+cmdialog.vbx    =45,,1024
+pwicon.exe      =45,,1024
+pwgroup.tpl     =45,,1024
+;pwconfig.dll    =45,,1024
+nfs-ndis.sys    =46,,1024
+pcnfs.sys       =46,,1024
+sockdrv.sys     =46,,1024
+dllodi.exe      =45,,1024
+dllndis.exe     =45,,1024
+dllndist.exe    =45,,1024
+srm.exe         =45,,1024
+
+
+
+
+
+
+
+
+
+
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+V_MS = "Microsoft"
+V_CLASSNAME = "Protocolo de red"
+STR_QUEUEDAPI = "Software\Microsoft\Windows\CurrentVersion\Setup\NetSetup\QueuedAPI"
+STR_TCPPROTO = "Ndi\ExecuteAPI\TcpInstall\ProtocolInfo"
+
+; Manufacturers
+V_BANYAN = "Banyan"
+V_SUN = "SunSoft"
+V_DEC = "Digital Equipment (DEC)"
+V_NOVELL = "Novell"
+V_IBM = "IBM"
+
+; Source Disks
+DSK_DEC = "Disco del controlador DEC PATHWORKS para Windows"
+DSK_NFS = "Disco del controlador PC-NFS para Windows"
+
+; Devices
+IPXODI.DeviceDesc = "Protocolo Novell IPX ODI"
+NETBEUI.DeviceDesc = "NetBEUI"
+NWLINK.DeviceDesc = "Protocolo compatible con IPX/SPX"
+NWNBLINK.DeviceDesc = "Compatibilidad con NETBIOS para protocolo compatible con IPX/SPX"
+MSTCP.DeviceDesc = "TCP/IP"
+NFSLINK.DeviceDesc = "Protocolo PC-NFS"
+NDISBAN.DeviceDesc = "Protocolo Banyan VINES ethernet"
+NDTOKBAN.DeviceDesc = "Protocolo Banyan VINES token ring"
+DEC40.DeviceDesc = "PATHWORKS V4.1 Ethernet"
+DEC40T.DeviceDesc = "PATHWORKS V4.1 Token Ring"
+DEC50.DeviceDesc = "PATHWORKS V5.0 y superior Ethernet"
+DEC50T.DeviceDesc = "PATHWORKS V5.0 y superior Tokenring"
+IBMDLC.DeviceDesc = "Protocolo existente IBM DLC"
+DEC50O.DeviceDesc = "PATHWORKS V5.0 y superior Ethernet (ODI)"
+DEC50U.DeviceDesc = "Actualización DLC, DEPCA, EWRK3 PATHWORKS V5.0 y superior a NDIS"
+
+; Parameters
+NETBEUI_PARAM_SESSIONS = "Nº máximo de sesiones"
+NETBEUI_PARAM_NCBS = "NCBS"
+NWLINK_PARAM_FLAGS = "Indicadores"
+NWLINK_PARAM_NETWORK_ID = "Dirección de red"
+NWLINK_PARAM_FRAMETYPE = "Tipo de trama"
+NWLINK_PARAM_MAXCONNECT = "Nº máximo de conexiones"
+NWLINK_PARAM_MAXSOCKETS = "Nº máximo de sockets"
+NWLINK_PARAM_FORCEEVEN = "Paquetes de igual longitud"
+NWLINK_PARAM_CACHESIZE = "Enrutamiento de origen"
+PARAM_YES = "Sí"
+PARAM_NO = "No"
+PARAM_OFF = "Desactivado"
+PARAM_NONE = "Ninguno"
+PARAM_16 = "Caché de 16 entradas (se recomienda)"
+PARAM_32 = "Caché de 32 entradas"
+PARAM_64 = "Caché de 64 entradas"
+MSTCP_PARAM_ALLOWATM = "Permitir enlace a ATM"
+
+; Context help
+NETBEUI_HELP = "NetBEUI es un protocolo que puede utilizar para conectarse a servidores Windows NT, Windows para Trabajo en Grupo o LAN Manager."
+NWLINK_HELP = "El protocolo compatible con IPX/SPX es un protocolo que utilizan los servidores NetWare y Windows NT, y los equipos Windows 95 para comunicarse."
+NWNBLINK_HELP = "NetBIOS sobre el protocolo compatible con IPX/SPX le permite ejecutar aplicaciones NetBIOS sobre el protocolo compatible IPX/SPX."
+MSTCP_HELP = "El protocolo TCP/IP se utiliza para conectarse a Internet y a redes de área extensa (WAN)."
+
+;Misc
+RESTORE_WINSOCK_STR = "Restablecer la configuración de Winsock 1.1"

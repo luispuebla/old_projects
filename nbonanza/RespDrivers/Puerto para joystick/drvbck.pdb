@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Puerto para joystick
+infpath=JOYSTICK.INF                                                                    
+infsection=MSJSTICK
+MatchingDeviceId=*PNPB02F
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sonido, vídeo y juegos
+filenum=5
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

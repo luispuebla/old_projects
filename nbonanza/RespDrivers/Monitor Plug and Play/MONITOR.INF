@@ -1,0 +1,1738 @@
+
+
+
+; MONITOR.INF
+;
+; This is Setup information file for monitors 
+; supported in the Windows 95 1 product.
+;
+; Copyright (c) 1994-1999, Microsoft Corporation
+
+[version]
+LayoutFile=Layout.inf,Layout1.inf,Layout2.inf
+signature="$CHICAGO$"
+Class=Monitor
+ClassGUID={4d36e96e-e325-11ce-bfc1-08002be10318}
+Provider=%MS%
+SetupClass=BASE
+CatalogFile=monitor.cat
+
+[DestinationDirs]
+DefaultDestDir    = 11          ; LDID_SYS
+monitor.infs.copy = 17          ; LDID_INF
+
+
+; Base Install Sections
+;-------------------------------------------------
+[BaseWinOptions]
+MonitorBase
+
+[MonitorBase]
+CopyFiles=monitor.infs.copy
+
+[monitor.infs.copy]
+monitor.inf
+monitor2.inf
+monitor3.inf
+monitor4.inf
+monitor6.inf
+monitor7.inf
+monitr10.inf
+monitr11.inf
+
+
+[SysCfgClasses]
+Monitor, %Unknown.DeviceDesc%,MONITOR,4,%MonitorClassName%   ; Default to "Unknown Monitor"
+
+
+; Install class "Monitor"
+;-------------------------------------------------
+[ClassInstall]
+AddReg=ClassAddReg
+
+[ClassAddReg]
+HKR,,,,%MonitorClassName%
+HKR,,Installer,,"SetupX.Dll, Monitor_ClassInstaller"
+HKR,,Icon,,"-1"
+
+[ClassDelReg]
+
+
+[ClassInstall32.NT]
+AddReg=monitor_class_addreg
+
+[monitor_class_addreg]
+HKR,,,,%MonitorClassName%
+HKR,,Installer32,,"Desk.Cpl,MonitorClassInstaller"
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,"1"
+HKR,,TroubleShooter-0,,"tshoot.chm,tsdisp.htm"
+HKR,,SilentInstall,,1
+
+; Monitors to hide from pick list
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect=Monitor\Default_Monitor
+
+
+; Manufacturer List
+;-------------------------------------------------
+[Manufacturer]
+%Generic%=Generic
+%AST%=AST
+%Aamazing%=Aamazing
+%Actix%=Actix
+%Adara%=Adara
+%ADI%=ADI
+%AOC%=AOC
+%Bus%=Bus
+%Carroll%=Carroll
+%Colorgraphic%=Colorgraphic
+%Compeq%=Compeq
+%Conrac%=Conrac
+%Cordata%=Cordata
+%Darius%=Darius
+%Everex%=Everex
+%Falco%=Falco
+%Fora%=Fora
+%Forefront%=Forefront
+%Fujikama%=Fujikama
+%Gateway%=Gateway
+%GoldenDragon%=GoldenDragon
+%Goldstar%=Goldstar
+%HCI%=HCI
+%Iiyama%=Iiyama
+%Ikegami%=Ikegami
+%Image%=Image
+%Intra%=Intra
+%Iocomm%=Iocomm
+%JVC%=JVC
+%KFC%=KFC
+%KLH%=KLH
+%LeadingTechnology%=LeadingTechnology
+%Link%=Link
+%LiteOn%=LiteOn
+%miro%=miro
+%Zenith%=Zenith
+
+
+; Manufacturer Sections
+;-------------------------------------------------
+
+[Generic]
+%Unknown.DeviceDesc%=Unknown.Install,Monitor\Default_Monitor    ; for auto-install
+%Unknown.DeviceDesc%=Unknown.Install    ; for pick list
+%*PNP09FF.DeviceDesc%=VESADDC.Install,*PNP09FF
+
+%Laptop640.DeviceDesc%=Laptop640.Install,Monitor\MS_0001
+%Laptop800.DeviceDesc%=Laptop800.Install,Monitor\MS_0002
+%Laptop1024.DeviceDesc%=Laptop1024.Install,Monitor\MS_0003
+
+%TVGen.DeviceDesc%=640.Install,Monitor\*PNP09FE
+
+%640.DeviceDesc%=640.Install,Monitor\MS_0640
+%800.DeviceDesc%=800.Install,Monitor\MS_0800
+%1024.DeviceDesc%=1024.Install,Monitor\MS_1024
+%1280.DeviceDesc%=1280.Install,Monitor\MS_1280
+%1600.DeviceDesc%=1600.Install,Monitor\MS_1600
+
+%640.VESA75%=640_VESA75.Install, MonID_640@75
+%800.VESA75%=800_VESA75.Install, MonID_800@75
+%1024.VESA75%=1024_VESA75.Install, MonID_1024@75
+%1280.VESA75%=1280_VESA75.Install, MonID_1280@75
+
+[AST]
+%AST4V%=AST4V, Monitor\AST8001
+%AST4I%=AST4I, Monitor\AST8002
+%AST4N%=AST4N, Monitor\AST8003
+%AST4L%=AST4L, Monitor\AST8004
+%AST5L%=AST5L, Monitor\AST8005
+%AST7L%=AST7L, Monitor\AST8006
+%AST7H%=AST7H, Monitor\AST8007
+%AST20H%=AST20H, Monitor\AST8008
+%AST4Ls%=AST4Ls, Monitor\AST8009
+%AST5V%=AST5V, Monitor\AST800A
+
+[Aamazing]
+%CM-8426%=CM-8426.Install, MonID_CM-8426
+%MS-8431%=MS-8431.Install, MonID_MS-8431
+
+[Actix]
+%CX1557%=CX1557.Install, MonID_CX1557
+
+[Adara]
+%AML-1402%=AML-1402.Install, MonID_AML-1402
+%AML-2001%=AML-2001.Install, MonID_AML-2001
+
+[ADI]
+%SM-5514B%=SM-5514B.Install, MonID_SM5514B
+%SM-5514A%=SM-5514A.Install, MonID_SM5514A
+%SM-5514E%=SM-5514E.Install, MonID_SM-5514E
+%SM-5515%=SM-5515.Install, MonID_SM-5515
+%ADI4GP%=ADI4GP, MonID_ADI4GP
+%ADI4V% =ADI4GP, MonID_ADI4V
+%ADI5AP%=ADI4GP, MonID_ADI5AP
+%ADI5EP%=ADI4GP, MonID_ADI5EP
+
+[AOC]
+%CM-324%=CM-324.Install, MonID_CM-324
+%CM-325%=CM-325.Install, MonID_CM-325
+%CM-326%=CM-326.Install, MonID_CM-326
+
+[Bus]
+%Bus_VGA%=Bus_VGA.Install, MonID_BUS_VGA
+
+[Carroll]
+%CT1381A%=CT1381A.Install, MonID_CT1381A
+
+[Colorgraphic]
+%EG2040%=EG2040.Install, MonID_EG2040
+
+[Compeq]
+%CT-1458%=CT-1458.Install, MonID_CT-1458
+%CT-1958%=CT-1958.Install, MonID_CT-1958
+
+[Conrac]
+%7250%=7250.Install, MonID_7250
+%7351%=7351.Install, MonID_7351
+%7214%=7214.Install, MonID_7214
+%7241%=7241.Install, MonID_7241
+%7550%=7550.Install, MonID_7550
+%9250%=9250.Install, MonID_9250
+%7126%=7126.Install, MonID_7126
+%7211%=7211.Install, MonID_7211
+
+[Cordata]
+%CMC-141M%=CMC-141M.Install, MonID_CMC-141M
+%CMC-1500BF%=CMC-1500BF.Install, MonID_CMC-1500BF
+%CMC-1500M%=CMC-1500M.Install, MonID_CMC-1500M
+%CMC-1500TF%=CMC-1500TF.Install, MonID_CMC-1500TF
+%CMC-1700M%=CMC-1700M.Install, MonID_CMC-1700M
+%CMC-2100H%=CMC-2100H.Install, MonID_CMC-2100H
+%CMC-2100M%=CMC-2100M.Install, MonID_CMC-2100M
+
+[Darius]
+%TSM-1431%=TSM-1431.Install, MonID_TSM-1431
+
+[Everex]
+%Eversync_SVGA%=Eversync_SVGA.Install, MonID_Eversync_SVGA
+
+[Falco]
+%FMS%=FMS.Install, MonID_FMS
+
+[Fora]
+%MON-7C5%=MON-7C5.Install, MonID_MON-7C5
+
+[Forefront]
+%MTS-9608S%=MTS-9608S.Install, MonID_MTS-9608S
+
+[Fujikama]
+%PVGA-1024A%=PVGA-1024A.Install, MonID_PVGA-1024A
+
+[Gateway]
+%14svga%=14svga.Install, MonID_14svga
+%cs1024%=cs1024.Install, MonID_cs1024
+%cs1024ni%=cs1024ni.Install, MonID_cs1024ni
+%cs1024ni2g%=cs1024ni2g.Install, MonID_cs1024ni2g
+%cs1572dgm%=cs1572dgm.Install, MonID_cs1572dgm
+%cs1572dg%=cs1572dg.Install, MonID_1572dg
+%cs1572fs%=cs1572fs.Install, MonID_1572fs
+%Vivitron15%=Vivitron15.Install, MonID_Vivitron15
+%cs17762leg%=cs17762leg.Install, MonID_cs17762leg
+%Vivitron17%=Vivitron17.Install, MonID_Vivitron17
+%Vivitron20%=Vivitron20.Install, MonID_Vivitron20
+
+[GoldenDragon]
+%TY-1411%=TY-1411.Install, MonID_TY-1411
+%TY-2015%=TY-2015.Install, MonID_TY-2015
+
+[Goldstar]
+%1423%=1423.Install, MonID_1423
+%1423+VGA%=1423+VGA.Install, MonID_1423+VGA
+%1453_Plus%=1453_Plus.Install, MonID_1453_Plus
+%1460+VGA%=1460+VGA.Install, MonID_1460+VGA
+%1470_Plus%=1470_Plus.Install, MonID_1470_Plus
+%1490%=1490.Install, MonID_1490
+%1510%=1510.Install, MonID_1510
+%1620%=1620.Install, MonID_1620
+%1710%=1710.Install, MonID_1710
+%1725%=1725.Install, MonID_1725
+
+[HCI]
+%Maxiscan%=Maxiscan.Install, MonID_Maxiscan
+
+[Iiyama]
+%DR-3114%=DR-3114.Install, MonID_DR-3114
+%MF-5014A%=MF-5014A.Install, MonID_MF-5014A
+%MF-5015A%=MF-5015A.Install, MonID_MF-5015A
+%MF-5017%=MF-5017.Install, MonID_MF-5017
+%MF-5021%=MF-5021.Install, MonID_MF-5021
+%MF-5115%=MF-5115.Install, MonID_MF-5115
+%MF-5117%=MF-5117.Install, MonID_MF-5117
+%MF-5121A%=MF-5121A.Install, MonID_MF-5121A
+%MF-5214A%=MF-5214A.Install, MonID_MF-5214A
+%MF-5215A%=MF-5215A.Install, MonID_MF-5215A
+%MF-5217%=MF-5217.Install, MonID_MF-5217
+%MF-5221%=MF-5221.Install, MonID_MF-5221
+%MR-5314%=MR-5314.Install, MonID_MF-5314
+%MF-5315%=MF-5315.Install, MonID_MF-5315
+%MF-5317%=MF-5317.Install, MonID_MF-5317
+%MF-5321%=MF-5321.Install, MonID_MF-5321
+%MF-5421%=MF-5421.Install, MonID_MF-5421
+%MF-5621%=MF-5621.Install, MonID_MF-5621
+%MF-8217%=MF-8217.Install, MonID_MF-8217
+%MF-8221%=MF-8221.Install, MonID_MF-8221
+%MF-8317%=MF-8317.Install, MonID_MF-8317
+%MF-8421%=MF-8421.Install, MonID_MF-8421
+%MF-8617%=MF-8617.Install, MonID_MF-8617
+%MF-8617E%=MF-8617.Install, Monitor\IVM1700
+%MF-8621%=MF-8621.Install, MonID_MF-8621
+%MT-9121%=MT-9121.Install, MonID_MF-9121
+
+[Ikegami]
+%C/CDE-165VB%=C/CDE-165VB.Install, MonID_CDE-165VB
+%C/DM-2010A%=C/DM-2010A.Install, MonID_DM-2010A
+%C/DM-2060%=C/DM-2060.Install, MonID_DM-2060
+%CT-20%=CT-20.Install, MonID_CT-20
+%CN-20%=CN-20.Install, MonID_CN-20
+
+[Image]
+%C21LMAX%=C21LMAX.Install, MonID_CS1LMAX
+%M24LMAX%=M24LMAX.Install, MonID_M24LMAX
+
+[Intra]
+%CM-1403%=CM-1403.Install, MonID_CM-1403
+
+[Iocomm]
+%CM-7126%=CM-7126.Install, MonID_CM-7126
+
+[JVC]
+%GD-H4220US%=GD-H4220US.Install, MonID_H422OUS
+
+[KFC]
+%CA-17%=CA-17.Install, MonID_CA-17
+%CH-14%=CH-14.Install, MonID_CH-14
+%CM-14%=CM-14.Install, MonID_CM-14
+
+[KLH]
+%MN275%=MN275.Install, MonID_MN275
+
+[LeadingTechnology]
+%1730S%=1730S.Install, MonID_1730S
+
+[Link]
+%CE-8%=CE-8.Install, MonID_CE-8
+%CM-3%=CM-3.Install, MonID_CM-3
+
+[LiteOn]
+%CM-2090M%=CM-2090M.Install, MonID_CM-2090M
+
+[miro]
+%C1768%= C1768, Monitor\MIR6817
+%C1782%= C1782, Monitor\MIR8217
+%C2085E%=C2085E,Monitor\MIR8520
+%C2185%= C2185, Monitor\MIR8521
+%C2193%= C2193, Monitor\MIR9321
+%C21107%=C21107,Monitor\MIR0721
+%D1568%= D1568, Monitor\MIR6815
+%D1769%= D1769, Monitor\MIR6917
+
+[Zenith]
+%ZCM1411%=ZCM1411
+%ZCM1426%=ZCM1426
+%ZCM1440%=ZCM1440
+%ZCM1450%=ZCM1450
+%ZCM1520%=ZCM1520
+%ZCM1522%=ZCM1522
+%ZCM1540%=ZCM1540
+%ZCM1550%=ZCM1550
+%ZCM1740%=ZCM1740
+%ZCM1750%=ZCM1750
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[ICM9]
+HKR,,ICMProfile,1,9
+
+[640VESA75]
+HKR,"MODES\640,480",Mode1,,"40.0,75.0,-,-"
+
+[800VESA75]
+HKR,"MODES\800,600",Mode1,,"49.0,75.0,+,+"
+
+[1024VESA75]
+HKR,"MODES\1024,768",Mode1,,"65.0,75.0,+,+"
+
+[1152VESA75]
+HKR,"MODES\1152,864",Mode1,,"70.0,75.0,+,+"
+
+
+[1280VESA75]
+HKR,"MODES\1280,1024",Mode1,,"84.0,75.0,+,+"
+
+; Install Sections
+;-------------------------------------------------
+
+; -------------- Generic types
+
+[Unknown.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Unknown.AddReg
+
+[VESADDC.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VESADDC.AddReg, 1600, DPMS
+
+[Laptop640.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=640, DPMS 
+
+[Laptop800.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=800, DPMS
+
+[Laptop1024.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1024, DPMS
+
+[640.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=640
+
+[800.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=800
+
+[1024.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1024
+
+[1280.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1280
+
+[1600.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1600
+
+[640_VESA75.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=640, 640VESA75
+
+[800_VESA75.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=800, 640VESA75, 800VESA75
+
+[1024_VESA75.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1024, 640VESA75, 800VESA75, 1024VESA75
+
+[1280_VESA75.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1280, 640VESA75, 800VESA75, 1024VESA75, 1152VESA75, 1280VESA75
+
+; -------------- AST
+
+[AST4V]
+DelReg=DEL_CURRENT_REG
+AddReg=AST4V.AddReg, 640
+
+[AST4I]
+DelReg=DEL_CURRENT_REG
+AddReg=AST4I.AddReg, 1024
+
+[AST4N]
+DelReg=DEL_CURRENT_REG
+AddReg=AST4N.AddReg, 1024, DPMS
+
+[AST4L]
+DelReg=DEL_CURRENT_REG
+AddReg=AST4L.AddReg, 1024, DPMS
+
+[AST5L]
+DelReg=DEL_CURRENT_REG
+AddReg=AST5L.AddReg, 1280, DPMS
+
+[AST7L]
+DelReg=DEL_CURRENT_REG
+AddReg=AST7L.AddReg, 1280, DPMS
+
+[AST7H]
+DelReg=DEL_CURRENT_REG
+AddReg=AST7H.AddReg, 1280, DPMS
+
+[AST20H]
+DelReg=DEL_CURRENT_REG
+AddReg=AST20H.AddReg, 1280, DPMS
+
+[AST5V]
+DelReg=DEL_CURRENT_REG
+AddReg=AST5V.AddReg, 1024, DPMS
+
+[AST4Ls]
+DelReg=DEL_CURRENT_REG, 1024, DPMS
+AddReg=AST4Ls.AddReg
+
+
+; -------------- Aamazing
+
+[CM-8426.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM-8426.AddReg, 1024
+
+[MS-8431.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MS-8431.AddReg, 1024
+
+[CX1557.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CX1557.AddReg, 1024
+
+[AML-1402.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AML-1402.AddReg, 1024
+
+[AML-2001.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AML-2001.AddReg, 1024
+
+[SM-5514B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM-5514B.AddReg, 1024
+
+[SM-5514A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM-5514A.AddReg, 1024
+
+[SM-5514E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM-5514E.AddReg, 1024
+
+[SM-5515.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM-5515.AddReg, 1024
+
+[ADI4GP]
+DelReg=DEL_CURRENT_REG
+AddReg=ADI4GP.AddReg, 1280, DPMS
+
+; -------------- A0C
+
+[CM-324.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM-324.AddReg, 800
+
+[CM-325.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM-325.AddReg, 1024
+
+[CM-326.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM-326.AddReg, 1024
+
+[Bus_VGA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Bus_VGA.AddReg, 1024
+
+[CT1381A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CT1381A.AddReg, 800
+
+[EG2040.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EG2040.AddReg, 1024
+
+[CT-1458.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CT-1458.AddReg, 1024
+
+[CT-1958.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CT-1958.AddReg, 1024
+
+[7250.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7250.AddReg, 1024
+
+[7351.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7351.AddReg, 1280
+
+[7214.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7214.AddReg, 1024
+
+[7241.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7241.AddReg, 1024
+
+[7550.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7550.AddReg, 1600
+
+[9250.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=9250.AddReg, 1024
+
+[7126.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7126.AddReg, 800
+
+[7211.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7211.AddReg, 1024
+
+[CMC-141M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CMC-141M.AddReg, 1024
+
+[CMC-1500BF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CMC-1500BF.AddReg, 1024
+
+[CMC-1500M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CMC-1500M.AddReg, 1280
+
+[CMC-1500TF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CMC-1500TF.AddReg, 1024
+
+[CMC-1700M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CMC-1700M.AddReg, 1280
+
+[CMC-2100H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CMC-2100H.AddReg, 1280
+
+[CMC-2100M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CMC-2100M.AddReg, 1280
+
+; -------------- Darius
+
+[TSM-1431.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TSM-1431.AddReg, 1024
+
+; -------------- Everex
+
+[Eversync_SVGA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Eversync_SVGA.AddReg, 1024
+
+[FMS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FMS.AddReg, 1024
+
+[MON-7C5.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MON-7C5.AddReg, 800
+
+[MTS-9608S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MTS-9608S.AddReg, 1024
+
+; -------------- Fujikama
+
+[PVGA-1024A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PVGA-1024A.AddReg, 1024
+
+
+; -------------- Gateway
+
+[14svga.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=14svga.AddReg, 1024, DPMS
+
+[cs1024.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=cs1024.AddReg, 1024, DPMS
+
+[cs1024ni.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=cs1024ni.AddReg, 1024, DPMS
+
+[cs1024ni2g.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=cs1024ni2g.AddReg, 1024, DPMS
+
+[cs1572dgm.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=cs1572dgm.AddReg, 1280, DPMS
+
+[cs1572dg.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=cs1572dg.AddReg, 1024, DPMS
+
+[cs1572fs.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=cs1572fs.AddReg, 1280, DPMS
+
+[Vivitron15.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Vivitron15.AddReg, 1280, DPMS
+
+[cs17762leg.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=cs17762leg.AddReg, 1280, DPMS
+
+[Vivitron17.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Vivitron17.AddReg, 1280, DPMS
+
+[Vivitron20.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Vivitron20.AddReg, 1280, DPMS
+
+
+; -------------- Golden Dragon
+
+[TY-1411.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TY-1411.AddReg, 1024
+
+[TY-2015.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TY-2015.AddReg, 1280
+
+[1423.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1423.AddReg, 640
+
+[1423+VGA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1423+VGA.AddReg, 640
+
+[1453_Plus.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1453_Plus.AddReg, 1024
+
+[1460+VGA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1460+VGA.AddReg, 1024
+
+[1470_Plus.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1470_Plus.AddReg, 1024
+
+[1490.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1490.AddReg, 1280
+
+[1510.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1510.AddReg, 1024
+
+[1620.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1620.AddReg, 1024
+
+[1710.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1710.AddReg, 1024
+
+[1725.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1725.AddReg, 1280, DPMS
+
+; -------------- HCI
+
+[Maxiscan.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Maxiscan.AddReg, 1024
+
+; -------------- Idek Iiyama
+
+[DR-3114.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DR-3114.AddReg, 1024
+
+[MF-5014A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5014A.AddReg, 1024
+
+[MF-5015A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5015A.AddReg, 800
+
+[MF-5017.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5017.AddReg, 1024
+
+[MF-5021.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5021.AddReg, 1024
+
+[MF-5115.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5115.AddReg, 1024
+
+[MF-5117.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5117.AddReg, 1024
+
+[MF-5121A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5121A.AddReg, 1280
+
+[MF-5214A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5214A.AddReg, 1024
+
+[MF-5215A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5215A.AddReg, 1024
+
+[MF-5217.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5217.AddReg, 1280
+
+[MF-5221.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5221.AddReg, 1280
+
+[MR-5314.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MR-5314.AddReg, 1024
+
+[MF-5315.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5315.AddReg, 1280
+
+[MF-5317.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5317.AddReg, 1280
+
+[MF-5321.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5321.AddReg, 1280
+
+[MF-5421.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5421.AddReg, 1600
+
+[MF-5621.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-5621.AddReg, 1600
+
+[MF-8217.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-8217.AddReg, 1024
+
+[MF-8221.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-8221.AddReg, 1600, DPMS
+
+[MF-8317.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-8317.AddReg, 1280
+
+[MF-8421.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-8421.AddReg, 1600, DPMS
+
+[MF-8617.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-8617.AddReg, 1280, DPMS
+
+[MF-8617E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-8617E.AddReg, 1280, DPMS
+
+[MF-8621.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF-8621.AddReg, 1600, DPMS
+
+[MT-9121.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MT-9121.AddReg, 1600, DPMS
+
+[C/CDE-165VB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C/CDE-165VB.AddReg, 1280
+
+[C/DM-2010A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C/DM-2010A.AddReg, 1280
+
+[C/DM-2060.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C/DM-2060.AddReg, 1280
+
+[CT-20.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CT-20.AddReg, 1280
+
+[CN-20.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CN-20.AddReg, 1280
+
+[C21LMAX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C21LMAX.AddReg, 1600
+
+[M24LMAX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M24LMAX.AddReg, 1600
+
+[CM-1403.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM-1403.AddReg, 1024
+
+[CM-7126.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM-7126.AddReg, 800
+
+[GD-H4220US.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GD-H4220US.AddReg, 1024
+
+[CA-17.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CA-17.AddReg, 1280
+
+[CH-14.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CH-14.AddReg, 1024
+
+[CM-14.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM-14.AddReg, 1024
+
+[MN275.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MN275.AddReg, 1024
+
+[1730S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1730S.AddReg, 1024
+
+[CE-8.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CE-8.AddReg, 1024
+
+[CM-3.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM-3.AddReg, 800
+
+; -------------- Lite-On
+
+[CM-2090M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM-2090M.AddReg, 1280
+
+
+; -------------- miro
+
+[C1768]
+DelReg=DEL_CURRENT_REG
+AddReg=C1768.AddReg, 1280, DPMS, ICM9
+
+[C1782]
+DelReg=DEL_CURRENT_REG
+AddReg=C1782.AddReg, 1280, DPMS, ICM9
+
+[C2085E]
+DelReg=DEL_CURRENT_REG
+AddReg=C2085E.AddReg, 1280, DPMS, ICM9
+
+[C2185]
+DelReg=DEL_CURRENT_REG
+AddReg=C2185.AddReg, 1600, DPMS, ICM9
+
+[C2193]
+DelReg=DEL_CURRENT_REG
+AddReg=C2193.AddReg, 1600, DPMS, ICM9
+
+[C21107]
+DelReg=DEL_CURRENT_REG
+AddReg=C21107.AddReg, 1600, DPMS, ICM9
+
+[D1568]
+DelReg=DEL_CURRENT_REG
+AddReg=D1568.AddReg, 1280, DPMS, ICM9
+
+[D1769]
+DelReg=DEL_CURRENT_REG
+AddReg=D1769.AddReg, 1280, DPMS, ICM9
+
+
+; -------------- Zenith
+
+[ZCM1411]
+AddReg=ZCM1411.AddReg, 1024
+
+[ZCM1426]
+AddReg=ZCM1426.AddReg, 1024
+
+[ZCM1440]
+AddReg=ZCM1440.AddReg, 1024, DPMS
+
+[ZCM1450]
+AddReg=ZCM1450.AddReg, 1024, DPMS
+
+[ZCM1520]
+AddReg=ZCM1520.AddReg, 1024, DPMS
+
+[ZCM1522]
+AddReg=ZCM1522.AddReg, 1024, DPMS
+
+[ZCM1540]
+AddReg=ZCM1540.AddReg, 1024, DPMS
+
+[ZCM1550]
+AddReg=ZCM1550.AddReg, 1024, DPMS
+
+[ZCM1740]
+AddReg=ZCM1740.AddReg, 1280, DPMS
+
+[ZCM1750]
+AddReg=ZCM1750.AddReg, 1280, DPMS
+
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[Unknown.AddReg]
+HKR,"MODES\640,480"
+
+[VESADDC.AddReg]
+HKR,"MODES\1600,1200"
+
+[VGA.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,50.0-70.0,-,-"
+
+
+; -------------- AST
+
+[AST4V.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60.0-70.0,-,-"
+
+[AST4I.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-38.0,50.0-90.0,+,+"
+
+[AST4N.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-64.0,50.0-90.0,+,+"
+
+[AST4L.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-64.0,50.0-90.0,+,+"
+
+[AST5L.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-90.0,+,+"
+
+[AST7L.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-90.0,+,+"
+
+[AST7H.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,50.0-90.0,+,+"
+
+[AST20H.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"29.0-82.0,50.0-150.0,+,+"
+
+[AST5V.AddReg]
+HKR,"MODES\1024,768",Mode2,,"30.0-50.0,50.0-120.0,+,+"
+
+[AST4Ls.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-64.0,50.0-90.0,+,+"
+
+; -------------- Aamazing
+
+[CM-8426.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,40.0-80.0,+,+"
+
+[MS-8431.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-36.0,50.0-70.0,+,+"
+
+[CX1557.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-57.0,40.0-100.0,+,+"
+
+[AML-1402.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-36.0,45.0-90.0,+,+"
+
+[AML-2001.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-36.5,50.0-90.0,+,+"
+
+[SM-5514B.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-38.0,50.0-100.0,+,+"
+
+[SM-5514A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,50.0-100.0,+,+"
+
+[SM-5514E.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-58.0,50.0-100.0,+,+"
+
+[SM-5515.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-58.0,50.0-100.0,+,+"
+
+[ADI4GP.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-64,50-95,+,+"
+
+; -------------- A0C
+
+[CM-324.AddReg]
+HKR,"MODES\800,600",Mode1,,"15.0-37.0,50.0-90.0,+,+"
+
+[CM-325.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-38.0,50.0-90.0,+,+"
+
+[CM-326.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-38.0,50.0-90.0,+,+"
+
+[Bus_VGA.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-38.0,50.0-70.0,+,+"
+
+[CT1381A.AddReg]
+HKR,"MODES\800,600",Mode1,,"15.7-38.0,45.0-90.0,+,+"
+
+[EG2040.AddReg]
+HKR,"MODES\1024,768",Mode1,,"20.0-40.0,40.0-100.0,+,+"
+
+[CT-1458.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-48.0,47.0-100.0,+,+"
+
+[CT-1958.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-51.0,47.0-100.0,+,+"
+
+[7250.AddReg]
+HKR,"MODES\1024,1024",Mode1,,"15.5-37.0,47.0-80.0,+,+"
+
+[7351.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"62.5-67.5,47.0-63.0,+,+"
+
+[7214.AddReg]
+HKR,"MODES\1024,1024",Mode1,,"15.0-37.5,48.0-90.0,+,+"
+
+[7241.AddReg]
+HKR,"MODES\1024,1024",Mode1,,"15.0-37.0,47.0-80.0,+,+"
+
+[7550.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"46.0-80.0,47.0-80.0,+,+"
+
+[9250.AddReg]
+HKR,"MODES\1024,1024",Mode1,,"15.0-37.5,48.0-90.0,+,+"
+
+[7126.AddReg]
+HKR,"MODES\800,600",Mode1,,"15.0-32.0,48.0-75.0,+,+"
+
+[7211.AddReg]
+HKR,"MODES\1024,1024",Mode1,,"15.0-37.0,47.0-80.0,+,+"
+
+[CMC-141M.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.5-39.0,50.0-70.0,+,+"
+
+[CMC-1500BF.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.5-39.0,50.0-90.0,+,+"
+
+[CMC-1500M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-90.0,+,+"
+
+[CMC-1500TF.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.47,50.0-90.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.0-38.5,50.0-90.0,+,+"
+
+[CMC-1700M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-90.0,+,+"
+
+[CMC-2100H.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"60.0-65.0,50.0-85.0,+,+"
+
+[CMC-2100M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-90.0,+,+"
+
+[TSM-1431.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.5-39.0,50.0-90.0,+,+"
+
+; -------------- Everex
+
+[Eversync_SVGA.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.5-35.0,50.0-70.0,+,+"
+
+[FMS.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-38.0,47.0-90.0,+,+"
+
+[MON-7C5.AddReg]
+HKR,"MODES\800,600",Mode1,,"15.0-36.0,45.0-90.0,+,+"
+
+[MTS-9608S.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-38.0,50.0-90.0,+,+"
+
+; -------------- Fujikama
+
+[PVGA-1024A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-38.5,50.0-90.0,+,+"
+
+
+; -------------- Gateway
+
+[14svga.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-35.5,50-90,+,+"
+
+[cs1024.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-35.5,50-90,+,+"
+
+[cs1024ni.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-50,50-90,+,+"
+
+[cs1024ni2g.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-48,50-90,-,-"
+
+[cs1572dgm.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-62,50-100,-,-"
+
+[cs1572dg.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-62,50-120,+,+"
+
+[cs1572fs.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-62,50-120,+,+"
+
+[Vivitron15.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-64,50-120,+,+"
+
+[cs17762leg.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-64,50-100,-,-"
+
+[Vivitron17.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-64,50-120,+,+"
+
+[Vivitron20.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"29-82,50-150,+,+"
+
+
+; -------------- Golden Dragon
+
+[TY-1411.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.5-37.0,50.0-120.0,+,+"
+
+[TY-2015.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,49.0-88.0,+,+"
+
+[1423.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60,-,-"
+HKR,"MODES\640,480",Mode1,,"31.5,70,-,-"
+
+[1423+VGA.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,50,-,-"
+HKR,"MODES\640,480",Mode2,,"31.5,60,-,-"
+HKR,"MODES\640,480",Mode3,,"31.5,70,-,-"
+
+[1453_Plus.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5,60,-,-"
+HKR,"MODES\1024,768",Mode2,,"31.5,70,-,-"
+HKR,"MODES\1024,768",Mode3,,"35.2,60,+,+"
+HKR,"MODES\1024,768",Mode4,,"35.2,70,+,+"
+HKR,"MODES\1024,768",Mode5,,"35.2,87,+,+"
+HKR,"MODES\1024,768",Mode6,,"35.5,60,+,+"
+HKR,"MODES\1024,768",Mode7,,"35.5,70,+,+"
+HKR,"MODES\1024,768",Mode8,,"35.5,87,+,+"
+
+[1460+VGA.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5,50,-,-"
+HKR,"MODES\1024,768",Mode2,,"31.5,60,-,-"
+HKR,"MODES\1024,768",Mode3,,"31.5,70,-,-"
+HKR,"MODES\1024,768",Mode4,,"35.2,60,+,+"
+HKR,"MODES\1024,768",Mode5,,"35.2,70,+,+"
+HKR,"MODES\1024,768",Mode6,,"35.5,60,+,+"
+HKR,"MODES\1024,768",Mode7,,"35.5,70,+,+"
+HKR,"MODES\1024,768",Mode8,,"48.0,60,+,+"
+HKR,"MODES\1024,768",Mode9,,"48.0,70,+,+"
+
+[1470_Plus.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,45.0-90.0,+,+"
+
+[1490.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-120.0,+,+"
+
+[1510.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,50.0-105.0,+,+"
+
+[1620.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,45.0-90.0,+,+"
+
+[1710.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,50.0-105.0,+,+"
+
+[1725.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-65,50-120,+,+"
+
+; -------------- HCI
+
+[Maxiscan.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-35.0,50.0-70.0,+,+"
+
+; -------------- Idek Iiyama
+
+[DR-3114.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5,43.0-70.0,-,-"
+HKR,"MODES\1024,768",Mode2,,"35.0,43.0-70.0,+,+"
+HKR,"MODES\1024,768",Mode3,,"35.5,43.0-70.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"38.0,43.0-70.0,+,+"
+
+[MF-5014A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.5-38.5,50.0-90.0,+,+"
+
+[MF-5015A.AddReg]
+HKR,"MODES\800,600",Mode1,,"15.5-38.5,50.0-90.0,+,+"
+
+[MF-5017.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-40.0,50.0-90.0,+,+"
+
+[MF-5021.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.5-38.5,50.0-90.0,+,+"
+
+[MF-5115.AddReg]
+HKR,"MODES\1024,768",Mode1,,"21.8-50.0,50.0-90.0,+,+"
+
+[MF-5117.AddReg]
+HKR,"MODES\1024,768",Mode1,,"20.0-50.0,50.0-90.0,+,+"
+
+[MF-5121A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-90.0,+,+"
+
+[MF-5214A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-38.5,50.0-90.0,+,+"
+
+[MF-5215A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-38.5,50.0-90.0,+,+"
+
+[MF-5217.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-60.0,50.0-90.0,+,+"
+
+[MF-5221.AddReg]
+HKR,"MODES\1280,1280",Mode1,,"30.0-80.0,50.0-90.0,+,+"
+
+[MR-5314.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,50.0-90.0,+,+"
+
+[MF-5315.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-68.0,50.0-90.0,+,+"
+
+[MF-5317.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-90.0,+,+"
+
+[MF-5321.AddReg]
+HKR,"MODES\1280,1280",Mode1,,"30.0-80.0,50.0-90.0,+,+"
+
+[MF-5421.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-80.0,50.0-90.0,+,+"
+
+[MF-5621.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-80.0,50.0-90.0,+,+"
+
+[MF-8217.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,50.0-90.0,+,+"
+
+[MF-8221.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24.8-85.0,50.0-120.0,+,+"
+
+[MF-8317.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-90.0,+,+"
+
+[MF-8421.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24.8-85.0,50.0-120.0,+,+"
+
+[MF-8617.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"23.6-86.0,50.0-120.0,+,+"
+
+[MF-8617E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"28-86,55-160,+,+"
+HKR,,ICMProfile,1,3
+
+[MF-8621.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24.8-85.0,50.0-120.0,+,+"
+
+[MT-9121.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"25.0-90.0,50.0-160.0,+,+"
+
+[C/CDE-165VB.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"48.0-64.0,50.0-70.0,+,+"
+
+[C/DM-2010A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"48.0-64.0,50.0-70.0,+,+"
+
+[C/DM-2060.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"48.0-64.0,50.0-70.0,+,+"
+
+[CT-20.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"48.0-64.0,50.0-70.0,+,+"
+
+[CN-20.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"45.0-68.0,50.0-150.0,+,+"
+
+[C21LMAX.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"48.0-96.0,60.0-80.0,+,+"
+
+[M24LMAX.AddReg]
+HKR,"MODES\2000,1500",Mode1,,"48.0-96.0,60.0-80.0,+,+"
+
+[CM-1403.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-38.0,40.0-100.0,+,+"
+
+[CM-7126.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-75.0,50.0-90.0,+,+"
+
+[GD-H4220US.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-37.0,45.0-87.0,+,+"
+
+[CA-17.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-100.0,+,+"
+
+[CH-14.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-36.0,50.0-86.0,+,+"
+
+[CM-14.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-64.0,50.0-90.0,+,+"
+
+[MN275.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,50.0-90.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"34.5-38.5,50.0-90.0,+,+"
+
+[1730S.AddReg]
+HKR,"MODES\1024,768",Mode1,,"21.0-50.0,50.0-90.0,+,+"
+
+[CE-8.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.5-38.0,50.0-90.0,+,+"
+
+[CM-3.AddReg]
+HKR,"MODES\800,600",Mode1,,"15.5-36.0,50.0-70.0,+,+"
+
+; -------------- LiteOn
+
+[CM-2090M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-75.0,40.0-120.0,+,+"
+
+
+; -------------- miro
+
+[C1768.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"29.0-68.0,50.0-100.0,+,+"
+
+[C1782.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"29.0-82.0,50.0-120.0,+,+"
+
+[C2085E.AddReg]
+HKR,"MODES\1408,1024",Mode1,,"29.0-85.0,50.0-160.0,+,+"
+
+[C2185.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-85.0,50.0-152.0,+,+"
+
+[C2193.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-93.0,50.0-150.0,+,+"
+
+[C21107.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"31.5-107.0,50.0-150.0,+,+"
+
+[D1568.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-68.0,50.0-100.0,+,+"
+
+[D1769.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-69.0,50.0-100.0,+,+"
+
+
+; -------------- Zenith
+
+[ZCM1411.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.468,70.09,+,-"
+HKR,"MODES\1024,768",Mode2,,"31.468,59.94,-,-"
+HKR,"MODES\1024,768",Mode3,,"31.468,70.09,-,+"
+HKR,"MODES\1024,768",Mode4,,"35.156,56.25,-,-"
+HKR,"MODES\1024,768",Mode5,,"35.587,86.96,+,+"
+
+[ZCM1426.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.468,70.09,+,-"
+HKR,"MODES\1024,768",Mode2,,"31.468,59.94,-,-"
+HKR,"MODES\1024,768",Mode3,,"31.468,70.09,-,+"
+HKR,"MODES\1024,768",Mode4,,"35.156,56.25,-,-"
+HKR,"MODES\1024,768",Mode5,,"35.587,86.96,+,+"
+
+[ZCM1440.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-62,48-100,-,-"
+
+[ZCM1450.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60,48-90,-,-"
+
+[ZCM1520.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-64,50-100,+,+"
+
+[ZCM1522.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-64,50-120,-,-"
+
+[ZCM1540.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-62,48-100,+,+"
+
+[ZCM1550.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-65.0,55-100,+,+"
+
+[ZCM1740.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-82,50-100,+,+"
+
+[ZCM1750.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85,50-100,+,+"
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+MonitorClassName = "Monitores"
+MS = "Microsoft"
+
+Generic = "(Tipos de monitor estándar)"
+Unknown.DeviceDesc = "Monitor predeterminado"
+
+*PNP09FF.DeviceDesc = "Monitor Plug and Play"
+
+Laptop640.DeviceDesc = "Panel pantalla de equipo portátil (640x480)"
+Laptop800.DeviceDesc = "Panel de pantalla de equipo portátil (800x600)"
+Laptop1024.DeviceDesc = "Panel de pantalla de equipo portátil (1024x768)"
+
+TVGen.DeviceDesc = "Televisión genérica"
+
+640.DeviceDesc = "Standard VGA 640x480"
+800.DeviceDesc = "Super VGA 800x600"
+1024.DeviceDesc = "Super VGA 1024x768"
+1280.DeviceDesc = "Super VGA 1280x1024"
+1600.DeviceDesc = "Super VGA 1600x1200"
+
+640.VESA75 = "Estándar VGA 640x480 a 75 Hz"
+800.VESA75 = "Super VGA 800x600 a 75 Hz"
+1024.VESA75 = "Super VGA 1024x768 a 75 Hz"
+1280.VESA75 = "Super VGA 1280x1024 a 75 Hz"
+
+AST = "AST"
+Aamazing = "Aamazing Technologies, Inc."
+Actix = "Actix Systems, Inc."
+Adara = "Adara Technology, Inc."
+ADI = "ADI Systems, Inc."
+AOC = "AOC International (U.S.A.), Ltd."
+Bus = "Bus Computer Systems"
+Carroll = "Carroll Touch"
+Colorgraphic = "Colorgraphic Communications Corp."
+Compeq = "Compeq USA/Focus Technology"
+Conrac = "Conrac Display Products"
+Cordata = "Cordata Technologies, Inc."
+Darius = "Darius Technology, Ltd."
+Everex = "Everex Systems, Inc."
+Falco = "Falco Data Products, Inc."
+Fora = "Fora, Inc."
+Forefront = "Forefront Technology Corp."
+Fujikama = "Fujikama O.A. Distribution"
+Gateway = "Puerta de enlace"
+GoldenDragon = "Golden Dragon"
+Goldstar = "GoldStar Technology, Inc."
+HCI = "HCI"
+Iiyama = "IIYAMA"
+Ikegami = "Ikegami Electronics, Inc."
+Image = "Image Systems Corp."
+Intra = "Intra Electronics USA, Inc."
+Iocomm = "Iocomm International Technology Corp."
+JVC = "JVC Information Products Co."
+KFC = "KFC Computek Components Corp."
+KLH = "KLH Computers"
+LeadingTechnology = "Leading Technology, Inc."
+Link = "Link Computer, Inc."
+LiteOn = "Lite-On, Inc."
+miro = "miro Computer Products AG"
+Zenith = "Zenith Data Systems"
+
+AST4V = "ASTVision 4V"
+AST4I = "ASTVision 4I"
+AST4N = "ASTVision 4N"
+AST4L = "ASTVision 4L"
+AST5L = "ASTVision 5L"
+AST7L = "ASTVision 7L"
+AST7H = "ASTVision 7H"
+AST20H = "ASTVision 20H"
+AST4Ls = "AST Sabre"
+AST5V = "ASTVision 5V"
+
+CM-8426 = "Aamazing CM-8426"
+MS-8431 = "Aamazing MS-8431"
+
+CX1557 = "Actix Systems CX1557"
+
+AML-1402 = "Adara Technology AML-1402"
+AML-2001 = "Adara Technology AML-2001"
+
+SM-5514B = "ADI MicroScan 2E"
+SM-5514A = "ADI MicroScan 3E"
+SM-5514E = "ADI MicroScan 3E+"
+SM-5515 = "ADI MicroScan 4A"
+ADI4GP = "ADI MicroScan 4GP"
+ADI4V = "ADI MicroScan 4V"
+ADI5AP = "ADI MicroScan 5AP"
+ADI5EP = "ADI MicroScan 5EP"
+
+CM-324 = "AOC CM-324"
+CM-325 = "AOC CM-325"
+CM-326 = "AOC CM-326"
+
+Bus_VGA = "Bus Computer Systems Bus_VGA"
+
+CT1381A = "Carroll Touch CT1381A"
+
+EG2040 = "Colorgraphic EG2040"
+
+CT-1458 = "Compeq CT-1458"
+CT-1958 = "Compeq CT-1958"
+
+7250 = "Conrac 7250"
+7351 = "Conrac 7351"
+7214 = "Conrac 7214"
+7241 = "Conrac 7241"
+7550 = "Conrac 7550"
+9250 = "Conrac 9250"
+7126 = "Conrac 7126"
+7211 = "Conrac 7211"
+
+CMC-141M = "Cordata CMC-141M"
+CMC-1500BF = "Cordata CMC-1500BF"
+CMC-1500M = "Cordata CMC-1500M"
+CMC-1500TF = "Cordata CMC-1500TF"
+CMC-1700M = "Cordata CMC-1700M"
+CMC-2100H = "Cordata CMC-2100H"
+CMC-2100M = "Cordata CMC-2100M"
+
+TSM-1431 = "Darius Technology TSM-1431"
+
+Eversync_SVGA = "Everex Eversync_SVGA"
+
+FMS = "Falco Data Products, Inc. FMS"
+
+MON-7C5 = "Fora, Inc. MON-7C5"
+
+MTS-9608S = "Forefront Technology MTS-9608S"
+
+PVGA-1024A = "Fujikama PVGA-1024A"
+
+14svga = "Gateway 14SVGA"
+cs1024 = "Gateway CrystalScan 1024"
+cs1024ni = "Gateway CrystalScan 1024NI"
+cs1024ni2g = "Gateway CrystalScan 1024NI2G"
+cs1572dgm = "Gateway CrystalScan 1572DGM"
+cs1572dg = "Gateway CrystalScan 1572DG"
+cs1572fs = "Gateway CrystalScan 1572FS"
+Vivitron15 = "Gateway Vivitron 15"
+cs17762leg = "Gateway CrystalScan 17762LEG"
+Vivitron17 = "Gateway Vivitron 17"
+Vivitron20 = "Gateway Vivitron 20"
+
+TY-1411 = "Golden Dragon TY-1411"
+TY-2015 = "Golden Dragon TY-2015"
+
+1423 = "GoldStar 1423"
+1423+VGA = "GoldStar 1423 Plus VGA"
+1453_Plus = "GoldStar 1453 Plus"
+1460+VGA = "GoldStar 1460 Plus VGA"
+1470_Plus = "GoldStar 1470_Plus"
+1490 = "GoldStar 1490"
+1510 = "GoldStar 1510"
+1620 = "GoldStar 1620"
+1710 = "GoldStar 1710"
+1725 = "GoldStar 1725"
+
+Maxiscan = "HCI Maxiscan"
+
+DR-3114 = "Iiyama DR-3114"
+MF-5014A = "Iiyama MF-5014A"
+MF-5015A = "Iiyama MF-5015A"
+MF-5017 = "Iiyama MF-5017"
+MF-5021 = "Iiyama MF-5021"
+MF-5115 = "Iiyama MF-5115"
+MF-5117 = "Iiyama MF-5117"
+MF-5121A = "Iiyama MF-5121A"
+MF-5214A = "Iiyama MF-5214A"
+MF-5215A = "Iiyama MF-5215A"
+MF-5217 = "Iiyama MF-5217"
+MF-5221 = "Iiyama MF-5221"
+MR-5314 = "Iiyama MR-5314"
+MF-5315 = "Iiyama MF-5315"
+MF-5317 = "Iiyama MF-5317"
+MF-5321 = "Iiyama MF-5321"
+MF-5421 = "Iiyama MF-5421"
+MF-5621 = "Iiyama MF-5621"
+MF-8217 = "Iiyama MF-8217"
+MF-8221 = "Iiyama Vision Master MF-8221"
+MF-8317 = "Iiyama Vision Master MF-8317"
+MF-8421 = "Iiyama Vision Master MF-8421"
+MF-8617 = "Iiyama Vision Master MF-8617"
+MF-8617E = "Iiyama Vision Master MF-8617E"
+MF-8621 = "Iiyama Vision Master MF-8621"
+MT-9121 = "Iiyama Vision Master Pro 21 MT-9121"
+
+C/CDE-165VB = "Ikegami C/CDE-165VB"
+C/DM-2010A = "Ikegami C/DM-2010A"
+C/DM-2060 = "Ikegami C/DM-2060"
+CT-20 = "Ikegami CT-20"
+CN-20 = "Ikegami CN-20"
+
+C21LMAX = "Image Systems C21LMAX"
+M24LMAX = "Image Systems M24LMAX"
+
+CM-1403 = "Intra Electronics USA CM-1403"
+
+CM-7126 = "Iocomm CM-7126"
+
+GD-H4220US = "JVC GD-H4220US"
+
+CA-17 = "KFC Computek CA-17"
+CH-14 = "KFC Computek CH-14"
+CM-14 = "KFC Computek CM-14"
+
+MN275 = "KLH Computers MN275"
+
+1730S = "Leading Technology 1730S"
+
+CE-8 = "Link Computer CE-8"
+CM-3 = "Link Computer CM-3"
+
+CM-2090M = "Lite-On CM-2090M"
+
+C1768 = "PROOFSCREEN miroC1768"
+C1782 = "PROOFSCREEN miroC1782"
+C2085E = "PROOFSCREEN miroC2085 E"
+C2185 = "PROOFSCREEN miroC2185"
+C2193 = "PROOFSCREEN miroC2193"
+C21107 = "PROOFSCREEN miroC21107"
+D1568 = "miroD1568"
+D1769 = "miroD1769"
+
+ZCM1411 = "Zenith ZCM-1411"
+ZCM1426 = "Zenith ZCM-1426"
+ZCM1440 = "Zenith ZCM-1440"
+ZCM1450 = "Zenith ZCM-1450"
+ZCM1520 = "Zenith ZCM-1520"
+ZCM1522 = "Zenith ZCM-1522"
+ZCM1540 = "Zenith ZCM-1540"
+ZCM1550 = "Zenith ZCM-1550"
+ZCM1740 = "Zenith ZCM-1740"
+ZCM1750 = "Zenith ZCM-1750"
+
+
+
+
+

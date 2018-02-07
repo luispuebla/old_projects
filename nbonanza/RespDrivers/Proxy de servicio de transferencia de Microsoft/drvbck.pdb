@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Proxy de servicio de transferencia de Microsoft
+infpath=KSFILTER.INF                                                                    
+infsection=MSKSSRV
+MatchingDeviceId=SW\{96E080C7-143C-11D1-B40F-00A0C9223196}
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sonido, vídeo y juegos
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

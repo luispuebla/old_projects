@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Puente VIA Tech 82C586B (PIPC) PCI a ISA
+infpath=MACHINE2.INF                                                                    
+infsection=ISA_DRV
+MatchingDeviceId=PCI\VEN_1106&DEV_0586
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sistema
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

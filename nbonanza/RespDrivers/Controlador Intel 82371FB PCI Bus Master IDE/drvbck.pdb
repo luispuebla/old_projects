@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Controlador Intel 82371FB PCI Bus Master IDE
+infpath=MSHDC.INF                                                                       
+infsection=DUAL_GOOD_IDE
+MatchingDeviceId=PCI\VEN_8086&DEV_1230
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Controladores de disco duro
+filenum=1
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

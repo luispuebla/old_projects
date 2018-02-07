@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Puente Intel 82443LX/EX Pentium(r) II Processor a puente PCI
+infpath=MACHINE2.INF                                                                    
+infsection=NO_DRV
+MatchingDeviceId=PCI\VEN_8086&DEV_7180
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sistema
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

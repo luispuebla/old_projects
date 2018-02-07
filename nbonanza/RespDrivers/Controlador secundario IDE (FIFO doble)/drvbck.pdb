@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Controlador secundario IDE (FIFO doble)
+infpath=MSHDC.INF                                                                       
+infsection=GOOD_IDE
+MatchingDeviceId=MF\GOODSECONDARY
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Controladores de disco duro
+filenum=1
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

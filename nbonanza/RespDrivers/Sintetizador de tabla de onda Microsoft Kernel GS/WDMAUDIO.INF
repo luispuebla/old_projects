@@ -1,0 +1,325 @@
+
+
+
+;; The audio inf file for WDM core files.
+
+[Version]
+CatalogFile=wdmaudio.cat
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%MSFT%
+LayoutFile=layout.inf, layout1.inf, layout2.inf
+
+;; Device Callouts for swenumed devices
+[Manufacturer]
+%MfgName%=Microsoft
+[Microsoft]
+%WDM_KMIXER.DeviceDesc%   = WDM_KMIXER,   SW\{B7EAFDC0-A680-11D0-96D8-00AA0051E51D}
+%WDM_SYSAUDIO.DeviceDesc% = WDM_SYSAUDIO, SW\{A7C7A5B0-5AF3-11D1-9CED-00A024BF0407}
+%WDM_SWMIDI.DeviceDesc%   = WDM_SWMIDI,   SW\{6C1B9F60-C0A9-11D0-96D8-00AA0051E51D}
+%WDM_DMUSIC.DeviceDesc%   = WDM_DMUSIC,   SW\{8C07DD50-7A8D-11d2-8F8C-00C04FBF8FEF}
+
+;; Registration of WDM Audio Drivers
+[WDMAUDIO.Registration]
+AddReg= WDM.AddReg.Register
+
+;;
+;; U P D A T E  R E G I S T R Y  S E C T I O N
+;;
+[WDM.AddReg.Install]
+;; SWMidi swenum install
+HKLM,%RunOnce%,"WDM_SWMIDI0",,"rundll32.exe /N streamci.dll,StreamingDeviceSetup %WDM_SWMIDI.DeviceId%,%KSNAME_Filter%,%KSCATEGORY_DATATRANSFORM%,%17%\WDMAUDIO.inf,WDM_SWMIDI.Interface.Install"
+HKLM,%RunOnce%,"WDM_SWMIDI1",,"rundll32.exe /N streamci.dll,StreamingDeviceSetup %WDM_SWMIDI.DeviceId%,%KSNAME_Filter%,%KSCATEGORY_SYNTHESIZER%,%17%\WDMAUDIO.inf,WDM_SWMIDI.Interface.Install"
+HKLM,%RunOnce%,"WDM_SWMIDI2",,"rundll32.exe /N streamci.dll,StreamingDeviceSetup %WDM_SWMIDI.DeviceId%,%KSNAME_Filter%,%KSCATEGORY_AUDIO%,%17%\WDMAUDIO.inf,WDM_SWMIDI.Interface.Install"
+
+;; Kmixer swenum install
+HKLM,%RunOnce%,"WDM_KMIXER0",,"rundll32.exe /N streamci.dll,StreamingDeviceSetup %WDM_KMIXER.DeviceId%,%KSNAME_Filter%,%KSCATEGORY_MIXER%,%17%\WDMAUDIO.inf,WDM_KMIXER.Interface.Install"
+HKLM,%RunOnce%,"WDM_KMIXER1",,"rundll32.exe /N streamci.dll,StreamingDeviceSetup %WDM_KMIXER.DeviceId%,%KSNAME_Filter%,%KSCATEGORY_AUDIO%,%17%\WDMAUDIO.inf,WDM_KMIXER.Interface.Install"
+
+;; DMusic swenum install
+HKLM,%RunOnce%,"WDM_DMUSIC0",,"rundll32.exe /N streamci.dll,StreamingDeviceSetup %WDM_DMUSIC.DeviceId%,%KSNAME_DMUSIC%,%KSCATEGORY_DATATRANSFORM%,%17%\WDMAUDIO.inf,WDM_DMUSIC.Interface.Install"
+HKLM,%RunOnce%,"WDM_DMUSIC1",,"rundll32.exe /N streamci.dll,StreamingDeviceSetup %WDM_DMUSIC.DeviceId%,%KSNAME_DMUSIC%,%KSCATEGORY_SYNTHESIZER%,%17%\WDMAUDIO.inf,WDM_DMUSIC.Interface.Install"
+HKLM,%RunOnce%,"WDM_DMUSIC2",,"rundll32.exe /N streamci.dll,StreamingDeviceSetup %WDM_DMUSIC.DeviceId%,%KSNAME_DMUSIC%,%KSCATEGORY_AUDIO%,%17%\WDMAUDIO.inf,WDM_DMUSIC.Interface.Install"
+
+;; Add the wdmaud.sys service
+HKLM,System\CurrentControlSet\Services\wdmaud,Group,,"Base"
+HKLM,System\CurrentControlSet\Services\wdmaud,ImagePath,,"\SystemRoot\system32\drivers\wdmaud.sys"
+HKLM,System\CurrentControlSet\Services\wdmaud,Start,1,03,00,00,00
+HKLM,System\CurrentControlSet\Services\wdmaud,Type,1,01,00,00,00
+HKLM,System\CurrentControlSet\Services\wdmaud,ErrorControl,1,01,00,00,00
+
+;; Add the redbook.sys service
+HKLM,System\CurrentControlSet\Services\redbook,Group,,"Base"
+HKLM,System\CurrentControlSet\Services\redbook,ImagePath,,"\SystemRoot\system32\drivers\redbook.sys"
+HKLM,System\CurrentControlSet\Services\redbook,Start,1,03,00,00,00
+HKLM,System\CurrentControlSet\Services\redbook,Type,1,01,00,00,00
+HKLM,System\CurrentControlSet\Services\redbook,ErrorControl,1,01,00,00,00
+;; Add the stuff to make redbook work.
+HKLM,System\CurrentControlSet\control\MediaResources\MediaExtensions\shellx\SimpleProperties\WDMAudio,ShellName,,"Digital Audio"
+
+;; Add the sbemul.sys service
+HKLM,System\CurrentControlSet\Services\sbemul,Group,,"Base"
+HKLM,System\CurrentControlSet\Services\sbemul,ImagePath,,"\SystemRoot\system32\drivers\sbemul.sys"
+HKLM,System\CurrentControlSet\Services\sbemul,Start,1,03,00,00,00
+HKLM,System\CurrentControlSet\Services\sbemul,Type,1,01,00,00,00
+HKLM,System\CurrentControlSet\Services\sbemul,ErrorControl,1,01,00,00,00
+
+[WDM.AddReg.Register]
+;; Sysaudio swenum install
+HKLM,%RunOnce%,"WDM_SYSAUDIO",,"rundll32.exe /N streamci.dll,StreamingDeviceSetup %WDM_SYSAUDIO.DeviceId%,%KSNAME_Filter%,%KSCATEGORY_SYSAUDIO%,%17%\WDMAUDIO.inf,WDM_SYSAUDIO.Interface.Install"
+
+;; Add sndvol to the sys-tray
+HKLM,Software\Microsoft\Windows\CurrentVersion\Run,SystemTray,,"SysTray.Exe"
+HKLM,%KEY_IOC%\Vol,,,
+HKLM,%KEY_IOC%\acm,,,
+HKLM,%KEY_IOC%\Rec,,,
+HKLM,%KEY_IOC%\MPlay,,,
+
+HKR,,DevLoader,,"*ntkern,mmdevldr.vxd"
+
+[WDM.DelReg]
+HKLM,System\CurrentControlSet\Services\mmsysmap
+HKLM,System\CurrentControlSet\Services\kmixer
+HKLM,System\CurrentControlSet\Services\sysaudio
+HKLM,System\CurrentControlSet\Services\swmidi
+
+;;
+;; F I L E  C O P Y  S E C T I O N
+;;
+[DestinationDirs]
+WDM.CopyFiles.Drv     = 10,system32\drivers ; %SystemRoot%\system32\drivers
+WDM.CopyFiles.Sys     = 11                  ; %SystemRoot%\system
+WDM.DelFiles.Sys      = 11                  ; %SystemRoot%\system
+WDM.DelFiles.Win      = 10                  ; WINDOWS
+
+MS_MPU401.CopyFiles   = 10,system32\drivers ; %SystemRoot%\system32\drivers
+
+WDM_SYSAUDIO.CopyFiles = 10,system32\drivers
+WDM_KMIXER.CopyFiles   = 10,system32\drivers
+WDM_SWMIDI.CopyFiles   = 10,system32\drivers
+WDM_DMUSIC.CopyFiles   = 10,system32\drivers
+
+;; copied to system32\drivers
+[WDM.CopyFiles.Drv]
+wdmaud.sys
+gm.dls,gm16.dls
+portcls.sys
+stream.sys
+redbook.sys
+sbemul.sys
+
+;; copied to system
+[WDM.CopyFiles.Sys]
+wdmaud.drv
+ksuser.dll
+
+;;
+;; D E L E T E  F I L E S  S E C T I O N
+;;
+
+;; Delete from the system directory
+[WDM.DelFiles.Sys]
+kmixer.sys
+ks.sys
+wdmaud.sys
+swmidi.sys
+sysaudio.sys
+redbook.sys
+sbemul.sys
+mssb16.sys
+USBAUDIO.sys
+STREAM.sys
+portcls.sys
+gm.dls
+gm16.dls
+
+;; Delete from the 'windows' directory
+[WDM.DelFiles.Win]
+WDMAUD.DRV
+
+;;
+;; U P D A T E  I N I S  S E C T I O N
+;;
+[WDM.UpdateInis]
+system.ini,drivers,"wave*=wdmaud.drv",,1
+system.ini,drivers,"midi*=wdmaud.drv",,1
+system.ini,drivers,"mixer*=wdmaud.drv",,1
+
+;; MPU401 Install Section can be called by OEM's to install MS MPU401 driver
+[WDMAUDIO.MPU401]
+CopyFiles=MS_MPU401.CopyFiles
+AddReg=MS_MPU401.AddReg
+UpdateInis=MS_MPU401.UpdateInis
+
+[MS_MPU401.CopyFiles]
+msmpu401.sys
+
+[MS_MPU401.AddReg]
+HKR,,AssociatedFilters,,"wdmaud"
+HKR,,Driver,,msmpu401.sys
+HKR,,NTMPDriver,,msmpu401.sys
+
+HKR,Drivers,SubClasses,,"midi"
+HKR,Drivers\midi\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv, Description,,%MS_MPU401%
+
+[MS_MPU401.UpdateInis]
+system.ini,drivers,"midi*=mpu401.drv",,1
+system.ini,drivers,"midi*=rdmpu401.drv",,1
+system.ini,drivers,"midi*=mm16n.drv",,1
+system.ini,drivers,"midi*=mm16c.drv",,1
+system.ini,drivers,"midi*=mm16w.drv",,1
+
+;; FDMA install section
+[WDMAUDIO.FDMA]
+AddReg=FDMA.AddReg
+[FDMA.AddReg]
+;; Use FDMA
+HKR,,UseFDMA,1,01,00,00,00
+
+[WDMAUDIO.NOFDMA]
+AddReg=NOFDMA.AddReg
+[NOFDMA.AddReg]
+;; Use FDMA
+HKR,,UseFDMA,1,00,00,00,00
+
+;; SWEnum Installation Sections
+[WDM_SYSAUDIO.Interface.Install]
+AddReg=WDM_SYSAUDIO.Interface.AddReg
+
+[WDM_SYSAUDIO.Interface.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM_SYSAUDIO.FriendlyName%
+
+[WDM_SYSAUDIO]
+CopyFiles = WDM_SYSAUDIO.CopyFiles, WDM.CopyFiles.Sys, WDM.CopyFiles.Drv
+AddReg    = WDM_SYSAUDIO.AddReg, WDM.AddReg.Install
+KnownFiles= WDM_SYSAUDIO.KnownFiles
+DelReg= WDM.DelReg
+DelFiles= WDM.DelFiles.Sys, WDM.DelFiles.Win
+UpdateInis= WDM.UpdateInis
+Include=ks.inf
+Needs=ks.registration
+
+[WDM_SYSAUDIO.KnownFiles]
+sysaudio.sys=safe
+
+[WDM_SYSAUDIO.CopyFiles]
+sysaudio.sys
+
+[WDM_SYSAUDIO.AddReg]
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,SYSAUDIO.sys
+
+[WDM_KMIXER.Interface.Install]
+AddReg=WDM_KMIXER.Interface.AddReg
+
+[WDM_KMIXER.Interface.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM_KMIXER.FriendlyName%
+
+[WDM_KMIXER]
+CopyFiles = WDM_KMIXER.CopyFiles
+AddReg    = WDM_KMIXER.AddReg
+KnownFiles = WDM_KMIXER.KnownFiles
+
+[WDM_KMIXER.KnownFiles]
+kmixer.sys=safe
+
+[WDM_KMIXER.CopyFiles]
+kmixer.sys
+
+[WDM_KMIXER.AddReg]
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,KMIXER.sys
+
+;; Software MIDI Install
+[WDM_SWMIDI.Interface.Install]
+AddReg=WDM_SWMIDI.Interface.AddReg
+
+[WDM_SWMIDI.Interface.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM_SWMIDI.FriendlyName%
+
+[WDM_SWMIDI]
+CopyFiles = WDM_SWMIDI.CopyFiles
+AddReg    = WDM_SWMIDI.AddReg
+KnownFiles = WDM_SWMIDI.KnownFiles
+
+[WDM_SWMIDI.KnownFiles]
+swmidi.sys=safe
+
+[WDM_SWMIDI.CopyFiles]
+swmidi.sys
+
+[WDM_SWMIDI.AddReg]
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,SWMIDI.sys
+
+;; DMusic Install
+[WDM_DMUSIC.Interface.Install]
+AddReg=WDM_DMUSIC.Interface.AddReg
+
+[WDM_DMUSIC.Interface.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM_DMUSIC.FriendlyName%
+
+[WDM_DMUSIC]
+CopyFiles = WDM_DMUSIC.CopyFiles
+AddReg    = WDM_DMUSIC.AddReg
+KnownFiles = WDM_DMUSIC.KnownFiles
+
+[WDM_DMUSIC.KnownFiles]
+dmusic.sys=safe
+
+[WDM_DMUSIC.CopyFiles]
+dmusic.sys
+
+[WDM_DMUSIC.AddReg]
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,DMUSIC.sys
+
+[Strings]
+;Non-localized strings
+;; ???? These keys weren't used anywhere. Delete?
+;;KEY_WARNVER="SYSTEM\CurrentControlSet\Control\SessionManager\WarnVerDLLs"
+;;KEY_CHKVER="SYSTEM\CurrentControlSet\Control\SessionManager\CheckVerDLLs"
+;;KEY_FIL="SYSTEM\CurrentControlSet\Control\MediaResources\FilterList"
+KEY_IOC = "SYSTEM\CurrentControlSet\Control\MediaResources\InstallOptionalComponents"
+MSFT = "Microsoft"
+MfgName = "Microsoft"
+
+RunOnce = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
+Proxy.CLSID = "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSNAME_Filter = "{9B365890-165F-11D0-A195-0020AFD156E4}"
+KSNAME_DMUSIC = "dmusic"
+
+WDM_SYSAUDIO.DeviceId = "{A7C7A5B0-5AF3-11D1-9CED-00A024BF0407}"
+KSCATEGORY_SYSAUDIO = "{A7C7A5B1-5AF3-11D1-9CED-00A024BF0407}"
+
+WDM_KMIXER.DeviceId = "{B7EAFDC0-A680-11D0-96D8-00AA0051E51D}"
+KSCATEGORY_MIXER = "{AD809C00-7B88-11D0-A5D6-28DB04C10000}"
+
+WDM_SWMIDI.DeviceId = "{6C1B9F60-C0A9-11D0-96D8-00AA0051E51D}"
+KSCATEGORY_DATATRANSFORM = "{2EB07EA0-7E70-11D0-A5D6-28DB04C10000}"
+KSCATEGORY_SYNTHESIZER = "{DFF220F3-F70F-11D0-B917-00A0C9223196}"
+KSCATEGORY_AUDIO = "{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+
+WDM_DMUSIC.DeviceId = "{8C07DD50-7A8D-11d2-8F8C-00C04FBF8FEF}"
+
+;Localized strings
+MS_MPU401 = "MPU401"
+
+WDM_SYSAUDIO.DeviceDesc = "Generador del sistema del núcleo de Microsoft"
+WDM_SYSAUDIO.FriendlyName = "Generador del sistema del núcleo de Microsoft"
+
+WDM_KMIXER.DeviceDesc = "Mezclador de sonido del núcleo de Microsoft"
+WDM_KMIXER.FriendlyName = "Mezclador de sonido del núcleo de Microsoft"
+
+WDM_SWMIDI.DeviceDesc = "Sintetizador de tabla de onda Microsoft Kernel GS"
+WDM_SWMIDI.FriendlyName = "Sintetizador de tabla de onda Microsoft Kernel GS"
+
+WDM_DMUSIC.DeviceDesc = "Sintetizador por software DirectMusic (WDM) de Microsoft"
+WDM_DMUSIC.FriendlyName = "Sintetizador por software DirectMusic (WDM) de Microsoft"
+

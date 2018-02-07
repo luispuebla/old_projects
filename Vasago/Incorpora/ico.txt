@@ -1,0 +1,33 @@
+/**
+* El Método preciosDeProducto nos regresa el Listado de los Precios para un producto en especifico
+* @return ResultSet correspondiente al listado de los Precios registrados para un producto.
+*/
+	public ResultSet preciosDeProducto(String claveDeProducto){
+		ResultSet rs = null;
+		try{
+			String query = ("SELECT precio1, precio2, precio3, precio4, precio5 FROM productos WHERE claveProducto ='"+claveDeProducto +"'");
+			con = new ConexionBD();
+			Statement stmt = con.creaStatement();
+			rs = stmt.executeQuery(query);
+		}
+		catch (SQLException sqle){
+			System.out.println("Error de SQL en ManagerVenta, preciosDeProducto ");
+			sqle.printStackTrace();
+		}
+		catch (Exception e){
+			System.out.println("Ocurrio un Error en ManagerVenta, preciosDeProducto ");
+			e.printStackTrace();
+		}
+		finally{
+			if(con != null){
+				try{
+					con.cierraConexion();
+				}
+				catch (Exception q){
+					System.out.println("Error al momento de cerrar conexion en ManagerVenta, preciosDeProducto ");
+					q.printStackTrace();
+				}
+			}
+		}
+		return rs;
+	}

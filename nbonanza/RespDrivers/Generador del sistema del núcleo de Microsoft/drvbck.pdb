@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Generador del sistema del núcleo de Microsoft
+infpath=WDMAUDIO.INF                                                                    
+infsection=WDM_SYSAUDIO
+MatchingDeviceId=SW\{A7C7A5B0-5AF3-11D1-9CED-00A024BF0407}
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sonido, vídeo y juegos
+filenum=11
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

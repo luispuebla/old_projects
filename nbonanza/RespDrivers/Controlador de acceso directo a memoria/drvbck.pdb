@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Controlador de acceso directo a memoria
+infpath=MACHINE.INF                                                                     
+infsection=VDMA_DRV
+MatchingDeviceId=*PNP0200
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sistema
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

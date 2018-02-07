@@ -1,0 +1,914 @@
+
+
+;
+; MSMOUSE.INF
+; - Installs core mouse support files, etc.
+; - Includes drivers for detected & PnP devices 
+;
+; Copyright (c) 1993-1997 Microsoft Corporation
+;
+
+[Version]
+CatalogFile=msmouse.cat
+Signature="$CHICAGO$"
+LayoutFile=Layout.inf, Layout1.inf, Layout2.inf
+Class=Mouse
+ClassGUID={4d36e96f-e325-11ce-bfc1-08002be10318}
+Provider=%Provider%
+SetupClass=Base
+
+[DestinationDirs]
+DefaultDestDir   = 11             ; LDID_SYS
+System.Copy      = 11             ; LDID_SYS
+VxD.Copy         = 22             ; LDID_VMM32
+INF.Copy         = 17             ; LDID_INF
+STDUSBMOUSE.Copy = 10,system32\drivers
+STDUSBMOUSE.Del  = 11
+HIDMouse.Copy    = 11             ; LDID_SYS
+
+
+; Base Install Sections 
+; ---------------------------------------------------------
+[BaseWinOptions]
+MouseBase
+
+[MouseBase]
+DelFiles=System.DelFile
+UpdateInis=MouseBase.inis
+
+[System.DelFile]
+vmouse.386
+lmouse.386
+msmini.386
+
+[MouseBase.inis]
+; Add the entry for vmouse/msmouse only if one doesn't already exist
+system.ini, 386Enh, "mouse=*", "~MouseTemp~=*", 2
+system.ini, 386Enh,, "mouse=*vmouse, msmouse.vxd"
+system.ini, 386Enh, "~MouseTemp~=*", "mouse=*", 2
+
+
+; The section below has to be empty. The Mouse classinstaller
+; relys on it. Don't add anything to this section.
+[EmptySection]
+
+
+; Install class "Mouse"
+; ---------------------------------------------------------
+[ClassInstall]
+Addreg=MouseReg
+
+[MouseReg]
+HKR,,,,%MouseClassName%
+HKR,,Installer,,"SetupX.Dll, Mouse_ClassInstaller"
+HKR,,Icon,,"-2"
+
+[SysCfgClasses]
+Mouse,%NoMouse%,ROOT,,%MouseClassName%  ; Default to no mouse when no mouse
+					; detected or Setup /i is run
+
+
+; Win3.1 drivers to preserve
+; ---------------------------------------------------------
+[mouse.update.fail]
+obmouse.drv,*,*         ; HP OmniBook mouse
+felix.drv,*,*           ; Altra Felix mouse
+mwtsumm.drv,*,*         ; SummaSketch WinTab MM Driver
+exmouse.drv,*,*         ; Kensington trackball
+mscmouse.drv,*,*        ; Mouse Systems / Genius
+msc3bc2.drv,*,*
+*,mscvmd.386,*
+glide.drv,*,*           ; GlidePoint
+
+
+; Win3.1 drivers to force upgrade
+; ---------------------------------------------------------
+[mouse.update.force]
+nomouse.drv,*,*
+yesmouse.drv,*,*
+
+
+; Device types to hide
+; ---------------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect=*PNP0F13,SERENUM\PNP0F1E,*PNP0F13_Logi
+CopyFilesOnly=SERENUM\PNP0F0A,SERENUM\MSH0001,SERENUM\PNP0F1E,SERENUM\LGI8001,SERENUM\LGI8002,SERENUM\LGI800D,SERENUM\KML0001
+
+
+; Manufacturer Sections
+; ---------------------------------------------------------
+[Manufacturer]
+%StdMfg%  =StdMfg               ; (Standard types)
+%MSMfg%   =MSMfg                ; Microsoft
+%LogiMfg% =LogiMfg              ; Logitech
+%CypressMfg% =CypressMfg        ; Cypress
+%CpqMfg%  =CpqMfg               ; Compaq
+%KensMfg% =KensMfg              ; Kensington
+%TIMfg%   =TIMfg                ; Texas Instruments
+%ToshMfg% =ToshMfg              ; Toshiba
+%ELOMfg%  =ELOMfg               ; ELO Touchsystems
+%ChiconyMfg% =ChiconyMfg        ; Chicony
+%NMBMfg%  =NMBMfg               ; NMB
+%STSLMfg%  =STSLMfg             ; STSL
+%SUPERGATEMfg%  =SUPERGATEMfg   ; SUPGERGATE
+%BTCMfg%  =BTCMfg		; BTC
+%FOCUSMfg%=FOCUSMfg		: Focus
+%JINGMOLDMfg%=JINGMOLDMfg	: Jing Mold
+%MAXISWITCHMfg%=MAXISWITCHMfg	; Maxi Switch
+%MONTEREYMfg%=MONTEREYMfg	; Monterey
+%ORTEKMfg%=ORTEKMfg		; Ortek
+%KeytronicMfg%=KEYTRONICMfg	; Key Tronic
+%GeniusMfg%=GeniusMfg		; Genius
+%ItacMfg% =ItacMfg              ; Itac Systems
+%SamsungMfg%=SamsungMfg         ; Samsung
+%ForwardMfg%=ForwardMfg         ; Forward
+%SUHMfg%=SUHMfg                 ; SUH DART
+%PhilipsMfg%=PhilipsMfg         ; Philips
+%AnchorMfg%=AnchorMfg           ; Anchor
+%SOLIDYEARMfg%=SOLIDYEARMfg     ; Solid Year
+%NECMfg%=NECMfg     		; NEC
+%FUJITSUMfg%=FUJITSUMfg		; Fujitsu
+%SEJINMfg%=SEJINMfg		; Sejin
+%DexinMfg%=DexinMfg		; Dexin
+%AcerMfg%=AcerMfg		; Acer
+%SilitekMfg%=SilitekMfg		; Silitek
+%QtronixMfg%=QtronixMfg		; Qtronix 
+
+
+[StdMfg]
+%*pnp0f0c.DeviceDesc%=StdSer,*PNP0F0C   ; Std serial mouse
+%*pnp0f0d.DeviceDesc%=StdInP,*PNP0F0D   ; Std InPort mouse
+%*pnp0f0e.DeviceDesc%=StdPS2,*PNP0F0E   ; Std PS/2 mouse
+%*pnp0f11.DeviceDesc%=StdBus,*PNP0F11   ; Std bus mouse
+%*pnp0f13.DeviceDesc%=StdPS2,*PNP0F13   ; PS/2 mouse port (hidden)
+
+;
+; This is the compatible id for HID mice;
+; it will be matched when the primary id of the mouse is not recognized.
+;
+%HID_DEVICE_SYSTEM_MOUSE%=HIDMouse,HID_DEVICE_SYSTEM_MOUSE
+
+
+[MSMfg]
+%*pnp0f00.DeviceDesc%=MSBus,*PNP0F00    ; MS bus mouse   
+%*pnp0f01.DeviceDesc%=MSSer,*PNP0F01    ; MS serial mouse
+%*pnp0f02.DeviceDesc%=MSInP,*PNP0F02    ; MS InPort mouse
+%*pnp0f03.DeviceDesc%=MSPS2,*PNP0F03    ; MS PS/2 mouse
+%*pnp0f09.DeviceDesc%=MSSer,*PNP0F09    ; MS serial BallPoint
+%*pnp0f0b.DeviceDesc%=MSPS2,*PNP0F0B    ; MS PS/2 mouse
+%*pnp0f0f.DeviceDesc%=MSSer,*PNP0F0F    ; MS serial BallPoint
+%MSH0002.DeviceDesc%=MSPS2,*PNP0F13     ; MSH0002 - PS/2 IntelliMouse
+%MSH0005.DeviceDesc%=MSPS2,*PNP0F13     ; MSH0005 - PS/2 IntelliMouse Trackball
+%*pnp0f1e.DeviceDesc%=MSSer,,*PNP0F1E   ; MS serial EasyBall
+%SERENUM\PNP0F0A.DeviceDesc%=MSSerPnP, SERENUM\PNP0F0A
+%SERENUM\MSH0001.DeviceDesc%=MSSerPnP, SERENUM\MSH0001 ; IntelliMouse
+%SERENUM\MSH0004.DeviceDesc%=MSSerPnP, SERENUM\MSH0004 ; IntelliMouse Trackball
+%SERENUM\PNP0F1E.DeviceDesc%=MSSerPnP,,SERENUM\PNP0F1E
+%USB\VID_045E&PID_0009.DeviceDesc%=STDUSBMOUSE, USB\VID_045E&PID_0009
+
+
+[LogiMfg]
+%*pnp0f08.DeviceDesc%=LogiSer,*PNP0F08  ; Logi serial mouse
+%*pnp0f12.DeviceDesc%=LogiPS2,*PNP0F12  ; Logi PS/2 mouse
+%*pnp0f15.DeviceDesc%=LogiBus,*PNP0F15  ; Logi bus mouse
+
+%SERENUM\LGI8001.DeviceDesc%=LogiSerPnP,, SERENUM\LGI8001
+%*LGI8E01.DeviceDesc%       =LogiPS2,*LGI8E01
+
+%SERENUM\LGI8002.DeviceDesc%=LogiSerPnP,, SERENUM\LGI8002
+%*LGI8E02.DeviceDesc%       =LogiPS2,*LGI8E02
+
+%SERENUM\LGI8003.DeviceDesc%=LogiSerPnP,, SERENUM\LGI8003
+%*LGI8E03.DeviceDesc%       =LogiPS2,*LGI8E03
+
+%SERENUM\LGI8005.DeviceDesc%=LogiSerPnP,, SERENUM\LGI8005
+%*LGI8E05.DeviceDesc%       =LogiPS2,*LGI8E05
+
+%SERENUM\LGI8006.DeviceDesc%=LogiSerPnP,, SERENUM\LGI8006
+%*LGI8E06.DeviceDesc%       =LogiPS2,*LGI8E06
+
+%SERENUM\LGI8007.DeviceDesc%=LogiSerPnP,, SERENUM\LGI8007
+%*LGI8E07.DeviceDesc%       =LogiPS2,*LGI8E07
+
+%SERENUM\LGI8008.DeviceDesc%=LogiSerPnP,, SERENUM\LGI8008
+%*LGI8E08.DeviceDesc%       =LogiPS2,*LGI8E08
+
+%SERENUM\LGI8009.DeviceDesc%=LogiSerPnP,, SERENUM\LGI8009
+%*LGI8E09.DeviceDesc%       =LogiPS2,*LGI8E09
+
+%SERENUM\LGI800A.DeviceDesc%=LogiSerPnP,, SERENUM\LGI800A
+%*LGI8E0A.DeviceDesc%       =LogiPS2,*LGI8E0A
+
+%SERENUM\LGI800B.DeviceDesc%=LogiSerPnP,, SERENUM\LGI800B
+%*LGI8E0B.DeviceDesc%       =LogiPS2,*LGI8E0B
+
+%SERENUM\LGI800C.DeviceDesc%=LogiSerPnP,, SERENUM\LGI800C
+%*LGI8E0C.DeviceDesc%       =LogiPS2,*LGI8E0C
+
+%SERENUM\LGI8011.DeviceDesc%=LogiSerPnP,,SERENUM\LGI8011
+%*LGI8E11.DeviceDesc%       =LogiPS2,*LGI8E11
+
+%SERENUM\LGI8012.DeviceDesc%=LogiSerPnP,,SERENUM\LGI8012
+%*LGI8E12.DeviceDesc%       =LogiPS2,*LGI8E12
+
+%SERENUM\LGI8013.DeviceDesc%=LogiSerPnP,,SERENUM\LGI8013
+%*LGI8E13.DeviceDesc%       =LogiPS2,*LGI8E13
+
+%SERENUM\LGI8032.DeviceDesc%=LogiSerPnP,,SERENUM\LGI8032
+%*LGI8E32.DeviceDesc%       =LogiPS2,*LGI8E32
+
+%SERENUM\LGI8033.DeviceDesc%=LogiSerPnP,,SERENUM\LGI8033
+%*LGI8E33.DeviceDesc%       =LogiPS2,*LGI8E33
+
+%SERENUM\LGI8048.DeviceDesc%=LogiSerPnP,,SERENUM\LGI8048
+%*LGI8E48.DeviceDesc%       =LogiPS2,*LGI8E48
+
+%SERENUM\LGI8049.DeviceDesc%=LogiSerPnP,,SERENUM\LGI8049
+%*LGI8E49.DeviceDesc%       =LogiPS2,*LGI8E49
+
+%SERENUM\LGI804A.DeviceDesc%=LogiSerPnP,,SERENUM\LGI804A
+%*LGI8E4A.DeviceDesc%       =LogiPS2,*LGI8E4A
+
+%SERENUM\LGI804B.DeviceDesc%=LogiSerPnP,,SERENUM\LGI804B
+%*LGI8E4B.DeviceDesc%       =LogiPS2,*LGI8E4B
+
+%SERENUM\LGI8050.DeviceDesc%=LogiSerPnP,,SERENUM\LGI8050
+%*LGI8E50.DeviceDesc%       =LogiPS2,*LGI8E50
+
+%SERENUM\LGI8051.DeviceDesc%=LogiSerPnP,,SERENUM\LGI8051
+%*LGI8E51.DeviceDesc%       =LogiPS2,*LGI8E51
+
+%*LGI8E60.DeviceDesc%        = LogiPS2,*LGI8E60
+%*LGI8E61.DeviceDesc%        = LogiPS2,*LGI8E61
+
+%*pnp0f13_Logi.DeviceDesc%=LogiPS2, *PNP0F13_Logi       ; Logi PnP BIOS PS/2 mouse
+
+%USB\VID_046D&PID_C000.DeviceDesc%=STDUSBMOUSE, USB\VID_046D&PID_C000
+%USB\VID_046D&PID_C001.DeviceDesc%=STDUSBMOUSE, USB\VID_046D&PID_C001
+%USB\VID_046D&PID_C002.DeviceDesc%=STDUSBMOUSE, USB\VID_046D&PID_C002
+%USB\VID_046D&PID_C003.DeviceDesc%=STDUSBMOUSE, USB\VID_046D&PID_C003
+
+
+[CypressMfg]
+%USB\VID_04B4&PID_0001.DeviceDesc%=STDUSBMOUSE, USB\VID_04B4&PID_0001
+
+[CpqMfg]
+%*cpqa0d8.DeviceDesc%=CpqPS2,*CPQA0D8   ; Cpq PS/2 mouse
+%*pnp0f1c.DeviceDesc%=CpqPS2,*PNP0F1C   ; Cpq PS/2 trackball
+%*pnp0f1d.DeviceDesc%=CpqSer,*PNP0F1D   ; Cpq serial trackball 
+
+[KensMfg]
+%SERENUM\KML0001.DeviceDesc%=KensSer, SERENUM\KML0001
+
+[TIMfg]
+%*pnp0f10.DeviceDesc%=TIBall,*PNP0F10   ; TI QuickPort BallPoint
+
+[ToshMfg]
+%*tos7400.DeviceDesc%=ToshPS2,*TOS7400  ; Toshiba Integrated
+
+[ELOMfg]
+%USB\VID_04E7&PID_0001.DeviceDesc%=STDUSB_ABSOLUTE_POINTER, USB\VID_04E7&PID_0001
+
+[ChiconyMfg]
+%USB\VID_04F2&PID_0001&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_04F2&PID_0001&MI_01
+
+[NMBMfg]
+%USB\VID_0446&PID_6781&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_0446&PID_6781&MI_01
+
+[STSLMfg]
+%USB\VID_05FA&PID_3301&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_05FA&PID_3301&MI_01 
+%USB\VID_05FA&PID_3303&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_05FA&PID_3303&MI_01 
+
+[SUPERGATEMfg]
+%USB\VID_05d5&PID_6782&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_05d5&PID_6782&MI_01
+
+[KEYTRONICMfg]
+%USB\VID_03F9&PID_0102&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_03F9&PID_0102&MI_01
+
+[GeniusMfg]
+%USB\VID_0458&PID_0001.DeviceDesc%=STDUSBMOUSE, USB\VID_0458&PID_0001
+%USB\VID_0458&PID_0002.DeviceDesc%=STDUSBMOUSE, USB\VID_0458&PID_0002
+%USB\VID_0458&PID_0003.DeviceDesc%=STDUSBMOUSE, USB\VID_0458&PID_0003
+
+[ItacMfg]
+%USB\VID_0431&PID_0100.DeviceDesc%=STDUSBMOUSE, USB\VID_0431&PID_0100
+
+[SamsungMfg]
+%USB\VID_055D&PID_6781&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_055D&PID_6781&MI_01
+
+[ForwardMfg]
+%USB\VID_05BC&PID_0001&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_05BC&PID_0001&MI_01
+
+[SUHMfg]
+%USB\VID_0500&PID_0001&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_0500&PID_0001&MI_01
+
+[BTCMfg]
+%USB\VID_046E&PID_6782&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_046E&PID_6782&MI_01
+
+[FOCUSMfg]
+%USB\VID_05B2&PID_7200&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_05B2&PID_7200&MI_01
+
+[JINGMOLDMfg]
+%USB\VID_05AF&PID_9267&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_05AF&PID_9267&MI_01
+
+[MAXISWITCHMfg]
+%USB\VID_04C3&PID_1102&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_04C3&PID_1102&MI_01
+%USB\VID_04C3&PID_2102&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_04C3&PID_2102&MI_01
+
+[MONTEREYMfg]
+%USB\VID_0566&PID_2801&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_0566&PID_2801&MI_01
+
+[ORTEKMfg]
+%USB\VID_05A4&PID_9720&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_05A4&PID_9720&MI_01
+
+[PhilipsMfg]
+%USB\VID_0471&PID_0402&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_0471&PID_0402&MI_01
+%USB\VID_0471&PID_0601&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_0471&PID_0601&MI_01
+
+[AnchorMfg]
+%USB\VID_0605&PID_0001.DeviceDesc%=STDUSBMOUSE, USB\VID_0605&PID_0001
+
+[NECMfg]
+%USB\VID_0409&PID_0014&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_0409&PID_0014&MI_01
+%USB\VID_0409&PID_0011&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_0409&PID_0011&MI_01
+
+[SOLIDYEARMfg]
+%USB\VID_060B&PID_2101&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_060B&PID_2101&MI_01
+
+[FUJITSUMfg]
+%USB\VID_0430&PID_0002&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_0430&PID_0002&MI_01
+
+[SEJINMfg]
+%USB\VID_0510&PID_E001.DeviceDesc%=STDUSBMOUSE, USB\VID_0510&PID_E001
+%USB\VID_0510&PID_1000&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_0510&PID_1000&MI_01
+
+[DexinMfg]
+%USB\VID_05F2&PID_0010.DeviceDesc%=STDUSBMOUSE, USB\VID_05F2&PID_0010
+
+[AcerMfg]
+%USB\VID_04A5&PID_0003&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_04A5&PID_0003&MI_01
+
+[SilitekMfg]
+%USB\VID_047B&PID_0002&MI_01.DeviceDesc%=STDUSBMOUSE, USB\VID_047B&PID_0002&MI_01
+
+[QtronixMfg]
+%USB\VID_05C7&PID_1001.DeviceDesc%=STDUSBMOUSE, USB\VID_05C7&PID_1001
+
+
+; Install Sections
+; ---------------------------------------------------------
+
+; -------------- (No mouse)
+[NoMouse]
+UpdateInis=NoMouse.Ini
+
+[NoMouse.Ini]
+system.ini,boot,,"mouse.drv=mouse.drv"
+system.ini,boot.description,,"mouse.drv=%NoMouse%"
+win.ini,windows,,"SkipMouseRedetect=1"
+
+; -------------- MS compatible mouse
+[StdAny]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg
+CopyFiles=Std.Copy
+UpdateInis=Std.Ini
+UpdateIniFields=Std.UpdateIniFields
+
+[Std.UpdateIniFields]
+win.ini, windows, load, *gui.exe,,1             ; Genius MouseMate
+win.ini, windows, load, *wbuttons.exe,,1        ; Logitech MouseWare
+win.ini, windows, load, *xpoint.exe,,1          ; NEC / LCS Mouse Options
+
+[Std.AddReg]
+HKR,,DevLoader,,*vmouse
+
+[Std.Copy]
+mouse.drv
+msmouse.vxd,,,32
+
+[Std.Ini]
+system.ini,boot,,"mouse.drv=mouse.drv"
+system.ini,boot.description,,"mouse.drv=%StdMouse%"
+system.ini,386Enh,,"mouse=*vmouse, msmouse.vxd"
+
+[Prev.DelReg]
+HKR,,DevLoader
+HKR,,MouseDriver
+HKR,,MouseType
+HKR,,ComInfo
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Mouse\shellex\PropertySheetHandlers\DriverPages"
+HKLM, SOFTWARE\Logitech\MouseWare\CurrentVersion\Technical, BootSearch ; for 8.20 and later
+
+; -------------- Standard serial mouse
+[StdSer]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg, Serial.AddReg
+CopyFiles=Std.Copy
+UpdateInis=Std.Ini
+UpdateIniFields=Std.UpdateIniFields
+
+[Serial.AddReg]
+HKR,,MouseType,,"Serial"
+HKR,,NoSetupUI,,1
+
+; -------------- InPort mouse
+[StdInP]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg, InPort.AddReg
+CopyFiles=Std.Copy
+UpdateInis=Std.Ini
+UpdateIniFields=Std.UpdateIniFields
+LogConfig=InPort.LogConfig
+
+[InPort.AddReg]
+HKR,,MouseType,,"Inport"
+HKR,,NoSetupUI,,1
+
+[InPort.LogConfig]              
+ConfigPriority=HARDRECONFIG
+IOConfig=4@230-23f%fffc(3ff::)
+IRQConfig=3,4,5,7,9
+
+; -------------- Standard PS/2 mouse
+[StdPS2]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg, PS2.AddReg
+CopyFiles=Std.Copy
+UpdateInis=Std.Ini
+UpdateIniFields=Std.UpdateIniFields
+LogConfig=PS2.LogConfig
+
+[PS2.AddReg]
+HKR,,MouseType,,"PS2"
+HKR,,NoSetupUI,,1
+
+[PS2.LogConfig]
+ConfigPriority=HARDWIRED
+IRQConfig=12
+
+[StdPS2.PosDup]
+*PNP0F03,*PNP0F0B,*PNP0F0E,*PNP0F12,*PNP0F1C,*PNP0F13
+
+; -------------- Standard bus mouse
+[StdBus]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg, Bus.AddReg
+CopyFiles=Std.Copy
+UpdateInis=Std.Ini
+UpdateIniFields=Std.UpdateIniFields
+LogConfig=Bus.LogConfig
+
+[Bus.AddReg]
+HKR,,MouseType,,"Bus"
+HKR,,NoSetupUI,,1
+
+[Bus.LogConfig]
+ConfigPriority=HARDRECONFIG
+IOConfig=23c-23f(3ff::)
+IRQConfig=3,4,5,9
+
+; -------------- Microsoft Mouse
+[MSAny]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg
+CopyFiles=MS.Copy
+UpdateInis=MS.Ini
+
+[MS.Copy]
+mouse.drv
+msmouse.vxd,,,32
+
+[MS.Ini]
+system.ini,boot.description,,"mouse.drv=%MSMouse%"
+system.ini,boot,,"mouse.drv=mouse.drv"
+system.ini,386Enh,,"mouse=*vmouse, msmouse.vxd"
+
+; -------------- Microsoft Serial Mouse
+[MSSer]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg, Serial.AddReg
+CopyFiles=MS.Copy
+UpdateInis=MS.Ini
+UpdateIniFields=Std.UpdateIniFields
+
+; -------------- Microsoft Serial Mouse (PnP)
+[MSSerPnP]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg, Serial.AddReg
+CopyFiles=MS.Copy
+UpdateInis=MS.Ini
+UpdateIniFields=Std.UpdateIniFields
+
+[STDUSBMOUSE.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"hidusb.sys"
+
+[STDUSBMOUSE.Copy]
+hidclass.sys
+hidusb.sys
+hidparse.sys
+
+[STDUSBMOUSE.Del]
+hidclass.sys
+hidusb.sys
+hidparse.sys
+
+[STDUSB_ABSOLUTE_POINTER.AddReg]
+HKCU,"Control Panel\Desktop",DoubleClickHeight,2,"25"
+HKCU,"Control Panel\Desktop",DoubleClickWidth,2,"25"
+
+[MsmousePerUser]
+AddReg = STDUSB_ABSOLUTE_POINTER.AddReg
+
+[msmouse.pui]
+GUID = "MsmousePerUser"
+DisplayName = %PUI_DESC_MSMOUSE%
+Version = %PUI_VERSION%
+IsInstalled = 1
+StubPath = "rundll.exe %11%\setupx.dll,InstallHinfSection MsmousePerUser 64 %17%\msmouse.inf"
+
+[MSSerPnP.PosDup]
+*PNP0F0C,*PNP0F0F,*PNP0F01,*PNP0F09,*PNP0F0A,*PNP0F0B,*PNP0F14,*PNP0F1E
+
+; -------------- Microsoft InPort Mouse
+[MSInP]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg, InPort.AddReg
+CopyFiles=MS.Copy
+UpdateInis=MS.Ini
+UpdateIniFields=Std.UpdateIniFields
+LogConfig=InPort.LogConfig
+
+; -------------- Microsoft PS/2 Mouse
+[MSPS2]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg, PS2.AddReg
+CopyFiles=MS.Copy
+UpdateInis=MS.Ini
+UpdateIniFields=Std.UpdateIniFields
+LogConfig=PS2.LogConfig
+
+[MSPS2.PosDup]
+*PNP0F03,*PNP0F0B,*PNP0F0E,*PNP0F12,*PNP0F1C
+
+; -------------- Microsoft Bus Mouse
+[MSBus]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg, Bus.AddReg
+CopyFiles=MS.Copy
+UpdateInis=MS.Ini
+UpdateIniFields=Std.UpdateIniFields
+LogConfig=Bus.LogConfig
+
+; -------------- Logitech Mouse
+[LogiAny]
+DelReg=Prev.DelReg
+AddReg=Logi.AddReg
+CopyFiles=Logi.Copy
+UpdateInis=Logi.Ini
+
+[Logi.AddReg]
+HKR,,DevLoader,,*vmouse
+HKR,,MouseDriver,,lmouse.vxd
+HKLM,System\CurrentControlSet\Services\VxD\LMOUSE,StaticVXD,,lmouse.vxd
+HKLM,System\CurrentControlSet\Services\VxD\LMOUSE,Start,11,00
+
+[Logi.Copy]
+lmouse.drv
+lmouse.vxd
+lmul.vxd
+
+[Logi.Ini]
+system.ini,boot.description,,"mouse.drv=%LogiMouse%"
+system.ini,boot,,"mouse.drv=lmouse.drv"
+system.ini,386Enh,,"mouse=*vmouse"
+
+
+
+; -------------- Logitech Serial Mouse
+[LogiSer]
+DelReg=Prev.DelReg
+AddReg=Logi.AddReg, Serial.AddReg
+CopyFiles=Logi.Copy
+UpdateInis=Logi.Ini
+
+; -------------- Logitech Serial Mouse (PnP)
+[LogiSerPnP]
+DelReg=Prev.DelReg
+AddReg=Logi.AddReg, Serial.AddReg
+CopyFiles=Logi.Copy
+UpdateInis=Logi.Ini
+
+[LogiSerPnP.PosDup]
+*PNP0F0C,*PNP0F0F,*PNP0F01,*PNP0F09,*PNP0F08
+
+; -------------- Logitech PS/2 Mouse
+[LogiPS2]
+DelReg=Prev.DelReg
+AddReg=Logi.AddReg, PS2.AddReg
+CopyFiles=Logi.Copy
+UpdateInis=Logi.Ini
+LogConfig=PS2.LogConfig
+
+[LogiPS2.PosDup]
+*PNP0F03,*PNP0F0B,*PNP0F0E,*PNP0F12,*PNP0F1C
+
+; -------------- Logitech Bus Mouse
+[LogiBus]
+DelReg=Prev.DelReg
+AddReg=Logi.AddReg, Bus.AddReg
+CopyFiles=Logi.Copy
+UpdateInis=Logi.Ini
+LogConfig=Bus.LogConfig
+
+
+; ---------------  All standard USB Mice
+[STDUSBMOUSE]
+CopyFiles=MS.Copy, STDUSBMOUSE.Copy
+DelFiles=STDUSBMOUSE.Del
+AddReg=STDUSBMOUSE.AddReg
+
+
+[STDUSB_ABSOLUTE_POINTER]
+CopyFiles=MS.Copy, STDUSBMOUSE.Copy
+DelFiles=STDUSBMOUSE.Del
+AddReg=STDUSBMOUSE.AddReg, STDUSB_ABSOLUTE_POINTER.AddReg
+PerUserInstall = msmouse.pui
+
+
+; -------------- Compaq PS/2 mouse or trackball
+[CpqPS2]
+DelReg=Prev.DelReg
+AddReg=Logi.AddReg, PS2.AddReg
+CopyFiles=Logi.Copy
+UpdateInis=Cpq.Ini
+LogConfig=PS2.LogConfig
+
+[Cpq.Ini]
+system.ini,boot.description,,"mouse.drv=%CpqMouse%"
+system.ini,boot,,"mouse.drv=lmouse.drv"
+
+
+[CpqPS2.PosDup]
+*PNP0F03,*PNP0F0B,*PNP0F0E,*PNP0F12,*PNP0F1C
+
+; -------------- Compaq LTE trackball (serial)
+[CpqSer]
+DelReg=Prev.DelReg
+AddReg=Logi.AddReg, Serial.AddReg
+CopyFiles=Logi.Copy
+UpdateInis=Cpq.Ini
+
+; -------------- Kensingon serial trackball
+[KensSer]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg, Serial.AddReg
+CopyFiles=Std.Copy
+UpdateInis=Kens.Ini
+UpdateIniFields=Std.UpdateIniFields
+
+[Kens.Ini]
+system.ini,boot.description,,"mouse.drv=%KensExpMouse%"
+system.ini,boot,,"mouse.drv=mouse.drv"
+
+
+; -------------- TI QuickPort BallPoint
+[TIBall]
+DelReg=Prev.DelReg
+AddReg=Std.AddReg, PS2.AddReg
+CopyFiles=Std.Copy
+UpdateInis=Std.Ini, TIBall.Ini
+UpdateIniFields=Std.UpdateIniFields
+LogConfig=TIBall.LogConfig
+
+[TIBall.Ini]
+system.ini,boot.description,,"mouse.drv=%*pnp0f10.DeviceDesc%"
+
+[TIBall.LogConfig]
+ConfigPriority=HARDWIRED
+IOConfig=310-311(3ff::)
+IRQConfig=12
+
+; -------------- Toshiba PS/2 integrated device
+[ToshPS2]
+DelReg=Prev.DelReg
+AddReg=Logi.AddReg, PS2.AddReg
+CopyFiles=Logi.Copy
+UpdateInis=Tosh.Ini
+LogConfig=PS2.LogConfig
+
+[Tosh.Ini]
+system.ini,boot.description,,"mouse.drv=%*tos7400.DeviceDesc%"
+system.ini,boot,,"mouse.drv=lmouse.drv"
+
+
+[ToshPS2.PosDup]
+*PNP0F03,*PNP0F0B,*PNP0F0E,*PNP0F12,*PNP0F1C
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;  Install section for HID mice  ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[HIDMouse]
+CopyFiles=HIDMouse.Copy
+AddReg=HIDMouse.AddReg
+
+[HIDMouse.Copy]
+mouhid.vxd
+mouse.drv
+
+; msmouse.vxd required for scroll wheel and wheel button support
+msmouse.vxd,,,32
+
+[HIDMouse.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"mouhid.vxd"
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+; User visible strings
+; ---------------------------------------------------------
+
+[Strings]
+Provider = "Microsoft"
+MouseClassName = "Mouse"
+
+PUI_VERSION = "4,10,1,1"
+PUI_DESC_MSMOUSE = "Programa de instalación de Windows: mouse"
+
+; Mfg names
+
+StdMfg = "(Tipos de mouse estándar)"
+MSMfg = "Microsoft"
+LogiMfg = "Logitech"
+CypressMfg = "Cypress"
+CpqMfg = "Compaq"
+KensMfg = "Kensington"
+TIMfg = "Texas Instruments"
+ToshMfg = "Toshiba"
+ELOMfg = "ELO TouchSystems"
+ChiconyMfg = "Chicony"
+NMBMfg = "NMB"
+STSLMfg = "STSL"
+SUPERGATEMfg = "SUPGERGATE"
+BTCMfg = "BTC"
+FOCUSMfg = "Focus"
+JINGMOLDMfg = "Jing Mold"
+MAXISWITCHMfg = "Maxi Switch, Inc."
+MONTEREYMfg = "Monterey"
+ORTEKMfg = "Ortek"
+KEYTRONICMfg = "Key Tronic"
+GeniusMfg = "Genius"
+ItacMfg = "ITAC Systems"
+SamsungMfg = "Samsung"
+ForwardMfg = "Forward"
+SUHMfg = "SUH DART"
+PhilipsMfg = "Philips"
+AnchorMfg = "Anchor"
+SOLIDYEARMfg = "Solid Year"
+NECMfg = "NEC"
+FUJITSUMfg = "Fujitsu"
+SEJINMfg = "Sejin"
+DexinMfg = "Dexin"
+AcerMfg = "Acer"
+SilitekMfg = "Silitek"
+QtronixMfg = "Qtronix"
+
+
+; Driver Names
+
+NoMouse = "(Sin mouse)"
+StdMouse = "Mouse estándar"
+MSMouse = "Microsoft Mouse"
+LogiMouse = "Mouse Logitech"
+CpqMouse = "Mouse Compaq"
+KensExpMouse = "Mouse Expert de Kensington"
+
+; Device Names
+
+*pnp0f00.DeviceDesc = "Mouse con adaptador para bus de Microsoft"
+*pnp0f01.DeviceDesc = "Mouse para puerto serie de Microsoft"
+*pnp0f02.DeviceDesc = "Mouse con adaptador InPort de Microsoft"
+*pnp0f03.DeviceDesc = "Mouse para puerto PS/2 de Microsoft"
+*pnp0f08.DeviceDesc = "Mouse para puerto serie de Logitech"
+*pnp0f09.DeviceDesc = "Ballpoint para puerto serie de Microsoft"
+*pnp0f0b.DeviceDesc = "Mouse para puerto PS/2 de Microsoft"
+*pnp0f0c.DeviceDesc = "Mouse para puerto serie estándar"
+*pnp0f0d.DeviceDesc = "Mouse con adaptador InPort"
+*pnp0f0e.DeviceDesc = "Mouse estándar para puerto PS/2"
+*pnp0f0f.DeviceDesc = "Ballpoint para puerto serie de Microsoft"
+*pnp0f10.DeviceDesc = "BallPoint QuickPort de Texas Instruments"
+*pnp0f11.DeviceDesc = "Mouse con adaptador para bus estándar"
+*pnp0f12.DeviceDesc = "Mouse para puerto PS/2 de Logitech"
+*pnp0f13.DeviceDesc = "Puerto de mouse compatible con PS/2"
+*pnp0f15.DeviceDesc = "Mouse con adaptador para bus de Logitech"
+*pnp0f1c.DeviceDesc = "Compaq Internal Trackball (PS/2)"
+*pnp0f1d.DeviceDesc = "Bola de seguimiento interna Compaq (serie)"
+*pnp0f1e.DeviceDesc = "EasyBall para puerto serie de Microsoft"
+
+*pnp0f13_Logi.DeviceDesc = "Mouse para puerto PS/2 de Logitech"
+
+*cpqa0d8.DeviceDesc = "Mouse para puerto PS/2 de Compaq"
+
+*tos7400.DeviceDesc = "Toshiba AcuPoint"
+
+SERENUM\PNP0F0A.DeviceDesc = "Mouse para puerto serie de Microsoft"
+SERENUM\MSH0001.DeviceDesc = "IntelliMouse serie de Microsoft"
+SERENUM\MSH0004.DeviceDesc = "Trackball serie IntelliMouse de Microsoft"
+MSH0002.DeviceDesc = "IntelliMouse PS/2 de Microsoft"
+MSH0005.DeviceDesc = "IntelliMouse PS/2 de Microsoft"
+SERENUM\PNP0F1E.DeviceDesc = "EasyBall para puerto serie de Microsoft"
+
+SERENUM\LGI8001.DeviceDesc = "Logitech First/Pilot Mouse serie (M34,M35,C43)"
+*LGI8E01.DeviceDesc = "Logitech First/Pilot Mouse PS/2 (S34,S35,S42,C43)"
+SERENUM\LGI8002.DeviceDesc = "Otro Logitech Mouse Serial"
+*LGI8E02.DeviceDesc = "Otro Logitech Mouse PS/2"
+SERENUM\LGI8003.DeviceDesc = "Logitech TrackMan Portable serie"
+*LGI8E03.DeviceDesc = "Logitech TrackMan Portable PS/2"
+SERENUM\LGI8005.DeviceDesc = "Logitech MouseMan serie"
+*LGI8E05.DeviceDesc = "Logitech MouseMan PS/2"
+SERENUM\LGI8006.DeviceDesc = "Logitech MouseMan serie"
+*LGI8E06.DeviceDesc = "Logitech MouseMan PS/2"
+SERENUM\LGI8007.DeviceDesc = "Otro Logitech Mouse Serial"
+*LGI8E07.DeviceDesc = "Otro Logitech Mouse PS/2"
+SERENUM\LGI8008.DeviceDesc = "Logitech TrackMan Portable serie"
+*LGI8E08.DeviceDesc = "Logitech TrackMan Portable PS/2"
+SERENUM\LGI8009.DeviceDesc = "Otro Logitech Mouse Serial"
+*LGI8E09.DeviceDesc = "Otro Logitech Mouse PS/2"
+SERENUM\LGI800A.DeviceDesc = "Logitech TrackMan Serial"
+*LGI8E0A.DeviceDesc = "Logitech TrackMan PS/2"
+SERENUM\LGI800B.DeviceDesc = "Logitech MouseMan serie"
+*LGI8E0B.DeviceDesc = "Logitech MouseMan PS/2"
+SERENUM\LGI800C.DeviceDesc = "Logitech MouseMan serie"
+*LGI8E0C.DeviceDesc = "Logitech MouseMan PS/2"
+SERENUM\LGI8011.DeviceDesc = "Otro Logitech Mouse Serial"
+*LGI8E11.DeviceDesc = "Otro Logitech Mouse PS/2"
+SERENUM\LGI8012.DeviceDesc = "Logitech TrackMan Live! serie"
+*LGI8E12.DeviceDesc = "Logitech TrackMan Live! PS/2"
+SERENUM\LGI8013.DeviceDesc = "Logitech Cordless Wheel Mouse Serial"
+*LGI8E13.DeviceDesc = "Logitech Cordless Wheel Mouse PS/2"
+SERENUM\LGI8032.DeviceDesc = "Logitech Cordless Desktop serie"
+*LGI8E32.DeviceDesc = "Logitech Cordless Desktop PS/2"
+SERENUM\LGI8033.DeviceDesc = "Logitech Cordless MouseMan Pro serie"
+*LGI8E33.DeviceDesc = "Logitech Cordless MouseMan Pro PS/2"
+SERENUM\LGI8048.DeviceDesc = "Logitech TrackMan Marble serie"
+*LGI8E48.DeviceDesc = "Logitech TrackMan Marble PS/2"
+SERENUM\LGI8049.DeviceDesc = "Logitech TrackMan Marble FX serie"
+*LGI8E49.DeviceDesc = "Logitech TrackMan Marble FX PS/2"
+SERENUM\LGI804A.DeviceDesc = "Logitech Marble Mouse Serial"
+*LGI8E4A.DeviceDesc = "Logitech Marble Mouse PS/2"
+SERENUM\LGI804B.DeviceDesc = "Logitech TrackMan Marble+ serie"
+*LGI8E4B.DeviceDesc = "Logitech TrackMan Marble+ PS/2"
+SERENUM\LGI8050.DeviceDesc = "Logitech MouseMan Wheel Serial"
+*LGI8E50.DeviceDesc = "Logitech MouseMan Wheel PS/2"
+SERENUM\LGI8051.DeviceDesc = "Logitech First/Pilot Mouse+ serie (C48)"
+*LGI8E51.DeviceDesc = "Logitech First/Pilot Mouse+ PS/2 (S48,C48)"
+*LGI8E60.DeviceDesc = "Logitech TouchPad PS/2"
+*LGI8E61.DeviceDesc = "Logitech TouchScroll PS/2"
+
+SERENUM\KML0001.DeviceDesc = "Mouse Expert para puerto serie de Kensington"
+
+USB\VID_045E&PID_0009.DeviceDesc = "Microsoft USB IntelliMouse"
+USB\VID_046D&PID_C000.DeviceDesc = "Logitech First/Pilot Mouse USB"
+USB\VID_046D&PID_C001.DeviceDesc = "Logitech First/Pilot Mouse+ USB"
+USB\VID_046D&PID_C002.DeviceDesc = "Otro mouse USB Logitech"
+USB\VID_046D&PID_C003.DeviceDesc = "Otro mouse USB Logitech"
+USB\VID_04B4&PID_0001.DeviceDesc = "Mouse Cypress USB"
+USB\VID_04E7&PID_0001.DeviceDesc = "Pantalla táctil USB de ELO TouchSystems"
+USB\VID_0458&PID_0001.DeviceDesc = "Mouse USB de Genius"
+USB\VID_0458&PID_0002.DeviceDesc = "Genius USB Net Mouse Pro"
+USB\VID_0458&PID_0003.DeviceDesc = "Mouse con rueda Genius USB"
+USB\VID_0446&PID_6781&MI_01.DeviceDesc = "Mouse de teclado USB de NMB"
+USB\VID_05FA&PID_3301&MI_01.DeviceDesc = "Teclado mouse STSL USB"
+USB\VID_05FA&PID_3303&MI_01.DeviceDesc = "Teclado mouse STSL USB"
+USB\VID_05d5&PID_6782&MI_01.DeviceDesc = "Teclado con mouse SUPGERGATE USB"
+USB\VID_04F2&PID_0001&MI_01.DeviceDesc = "Mouse de teclado USB de Chicony"
+USB\VID_03F9&PID_0102&MI_01.DeviceDesc = "Mouse de teclado USB de Key Tronic"
+USB\VID_046E&PID_6782&MI_01.DeviceDesc = "Mouse de teclado USB de BTC"
+USB\VID_05B2&PID_7200&MI_01.DeviceDesc = "Mouse de teclado USB de Focus"
+USB\VID_05AF&PID_9267&MI_01.DeviceDesc = "Mouse KB 9251B - 678"
+USB\VID_04C3&PID_1102&MI_01.DeviceDesc = "Mouse Maxi Switch, Inc. #1102"
+USB\VID_04C3&PID_2102&MI_01.DeviceDesc = "Mouse Maxi Switch, Inc. #2102"
+USB\VID_0566&PID_2801&MI_01.DeviceDesc = "Mouse de teclado USB MIC"
+USB\VID_05A4&PID_9720&MI_01.DeviceDesc = "Mouse de teclado USB de Ortek"
+USB\VID_0431&PID_0100.DeviceDesc = "Evolution USB Mouse-Trak por ITAC"
+USB\VID_055D&PID_6781&MI_01.DeviceDesc = "Mouse de teclado USB de Samsung"
+USB\VID_05BC&PID_0001&MI_01.DeviceDesc = "Mouse de teclado USB de Forward"
+USB\VID_0500&PID_0001&MI_01.DeviceDesc = "Mouse de teclado USB SUH DART"
+USB\VID_0471&PID_0402&MI_01.DeviceDesc = "Mouse PS/2 en teclado Philips Semiconductors CICT USB"
+USB\VID_0471&PID_0601&MI_01.DeviceDesc = "Mouse de teclado inalámbrico USB Philips"
+USB\VID_0605&PID_0001.DeviceDesc = "Mouse USB Anchor"
+USB\VID_0409&PID_0014&MI_01.DeviceDesc = "Mouse teclado USB NEC PC98-NX 106/109"
+USB\VID_0409&PID_0011&MI_01.DeviceDesc = "Mouse de teclado USB NEC PC98 Series Layout"
+USB\VID_060B&PID_2101&MI_01.DeviceDesc = "Mouse de teclado USB Solid Year"
+USB\VID_0430&PID_0002&MI_01.DeviceDesc = "Teclado ratón Fujitsu USB"
+USB\VID_0510&PID_E001.DeviceDesc = "Mouse Sejin USB"
+USB\VID_0510&PID_1000&MI_01.DeviceDesc = "Mouse de teclado Sejin USB"
+USB\VID_05F2&PID_0010.DeviceDesc = "Mouse Dexin USB AQ"
+USB\VID_04A5&PID_0003&MI_01.DeviceDesc = "Mouse de teclado API Generic USB"
+USB\VID_047B&PID_0002&MI_01.DeviceDesc = "Mouse de teclado Silitek USB"
+USB\VID_05C7&PID_1001.DeviceDesc = "Mouse Qtronix USB"
+
+HID_DEVICE_SYSTEM_MOUSE = "Mouse HID"

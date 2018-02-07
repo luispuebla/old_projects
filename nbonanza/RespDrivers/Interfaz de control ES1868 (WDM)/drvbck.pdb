@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Interfaz de control ES1868 (WDM)
+infpath=WDMA_ESS.INF                                                                    
+infsection=ESSPNP_CTRL_Device
+MatchingDeviceId=*ESS0000
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sonido, vídeo y juegos
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

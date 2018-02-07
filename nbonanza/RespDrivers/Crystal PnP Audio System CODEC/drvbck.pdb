@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Crystal PnP Audio System CODEC
+infpath=CWBAUD98.INF                                                                    
+infsection=CSC0000_Device
+MatchingDeviceId=*CSC0000
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sonido, vídeo y juegos
+filenum=9
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Unidad de disco
+infpath=DISKDRV.INF                                                                     
+infsection=GenDiskInstall
+MatchingDeviceId=GenDisk
+driverversion=null
+driverdate=5- 5-1999
+providername=(Unidades de disco estándar)
+class=Unidades de disco
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

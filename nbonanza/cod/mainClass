@@ -1,0 +1,3 @@
+Main-Class: alphanet/rmi/digimaan/cliente/DigiCliente
+Class-Path:  mysql.jar
+

@@ -1,0 +1,1985 @@
+
+; MONITR10.INF
+;
+; This is a Setup information file for monitors A-N
+
+[Version]
+LayoutFile= Layout.inf, Layout1.inf, Layout2.inf
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MS%
+SetupClass=BASE
+CatalogFile=monitr10.cat
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Acer%=Acer
+%BRIDGE%=BRIDGE
+%COMPAQ%=COMPAQ
+%Daewoo%=Daewoo
+%Digital%=Digital
+%DELL%=DELL
+%Delta%=Delta
+%ELSA%=ELSA
+%GWY%=GWY
+%Hitachi%=Hitachi
+%HP%=HP
+%HYUNDAI%=HYUNDAI
+%IBM%=IBM
+%ICL%=ICL
+%Iiyama%=Iiyama
+%PLB%=PLB
+%KDS%=Korea_Data_Systems
+%Fujitsu%=Fujitsu 
+%MAG%=MAG
+%Mitsubishi%=Mitsubishi
+%EIZO%=EIZO
+%NEC%=NEC
+%NOKIA%=NOKIA
+
+; Manufacturer sections
+;-------------------------------------------------
+
+[Acer]
+%api1455%=api1455.install,Monitor\API5514
+%api1555%=api1555.install,Monitor\API5515
+%api55s%=api55s.install,Monitor\API9802
+%ACER77S%=ACER77S.install,Monitor\API0398
+
+[BRIDGE]
+%BM-17C%=BM-17C.Install, Monitor\BRG00AB
+
+[COMPAQ]
+%MV500% =MV500.Install, Monitor\CPQ3012
+%MV400% =MV400.Install, Monitor\CPQ3014 
+%MV700% =MV700.Install, Monitor\CPQ3013
+%S700%=S700.Install, Monitor\CPQ1349
+%S900%=S900.Install, Monitor\CPQ1350
+%TFT8000%=TFT8000.Install, Monitor\CPQ1329
+%V900%=V900.Install, Monitor\CPQ1325
+
+[Daewoo]
+%519B%=519B.Install, Monitor\DWE5193
+%710B%=710B.Install, Monitor\DWE7103
+%710C%=710C.Install, Monitor\DWE7104
+%901D%=901D.Install, Monitor\DWE9015
+
+[Digital]
+%FR-PCXAV-YY%=FR-PCXAV-YY.Install, Monitor\DEC0739
+%FR-PCXAV-WY%=FR-PCXAV-WY.Install, Monitor\DEC06F9
+%FR-PCXAV-TZ%=FR-PCXAV-TZ.Install,Monitor\DEC9A06
+%DEC_1082%=DEC_1082.Install, Monitor\DEC043A
+%FR-PCXAV-VY%=FR-PCXAV-VY.Install, Monitor\DEC06D9
+%FR-PCXAV-VZ%=FR-PCXAV-VZ.Install, Monitor\DEC06DA
+
+[DELL]
+%D1569%=D1569.install, Monitor\DEL1569
+%800M%=800M.Install, Monitor\DEL5697
+%828fi%=828fi.Install, Monitor\DEL3319
+%D1226H%=D1226H.Install, Monitor\DEL7077
+%D825TM%=D825TM.Install, Monitor\DEL512C
+%D1028L%=D1028L.Install, Monitor\DEL730B
+%D1025HE%=D1025HE.Install, Monitor\DEL6124
+%P990%=P990.Install, Monitor\DEL50DD
+%1500FP%=1500FP.Install, Monitor\DEL715D
+%M1110%=M1110.Install, Monitor\DEL93D5
+%M770%=M770.Install, Monitor\DEL71A5
+
+[Delta]
+%DA995%=DA995.Install, Monitor\DPC0995
+%DC770%=DC770.Install, Monitor\DPC1770
+%DE570%=DE570.Install, Monitor\DPC4570
+
+[ELSA] 
+%ECOMO17%=ECOMO17.Install, Monitor\ELS4160 
+
+[GWY]
+%VX-1100%=VX-1100.Install, Monitor\GWY0454
+%VX900%=VX900.Install,  Monitor\GWY9095
+%EV700-H%=EV700-H.Install,  Monitor\GWY7659
+%EV500%=EV500.install,Monitor\GWY138A
+%EV700_1%=EV700_1.Install,Monitor\GWY1B5C
+%VX-700%=VX-700.Install, Monitor\GWY044D
+%DL27%=DL27.Install, Monitor\GWY0A8D
+%DL36%=DL36.Install, Monitor\GWY0E11
+%VX900T%=VX900T.Install, Monitor\GWY00C0
+
+[Hitachi]
+%CM753%=CM753.Install, Monitor\HTCAC22
+%CM803%=CM803.Install, Monitor\HTCABEA
+%CM811%=CM811.Install, Monitor\HTCAC46
+%CM812%=CM812.Install, Monitor\HTCAC47
+%CM500E%=CM500E.Install, Monitor\HTCAFCE
+%CM752%=CM752.Install, Monitor\HTCAC15
+%CM813%=CM813.Install, Monitor\HTCAC48
+%CM814%=CM814.Install, Monitor\HTCAC49
+%CM640ET%=CM640ET.Install, Monitor\HTCAFFA
+
+[HP]
+%D2826%=D2826.Install, Monitor\HWP0B0A
+%D2838%=D2838.Install, Monitor\HWP0B16
+%HPD2832A%=HPD2832A.install,Monitor\HWP0B10
+
+[HYUNDAI]
+%HL-2885B%=HL-2885B.Install, Monitor\HEI288B
+%HT-7695B%=HT-7695B.Install, Monitor\HEI769B
+%HL-7770A%=HL-7770A.Install, Monitor\HEI777A
+%HL-7770RD%=HL-7770RD.Install, Monitor\HEI777D
+%7687%=7687.Install, Monitor\HEI768B
+
+[IBM]
+%IBM_MM75%=IBM_MM75.Install, Monitor\IBM0850
+%IBM_MM55%=IBM_MM55.Install, Monitor\IBM0844
+%IBM7234%=IBM7234.Install, Monitor\IBM7234
+%IBM7254%=IBM7254.Install, Monitor\IBM7254
+%IBM_9514%=IBM_9514.Install, Monitor\IBM252A
+%IBM_2235%=IBM_2235.Install, Monitor\IBM08BB
+%IBM_2237%=IBM_2237.Install, Monitor\IBM08BD
+%IBM_9513%=IBM_9513.Install, Monitor\IBM2529
+%IBM2236%=IBM2236.install,Monitor\IBM2236
+
+[ICL]
+%ICL-e176%=ICL-e176, Monitor\ICL2A00
+%ICL-x154%=ICL-x154, Monitor\ICL2900
+%ICL-x191%=ICL-x191.Install, Monitor\ICL2800
+%FUJITSU1568%=FUJITSU1568.Install, Monitor\FPA2D30
+%FUJITSU1769%=FUJITSU1769.Install, Monitor\FPA2DF9
+%FMVDP98X1%=FMVDP98X1.Install, Monitor\FUJ5110
+%FMVDP84X2%=FMVDP84X2.Install, Monitor\FUJ7110
+%FUJ-e155%=FUJ-e155.Install, Monitor\FUJ3118
+%FUJ-x150f%=FUJ-x150f.Install, Monitor\FUJ0119
+%FUJ-x176%=FUJ-x176.Install, Monitor\FUJ2118
+%FMVDP97X4%=FMVDP97X4.Install, Monitor\FUJ6110
+%VL14TX1%=VL14TX1.Install, Monitor\FUJ9111
+%FUJ-x177%=FUJ-x177.Install, Monitor\FUJ2218
+%FMVDP97X5%=FMVDP97X5.Install, Monitor\FUJ6210
+%FMVDP84X3%=FMVDP84X3.Install, Monitor\FUJ7210
+%VL15TX1%=VL15TX1.Install, Monitor\FUJ8111
+%FUJ-x177a%=FUJ-x177a.Install, Monitor\FUJ2318
+
+[Iiyama]
+%TXA3601GT%=TXA3601GT.Install, Monitor\IVM3601
+%TXA3811HT%=TXA3811HT.Install, Monitor\IVM3801
+%A901H%=A901H.Install, Monitor\IVM1901
+%S901G%=S901G.Install, Monitor\IVM1900
+%S102g%=S102g.Install, Monitor\IVM2120
+%A102G%=A102G.Install, Monitor\IVM2128
+
+[PLB]
+%1510%=1510.Install, Monitor\PLB1510
+%1410%=1410.Install, Monitor\PLB1410
+%PLB1910%=PLB1910.Install, Monitor\PLB1910
+%PLB1710%=PLB1710.Install, Monitor\PLB1710
+
+[Korea_Data_Systems]
+%VS-4D%=VS-4D.install,Monitor\KDS05AF  
+%VS-5%=VS-5.install,Monitor\KDS05E6
+%VS-55%=VS-55.install,Monitor\KDS05F5 
+%VS-7%=VS-7.install,Monitor\KDS06C2
+%VS-9%=VS-9.install,Monitor\KDS06D6
+%VS-19%=VS-19.install,Monitor\KDS07D0
+%VS-21%=VS-21.install,Monitor\KDS0834
+%AV-5T%=AV-5T.install,Monitor\KDS1540
+%VS-4%=VS-4.install,Monitor\KDS05AC
+%AV-7T%=AV-7T.install,Monitor\KDS1740
+%VS-195%=VS-195.install,Monitor\KDS1980
+%VS-19SN%=VS-19SN.install,Monitor\KDS1981
+
+[Fujitsu]
+%FMVDP84X1%=FMVDP84X1.Install, Monitor\FUJB801
+%FMVDP97X2%=FMVDP97X2.Install, Monitor\FUJA901
+%FMVDP97X3%=FMVDP97X3.Install, Monitor\FUJAA01
+%FUJITSU_1554%=FUJITSU_1554.Install, Monitor\FPA0612
+
+[MAG]
+%DX500T%=DX500T.Install,  Monitor\MAG5781
+%XJ500T%=XJ500T.Install,  Monitor\MAG5779
+%XJ700T%=XJ700T.Install,  Monitor\MAG7780
+%XJ530%=XJ530.Install,    Monitor\MAG5776
+%XJ707%=XJ707.Install,    Monitor\MAG7772
+%XJ717%=XJ717.Install,    Monitor\MAG7874
+%XJ810%=XJ810.Install,    Monitor\MAG8997
+%XJ500%=XJ500.Install,    Monitor\MAG5801
+%XJ700%=XJ700.Install,    Monitor\MAG7771
+
+[Mitsubishi]
+%TFX-1105%=TFX-1105, Monitor\MEL4100
+%TFV-8705%=TFV-8705.Install, Monitor\MEL4160
+%SV-1000%=SV-1000.install, Monitor\MEL4120
+%XJ63754%=XJ63754.Install, Monitor\TAT3054
+%SD-5904%=SD-5904.Install, Monitor\MEL41F0
+%SD-7704%=SD-7704.Install, Monitor\MEL4210
+%TFW-1105%=TFW-1105.Install, Monitor\MEL40E1
+%RDT150S%=RDT150S.Install, Monitor\MEL41B3
+%RDT180S%=RDT180S.Install, Monitor\MEL42D0
+
+[EIZO]
+%L34%=L34.Install, Monitor\EIZ1412
+%L34%=L34.Install, Monitor\EIZ1012
+%E151L%=E151L.Install, Monitor\NAN1212
+%FXE7S%=FXE7S.Install, Monitor\EIZ1418
+%F77S%=F77S.Install, Monitor\EIZ1018
+%E76F%=E76F.Install,Monitor\NAN1218
+%E54F%=E54F.Install,Monitor\NAN1220
+%F57%=F57.Install, Monitor\EIZ1020
+%FXC7%=FXC7.Install, Monitor\EIZ1420
+
+[NEC]
+%XV15PLUS%=XV15PLUS.Install, Monitor\NEC3D5E
+%XV17%=XV17.Install, Monitor\NEC43BC
+%C400%=C400.Install, Monitor\NEC3A66
+%C500%=C500.Install, Monitor\NEC3E4E
+%M500%=M500.Install, Monitor\NEC3D68
+%NEC-XV17PLUS%=NEC-XV17PLUS.Install, Monitor\NEC442A
+%NEC-P1150%=NEC-P1150.Install, Monitor\NEC53CA
+%NEC-LCD200%=NEC-LCD200.Install, Monitor\NEC2FB2
+%NEC-E700%=NEC-E700.Install, Monitor\NEC4434
+%NEC-LCD400%=NEC-LCD400.Install, Monitor\NEC3782
+%NECDV17C2%=NECDV17C2.Install, Monitor\NEC0096
+%NECDV17C1%=NECDV17C1.Install, Monitor\NEC008C
+%NECDV17A1%=NECDV17A1.Install, Monitor\NEC0078
+%NECDV15A1%=NECDV15A1.Install, Monitor\NEC006E
+%NECF14T1%=NECF14T1.Install, Monitor\NEC00A0
+%NECDV17B1%=NECDV17B1.Install, Monitor\NEC0082
+%CS500%=CS500.Install, Monitor\NEC3E53
+%NECDV15D1%=NECDV15D1.Install, Monitor\NEC00AA
+%NEC-LCD400V%=NEC-LCD400V.Install, Monitor\NEC378C
+%NEC-A500%=NEC-A500.Install, Monitor\NEC3D90
+%NEC-A700%=NEC-A700.Install, Monitor\NEC43D0
+%NEC-E1100%=NEC-E1100.Install, Monitor\NEC53C0
+%NEC-E500%=NEC-E500.Install, Monitor\NEC3D86
+%NECDH172%=NECDH172.Install, Monitor\NEC00C8
+%NEC-MT810%=NEC-MT810.Install, Monitor\NEC1FA4
+%NEC-MT1000%=NEC-MT1000.Install, Monitor\NEC2710
+%NEC-M700%=NEC-M700.Install, Monitor\NEC43C6
+%NECf14t2%=NECF14T2.Install, Monitor\NEC00B4
+%NECDH32W2%=NECDH32W2.Install, Monitor\NEC0C8A
+%NECDH28W2%=NECDH28W2.Install, Monitor\NEC0AFA
+%NEC-P750%=NEC-P750.Install, Monitor\NEC4420
+%NECEA69% =NECEA69.Install, Monitor\NECEA69
+%NEC-V500%=NEC-V500.Install, Monitor\NEC3D7C
+%NECF14T2L%=NECF14T2L.Install,Monitor\NEC00E6
+%NEC-E900%=NEC-E900.Install, Monitor\NEC4BD2
+%NF14T2H%=NF14T2H.Install, Monitor\NEC00DC
+%NECf15t1%=NECF15T1.Install, Monitor\NEC00D2
+%NEC-E900P%=NEC-E900P.Install, Monitor\NEC4BDC
+%NEC-E1100P%=NEC-E1100P.Install, Monitor\NEC53DE
+%NEC-MS50%=NEC-MS50.Install, Monitor\NEC1D4D
+%NEC-MS70%=NEC-MS70.Install, Monitor\NEC1E15
+%NEC-MS90%=NEC-MS90.Install, Monitor\NEC4BF0
+%NEC-A900%=NEC-A900.Install, Monitor\NEC4BE6
+%NEC-P1250P%=NEC-P1250P.Install, Monitor\NEC53E8
+%NEC-LT80%=NEC-LT80.Install, Monitor\NEC0320
+%VistaScan-7000%=VistaScan-7000.Install, Monitor\NECEA8B
+%NECDV17C3%=NECDV17C3.Install, Monitor\NEC01A4
+%NECDV17B2%=NECDV17B2.Install, Monitor\NEC01AE
+%NECDV15A2%=NECDV15A2.Install, Monitor\NEC019A
+
+[NOKIA]
+%NOKIA_445XIPLUS%=NOKIA_445XIPLUS.Install, Monitor\NOK00CA
+%NOKIA_447XiPlus%=NOKIA_447XIPLUS.Install, Monitor\NOK00AA
+%NOKIA_500XA%=NOKIA_500XA.Install, Monitor\NOK1500
+%NOKIA_447XS%=NOKIA_447XS.Install, Monitor\NOK01B3
+%NOKIA_446XS%=NOKIA_446XS.Install, Monitor\NOK0153
+%NOKIA_447DTC%=NOKIA_447DTC.Install, Monitor\NOK00B9
+
+; Install sections
+;-------------------------------------------------
+
+[api1455.install]
+DelReg=DEL_CURRENT_REG
+AddReg=api1455.AddReg, 1024, DPMS
+
+[api1555.install]
+DelReg=DEL_CURRENT_REG
+AddReg=api1555.AddReg, 1024, DPMS
+
+[api55s.install]
+DelReg=DEL_CURRENT_REG
+AddReg=api55s.AddReg, 1024, DPMS
+
+[ACER77S.install]
+DelReg=DEL_CURRENT_REG
+AddReg=ACER77S.AddReg, 1280, DPMS
+
+[BM-17C.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BM-17C.AddReg, 1280, DPMS
+
+[MV500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MV500.AddReg, 1024, DPMS
+
+[MV400.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MV400.AddReg, 1024, DPMS
+
+[MV700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MV700.AddReg, 1280, DPMS
+
+[S700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S700.AddReg, 1280, DPMS
+
+[S900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S900.AddReg, 1600, DPMS
+
+[TFT8000.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFT8000.AddReg, 1280, DPMS
+
+[V900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V900.AddReg, 1600, DPMS
+
+[V1000.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V1000.AddReg, 1800, DPMS
+
+[519B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=519B.AddReg, 1280, DPMS
+
+[710B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=710B.AddReg, 1280, DPMS
+
+[710C.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=710C.AddReg, 1280, DPMS
+
+[901D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=901D.AddReg, 1600, DPMS
+
+[FR-PCXAV-YY.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXAV-YY.AddReg,1280,DPMS
+
+[FR-PCXAV-WY.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXAV-WY.AddReg,1600,DPMS
+
+[FR-PCXAV-TZ.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXAV-TZ.AddReg,1600,DPMS
+
+[DEC_1082.Install]
+DelReg=DEL_CURRENT_REG 
+AddReg=DEC_1082.AddReg, 1920, DPMS
+
+[FR-PCXAV-VY.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXAV-VY.AddReg,1600,DPMS
+
+[FR-PCXAV-VZ.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXAV-VZ.AddReg,1600,DPMS
+
+[D1569.install]
+DelReg=DEL_CURRENT_REG
+AddReg=D1569.AddReg, 1280, DPMS
+		
+[800M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=800M.AddReg, 1280 ,DPMS
+
+[828fi.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=828fi.AddReg, 1280, DPMS
+
+[D1226H.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D1226H.AddReg, 1600, DPMS
+
+[D825TM.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D825TM.AddReg, 1280, DPMS
+
+[D1028L.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D1028L.AddReg, 1280, DPMS
+
+[D1025HE.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D1025HE.AddReg, 1600, DPMS
+
+[P990.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=P990.AddReg, 1600, DPMS
+
+[1500FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1500FP.AddReg, 1024, DPMS
+
+[M1110.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M1110.AddReg, 1600, DPMS
+
+[M770.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M770.AddReg, 1280, DPMS
+
+[DA995.Install]
+DelReg=DEL_CURRENT_REG                  
+AddReg=DA995.AddReg, 1600, DPMS    
+
+[DC770.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DC770.AddReg, 1280, DPMS      
+
+[DE570.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DE570.AddReg, 1280, DPMS    
+
+[ECOMO17.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=ECOMO17.AddReg, 1600, DPMS
+
+[VX-1100.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX-1100.AddReg, 1600, DPMS
+
+[VX900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX900.AddReg, 1600, DPMS
+
+[EV700-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EV700-H.AddReg, 1280, DPMS
+
+[EV500.Install]
+AddReg=EV500.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+
+[EV700_1.Install]
+AddReg=EV700_1.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+
+[VX-700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX-700.AddReg, 1600, DPMS
+
+[DL27.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DL27.AddReg, 800, DPMS
+
+[DL36.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DL36.AddReg, 800, DPMS
+
+[VX900T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX900T.AddReg, 1600, DPMS,
+
+[CM753.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM753.AddReg, 1600B, DPMS
+
+[CM803.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM803.AddReg, 1600B, DPMS
+
+[CM811.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM811.AddReg, 1600B, DPMS
+
+[CM812.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM812.AddReg, 1600B, DPMS
+
+[CM500E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM500E.AddReg, 1280, DPMS
+
+[CM752.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM752.AddReg, 1600B, DPMS
+
+[CM813.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM813.AddReg, 1856, DPMS
+
+[CM814.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM814.AddReg, 1856, DPMS
+
+[CM640ET.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM640ET.AddReg, 1280, DPMS
+
+[D2826.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=D2826.AddReg, 1024, DPMS
+
+[D2838.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=D2838.AddReg, 1280, DPMS
+
+[HPD2832A.install]
+DelReg=DEL_CURRENT_REG
+AddReg=HPD2832A.AddReg, 1280, DPMS
+
+[HL-2885B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HL-2885B.AddReg, 1600, DPMS
+
+[HT-7695B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HT-7695B.AddReg, 1600, DPMS
+
+[HL-7770A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HL-7770A.AddReg, 1280, DPMS
+
+[HL-7770RD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HL-7770RD.AddReg, 1280, DPMS
+
+[7687.Install]
+AddReg=7687.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+
+[IBM_MM75.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_MM75.AddReg, 1280, DPMS
+
+[IBM_MM55.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_MM55.AddReg, 1024, DPMS
+
+[IBM7234.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM7234.AddReg, 1024, DPMS
+
+[IBM7254.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM7254.AddReg, 1024, DPMS
+
+[IBM_9514.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_9514.AddReg, 1024, DPMS
+
+[IBM_2235.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_2235.AddReg, 1024, DPMS
+
+[IBM_2237.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_2237.AddReg, 1280, DPMS
+
+[IBM_9513.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_9513.AddReg, 1024, DPMS
+
+[IBM2236.install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM2236.AddReg, 1280, DPMS
+
+[ICL-e176]
+DelReg=DEL_CURRENT_REG
+AddReg=ICL-e176.AddReg, 1280, DPMS
+
+[ICL-x154]
+DelReg=DEL_CURRENT_REG
+AddReg=ICL-x154.AddReg, 1280, DPMS
+
+[ICL-x191.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=ICL-x191.AddReg, 1600, DPMS
+
+[FUJITSU1568.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUJITSU1568.AddReg, 1280, DPMS 
+
+[FUJITSU1769.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUJITSU1769.AddReg, 1280, DPMS 
+
+[FMVDP98X1.Install]
+DelReg=DEL_CURRENT_REG                    
+AddReg=FMVDP98X1.AddReg, 1600, DPMS 
+
+[FMVDP84X2.Install]
+DelReg=DEL_CURRENT_REG                    
+AddReg=FMVDP84X2.AddReg, 1024, DPMS 
+
+[FUJ-e155.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUJ-e155.AddReg, 1024, DPMS
+
+[FUJ-x150f.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUJ-x150f.AddReg, 1024, DPMS
+
+[FUJ-x176.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUJ-x176.AddReg, 1600, DPMS
+
+[FMVDP97X4.Install]
+DelReg=DEL_CURRENT_REG                    
+AddReg=FMVDP97X4.AddReg, 1280, DPMS 
+
+[VL14TX1.Install]
+DelReg=DEL_CURRENT_REG                    
+AddReg=VL14TX1.AddReg, 1024, DPMS 
+
+[FUJ-x177.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUJ-x177.AddReg, 1600, DPMS
+
+[FMVDP97X5.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FMVDP97X5.AddReg, 1280, DPMS 
+
+[FMVDP84X3.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FMVDP84X3.AddReg, 1024, DPMS 
+
+[VL15TX1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VL15TX1.AddReg, 1024, DPMS
+
+[FUJ-x177a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUJ-x177a.AddReg, 1600, DPMS
+
+[TXA3601GT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TXA3601GT.AddReg, 1024, DPMS
+
+[TXA3811HT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TXA3811HT.AddReg, 1024, DPMS
+
+[A901H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=A901H.AddReg, 1600, DPMS
+
+[S901G.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S901G.AddReg, 1600, DPMS
+
+[S102g.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S102g.AddReg, 1600, DPMS
+
+[A102G.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=A102G.AddReg, 1600, DPMS
+
+[1510.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1510.AddReg, 1280, DPMS
+
+[1410.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1410.AddReg, 1024, DPMS
+
+[PLB1910.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLB1910.AddReg, 1600, DPMS
+
+[PLB1710.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLB1710.AddReg, 1280, DPMS   
+
+[VS-4D.install]
+DelReg=DEL_CURRENT_REG
+AddReg=VS-4D.AddReg,1024,DPMS
+
+[VS-5.install]
+DelReg=DEL_CURRENT_REG
+AddReg=VS-5.AddReg,1280,DPMS
+
+[VS-55.install]
+DelReg=DEL_CURRENT_REG
+AddReg=VS-55.AddReg,1024,DPMS
+
+[VS-7.install]
+DelReg=DEL_CURRENT_REG
+AddReg=VS-7.AddReg,1280,DPMS
+
+[VS-9.install]
+DelReg=DEL_CURRENT_REG
+AddReg=VS-9.AddReg,1600,DPMS
+
+[VS-19.install]
+DelReg=DEL_CURRENT_REG
+AddReg=VS-19.AddReg,1600,DPMS
+
+[VS-21.install]
+DelReg=DEL_CURRENT_REG
+AddReg=VS-21.AddReg,1600,DPMS
+
+[AV-5T.install]
+DelReg=DEL_CURRENT_REG
+AddReg=AV-5T.AddReg,1280,DPMS
+
+[VS-4.install]
+DelReg=DEL_CURRENT_REG
+AddReg=VS-4.AddReg,1024,DPMS
+
+[AV-7T.install]
+DelReg=DEL_CURRENT_REG
+AddReg=AV-7T.AddReg,1280,DPMS
+
+[VS-195.install]
+DelReg=DEL_CURRENT_REG
+AddReg=VS-195.AddReg,1600,DPMS
+
+[VS-19SN.install]
+DelReg=DEL_CURRENT_REG
+AddReg=VS-19SN.AddReg,1600,DPMS
+
+; ---------- [Fujitsu]
+
+[FMVDP84X1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FMVDP84X1.AddReg, 1024, DPMS
+
+[FMVDP97X2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FMVDP97X2.AddReg, 1280, DPMS
+
+[FMVDP97X3.Install]
+DelReg=DEL_CURRENT_REG                    
+AddReg=FMVDP97X3.AddReg, 1280, DPMS 
+
+[FUJITSU_1554.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUJITSU_1554.AddReg, 1024, DPMS
+
+; ---------- [MAG]
+
+[DX500T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DX500T.AddReg, 1280, DPMS
+
+[XJ500T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XJ500T.AddReg, 1280, DPMS
+
+[XJ700T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XJ700T.AddReg, 1280, DPMS
+
+[XJ530.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XJ530.AddReg, 1280, DPMS
+
+[XJ707.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XJ707.AddReg, 1280, DPMS
+
+[XJ717.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XJ717.AddReg, 1600, DPMS
+
+[XJ810.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XJ810.AddReg, 1600, DPMS
+
+[XJ500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XJ500.AddReg, 1280, DPMS
+
+[XJ700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XJ700.AddReg, 1280, DPMS
+
+; ---------- [Mitsubishi]
+
+[TFX-1105]
+DelReg=DEL_CURRENT_REG
+AddReg=TFX-1105.AddReg, 1880, DPMS
+
+[TFV-8705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFV-8705.AddReg, 1600, DPMS
+
+[SV-1000.install]
+DelReg=DEL_CURRENT_REG
+AddReg=SV-1000.AddReg
+
+[XJ63754.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XJ63754.AddReg, 1280, DPMS
+
+[SD-5904.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SD-5904.AddReg, 1280, DPMS
+
+[SD-7704.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SD-7704.AddReg, 1280, DPMS
+
+[TFW-1105.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFW-1105.AddReg, 1600, DPMS
+
+[RDT150S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=RDT150S.AddReg, 1024, DPMS
+
+[RDT180S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=RDT180S.AddReg, 1280, DPMS
+
+; ---------- [Nanao]
+
+[L34.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L34.AddReg, 1024, DPMS
+
+[E151L.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E151L.AddReg, 1024, DPMS
+
+[FXE7S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FXE7S.AddReg, 2048, DPMS
+
+[F77S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F77S.AddReg, 2048, DPMS
+
+[E76F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E76F.AddReg, 2048, DPMS
+
+[E54F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E54F.AddReg, 1600, DPMS
+
+[F57.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F57.AddReg, 1600, DPMS
+
+[FXC7.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FXC7.AddReg, 1600, DPMS
+
+; ---------- [NEC]
+
+[XV15PLUS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XV15PLUS.AddReg, 1280, DPMS
+
+[XV17.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XV17.AddReg, 1280, DPMS
+
+[C400.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C400.AddReg, 1024, DPMS
+
+[C500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C500.AddReg, 1280, DPMS
+
+[M500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M500.AddReg, 1280, DPMS
+
+[NEC-XV17PLUS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-XV17PLUS.AddReg, 1600, DPMS
+
+[NEC-P1150.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-P1150.AddReg, 1600, DPMS
+
+[NEC-LCD200.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD200.AddReg, 1024, DPMS
+
+[NEC-E700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E700.AddReg, 1600, DPMS
+
+[NEC-LCD400.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD400.AddReg, 1024, DPMS
+
+[NECDV17C2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECDV17C2.AddReg, 1280, DPMS
+
+[NECDV17C1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECDV17C1.AddReg, 1280, DPMS
+
+[NECDV17A1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECDV17A1.AddReg, 1280, DPMS
+
+[NECDV15A1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECDV15A1.AddReg, 1024, DPMS
+				
+[NECF14T1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECF14T1.AddReg, 1024, DPMS
+	     
+[NECDV17B1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECDV17B1.AddReg, 1280, DPMS
+
+[CS500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CS500.AddReg, 1280, DPMS
+
+[NECDV15D1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECDV15D1.AddReg, 1024, DPMS
+
+[NEC-LCD400V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD400V.AddReg, 1024, DPMS   
+
+[NEC-A500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-A500.AddReg, 1280, DPMS
+
+[NEC-A700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-A700.AddReg, 1280, DPMS
+
+[NEC-E1100.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E1100.AddReg, 1600, DPMS
+
+[NEC-E500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E500.AddReg, 1280, DPMS
+
+[NECDH172.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECDH172.AddReg, 1024, DPMS
+
+[NEC-MT810.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MT810.AddReg, 1024, DPMS
+
+[NEC-MT1000.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MT1000.AddReg, 1280, DPMS
+
+[NEC-M700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-M700.AddReg, 1280, DPMS
+
+[NECF14T2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECf14t2.AddReg, 1024, DPMS
+
+[NECDH32W2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECDH32W2.AddReg, DPMS
+
+[NECDH28W2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECDH28W2.AddReg, DPMS
+
+[NEC-P750.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-P750.AddReg, 1600, DPMS
+
+[NECEA69.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECEA69.AddReg, 1600, DPMS
+
+[NEC-V500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-V500.AddReg, 1280, DPMS
+
+[NECF14T2L.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECF14T2L.AddReg, 1024, DPMS
+
+[NEC-E900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E900.AddReg, 1600, DPMS
+
+[NF14T2H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NF14T2H.AddReg, 1024, DPMS
+
+[NECF15T1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECf15t1.AddReg, 1024, DPMS
+
+[NEC-E900P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E900P.AddReg, 1600, DPMS
+
+[NEC-E1100P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E1100P.AddReg, 1600, DPMS
+
+[NEC-MS50.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MS50.AddReg, 1280, DPMS
+
+[NEC-MS70.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MS70.AddReg, 1280, DPMS
+
+[NEC-MS90.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MS90.AddReg, 1600, DPMS
+
+[NEC-A900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-A900.AddReg, 1600, DPMS
+
+[NEC-P1250P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-P1250P.AddReg, 1600, DPMS
+
+[NEC-LT80.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LT80.AddReg, 1024, DPMS
+
+[VistaScan-7000.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VistaScan-7000.AddReg, 1280, DPMS
+
+[NECDV17C3.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECDV17C3.AddReg, 1280, DPMS
+
+[NECDV17B2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECDV17B2.AddReg, 1280, DPMS
+
+[NECDV15A2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NECDV15A2.AddReg, 1024, DPMS
+
+; ---------- [Nokia]
+
+[NOKIA_445XIPLUS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NOKIA_445XIPLUS.AddReg, 1600, DPMS
+
+[NOKIA_447XIPLUS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NOKIA_447XIPLUS.AddReg, 1280, DPMS
+
+[NOKIA_500XA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NOKIA_500XA.AddReg, 1024, DPMS
+
+[NOKIA_447XS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NOKIA_447XS.AddReg, 1280, DPMS
+
+[NOKIA_446XS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NOKIA_446XS.AddReg, 1600, DPMS
+
+[NOKIA_447DTC.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NOKIA_447DTC.AddReg, 1280, DPMS
+
+; AddReg sections
+;-------------------------------------------------
+[api1455.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-110.0,+,+"
+
+[api1555.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-54.0,50.0-110.0,+,+"
+
+[api55s.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+
+[ACER77S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+
+[BM-17C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+
+[MV500.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-54,50-90,+,+"
+
+[MV400.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-50,50-90,+,+"
+
+[MV700.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-100,+,+"
+
+[S700.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+
+[S900.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+
+[TFT8000.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,58.0-85.0,+,+"
+
+[V900.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,48.0-160.0,+,+"
+
+[V1000.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+
+[519B.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+
+[710B.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-160.0,+,+"
+
+[710C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+
+[901D.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+
+[FR-PCXAV-YY.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,48.0-150.0,+,+"
+
+[FR-PCXAV-WY.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-152.0,+,+"
+
+[FR-PCXAV-TZ.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+
+[DEC_1082.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+
+[FR-PCXAV-VY.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-130.0,+,+"
+
+[FR-PCXAV-VZ.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-130.0,+,+"
+
+[D1569.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+
+[800M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[828fi.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,50.0-120.0,+,+"
+
+[D1226H.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+
+[D825TM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[D1028L.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,48.0-120.0,+,+"
+
+[D1025HE.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-92.0,50.0-150.0,+,+"
+
+[P990.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,48.0-120.0,+,+"
+
+[1500FP.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,56.0-75.0,+,+"
+
+[M1110.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+
+[M770.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,48.0-160.0,+,+"
+
+[DA995.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-180.0,+,+"
+
+[DC770.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[DE570.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[ECOMO17.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-130.0,+,+"
+
+[VX-1100.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-108.0,50.0-152.0,+,+"
+
+[VX900.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+
+[EV700-H.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[EV500.AddReg]
+HKR,"MODES\1280,1024",MODE1,,"30.0-70.0,50.0-110.0,+,+"
+
+[EV700_1.AddReg]
+HKR,"MODES\1280,1024",MODE1,,"30.0-70.0,50.0-120.0,+,+"
+
+[VX-700.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-130.0,+,+"
+
+[DL27.AddReg]
+HKR,"MODES\800,600",Mode1,,"24.0-40.0,50.0-90.0,+,+"
+
+[DL36.AddReg]
+HKR,"MODES\800,600",Mode1,,"24.0-40.0,50.0-90.0,+,+"
+
+[VX900T.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,48.0-120.0+,+"
+
+[CM753.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"31.0-107.0,50.0-160.0,+,+"
+
+[CM803.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"31.0-115.0,50.0-160.0,+,+"
+
+[CM811.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"31.0-96.0,50.0-160.0,+,+"
+
+[CM812.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"31.0-107.0,50.0-160.0,+,+"
+
+[CM500E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-100.0,+,+"
+
+[CM752.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"31.0-101.0,50.0-160.0,+,+"
+
+[CM813.AddReg]
+HKR,"MODES\1856,1392",Mode1,,"31.0-115.0,50.0-160.0,+,+"
+
+[CM814.AddReg]
+HKR,"MODES\1856,1392",Mode1,,"31.0-125.0,50.0-160.0,+,+"
+
+[CM640ET.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-69.0,50.0-130.0,+,+"
+
+[D2826.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-54.0,50.0-120.0,+,+"
+
+[D2838.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+
+[HPD2832A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[HL-2885B.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-95.0,50.0-150.0,+,+"
+
+[HT-7695B.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-95.0,50.0-150.0,+,+"
+
+[HL-7770A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-70.0,50.0-150.0,+,+"
+
+[HL-7770RD.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-70.0,50.0-150.0,+,+"
+
+[7687.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-87.0,50.0-150.0,+,+"
+
+[IBM_MM75.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+
+[IBM_MM55.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+
+[IBM7234.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-110.0,+,+"
+
+[IBM7254.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-110.0,+,+"
+
+[IBM_9514.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-65.0,55.0-75.0,+,+"
+
+[IBM_2235.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+
+[IBM_2237.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+
+[IBM_9513.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,56.0-75.0,+,+"
+
+[IBM2236.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[ICL-e176.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[ICL-x154.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[ICL-x191.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+
+[FUJITSU1568.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-69,50-120,+,+"
+
+[FUJITSU1769.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-69,50-120,+,+"
+
+[FMVDP98X1.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-180.0,+,+"
+
+[FMVDP84X2.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-70.0,50.0-100.0,+,+"
+
+[FUJ-e155.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-100.0,+,+"
+
+[FUJ-x150f.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+
+[FUJ-x176.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-100.0,50.0-200.0,+,+"
+
+[FMVDP97X4.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-92.0,50.0-120.0,+,+"
+
+[VL14TX1.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-48.4,56.0-75.0,+,+"
+
+[FUJ-x177.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-92.0,50.0-150.0,+,+"
+
+[FMVDP97X3.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-150.0,+,+"
+
+[FMVDP97X5.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-92.0,50.0-150.0,+,+"
+
+[FMVDP84X3.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[VL15TX1.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-48.4,56.0-75.0,+,+"
+
+[FUJ-x177a.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-92.0,50.0-150.0,+,+"
+
+[TXA3601GT.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+
+[TXA3811HT.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-85.0,+,+"
+
+[A901H.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-115.0,50.0-160.0,+,+"
+
+[S901G.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-102.0,50.0-160.0,+,+"
+
+[S102g.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-110.0,50.0-160.0,+,+"
+
+
+A102G.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-110.0,50.0-160.0,+,+"
+
+[1510.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+
+[1410.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,-,-"
+
+[PLB1910.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-150.0,+,+"
+
+[PLB1710.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[VS-4D.AddReg]                                          
+HKR,"MODES\1024,768",Mode1,,"28.0-55.0,40.0-120.0,+,+"
+
+[VS-5.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[VS-55.AddReg]                                          
+HKR,"MODES\1024,768",Mode1,,"28.0-55.0,40.0-120.0,+,+"
+
+[VS-7.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[VS-9.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,50.0-120.0,+,+"
+
+[VS-19.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,50.0-120.0,+,+"
+
+[VS-21.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-117.0,50.0-160.0,+,+"
+
+[AV-5T.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[VS-4.AddReg]
+HKR,"MODES\1024,768",Mode1,,"28.0-50.0,40.0-120.0,+,+" 
+
+[AV-7T.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[VS-195.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-120.0,+,+"
+
+[VS-19SN.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-120.0,+,+"
+
+; ---------- [Fujitsu]
+
+[FMVDP84X1.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-70.0,50.0-100.0,+,+"
+
+[FMVDP97X2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-92.0,50.0-120.0,+,+"
+
+[FMVDP97X3.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-150.0,+,+"
+
+[FUJITSU_1554.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-54,50-120,+,+"
+
+; ---------- [MAG]
+
+[DX500T.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[XJ500T.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[XJ700T.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[XJ530.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[XJ707.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[XJ717.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+
+[XJ810.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+
+[XJ500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+[XJ700.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+
+; ---------- [Mitsubishi]
+
+[TFX-1105.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-115.0,50.0-152.0,+,+"
+
+[TFV-8705.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-130.0,+,+"
+
+[SV-1000.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-95.0,50.0-130.0,+,+"
+
+[XJ63754.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-100,+,+"
+
+[SD-5904.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-100.0,+,+"
+
+[SD-7704.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-100.0,+,+"
+
+[TFW-1105.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-108.0,50.0-152.0,+,+"
+
+[RDT150S.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.8-63.0,30.0-85.1,+,+" 
+
+[RDT180S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-83.0,30.0-85.1,+,+"
+
+; ---------- [Nanao]
+
+[L34.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-61.0,50.0-85.0,+,+"
+
+[E151L.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-61.0,50.0-85.0,+,+"
+
+[FXE7S.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+
+[F77S.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+
+[E76F.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+
+[E54F.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+
+[F57.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+
+[FXC7.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+
+; ---------- [NEC]
+
+[XV15PLUS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-65.0,55.0-100.0,+,+"
+HKR,,ICMProfile,1,9
+
+[XV17.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-65.0,55.0-100.0,+,+"
+HKR,,ICMProfile,1,9
+
+[C400.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-64.0,47.0-120.0,+,+"
+HKR,,ICMProfile,1,9
+
+[C500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,47.0-120.0,+,+"
+HKR,,ICMProfile,1,9
+
+[M500.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-69.0,55.0-120.0,+,+"
+HKR,,ICMProfile,1,9
+
+[NEC-XV17PLUS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-82.0,55.0-100.0,+,+"
+HKR,,ICMProfile,1,9
+
+[NEC-P1150.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-94.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"necp11-1.icm"
+
+[NEC-LCD200.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-62.0,53.0-85.0,+,+"
+HKR,,ICMProfile,1,9
+
+[NEC-E700.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-82.0,55.0-120.0,+,+"
+
+[NEC-LCD400.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,55.0-86.0,+,+"
+
+[NECDV17C2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,60.0-75.0,+,+"
+
+[NECDV17C1.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-67.0,60.0-75.0,+,+"
+
+[NECDV17A1.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-67.0,60.0-75.0,+,+"
+
+[NECDV15A1.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,60.0-75.0,+,+"
+
+[NECF14T1.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-63.0,60.0-75.0,+,+"
+
+[NECDV17B1.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-67.0,60.0-75.0,+,+"
+
+[CS500.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-120.0,+,-"
+HKR,,ICMProfile,1,7
+
+[NECDV15D1.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,60.0-75.0,+,+"
+
+[NEC-LCD400V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,55.0-86.0,+,+"
+
+[NEC-A500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-65.0,55.0-120.0,+,+"
+
+[NEC-A700.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-69.0,55.0-120.0,+,+"
+
+[NEC-E1100.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-82.0,55.0-120.0,+,+"
+
+[NEC-E500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-69.0,55.0-120.0,+,+"
+
+[NECDH172.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,60.0-85.0,+,+"
+
+[NEC-MT810.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-60.0,50.0-85.0,+,+"
+
+[NEC-MT1000.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"15.0-80.0,50.0-85.0,+,+"
+
+[NEC-M700.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-69.0,55.0-120.0,+,+"
+
+[NECF14T2.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,60.0-75.0,+,+"
+
+[NECDH32W2.AddReg]
+HKR,"MODES\1024,600",Mode1,,"30.0-38.0,60.0-75.0,-,+"
+
+[NECDH28W2.AddReg]
+HKR,"MODES\1024,600",Mode1,,"30.0-38.0,60.0-75.0,-,+"
+
+[NEC-P750.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-94.0,55.0-160.0,+,+"
+
+[NECEA69.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-150.0,+,+"
+
+[NEC-V500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-65.0,55.0-100.0,+,+"
+
+[NECF14T2L.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,59.0-76.0,+,+"
+
+[NEC-E900.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-92.0,55.0-120.0,+,+"
+
+[NF14T2H.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,59.0-76.0,+,+"
+
+[NECF15T1.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,59.0-76.0,+,+"
+
+[NEC-E900P.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+
+[NEC-E1100P.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+
+[NEC-MS50.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-69.0,55.0-120.0,+,+"
+
+[NEC-MS70.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-69.0,55.0-120.0,+,+"
+
+[NEC-MS90.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"31.0-92.0,55.0-160.0,+,+"
+
+[NEC-A900.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-92.0,55.0-160.0,+,+"
+
+[NEC-P1250P.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-110.0,55.0-160.0,+,+"
+
+[NEC-LT80.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-60.0,50.0-85.0,+,+"
+
+[VistaScan-7000.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+
+[NECDV17C3.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,59.0-86.0,+,+"
+
+[NECDV17B2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,59.0-86.0,+,+"
+
+[NECDV15A2.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-71.0,59.0-86.0,+,+"
+
+; ---------- [Nokia]
+
+[NOKIA_445XIPLUS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-110.0,50.0-150.0,+,+"
+
+[NOKIA_447XIPLUS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-86.0,50.0-150.0,+,+"
+
+[NOKIA_500XA.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.4-60.0,56.2-75.0,-,-"
+
+[NOKIA_447XS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-86.0,50.0-150.0,+,+"
+
+[NOKIA_446XS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-150.0,+,+"
+
+[NOKIA_447DTC.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-92.0,50.0-150.0,+,+"
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1376]
+HKR,,MaxResolution,,"1376,768"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[1800]
+HKR,,MaxResolution,,"1800,1440"
+[1856]
+HKR,,MaxResolution,,"1856,1392"
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MS = "Microsoft"
+
+Acer = "Acer"
+Api1455 = "Acer 1455"
+Api1555 = "Acer 1555"
+Api55s = "Aspire 55s"
+Acer77S = "Aspire 77s"
+
+BRIDGE = "Bridge Information Co.,Ltd"
+BM-17C = "Bridge BM17C"
+
+COMPAQ = "Compaq"
+MV500 = "Monitor color COMPAQ Presario MV500"
+MV400 = "Monitor color COMPAQ Presario MV400"
+MV700 = "Monitor color COMPAQ Presario MV700"
+S700 = "Monitor color COMPAQ S700"
+S900 = "Monitor color COMPAQ S900"
+TFT8000 = "Monitor plano COMPAQ TFT8000"
+V900 = "Monitor color COMPAQ V900"
+V1000 = "Monitor color COMPAQ V1000"
+
+Daewoo = "Daewoo"
+519B = "Daewoo 519B"
+710B = "Daewoo 710B"
+710C = "Daewoo 710C"
+901D = "Daewoo 901D"
+
+Digital = "Digital Equipment Corp."
+FR-PCXAV-YY = "FR-PCXAV-YY"
+FR-PCXAV-WY = "FR-PCXAV-WY"
+FR-PCXAV-TZ = "Digital 19 pulgadas color (FR-PCXAV-TZ)"
+DEC_1082 = "Digital 24 pulgadas color (FR-PCXAV-AZ)"
+FR-PCXAV-VY = "FR-PCXAV-VY"
+FR-PCXAV-VZ = "FR-PCXAV-VZ"
+
+Dell = "Dell Computer Corp."
+D1569 = "Dell 1569"
+800M = "Dell 800M"
+828fi = "Dell 828fi"
+D1226H = "Dell D1226H"
+D825TM = "Dell D825TM"
+D1028L = "Dell D1028L"
+D1025HE = "Dell D1025HE"
+P990 = "Dell P990"
+1500FP = "Dell 1500FP"
+M1110 = "Dell M1110"
+M770 = "Dell M770"
+
+Delta = "Delta Electronics, Inc."
+DA995 = "Delta DA-995"
+DC770 = "Delta DC-770"
+DE570 = "Delta DE-570"
+
+ELSA = "Elsa AG"
+ECOMO17 = "Elsa Ecomo Office"
+
+GWY = "GATEWAY 2000"
+VX-1100 = "Gateway VX1100"
+VX900 = "GWY VX900"
+EV700-H = "GWY EV700-H"
+EV500 = "Gateway EV500"
+EV700_1 = "Gateway EV700"
+VX-700 = "Gateway VX700"
+DL27 = "Gateway Destination DL27"
+DL36 = "Gateway Destination DL36"
+VX900T = "Gateway VX900T"
+
+Hitachi = "HITACHI, Ltd."
+CM753 = "Hitachi CM753"
+CM803 = "Hitachi CM803"
+CM811 = "Hitachi CM811"
+CM812 = "Hitachi CM812"
+CM500E = "Hitachi CM500E"
+CM752 = "Hitachi CM752"
+CM813 = "Hitachi CM813"
+CM814 = "Hitachi CM814"
+CM640ET = "CM640ET/CM640U"
+
+HP = "Hewlett-Packard"
+D2826 = "Pantalla de 15 pulgadas HP D2826"
+D2838 = "Pantalla de 17 pulgadas HP D2838 M700"
+HPD2832A = "HP D2832A"
+
+Hyundai = "Hyundai Electronics Industries Co., Ltd."
+HL-2885B = "HL-2885B"
+HT-7695B = "HT-7695B"
+HL-7770A = "HL-7770A"
+HL-7770RD = "HL-7770RD"
+7687 = "DeluxScan 7687"
+
+IBM = "IBM PC Company"
+IBM_MM75 = "IBM MM75"
+IBM_MM55 = "IBM MM55"
+IBM7234 = "IBM 2122-xxL"
+IBM7254 = "IBM 2124-xxL"
+IBM_9514 = "Panel IBM 9514-B TFT"
+IBM_2235 = "IBM 2235 C50 "
+IBM_2237 = "IBM 2237 C71 "
+IBM_9513 = "Monitor IBM 9513 T55A TFT "
+IBM2236 = "IBM 2236"
+
+ICL = "Fujitsu ICL"
+ICL-e176 = "Fujitsu e176"
+ICL-x154 = "Fujitsu x154"
+ICL-x191 = "Fujitsu x191"
+FUJITSU1568 = "Fujitsu 1568G1"
+FUJITSU1769 = "Fujitsu 1769G"
+FMVDP98X1 = "Fujitsu FMV-DP98X1"
+FMVDP84X2 = "Fujitsu FMV-DP84X2"
+FUJ-e155 = "Fujitsu e155"
+FUJ-x150f = "Fujitsu x150f"
+FUJ-x176 = "Fujitsu x176"
+FMVDP97X4 = "Fujitsu FMV-DP97X4"
+VL14TX1 = "Fujitsu VL-14TX1"
+FUJ-x177 = "Fujitsu x177"
+FMVDP97X3 = "Fujitsu FMV-DP97X3"
+FMVDP97X5 = "Fujitsu FMVDP97X5(G)/FMVDP97X6"
+FMVDP84X3 = "Fujitsu FMV-DP84X3(G)"
+VL15TX1 = "Fujitsu VL-15TX1(G)"
+FUJ-x177a = "Fujitsu x177a"
+
+Iiyama = "IIYAMA"
+TXA3601GT = "Iiyama TXA3601GT"
+TXA3811HT = "Iiyama TXA3811HT"
+A901H = "Iiyama A901HT"
+S901G = "Iiyama S901GT"
+S102g = "Iiyama S102GT"
+A102G = "Iiyama A102GT"
+
+PLB = "PLB Monitor,Inc"
+1510 = "Modelo PLB 1510"
+1410 = "Modelo PLB 1410"
+PLB1910 = "PLB 1910"
+PLB1710 = "PLB 1710"
+
+KDS = "Korea Data Systems"
+VS-4D = "Korea Data Systems Visual Sensation VS-4D"
+VS-5 = "Korea Data Systems Visual Sensation VS-5/VS-51/VSx-5"
+VS-55 = "Korea Data Systems Visual Sensation VS-55"
+VS-7 = "Korea Data Systems Visual Sensation VS-7/VSx-7"
+VS-9 = "Korea Data Systems Visual Sensation VS-9"
+VS-19 = "Korea Data Systems Visual Sensation VS-19"
+VS-21 = "Korea Data Systems Visual Sensation VS-21"
+AV-5T = "Korea Data Systems Avitron AV-5T"
+VS-4 = "Korea Data Systems Visual Sensation VS-4(KD-1452)"
+AV-7T = "Korea Data Systems Avitron AV-7T"
+VS-195 = "Korea Data Systems Visual Sensation VS-195"
+VS-19SN = "Korea Data Systems Visual Sensation VS-19SN"
+
+Fujitsu = "Fujitsu"
+FMVDP84X1 = "Fujitsu FMV-DP84X1"
+FMVDP97X2 = "Fujitsu FMV-DP97X2"
+FUJITSU_1554 = "Fujitsu 1554G+"
+
+MAG = "MAG Technology Co., Ltd."
+DX500T = "MAG DX500T"
+XJ500T = "MAG XJ500T"
+XJ700T = "MAG XJ700T"
+XJ530 = "MAG XJ530"
+XJ707 = "MAG XJ707"
+XJ717 = "MAG XJ717"
+XJ810 = "MAG XJ810"
+XJ500 = "MAG XJ500"
+XJ700 = "MAG XJ700"
+
+Mitsubishi = "Mitsubishi Electronics"
+TFX-1105 = "Mitsubishi Diamond Pro 1000 (TFX1105)"
+TFV-8705 = "Mitsubishi Diamond Plus 72 (TFV-8705)"
+SV-1000 = "Mitsubishi SpectraView 1000"
+XJ63754 = "Mitsubishi PC Division V70 (XJ63754)"
+SD-5904 = "Mitsubishi Diamond Scan 50 (SD5904)"
+SD-7704 = "Mitsubishi Diamond Scan 70 (SD7704)"
+TFW-1105 = "Mitsubishi Diamond Plus 100 (TFW1105)"
+RDT150S = "Mitsubishi TFT Monitor RDT150S"
+RDT180S = "Mitsubishi TFT Monitor RDT180S"
+
+EIZO = "EIZO"
+L34 = "EIZO FlexScan L34"
+E151L = "EIZO FlexScan E151L"
+FXE7S = "EIZO NANAO FlexScan FX-E7S"
+F77S = "EIZO FlexScan F77S"
+E76F = "EIZO FlexScan E76F"
+E54F = "EIZO FlexScan E54F"
+F57 = "EIZO FlexScan F57"
+FXC7 = "EIZO NANAO FlexScan FX-C7"
+
+NEC = "NEC Technologies, Inc."
+XV15PLUS = "NEC MultiSync XV15+"
+XV17 = "NEC MultiSync XV17 / XV17+"
+C400 = "NEC MultiSync C400"
+C500 = "NEC MultiSync C500"
+M500 = "NEC MultiSync M500"
+NEC-XV17PLUS = "NEC MultiSync XV17+ (-2)"
+NEC-P1150 = "NEC MultiSync P1150"
+NEC-LCD200 = "NEC LCD200"
+NEC-E700 = "NEC MultiSync E700"
+NEC-LCD400 = "NEC MultiSync LCD400"
+NECDV17C2 = "NEC DV17C2"
+NECDV17C1 = "NEC DV17C1"
+NECDV17A1 = "NEC DV17A1"
+NECDV15A1 = "NEC DV15A1"
+NECF14T1 = "NEC F14T1"
+NECDV17B1 = "NEC DV17B1"
+CS500 = "Monitor multimedia NEC CS500"
+NECDV15D1 = "NEC DV15D1"
+NEC-LCD400V = "NEC MultiSync LCD400V"
+NEC-A500 = "NEC MultiSync A500"
+NEC-A700 = "NEC MultiSync A700"
+NEC-E1100 = "NEC MultiSync E1100"
+NEC-E500 = "NEC MultiSync E500"
+NECDH172 = "NEC PK-DH172"
+NEC-MT810 = "NEC MultiSync MT810"
+NEC-MT1000 = "NEC MultiSync MT1000"
+NEC-M700 = "NEC MultiSync M700"
+NECF14T2 = "NEC F14T2"
+NECDH32W2 = "NEC DH32W2"
+NECDH28W2 = "NEC DH28W2"
+NEC-P750 = "NEC MultiSync P750"
+NECEA69 = "NEC C900"
+NEC-V500 = "NEC MultiSync V500"
+NECF14T2L = "NEC F14T2L"
+NEC-E900 = "NEC MultiSync E900"
+NF14T2H = "NEC F14T2H"
+NECF15T1 = "NEC F15T1"
+NEC-E900P = "NEC MultiSync E900+"
+NEC-E1100P = "NEC MultiSync E1100+"
+NEC-MS50 = "NEC MultiSync 50"
+NEC-MS70 = "NEC MultiSync 70"
+NEC-MS90 = "NEC MultiSync 90"
+NEC-A900 = "NEC MultiSync A900"
+NEC-P1250P = "NEC MultiSync P1250+"
+NEC-LT80 = "NEC MultiSync LT80"
+VistaScan-7000 = "NEC VistaScan 7000"
+NECDV17C3 = "NEC DV17C3"
+NECDV17B2 = "NEC DV17B2"
+NECDV15A2 = "NEC DV15A2"
+
+NOKIA = "Nokia Display Products Oy"
+Nokia_445XIPLUS = "Nokia 445XiPlus"
+Nokia_447XIPLUS = "Nokia 447XiPlus"
+Nokia_500XA = "Nokia 500Xa"
+Nokia_447XS = "Nokia 447XS"
+Nokia_446XS = "Nokia 446XS"
+Nokia_447DTC = "Nokia 447DTC"
+

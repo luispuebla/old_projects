@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Teclado estándar de 101/102 teclas o MS Natural Keyboard
+infpath=KEYBOARD.INF                                                                    
+infsection=PC_AT_Enh_Inst
+MatchingDeviceId=*PNP0303
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Teclado
+filenum=5
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

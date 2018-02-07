@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=ES1868 Plug and Play AudioDrive (WDM)
+infpath=WDMA_ESS.INF                                                                    
+infsection=ESSPNP_Device
+MatchingDeviceId=*ESS1868
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sonido, vídeo y juegos
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

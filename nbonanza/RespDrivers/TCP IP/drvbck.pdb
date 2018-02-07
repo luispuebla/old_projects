@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=TCP/IP
+infpath=NETTRANS.INF                                                                    
+infsection=MSTCP.ndi
+MatchingDeviceId=
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Protocolo de red
+filenum=7
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

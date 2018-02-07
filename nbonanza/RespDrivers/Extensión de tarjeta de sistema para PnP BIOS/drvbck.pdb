@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Extensión de tarjeta de sistema para PnP BIOS
+infpath=MACHINE.INF                                                                     
+infsection=SYSTEM_BOARD
+MatchingDeviceId=BIOS\*PNP0C01
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sistema
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

@@ -1,0 +1,3 @@
+Main-Class: alphanet/rmi/digimaan/servidor/DigiServer
+Class-Path:  mysql.jar
+

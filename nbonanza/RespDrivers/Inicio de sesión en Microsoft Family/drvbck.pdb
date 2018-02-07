@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Inicio de sesión en Microsoft Family
+infpath=NETFAM.INF                                                                      
+infsection=FAMILY.ndi
+MatchingDeviceId=
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Cliente de red
+filenum=1
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

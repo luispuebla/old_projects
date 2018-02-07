@@ -1,0 +1,76 @@
+td {
+	font-family: "Arial Narrow";
+	font-size: 9px;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: normal;
+	text-align:center;
+	color:#000000
+}
+
+table, th, td {
+	border-spacing: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1 {
+	font-family: "Elephant";
+	font-size: 11px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	white-space: normal;
+	color: #000099;	
+}
+
+
+.titulos{
+	font-size:13px;
+	font-weight:bold;
+	color:#000000;
+}
+
+.titulos2{
+	font-size:13px;
+	font-weight:normal;
+	color:#000000;
+}
+
+.roj{
+	font-size:10px;
+	font-weight:bold;
+	color:#FF0000;
+}
+
+
+th {
+	font-family: "Eras Medium ITC";
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+	text-align: center;
+}
+
+body {
+	font-family: "Eras Medium ITC";
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+	text-align: left;
+}
+
+table {
+	margin: 0px;
+	padding: 0px;	
+}

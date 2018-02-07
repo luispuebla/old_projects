@@ -1,0 +1,1 @@
+jar cmvf mainClass DigiClient.jar Client.conf mysql.jar alphanet/rmi/digimaan/bd/*.class alphanet/rmi/digimaan/servidor/*.class alphanet/rmi/digimaan/cliente/*.class imas sounds

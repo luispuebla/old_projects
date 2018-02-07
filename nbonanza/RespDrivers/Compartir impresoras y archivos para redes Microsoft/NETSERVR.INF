@@ -1,0 +1,285 @@
+
+; NETSERVR.INF
+;
+; Network Servers
+;
+; Copyright 1993-1995, Microsoft Corporation
+
+[version]
+CatalogFile=netservr.cat
+LayoutFile= Layout.inf, Layout1.inf, Layout2.inf
+signature="$CHICAGO$"
+Class=NetService
+ClassGUID={4d36e974-e325-11ce-bfc1-08002be10318}
+provider=%V_MS%
+
+[CLassInstall]
+AddReg=NetServerReg
+[NetServerReg]
+HKR,,,,%V_CLASSNAME%
+HKR,,Installer,,"netdi.dll"
+HKR,,Icon,,-8
+HKR,,NoUseClass,,1
+
+[Manufacturer]
+%V_MS%=MS
+
+[MS]
+%VSERVER.DeviceDesc%= VSERVER.ndi, VSERVER    ;smb server
+%NWSERVER.DeviceDesc%= NWSERVER.ndi, NWSERVER ;ipx server
+
+
+;*********************************************
+;    VSERVER section
+;*********************************************
+[VSERVER.ndi]
+AddReg=VSERVER.ndi.reg
+;Unique PnP ID, entry need to be present so that setup can back track 
+;the device name from the driver 
+DeviceID=VSERVER
+
+[VSERVER.ndi.reg]
+HKR,Ndi,DeviceID,,VSERVER
+; Interfaces
+HKR,Ndi\Interfaces,DefLower,,"vredir,netbios,ipxDHost"
+HKR,Ndi\Interfaces,LowerRange,,"vredir,netbios,ipxDHost"
+HKR,Ndi\Compatibility,ExcludeAll,,"NWSERVER"
+HKR,Ndi\Compatibility,RequireAll,,"VREDIR"
+; Install-Remove Section
+HKR,Ndi\Install,,,"VSERVER.Install"
+HKR,Ndi\Remove,,,"VSERVER.Remove"
+; Parameters
+; MaintainServerList
+HKR,Ndi\params\MaintainServerList,location,,"System\CurrentControlSet\Services\Vxd\VNETSUP"
+HKLM,System\CurrentControlSet\Services\Vxd\VNETSUP\Ndi\params\MaintainServerList,default,,2
+HKLM,System\CurrentControlSet\Services\Vxd\VNETSUP\Ndi\params\MaintainServerList,ParamDesc,,%VSERVER_PARAM_SRVLIST%
+HKLM,System\CurrentControlSet\Services\Vxd\VNETSUP\Ndi\params\MaintainServerList,type,,enum
+HKLM,System\CurrentControlSet\Services\Vxd\VNETSUP\Ndi\params\MaintainServerList\enum,2,,%VSERVER_PARAM_SRVLIST_AUTO%
+HKLM,System\CurrentControlSet\Services\Vxd\VNETSUP\Ndi\params\MaintainServerList\enum,1,,%VSERVER_PARAM_SRVLIST_ENABLED%
+HKLM,System\CurrentControlSet\Services\Vxd\VNETSUP\Ndi\params\MaintainServerList\enum,0,,%VSERVER_PARAM_SRVLIST_DISABLED%
+; LMAnnounce
+HKR,Ndi\params\LMAnnounce,location,,"System\CurrentControlSet\Services\Vxd\VNETSUP"
+HKLM,System\CurrentControlSet\Services\Vxd\VNETSUP\Ndi\params\LMAnnounce,default,,0
+HKLM,System\CurrentControlSet\Services\Vxd\VNETSUP\Ndi\params\LMAnnounce,ParamDesc,,%VSERVER_PARAM_LMANNOUNCE%
+HKLM,System\CurrentControlSet\Services\Vxd\VNETSUP\Ndi\params\LMAnnounce,type,,enum
+HKLM,System\CurrentControlSet\Services\Vxd\VNETSUP\Ndi\params\LMAnnounce\enum,1,,%VSERVER_PARAM_LMANNOUNCE_ENABLED%
+HKLM,System\CurrentControlSet\Services\Vxd\VNETSUP\Ndi\params\LMAnnounce\enum,0,,%VSERVER_PARAM_LMANNOUNCE_DISABLED%
+; Context help
+HKR,Ndi,HelpText,,%VSERVER_HELP%
+
+[VSERVER.Install]
+AddReg=VSERVER.AddReg,SERVER.AddReg,SERVER.AddReg.HKCU
+CopyFiles=VSERVER.Files,SERVER.Files
+PerUserInstall = SERVER.pui
+
+[VSERVER.AddReg]
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,vserver.vxd
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\VSERVER",StaticVxD,,vserver.vxd
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\VSERVER",Start,1,00
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\VSERVER",NetClean,1,1
+
+[VSERVER.Files]
+vserver.vxd
+
+[VSERVER.Remove]
+DelReg=VSERVER.Rmv.DelReg, SERVER.DelReg
+[VSERVER.Rmv.DelReg]
+HKLM,"System\CurrentControlSet\Services\VxD\VSERVER",StaticVxD
+
+;*********************************************
+;    NWSERVER section
+;*********************************************
+[NWSERVER.ndi]
+AddReg=NWSERVER.ndi.reg
+;Unique PnP ID, entry need to be present so that setup can back track 
+;the device name from the driver 
+DeviceID=NWSERVER
+
+[NWSERVER.ndi.reg]
+HKR,Ndi,DeviceID,,NWSERVER
+; Interfaces
+HKR,Ndi\Interfaces,DefLower,,"nwredir"
+HKR,Ndi\Interfaces,LowerRange,,"nwredir"
+HKR,Ndi\Compatibility,ExcludeAll,,"VSERVER"
+HKR,Ndi\Compatibility,RequireAll,,"NWREDIR"
+; Install-Remove Section
+HKR,Ndi\Install,,,"NWSERVER.Install"
+HKR,Ndi\Remove,,,"NWSERVER.Remove"
+; Parameters
+; SAP Browsing
+HKR,Ndi\params\Use_Sap,location,,"SYSTEM\CurrentControlSet\Services\NcpServer\Parameters"
+HKLM,System\CurrentControlSet\Services\NcpServer\Parameters\Ndi\params\Use_Sap,default,,0
+HKLM,System\CurrentControlSet\Services\NcpServer\Parameters\Ndi\params\Use_Sap,ParamDesc,,%NWSERVER_PARAM_USE_SAP%
+HKLM,System\CurrentControlSet\Services\NcpServer\Parameters\Ndi\params\Use_Sap,type,,enum
+HKLM,System\CurrentControlSet\Services\NcpServer\Parameters\Ndi\params\Use_Sap\enum,1,,%NWSERVER_PARAM_USE_SAP_ENABLED%
+HKLM,System\CurrentControlSet\Services\NcpServer\Parameters\Ndi\params\Use_Sap\enum,0,,%NWSERVER_PARAM_USE_SAP_DISABLED%
+; Browse master eligibility
+HKR,Ndi\params\BrowseMaster,location,,"SYSTEM\CurrentControlSet\Services\NcpServer\Parameters"
+HKLM,System\CurrentControlSet\Services\NcpServer\Parameters\Ndi\params\BrowseMaster,default,,1
+HKLM,System\CurrentControlSet\Services\NcpServer\Parameters\Ndi\params\BrowseMaster,ParamDesc,,%NWSERVER_PARAM_BROWSEMASTER%
+HKLM,System\CurrentControlSet\Services\NcpServer\Parameters\Ndi\params\BrowseMaster,type,,enum
+HKLM,System\CurrentControlSet\Services\NcpServer\Parameters\Ndi\params\BrowseMaster\enum,3,,%NWSERVER_PARAM_BROWSEMASTER_NOT_MASTER%
+HKLM,System\CurrentControlSet\Services\NcpServer\Parameters\Ndi\params\BrowseMaster\enum,2,,%NWSERVER_PARAM_BROWSEMASTER_PREF%
+HKLM,System\CurrentControlSet\Services\NcpServer\Parameters\Ndi\params\BrowseMaster\enum,1,,%NWSERVER_PARAM_BROWSEMASTER_ENABLED%
+HKLM,System\CurrentControlSet\Services\NcpServer\Parameters\Ndi\params\BrowseMaster\enum,0,,%NWSERVER_PARAM_BROWSEMASTER_DISABLED%
+; Context help
+HKR,Ndi,HelpText,,%NWSERVER_HELP%
+
+[NWSERVER.Install]
+AddReg=NWSERVER.AddReg,SERVER.AddReg,SERVER.AddReg.HKCU
+CopyFiles=NWSERVER.Files,SERVER.Files,LOGIN.Files
+PerUserInstall = SERVER.pui
+
+[NWSERVER.AddReg]
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,nwserver.vxd
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWSERVER",StaticVxD,,nwserver.vxd
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWSERVER",Start,1,00
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWSERVER",NetClean,1,1
+HKLM,SYSTEM\CurrentControlSet\Services\VxD\VNETSUP,StaticVxD,,"vnetsup.vxd"
+HKLM,SYSTEM\CurrentControlSet\Services\VxD\VNETSUP,Start,1,00
+HKLM,SYSTEM\CurrentControlSet\Services\VxD\VNETSUP,NetClean,1,1
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\FILESEC",StaticVxD,,filesec.vxd
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\FILESEC",Start,1,00
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\FILESEC",NetClean,1,1
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWSP",StaticVxD,,nwsp.vxd
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWSP",Start,1,00
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWSP",NetClean,1,1
+
+[NWSERVER.Files]
+nwserver.vxd
+vnetsup.vxd
+
+[LOGIN.Files]
+login.exe
+
+[NWSERVER.Remove]
+DelReg=NWSERVER.rmv.DelReg, SERVER.DelReg
+[NWSERVER.rmv.DelReg]
+HKLM,"System\CurrentControlSet\Services\VxD\NWSERVER",StaticVxD
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\FILESEC",StaticVxD
+HKLM,"SYSTEM\CurrentControlSet\Services\VxD\NWSP",StaticVxD
+HKLM,"Security\Provider",Platform_Type
+HKLM,"Security\Provider",Container
+HKLM,"Security\Provider",Address_Server
+HKLM,"Security\Provider",Address_Book
+HKLM,"Security\Provider",Pass_Through
+HKLM,"System\CurrentControlSet\Services\NcpServer"
+
+[SERVER.AddReg]
+; disk sharing property page
+HKCR,Folder\shellex\PropertySheetHandlers\MSSharing,,,"{3EFC0B01-F4AA-101A-8932-08002B327C2D}"
+HKCR,CLSID\{3EFC0B01-F4AA-101A-8932-08002B327C2D},,,"File Sharing"
+HKCR,CLSID\{3EFC0B01-F4AA-101A-8932-08002B327C2D}\InProcServer32,,,"msshrui.dll"
+HKCR,CLSID\{3EFC0B01-F4AA-101A-8932-08002B327C2D}\InProcServer32,ThreadingModel,,"Apartment"
+HKCR,Network\SharingHandler,,,"msshrui.dll"
+; printer sharing property page
+HKCR,Printers\shellex\PropertySheetHandlers\PrintSharingHandler,,,"{5F354881-1D7E-101B-A9DE-00AA0033819A}"
+HKCR,CLSID\{5F354881-1D7E-101B-A9DE-00AA0033819A},,,"Print Sharing"
+HKCR,CLSID\{5F354881-1D7E-101B-A9DE-00AA0033819A}\InProcServer32,,,"msshrui.dll"
+HKCR,CLSID\{5F354881-1D7E-101B-A9DE-00AA0033819A}\InProcServer32,ThreadingModel,,"Apartment"
+; directory shell copy hook
+HKCR,Directory\shellex\CopyHookHandlers\ShareCopyHook,,,"{6DA1A220-65D0-101B-A657-9EB70524D8E7}"
+HKCR,CLSID\{6DA1A220-65D0-101B-A657-9EB70524D8E7},,,"Folder Copy Hook"
+HKCR,CLSID\{6DA1A220-65D0-101B-A657-9EB70524D8E7}\InProcServer32,,,"msshrui.dll"
+HKCR,CLSID\{6DA1A220-65D0-101B-A657-9EB70524D8E7}\InProcServer32,ThreadingModel,,"Apartment"
+; printer shell copy hook
+HKCR,Printers\shellex\CopyHookHandlers\PrintShareHook,,,"{F365CCA0-60E5-101B-A657-9EB70524D8E7}"
+HKCR,CLSID\{F365CCA0-60E5-101B-A657-9EB70524D8E7},,,"Printer Copy Hook"
+HKCR,CLSID\{F365CCA0-60E5-101B-A657-9EB70524D8E7}\InProcServer32,,,"msshrui.dll"
+HKCR,CLSID\{F365CCA0-60E5-101B-A657-9EB70524D8E7}\InProcServer32,ThreadingModel,,"Apartment"
+; file sharing context menu
+HKCR,Folder\shellex\ContextMenuHandlers\SharingMenu,,,"{6D78EC20-5AA6-101B-8681-366FBD64CEB9}"
+HKCR,CLSID\{6D78EC20-5AA6-101B-8681-366FBD64CEB9},,,"File Sharing Menu Handlers"
+HKCR,CLSID\{6D78EC20-5AA6-101B-8681-366FBD64CEB9}\InProcServer32,,,"msshrui.dll"
+HKCR,CLSID\{6D78EC20-5AA6-101B-8681-366FBD64CEB9}\InProcServer32,ThreadingModel,,"Apartment"
+; printer sharing context menu
+HKCR,Printers\shellex\ContextMenuHandlers\SharingMenu,,,"{A57B9B40-5AA6-101B-8681-366FBD64CEB9}"
+HKCR,CLSID\{A57B9B40-5AA6-101B-8681-366FBD64CEB9},,,"Printer Sharing Menu Handlers"
+HKCR,CLSID\{A57B9B40-5AA6-101B-8681-366FBD64CEB9}\InProcServer32,,,"msshrui.dll"
+HKCR,CLSID\{A57B9B40-5AA6-101B-8681-366FBD64CEB9}\InProcServer32,ThreadingModel,,"Apartment"
+; Default to not show passwords in share tab
+HKLM,Software\Microsoft\Windows\CurrentVersion\Policies\Network,HideSharePwds,1,01,00,00,00
+
+[SERVER.AddReg.HKCU]
+;If Server is installed then default to Always On policy
+HKCU,"Control Panel\PowerCfg",CurrentPowerPolicy,,"3"
+
+[NetservrPerUser]
+AddReg = SERVER.AddReg.HKCU
+
+[SERVER.pui]
+GUID = "NetservrPerUser"
+DisplayName = %PUI_DESC_NETSERVR%
+Version = %PUI_VERSION%
+IsInstalled = 1
+StubPath = "rundll.exe %11%\setupx.dll,InstallHinfSection NetservrPerUser 64 %17%\netservr.inf"
+
+[SERVER.DelReg]
+; disk sharing property page
+HKCR,Folder\shellex\PropertySheetHandlers\MSSharing
+HKCR,CLSID\{3EFC0B01-F4AA-101A-8932-08002B327C2D}
+HKCR,Network\SharingHandler
+; printer sharing property page
+HKCR,Printers\shellex\PropertySheetHandlers\PrintSharingHandler
+HKCR,CLSID\{5F354881-1D7E-101B-A9DE-00AA0033819A}
+; directory shell copy hook
+HKCR,Directory\shellex\CopyHookHandlers\ShareCopyHook
+HKCR,CLSID\{6DA1A220-65D0-101B-A657-9EB70524D8E7}
+; printer shell copy hook
+HKCR,Printers\shellex\CopyHookHandlers\PrintShareHook
+HKCR,CLSID\{F365CCA0-60E5-101B-A657-9EB70524D8E7}
+; file sharing context menu
+HKCR,Folder\shellex\ContextMenuHandlers\SharingMenu
+HKCR,CLSID\{6D78EC20-5AA6-101B-8681-366FBD64CEB9}
+; printer sharing context menu
+HKCR,Printers\shellex\ContextMenuHandlers\SharingMenu
+HKCR,CLSID\{A57B9B40-5AA6-101B-8681-366FBD64CEB9}
+; Default to not show passwords in share tab
+HKLM,Software\Microsoft\Windows\CurrentVersion\Policies\Network,HideSharePwds
+
+[SERVER.Files]
+msshrui.dll
+
+[DestinationDirs]
+SERVER.Files            = 11    ;LDID_SYS
+VSERVER.Files           = 11    ;LDID_SYS
+NWSERVER.Files          = 11    ;LDID_SYS
+LOGIN.Files		= 10,NWSYSVOL\LOGIN ;LDID_WIN\NWSYSVOL\LOGIN
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+V_MS = "Microsoft"
+V_CLASSNAME = "Servicio de red"
+
+PUI_VERSION = "4,10,1,2"
+PUI_DESC_NETSERVR = "Programa de instalación de Windows: servidor de red"
+
+;Devices
+VSERVER.DeviceDesc = "Compartir impresoras y archivos para redes Microsoft"
+NWSERVER.DeviceDesc = "Compartir impresoras y archivos para redes NetWare"
+
+;Parameters
+VSERVER_PARAM_SRVLIST = "Examinar principal"
+VSERVER_PARAM_SRVLIST_AUTO = "Automático"
+VSERVER_PARAM_SRVLIST_ENABLED = "Habilitado"
+VSERVER_PARAM_SRVLIST_DISABLED = "Deshabilitado"
+VSERVER_PARAM_LMANNOUNCE = "Anuncio LM"
+VSERVER_PARAM_LMANNOUNCE_ENABLED = "Sí"
+VSERVER_PARAM_LMANNOUNCE_DISABLED = "No"
+
+NWSERVER_PARAM_USE_SAP = "Anuncio SAP"
+NWSERVER_PARAM_USE_SAP_ENABLED = "Habilitado"
+NWSERVER_PARAM_USE_SAP_DISABLED = "Deshabilitado"
+NWSERVER_PARAM_BROWSEMASTER = "Anuncio de grupo de trabajo"
+NWSERVER_PARAM_BROWSEMASTER_PREF = "Habilitado: principal preferido"
+NWSERVER_PARAM_BROWSEMASTER_ENABLED = "Habilitado: puede ser principal"
+NWSERVER_PARAM_BROWSEMASTER_NOT_MASTER = "Habilitado: no será principal"
+NWSERVER_PARAM_BROWSEMASTER_DISABLED = "Deshabilitado"
+
+; Context help
+VSERVER_HELP = "Compartir impresoras y archivos para redes Microsoft permite compartir archivos o impresoras con PCs que ejecuten Windows NT y Windows para Trabajo en Grupo."
+NWSERVER_HELP = "Compartir impresoras y archivos para redes NetWare le permite compartir archivos o impresoras con PCs que ejecuten NetWare."

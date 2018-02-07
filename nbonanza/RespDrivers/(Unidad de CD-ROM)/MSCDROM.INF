@@ -1,0 +1,1147 @@
+
+
+
+; MSCDROM.INF  -- This file contains general description of CD-Rom devices
+;
+;*** Created 6/22/94  (Creation Date)
+
+[Version]
+CatalogFile=mscdrom.cat
+signature="$CHICAGO$"
+LayoutFile=Layout.inf, Layout1.inf, Layout2.inf
+Class=CDROM
+ClassGUID={4d36e965-e325-11ce-bfc1-08002be10318}
+Provider=%Msft%
+
+; Class Install
+[ClassInstall]
+Addreg=CDROMReg
+
+[CDROMReg]
+HKR,,,,%CDClassName%
+HKR,,EnumPropPages,,"iosclass.dll,EnumPropPages"
+HKR,,SilentInstall,,1
+HKR,,NOInstallClass,,1
+HKR,,Installer,,"IOSClass.Dll,CDROMClassInstall"
+HKR,,Icon,,"2"
+
+; Table of Contents
+[Manufacturer]
+%GenManufacture%=Generic.Devices
+%GenWDM%=GenWDM       ;this is for CD's that of unknown manufacturer that have been tested for Digital audio playback
+%ACER%=ACER
+%AZT%=AZT
+%COMPAQ%=COMPAQ
+%CREATIVE%=CREATIVE
+%FUNAI%=FUNAI
+%GOLDSTAR%=GOLDSTAR
+%HP%=HP
+%HITACHI%=HITACHI
+%LITEON%=LITEON
+%MATSHITA%=MATSHITA
+%MITSUMI%=MITSUMI
+%NEC%=NEC
+%PHILIPS%=PHILIPS
+%PLEXTOR%=PLEXTOR
+%RICOH%=RICOH
+%SAMSUNG%=SAMSUNG
+%SANYO%=SANYO
+%SONY%=SONY
+%TEAC%=TEAC
+%TEXEL%=TEXEL
+%TORISAN%=TORISAN
+%TOSHIBA%=TOSHIBA
+%WEARNES%=WEARNES
+%WPI%=WPI
+;****************************************************
+
+[Generic.Devices]
+%GenCDDesc%=GenCDInstall,GenCD
+
+[GenWDM]             ;this is for CD's that of unknown manufacturer that have been tested for Digital audio playback
+%________CD-912E/ATK_____1%    =CD-912E/ATK             ,________CD-912E/ATK_____1
+%ATAPI___CD-ROM_SPEED____2%    =ATAPI_CD-ROM_SPEED      ,ATAPI___CD-ROM_SPEED____2
+
+[ACER]
+%________5X_CD-ROM_______5%    =ACER_5X_CD-ROM          ,________5X_CD-ROM_______5
+%ATAPI___CD-ROM_DRIVE____1%    =ACER_616A-003           ,ATAPI___CD-ROM_DRIVE____1
+%ATAPI___CD-ROM_SPEED-12X2%    =ACER_SPEED-12X          ,ATAPI___CD-ROM_SPEED-12X2
+%ACER____CD-525E_________2%    =ACER_CD-525E_2          ,ACER____CD-525E_________2
+%ACER____CD-ROM_24X/AKOx_1%    =ACER_24X/AKOx           ,ACER____CD-ROM_24X/AKOx_1
+%E-IDE___CD-ROM_24X/AKOX_1%    =E-IDE_CD-ROM_24X/AKOX_1 ,E-IDE___CD-ROM_24X/AKOX_1
+
+[AZT]
+%AZT_____66801I__________0%    =AZT_66801I_0            ,AZT_____66801I__________0
+
+[COMPAQ]
+%COMPAQ__PD-1_LF-1195C___A%    =COMPAQ_PD-1_LF-1195C    ,COMPAQ__PD-1_LF-1195C___A
+%COMPAQ__CRD-S311________1%    =COMPAQ_CRD-S311_1       ,COMPAQ__CRD-S311________1
+%COMPAQ__DVD-ROM_GD-2000_0%    =COMPAQ_DVD-ROM_GD-2000_0,COMPAQ__DVD-ROM_GD-2000_0
+%COMPAQ__PD-1_LF-1094C___B%    =COMPAQ_PD-1_LF-1094C_B  ,COMPAQ__PD-1_LF-1094C___B
+
+[CREATIVE]
+%CREATIVECD620E__________1%    =CREATIVE_CD_620E        ,CREATIVECD620E__________1
+%CREATIVECD1220E_________1%    =CREATIVECD1220E_1       ,CREATIVECD1220E_________1
+
+[FUNAI]
+%FUNAI___E2650___________1%    =FUNAI_E2650_1           ,FUNAI___E2650___________1
+
+[GOLDSTAR]
+%GOLDSTARCD-ROM_GCD-R580B1%    =GOLDSTARCD-ROM_GCD-R580B,GOLDSTARCD-ROM_GCD-R580B1
+%GOLDSTARCD-ROM_CRD-8160B1%    =GOLDSTARCD-ROM_CRD-8160B,GOLDSTARCD-ROM_CRD-8160B1
+%GOLDSTARCD-ROM_GCD-R520B1%    =GOLDSTARCD-ROM_GCD-R520B,GOLDSTARCD-ROM_GCD-R520B1
+%GOLDSTARCD-ROM_CRD-8240B1%    =GOLDSTARCD-ROM_CRD-8240B,GOLDSTARCD-ROM_CRD-8240B1
+%GOLDSTARCD-ROM_GCD-R540_1%    =GOLDSTARCD-ROM_GCD-R5401,GOLDSTARCD-ROM_GCD-R540_1
+%GOLDSTARCRD-8160B_(CPQ)_1%    =GOLDSTARCRD-8160B_(CPQ)1,GOLDSTARCRD-8160B_(CPQ)_1
+
+[HP]
+%HP______CD-WRITER_6020__B%    =HP_CD-WRITER_6020_B     ,HP______CD-WRITER_6020__B
+%HP______CD-WRITER+_7200_2%    =HP_CD-WRITER+_7200_2    ,HP______CD-WRITER+_7200_2
+
+[HITACHI]
+%HITACHI_CDR-S100________0%    =HITACHI_CDR-S100        ,HITACHI_CDR-S100________0;Hitach CDR-S100
+%HITACHI_GD-2000_________0%    =HITACHI_GD-2000_0       ,HITACHI_GD-2000_________0
+%HITACHI_CDR-7830________0%    =HITACHI_CDR-7830_0      ,HITACHI_CDR-7830________0
+%HITACHI_CDR-7830________2%    =HITACHI_CDR-7830_2      ,HITACHI_CDR-7830________2
+%HITACHI_CDR-7930________1%    =HITACHI_CDR-7930        ,HITACHI_CDR-7930________1
+%HITACHI_CDR-8130________0%    =HITACHI_CDR-8130        ,HITACHI_CDR-8130________0
+%HITACHI_CDR-8230________0%    =HITACHI_CDR-8230        ,HITACHI_CDR-8230________0
+%HITACHI_DVD-ROM_GD-2000_0%    =HITACHI_DVD-ROM_GD-2000 ,HITACHI_DVD-ROM_GD-2000_0;DVD
+
+[LITEON]
+%LITEON__CD-ROM_LTN222___2%    =LITEON_CD-ROM_LTN222    ,LITEON__CD-ROM_LTN222___2
+%LITEON__CD-ROM__LTN262__G%    =LITEON_CD-ROM_LTN262_G  ,LITEON__CD-ROM__LTN262__G
+%LITEON__CD-ROM_LTN264___J%    =LITEON__CD-ROM_LTN264   ,LITEON__CD-ROM_LTN264___J
+
+[MATSHITA]
+%MATSHITACD-ROM_CR-5850__Z%    =MATSHITA_CD-ROM_CR-5850 ,MATSHITACD-ROM_CR-5850__Z
+%MATSHITACD-ROM_CR-583___S%    =MATSHITACD-ROM_CR-583   ,MATSHITACD-ROM_CR-583___S
+%MATSHITADVD-ROM_SR-8581_1%    =MATSHITA_DVD-ROM_SR-8581,MATSHITADVD-ROM_SR-8581_1;DVD-ROM
+%MATSHITACD-ROM_CR-585___Z%    =MATSHITACD-ROM_CR-585   ,MATSHITACD-ROM_CR-585___Z
+%MATSHITACD-ROM_CR-572___1%    =MATSHITACD-ROM_CR-572   ,MATSHITACD-ROM_CR-572___1
+%MATSHITADVD-ROM_SR-8582_0%    =MATSHITADVD-ROM_SR-8582 ,MATSHITADVD-ROM_SR-8582_0
+%MATSHITACD-ROM_CR-581___0%    =MATSHITACD-ROM_CR-581_0 ,MATSHITACD-ROM_CR-581___0
+%MATSHITADVD-ROM_SR-8581_0%    =MATSHITADVD-ROM_SR-85810,MATSHITADVD-ROM_SR-8581_0
+
+[MITSUMI]
+%MITSUMI_CD-ROM________!AE%    =MITSUMI_CD-ROM_!AE      ,MITSUMI_CD-ROM________!AE
+%MITSUMI_CD-ROM_FX140S_!BE%    =MITSUMI_CD-ROM_FX140S_!B,MITSUMI_CD-ROM_FX140S_!BE
+%MITSUMI_CD-ROM_FX120T_!BB%    =MITSUMI_CD-ROM_FX120T_!B,MITSUMI_CD-ROM_FX120T_!BB
+%MITSUMI_CD-ROM________!BA%    =MITSUMI_CD-ROM_!BA      ,MITSUMI_CD-ROM________!BA
+%MITSUMI_CD-ROM________!BE%    =MITSUMI_CD-ROM_!BE      ,MITSUMI_CD-ROM________!BE
+%MITSUMI_CD-ROM________!BG%    =MITSUMI_CD-ROM_!BG      ,MITSUMI_CD-ROM________!BG
+%MITSUMI_CD-ROM________!BS%    =MITSUMI_CD-ROM_!BS      ,MITSUMI_CD-ROM________!BS
+%MITSUMI_CD-ROM________!BZ%    =MITSUMI_CD-ROM_!BZ      ,MITSUMI_CD-ROM________!BZ
+%MITSUMI_CD-ROM_FX810T_!BU%    =MITSUMI_CD-ROM_FX810T   ,MITSUMI_CD-ROM_FX810T_!BU
+%MITSUMI_CD-ROM_FX600T_!AL%    =MITSUMI_CD-ROM_FX600T   ,MITSUMI_CD-ROM_FX600T_!AL
+%MITSUMI_CD-ROM_FX240S_!BJ%    =MITSUMI_CD-ROM_FX240S_!B,MITSUMI_CD-ROM_FX240S_!BJ
+%MITSUMI_CR-2600TE_______2%    =MITSUMI_CR-2600TE_2     ,MITSUMI_CR-2600TE_______2
+
+[NEC]
+%NEC_____CD-ROM_DRIVE:2533%    =NEC_CD-ROM_DRIVE:253    ,NEC_____CD-ROM_DRIVE:2533
+%NEC_____CD-ROM_DRIVE:2803%    =NEC_CD-ROM_DRIVE:280    ,NEC_____CD-ROM_DRIVE:2803
+%NEC_____CD-ROM_DRIVE:2823%    =NEC_CD-ROM_DRIVE:2823   ,NEC_____CD-ROM_DRIVE:2823
+%NEC_____CD-ROM_DRIVE:2863%    =NEC_CD-ROM_DRIVE:286    ,NEC_____CD-ROM_DRIVE:2863
+%NEC_____CD-ROM_DRIVE:2523%    =NEC_CD-ROM_DRIVE:252    ,NEC_____CD-ROM_DRIVE:2523
+%NEC_____CD-ROM_DRIVE:2514%    =NEC_CD-ROM_DRIVE:251    ,NEC_____CD-ROM_DRIVE:2514
+%NEC_____CD-ROM_DRIVE:2853%    =NEC_CD-ROM_DRIVE:2853   ,NEC_____CD-ROM_DRIVE:2853
+%NEC_____CD-ROM_DRIVE:4621%    =NEC_CD-ROM_DRIVE:4621   ,NEC_____CD-ROM_DRIVE:4621
+%NEC_____CD-ROM_DRIVE:2724%    =NEC_CD-ROM_DRIVE:2724   ,NEC_____CD-ROM_DRIVE:2724
+%NEC_____CD-ROM_DRIVE:2734%    =NEC_CD-ROM_DRIVE:2734   ,NEC_____CD-ROM_DRIVE:2734
+%NEC_____CD-ROM_DRIVE:2843%    =NEC_CD-ROM_DRIVE:2843   ,NEC_____CD-ROM_DRIVE:2843
+%NEC_____CD-ROM_DRIVE:5002%    =NEC_CD-ROM_DRIVE:5002   ,NEC_____CD-ROM_DRIVE:5002
+%NEC_____CD-ROM_DRIVE:5022%    =NEC_CD-ROM_DRIVE:5022   ,NEC_____CD-ROM_DRIVE:5022
+
+[PHILIPS]
+%PHILIPS_PCA80SC_________V%    =PHILIPS_PCA80SC         ,PHILIPS_PCA80SC_________V
+%PHILIPS_CM207___________1%    =PHILIPS_CM207_1         ,PHILIPS_CM207___________1
+%PHILIPS_CDD3610_CD-R/RW_1%    =PHILIPS_CDD3610_CD-R/RW1,PHILIPS_CDD3610_CD-R/RW_1
+
+[PLEXTOR]
+%PLEXTOR_CD-ROM_PX-8XCS__1%    =PLEXTOR_CD-ROM_PX-8XCS  ,PLEXTOR_CD-ROM_PX-8XCS__1
+%PLEXTOR_CD-ROM_PX-4XCS__1%    =PLEXTOR_CD-ROM_PX-4XCS  ,PLEXTOR_CD-ROM_PX-4XCS__1
+%PLEXTOR_CD-ROM_PX-12TS__1%    =PLEXTOR_CD-ROM_PX-12TS  ,PLEXTOR_CD-ROM_PX-12TS__1
+%PLEXTOR_CD-ROM_PX-20TS__1%    =PLEXTOR_CD-ROM_PX-20TS_1,PLEXTOR_CD-ROM_PX-20TS__1
+%PLEXTOR_CD-ROM_PX-4XCH__1%    =PLEXTOR_CD-ROM_PX-4XCH_1,PLEXTOR_CD-ROM_PX-4XCH__1
+%PLEXTOR_CD-ROM_PX-6XCS__1%    =PLEXTOR_CD-ROM_PX-6XCS_1,PLEXTOR_CD-ROM_PX-6XCS__1
+
+[RICOH]
+%RICOH___MP6200A_________1%    =RICOH_MP6200A           ,RICOH___MP6200A_________1
+%RICOH___MP6201S_________2%    =RICOH_MP6201S_2         ,RICOH___MP6201S_________2
+
+[SAMSUNG]
+%SAMSUNG_SCR-730_REV_M105M%    =SAMSUNG_SCR-730         ,SAMSUNG_SCR-730_REV_M105M
+
+[SANYO]
+%SANYO___CRD-254P________1%    =SANYO_CRD-254P_1        ,SANYO___CRD-254P________1
+
+[SONY]
+%SONY____CD-ROM_CDU55E___1%    =SONY_CD-ROM_CDU55E_1    ,SONY____CD-ROM_CDU55E___1
+%SONY____CD-ROM_CDU571___1%    =SONY_CD-ROM_CDU571      ,SONY____CD-ROM_CDU571___1
+%SONY____CD-ROM_CDU77E___1%    =SONY_CD-ROM_CDU77E      ,SONY____CD-ROM_CDU77E___1
+%SONY____DVD-ROM_DDU100E_0%    =SONY_DVD-ROM_DDU100E    ,SONY____DVD-ROM_DDU100E_0;DVD-ROM
+%SONY____CD-ROM_CDU511___1%    =SONY_CD-ROM_CDU511      ,SONY____CD-ROM_CDU511___1
+%SONY____CD-ROM_CDU76E-S_1%    =SONY_CD-ROM_CDU76E-S    ,SONY____CD-ROM_CDU76E-S_1
+%SONY____CD-ROM_CDU76E-Q_1%    =SONY_CD-ROM_CDU76E-Q_1  ,SONY____CD-ROM_CDU76E-Q_1
+%SONY____CD-ROM_CDU311___3%    =SONY____CD-ROM_CDU311_3 ,SONY____CD-ROM_CDU311___3
+%SONY____DVD-ROM_DDU100E_1%    =SONY_DVD-ROM_DDU100E_1  ,SONY____DVD-ROM_DDU100E_1
+
+[TEAC]
+%TEAC____CD-524E_________0%    =TEAC_CD-524E            ,TEAC____CD-524E_________0
+%TEAC____CD-55E__________0%    =TEAC_CD-55E             ,TEAC____CD-55E__________0
+%TEAC____CD-512E_________1%    =TEAC_CD-512E            ,TEAC____CD-512E_________1
+%TEAC____CD-56E__________0%    =TEAC_CD-56E_0           ,TEAC____CD-56E__________0
+%TEAC____CD-220EA________0%    =TEAC_CD-220EA_0         ,TEAC____CD-220EA________0
+
+[TEXEL]
+%TEXEL___CD-ROM_DM-XX24_K1%    =TEXEL_CD-ROM_DM-XX24    ,TEXEL___CD-ROM_DM-XX24_K1
+
+[TORISAN]
+%TORISAN_CD-ROM_CDR_S18__1%    =TORISAN_CD-ROM_CDR_S18_1 ,TORISAN_CD-ROM_CDR_S18__1
+
+[TOSHIBA]
+%TOSHIBA_CD-ROM_XM-3501TA3%    =TOSHIBA_CD-ROM_XM-3501TA,TOSHIBA_CD-ROM_XM-3501TA3
+%TOSHIBA_CD-ROM_XM-3601TA0%    =TOSHIBA_CD-ROM_XM-3601TA,TOSHIBA_CD-ROM_XM-3601TA0
+%TOSHIBA_CD-ROM_XM-5702B_3%    =TOSHIBA_CD-ROM_XM-5702B ,TOSHIBA_CD-ROM_XM-5702B_3
+%TOSHIBA_CD-ROM_XM-5602B_1%    =TOSHIBA_CD-ROM_XM-5602B ,TOSHIBA_CD-ROM_XM-5602B_1
+%TOSHIBA_CD-ROM_XM-5302TA2%    =TOSHIBA_CD-ROM_XM-5302TA,TOSHIBA_CD-ROM_XM-5302TA2
+%TOSHIBA_CD-ROM_XM-5702B_2%    =TOSHIBA_CD-ROM_XM-5702B2,TOSHIBA_CD-ROM_XM-5702B_2
+%TOSHIBA_CD-ROM_XM-6102B_1%    =TOSHIBA_CD-ROM_XM-6102B1,TOSHIBA_CD-ROM_XM-6102B_1
+%TOSHIBA_DVD-ROM_SD-M11021%    =TOSHIBADVD-ROM_SD-M11021,TOSHIBA_DVD-ROM_SD-M11021
+
+[WEARNES]
+%WEARNES_CDD-1020____ERE_B%    =WEARNES_CDD-1020        ,WEARNES_CDD-1020____ERE_B
+%WEARNES_CDD-620_____ERA_B%    =WEARNES_CDD-620_ERA_A   ,WEARNES_CDD-620_____ERA_B
+%WEARNES_CDD-620_____ERB_B%    =WEARNES_CDD-620_ERB_B   ,WEARNES_CDD-620_____ERB_B
+%WPI_____CDR-622_____E1__D%    =WPI_CDR-622_E1_D        ,WPI_____CDR-622_____E1__D
+
+[WPI]
+%WPI_____CDD-820_____ERI_A%    =WPI_CDD-820_ERI_A       ,WPI_____CDD-820_____ERI_A
+
+;****************************************************
+[GenCDInstall]
+Addreg=ForceMPCopy
+
+[CD-912E/ATK]
+Addreg=CD-912E/ATK_AddReg
+
+[ATAPI_CD-ROM_SPEED]
+Addreg=ATAPI_CD-ROM_SPEED_AddReg
+
+[ACER_5X_CD-ROM]
+Addreg=ACER_5X_CD-ROM_AddReg
+
+[ACER_616A-003]
+Addreg=ACER_616A-003_AddReg
+
+[ACER_SPEED-12X]
+Addreg=ACER_SPEED-12X_AddReg
+
+[ACER_CD-525E_2]
+Addreg=ACER_CD-525E_2_AddReg
+
+[ACER_24X/AKOx]
+Addreg=ACER_24X/AKOx_AddReg
+
+[E-IDE_CD-ROM_24X/AKOX_1]
+Addreg=E-IDE_CD-ROM_24X/AKOX_1_AddReg
+
+[AZT_66801I_0]
+Addreg=AZT_66801I_0_AddReg
+
+[COMPAQ_PD-1_LF-1195C]
+Addreg=COMPAQ_PD-1_LF-1195C_AddReg
+
+[COMPAQ_CRD-S311_1]
+Addreg=COMPAQ_CRD-S311_1_AddReg
+
+[COMPAQ_DVD-ROM_GD-2000_0]
+Addreg=COMPAQ_DVD-ROM_GD-2000_0_AddReg
+
+[COMPAQ_PD-1_LF-1094C_B]
+Addreg=COMPAQ_PD-1_LF-1094C_B_AddReg
+
+[CREATIVE_CD_620E]
+Addreg=CREATIVE_CD_620E_AddReg
+
+[CREATIVECD1220E_1]
+Addreg=CREATIVECD1220E_1_AddReg
+
+[FUNAI_E2650_1]
+Addreg=FUNAI_E2650_1_AddReg
+
+[GOLDSTARCD-ROM_GCD-R580B]
+Addreg=GOLDSTARCD-ROM_GCD-R580B_AddReg
+
+[GOLDSTARCD-ROM_CRD-8160B]
+Addreg=GOLDSTARCD-ROM_CRD-8160B_AddReg
+
+[GOLDSTARCD-ROM_GCD-R520B]
+Addreg=GOLDSTARCD-ROM_GCD-R520B_AddReg
+
+[GOLDSTARCD-ROM_CRD-8240B]
+Addreg=GOLDSTARCD-ROM_CRD-8240B_AddReg
+
+[GOLDSTARCD-ROM_GCD-R5401]
+Addreg=GOLDSTARCD-ROM_GCD-R5401_AddReg
+
+[GOLDSTARCRD-8160B_(CPQ)1]
+Addreg=GOLDSTARCRD-8160B_(CPQ)1_AddReg
+
+[HP_CD-WRITER_6020_B]
+Addreg=HP_CD-WRITER_6020_B_AddReg
+
+[HP_CD-WRITER+_7200_2]
+Addreg=HP_CD-WRITER+_7200_2_AddReg
+
+[HITACHI_CDR-S100]
+Addreg=HITACHI_CDR-S100_AddReg
+
+[HITACHI_GD-2000_0]
+Addreg=HITACHI_GD-2000_0_AddReg
+
+[HITACHI_CDR-7830_0]
+Addreg=HITACHI_CDR-7830_0_AddReg
+
+[HITACHI_CDR-7830_2]
+Addreg=HITACHI_CDR-7830_2_AddReg
+
+[HITACHI_CDR-7930]
+Addreg=HITACHI_CDR-7930_AddReg
+
+[HITACHI_CDR-8230]
+Addreg=HITACHI_CDR-8230_AddReg
+
+[HITACHI_CDR-8130]
+Addreg=HITACHI_CDR-8130_AddReg
+
+[HITACHI_DVD-ROM_GD-2000]
+Addreg=HITACHI_DVD-ROM_GD-2000_AddReg
+
+[LITEON_CD-ROM_LTN222]
+Addreg=LITEON_CD-ROM_LTN222_AddReg
+
+[LITEON_CD-ROM_LTN262_G]
+Addreg=LITEON_CD-ROM_LTN262_G_AddReg
+
+[LITEON__CD-ROM_LTN264]
+Addreg=LITEON__CD-ROM_LTN264_AddReg
+
+[MATSHITA_CD-ROM_CR-5850]
+Addreg=MATSHITA_CD-ROM_CR-5850_AddReg
+
+[MATSHITACD-ROM_CR-583]
+Addreg=MATSHITACD-ROM_CR-583_AddReg
+
+[MATSHITA_DVD-ROM_SR-8581]
+Addreg=MATSHITA_DVD-ROM_SR-8581_AddReg
+
+[MATSHITACD-ROM_CR-585]
+Addreg=MATSHITACD-ROM_CR-585_AddReg
+
+[MATSHITACD-ROM_CR-572]
+Addreg=MATSHITACD-ROM_CR-572_AddReg
+
+[MATSHITADVD-ROM_SR-8582]
+Addreg=MATSHITADVD-ROM_SR-8582_AddReg
+
+[MATSHITACD-ROM_CR-581_0]
+Addreg=MATSHITACD-ROM_CR-581_0_AddReg
+
+[MATSHITADVD-ROM_SR-85810]
+Addreg=MATSHITADVD-ROM_SR-85810_AddReg
+
+[MITSUMI_CD-ROM_!AE]
+Addreg=MITSUMI_CD-ROM_!AE_AddReg
+
+[MITSUMI_CD-ROM_FX140S_!B]
+Addreg=MITSUMI_CD-ROM_FX140S_!B_AddReg
+
+[MITSUMI_CD-ROM_FX120T_!B]
+Addreg=MITSUMI_CD-ROM_FX120T_!B_AddReg
+
+[MITSUMI_CD-ROM_!BA]
+Addreg=MITSUMI_CD-ROM_!BA_AddReg
+
+[MITSUMI_CD-ROM_!BE]
+Addreg=MITSUMI_CD-ROM_!BE_AddReg
+
+[MITSUMI_CD-ROM_!BG]
+Addreg=MITSUMI_CD-ROM_!BG_AddReg
+
+[MITSUMI_CD-ROM_!BS]
+Addreg=MITSUMI_CD-ROM_!BS_AddReg
+
+[MITSUMI_CD-ROM_!BZ]
+Addreg=MITSUMI_CD-ROM_!BZ_AddReg
+
+[MITSUMI_CD-ROM_FX810T]
+Addreg=MITSUMI_CD-ROM_FX810T_AddReg
+
+[MITSUMI_CD-ROM_FX600T]
+Addreg=MITSUMI_CD-ROM_FX600T_AddReg
+
+[MITSUMI_CD-ROM_FX240S_!B]
+Addreg=MITSUMI_CD-ROM_FX240S_!B_AddReg
+
+[MITSUMI_CR-2600TE_2]
+Addreg=MITSUMI_CR-2600TE_2_AddReg
+
+[NEC_CD-ROM_DRIVE:253]
+Addreg=NEC_CD-ROM_DRIVE:253_AddReg
+
+[NEC_CD-ROM_DRIVE:280]
+Addreg=NEC_CD-ROM_DRIVE:280_AddReg
+
+[NEC_CD-ROM_DRIVE:2823]
+Addreg=NEC_CD-ROM_DRIVE:2823_AddReg
+
+[NEC_CD-ROM_DRIVE:286]
+Addreg=NEC_CD-ROM_DRIVE:286_AddReg
+
+[NEC_CD-ROM_DRIVE:252]
+Addreg=NEC_CD-ROM_DRIVE:252_AddReg
+
+[NEC_CD-ROM_DRIVE:2853]
+Addreg=NEC_CD-ROM_DRIVE:2853_AddReg
+
+[NEC_CD-ROM_DRIVE:251]
+Addreg=NEC_CD-ROM_DRIVE:251_AddReg
+
+[NEC_CD-ROM_DRIVE:4621]
+Addreg=NEC_CD-ROM_DRIVE:4621_AddReg
+
+[NEC_CD-ROM_DRIVE:2724]
+Addreg=NEC_CD-ROM_DRIVE:2724_AddReg
+
+[NEC_CD-ROM_DRIVE:2734]
+Addreg=NEC_CD-ROM_DRIVE:2734_AddReg
+
+[NEC_CD-ROM_DRIVE:2843]
+Addreg=NEC_CD-ROM_DRIVE:2843_AddReg
+
+[NEC_CD-ROM_DRIVE:5002]
+Addreg=NEC_CD-ROM_DRIVE:5002_AddReg
+
+[NEC_CD-ROM_DRIVE:5022]
+Addreg=NEC_CD-ROM_DRIVE:5022_AddReg
+
+[PHILIPS_PCA80SC]
+Addreg=PHILIPS_PCA80SC_AddReg
+
+[PHILIPS_CM207_1]
+Addreg=PHILIPS_CM207_1_AddReg
+
+[PHILIPS_CDD3610_CD-R/RW1]
+Addreg=PHILIPS_CDD3610_CD-R/RW1_AddReg
+
+[PLEXTOR_CD-ROM_PX-8XCS]
+Addreg=PLEXTOR_CD-ROM_PX-8XCS_AddReg
+
+[PLEXTOR_CD-ROM_PX-4XCS]
+Addreg=PLEXTOR_CD-ROM_PX-4XCS_AddReg
+
+[PLEXTOR_CD-ROM_PX-12TS]
+Addreg=PLEXTOR_CD-ROM_PX-12TS_AddReg
+
+[PLEXTOR_CD-ROM_PX-20TS_1]
+Addreg=PLEXTOR_CD-ROM_PX-20TS_1_AddReg
+
+[PLEXTOR_CD-ROM_PX-4XCH_1]
+Addreg=PLEXTOR_CD-ROM_PX-4XCH_1_AddReg
+
+[PLEXTOR_CD-ROM_PX-6XCS_1]
+AddReg=PLEXTOR_CD-ROM_PX-6XCS_1_AddReg
+
+[RICOH_MP6200A]
+Addreg=RICOH_MP6200A_AddReg
+
+[RICOH_MP6201S_2]
+Addreg=RICOH_MP6201S_2_AddReg
+
+[SAMSUNG_SCR-730]
+Addreg=SAMSUNG_SCR-730_AddReg
+
+[SANYO_CRD-254P_1]
+Addreg=SANYO_CRD-254P_1_AddReg
+
+[SONY_CD-ROM_CDU55E_1]
+Addreg=SONY_CD-ROM_CDU55E_1_AddReg
+
+[SONY_CD-ROM_CDU571]
+Addreg=SONY_CD-ROM_CDU571_AddReg
+
+[SONY_CD-ROM_CDU77E]
+Addreg=SONY_CD-ROM_CDU77E_AddReg
+
+[SONY_DVD-ROM_DDU100E]
+Addreg=SONY_DVD-ROM_DDU100E_AddReg
+
+[SONY_CD-ROM_CDU511]
+Addreg=SONY_CD-ROM_CDU511_AddReg
+
+[SONY_CD-ROM_CDU76E-S]
+Addreg=SONY_CD-ROM_CDU76E-S_AddReg
+
+[SONY_CD-ROM_CDU76E-Q_1]
+Addreg=SONY_CD-ROM_CDU76E-Q_1_Addreg
+
+[SONY____CD-ROM_CDU311_3]
+Addreg=SONY____CD-ROM_CDU311_3_AddReg
+
+[SONY_DVD-ROM_DDU100E_1]
+Addreg=SONY_DVD-ROM_DDU100E_1_AddReg
+
+[TEAC_CD-524E]
+Addreg=TEAC_CD-524E_AddReg
+
+[TEAC_CD-55E]
+Addreg=TEAC_CD-55E_AddReg
+
+[TEAC_CD-512E]
+Addreg=TEAC_CD-512E_AddReg
+
+[TEAC_CD-56E_0]
+AddReg=TEAC_CD-56E_0_AddReg
+
+[TEAC_CD-220EA_0]
+AddReg=TEAC_CD-220EA_0_AddReg
+
+[TEXEL_CD-ROM_DM-XX24]
+Addreg=TEXEL_CD-ROM_DM-XX24_AddReg
+
+[TORISAN_CD-ROM_CDR_S18_1]
+Addreg=TORISAN_CD-ROM_CDR_S18_1_AddReg
+
+[TOSHIBA_CD-ROM_XM-3501TA]
+Addreg=TOSHIBA_CD-ROM_XM-3501TA_AddReg
+
+[TOSHIBA_CD-ROM_XM-3601TA]
+Addreg=TOSHIBA_CD-ROM_XM-3601TA_AddReg
+
+[TOSHIBA_CD-ROM_XM-5702B]
+Addreg=TOSHIBA_CD-ROM_XM-5702B_AddReg
+
+[TOSHIBA_CD-ROM_XM-5602B]
+Addreg=TOSHIBA_CD-ROM_XM-5602B_AddReg
+
+[TOSHIBA_CD-ROM_XM-5302TA]
+Addreg=TOSHIBA_CD-ROM_XM-5302TA_AddReg
+
+[TOSHIBA_CD-ROM_XM-5702B2]
+Addreg=TOSHIBA_CD-ROM_XM-5702B2_AddReg
+
+[TOSHIBA_CD-ROM_XM-6102B1]
+Addreg=TOSHIBA_CD-ROM_XM-6102B1_AddReg
+
+[TOSHIBADVD-ROM_SD-M11021]
+Addreg=TOSHIBADVD-ROM_SD-M11021_AddReg
+
+[WEARNES_CDD-1020]
+Addreg=WEARNES_CDD-1020_AddReg
+
+[WEARNES_CDD-620_ERA_A]
+Addreg=WEARNES_CDD-620_ERA_A_AddReg
+
+[WEARNES_CDD-620_ERB_B]
+Addreg=WEARNES_CDD-620_ERB_B_AddReg
+
+[WPI_CDR-622_E1_D]
+Addreg=WPI_CDR-622_E1_D_AddReg
+
+[WPI_CDD-820_ERI_A]
+Addreg=WPI_CDD-820_ERI_A_AddReg
+
+[RemoveTosCD]
+UpdateCfgSys=ConfigRemoveTosCD
+
+[ConfigRemoveTosCD]
+DevDelete=TOSCDROM.SYS   ;Toshiba CDROM Driver
+
+;********************************Common section
+[ForceMPCopy]
+HKR,,NoSetupUI,,1
+HKR,,DigitalAudioPlay,1,2 ;WDM Audio Key (support unknown)
+
+[CD-912E/ATK_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[ATAPI_CD-ROM_SPEED_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[ACER_5X_CD-ROM_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[ACER_616A-003_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[ACER_SPEED-12X_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[ACER_CD-525E_2_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[ACER_24X/AKOx_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[E-IDE_CD-ROM_24X/AKOX_1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[AZT_66801I_0_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[COMPAQ_PD-1_LF-1195C_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[COMPAQ_CRD-S311_1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[COMPAQ_DVD-ROM_GD-2000_0_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[COMPAQ_PD-1_LF-1094C_B_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[CREATIVE_CD_620E_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[CREATIVECD1220E_1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[FUNAI_E2650_1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[GOLDSTARCD-ROM_GCD-R580B_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[GOLDSTARCD-ROM_CRD-8160B_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[GOLDSTARCD-ROM_GCD-R520B_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[GOLDSTARCD-ROM_CRD-8240B_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[GOLDSTARCD-ROM_GCD-R5401_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[GOLDSTARCRD-8160B_(CPQ)1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[HP_CD-WRITER_6020_B_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[HP_CD-WRITER+_7200_2_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[HITACHI_CDR-S100_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[HITACHI_GD-2000_0_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[HITACHI_CDR-7830_0_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[HITACHI_CDR-7830_2_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[HITACHI_CDR-7930_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[HITACHI_CDR-8130_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[HITACHI_CDR-8230_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,7 ;WDM Audio Key (support)
+
+[HITACHI_DVD-ROM_GD-2000_AddReg]
+HKR,,NoSetupUI,,1            ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[LITEON_CD-ROM_LTN222_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[LITEON_CD-ROM_LTN262_G_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[LITEON__CD-ROM_LTN264_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[MATSHITA_CD-ROM_CR-5850_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (no support)
+
+[MATSHITACD-ROM_CR-583_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,7 ;WDM Audio Key (support)
+
+[MATSHITA_DVD-ROM_SR-8581_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[MATSHITACD-ROM_CR-585_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[MATSHITACD-ROM_CR-572_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,7 ;WDM Audio Key (support)
+
+[MATSHITADVD-ROM_SR-8582_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[MATSHITACD-ROM_CR-581_0_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[MATSHITADVD-ROM_SR-85810_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[MITSUMI_CD-ROM_!AE_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[MITSUMI_CD-ROM_FX140S_!B_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,7 ;WDM Audio Key (support)
+
+[MITSUMI_CD-ROM_FX120T_!B_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[MITSUMI_CD-ROM_!BA_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[MITSUMI_CD-ROM_!BE_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[MITSUMI_CD-ROM_!BG_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[MITSUMI_CD-ROM_!BS_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[MITSUMI_CD-ROM_!BZ_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[MITSUMI_CD-ROM_FX810T_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,7 ;WDM Audio Key (support)
+
+[MITSUMI_CD-ROM_FX600T_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[MITSUMI_CD-ROM_FX240S_!B_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[MITSUMI_CR-2600TE_2_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:253_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:280_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:2823_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:286_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:252_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:251_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:2853_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:4621_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:2724_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:2734_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:2843_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:5002_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[NEC_CD-ROM_DRIVE:5022_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[PHILIPS_PCA80SC_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,7 ;WDM Audio Key (support)
+
+[PHILIPS_CM207_1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[PHILIPS_CDD3610_CD-R/RW1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,7 ;WDM Audio Key (support)
+
+[PLEXTOR_CD-ROM_PX-8XCS_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[PLEXTOR_CD-ROM_PX-4XCS_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[PLEXTOR_CD-ROM_PX-12TS_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[PLEXTOR_CD-ROM_PX-20TS_1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[PLEXTOR_CD-ROM_PX-4XCH_1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[PLEXTOR_CD-ROM_PX-6XCS_1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[RICOH_MP6200A_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,7 ;WDM Audio Key (support)
+
+[RICOH_MP6201S_2_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[SAMSUNG_SCR-730_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[SANYO_CRD-254P_1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[SONY_CD-ROM_CDU55E_1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[SONY_CD-ROM_CDU571_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,7 ;WDM Audio Key (support)
+
+[SONY_CD-ROM_CDU77E_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[SONY_DVD-ROM_DDU100E_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[SONY_CD-ROM_CDU511_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[SONY_CD-ROM_CDU76E-S_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[SONY_CD-ROM_CDU76E-Q_1_Addreg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[SONY____CD-ROM_CDU311_3_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,7 ;WDM Audio Key (support)
+
+[SONY_DVD-ROM_DDU100E_1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[TEAC_CD-524E_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[TEAC_CD-55E_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[TEAC_CD-512E_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[TEAC_CD-56E_0_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[TEAC_CD-220EA_0_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[TEXEL_CD-ROM_DM-XX24_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[TORISAN_CD-ROM_CDR_S18_1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[TOSHIBA_CD-ROM_XM-3501TA_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[TOSHIBA_CD-ROM_XM-3601TA_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[TOSHIBA_CD-ROM_XM-5702B_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (may support)
+
+[TOSHIBA_CD-ROM_XM-5602B_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,7 ;WDM Audio Key (support)
+
+[TOSHIBA_CD-ROM_XM-5302TA_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (May support)
+
+[TOSHIBA_CD-ROM_XM-5702B2_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[TOSHIBA_CD-ROM_XM-6102B1_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,7 ;WDM Audio Key (support)
+
+[TOSHIBADVD-ROM_SD-M11021_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (May support)
+
+[WEARNES_CDD-1020_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[WEARNES_CDD-620_ERA_A_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[WEARNES_CDD-620_ERB_B_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+[WPI_CDR-622_E1_D_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,6 ;WDM Audio Key (May support)
+
+[WPI_CDD-820_ERI_A_AddReg]
+HKR,,NoSetupUI,,1          ;ForceMPCopy
+HKR,,DigitalAudioPlay,1,4 ;WDM Audio Key (no support)
+
+;****************************************************
+[Strings]
+Msft = "Microsoft"
+GenManufacture = "(Dispositivo CD-ROM estándar)"
+CDClassName = "CD-ROM"
+GenCDDesc = "(Unidad de CD-ROM)"
+GenWDM = "Dispositivo CD-ROM estándar"
+________CD-912E/ATK_____1 = "CD-912E/ATK"
+ATAPI___CD-ROM_SPEED____2 = "ATAPI CD-ROM SPEED"
+ACER = "ACER"
+________5X_CD-ROM_______5 = "5X CD-ROM"
+ATAPI___CD-ROM_DRIVE____1 = "616A-003"
+ATAPI___CD-ROM_SPEED-12X2 = "SPEED-12X"
+ACER____CD-525E_________2 = "ACER CD-525E"
+ACER____CD-ROM_24X/AKOx_1 = "ACER CD-24X/AKOx"
+E-IDE___CD-ROM_24X/AKOX_1 = "CD-ROM 24X/AKOX"
+AZT = "AZT"
+AZT_____66801I__________0 = "AZT 66801I 0"
+COMPAQ = "COMPAQ"
+COMPAQ__PD-1_LF-1195C___A = "PD-1 LF-1195C"
+COMPAQ__CRD-S311________1 = "COMPAQ_CRD-S311_1"
+COMPAQ__DVD-ROM_GD-2000_0 = "DVD-ROM GD-2000"
+CREATIVE = "CREATIVE"
+CREATIVECD620E__________1 = "CD 620E"
+CREATIVECD1220E_________1 = "CD 1220E"
+FUNAI = "FUNAI"
+FUNAI___E2650___________1 = "FUNAI E2650 1"
+GOLDSTAR = "GOLDSTAR"
+GOLDSTARCD-ROM_GCD-R580B1 = "CD-ROM GCD-R580B"
+GOLDSTARCD-ROM_CRD-8160B1 = "CD-ROM CRD-8160B"
+GOLDSTARCD-ROM_GCD-R520B1 = "CD-ROM GCD-R520B"
+GOLDSTARCD-ROM_CRD-8240B1 = "CD-ROM CRD-8240B"
+GOLDSTARCD-ROM_GCD-R540_1 = "CD-ROM GCD-R5401"
+GOLDSTARCRD-8160B_(CPQ)_1 = "CD-ROM 8160B"
+COMPAQ__PD-1_LF-1094C___B = "PD-1 LF-1094C"
+HP = "Hewlett Packard"
+HP______CD-WRITER_6020__B = "CD-WRITER 6020"
+HP______CD-WRITER+_7200_2 = "CD-WRITER+ 7200"
+HITACHI = "HITACHI"
+HITACHI_CDR-S100________0 = "CDR-S100"
+HITACHI_GD-2000_________0 = "GD-2000"
+HITACHI_CDR-7830________0 = "CDR-7830"
+HITACHI_CDR-7830________2 = "HITACHI CDR-7830 2"
+HITACHI_CDR-7930________1 = "CDR-7930"
+HITACHI_CDR-8130________0 = "CDR-8130"
+HITACHI_CDR-8230________0 = "CDR-8230"
+HITACHI_DVD-ROM_GD-2000_0 = "DVD-ROM GD-2000"
+LITEON = "LITEON"
+LITEON__CD-ROM_LTN222___2 = "CD-ROM LTN222"
+LITEON__CD-ROM__LTN262__G = "CD-ROM LTN262 G"
+LITEON__CD-ROM_LTN264___J = "CD-ROM LTN264"
+MATSHITA = "MATSHITA"
+MATSHITACD-ROM_CR-5850__Z = "CD-ROM CR-5850"
+MATSHITACD-ROM_CR-583___S = "CD-ROM CR-583"
+MATSHITADVD-ROM_SR-8581_1 = "DVD-ROM SR-8581"
+MATSHITACD-ROM_CR-585___Z = "CD-ROM CR-585"
+MATSHITACD-ROM_CR-572___1 = "CD-ROM CR-572"
+MATSHITADVD-ROM_SR-8582_0 = "DVD-ROM SR-8582"
+MATSHITACD-ROM_CR-581___0 = "CD-ROM CR-581"
+MATSHITADVD-ROM_SR-8581_0 = "DVD-ROM SR-8581"
+MITSUMI = "MITSUMI"
+MITSUMI_CD-ROM________!AE = "CD-ROM"
+MITSUMI_CD-ROM_FX140S_!BE = "CD-ROM FX140S"
+MITSUMI_CD-ROM_FX120T_!BB = "CD-ROM FX120T"
+MITSUMI_CD-ROM________!BA = "CD-ROM"
+MITSUMI_CD-ROM________!BE = "CD-ROM"
+MITSUMI_CD-ROM________!BG = "CD-ROM"
+MITSUMI_CD-ROM________!BS = "CD-ROM"
+MITSUMI_CD-ROM________!BZ = "CD-ROM"
+MITSUMI_CD-ROM_FX810T_!BU = "CD-ROM FX810T"
+MITSUMI_CD-ROM_FX600T_!AL = "CD-ROM FX600T"
+MITSUMI_CD-ROM_FX240S_!BJ = "CD-ROM FX240S"
+MITSUMI_CR-2600TE_______2 = "MITSUMI_CR-2600TE_2"
+NEC = "NEC"
+NEC_____CD-ROM_DRIVE:2533 = "CD-ROM DRIVE:253"
+NEC_____CD-ROM_DRIVE:2803 = "CD-ROM DRIVE:280"
+NEC_____CD-ROM_DRIVE:2823 = "CD-ROM DRIVE:282"
+NEC_____CD-ROM_DRIVE:2863 = "CD-ROM DRIVE:286"
+NEC_____CD-ROM_DRIVE:2523 = "CD-ROM DRIVE:252"
+NEC_____CD-ROM_DRIVE:2514 = "CD-ROM DRIVE:251"
+NEC_____CD-ROM_DRIVE:2853 = "CD-ROM DRIVE:285"
+NEC_____CD-ROM_DRIVE:4621 = "CD-ROM DRIVE:462"
+NEC_____CD-ROM_DRIVE:2724 = "CD-ROM DRIVE:272"
+NEC_____CD-ROM_DRIVE:2734 = "CD-ROM DRIVE:273"
+NEC_____CD-ROM_DRIVE:2843 = "CD-ROM DRIVE:284"
+NEC_____CD-ROM_DRIVE:5002 = "CD-ROM DRIVE:500"
+NEC_____CD-ROM_DRIVE:5022 = "CD-ROM DRIVE:502"
+PHILIPS = "PHILIPS"
+PHILIPS_PCA80SC_________V = "CD-ROM PCA80SC"
+PHILIPS_CM207___________1 = "CM207"
+PHILIPS_CDD3610_CD-R/RW_1 = "CDD3610 CD-R/RW"
+PLEXTOR = "PLEXTOR"
+PLEXTOR_CD-ROM_PX-8XCS__1 = "PX-8XCS"
+PLEXTOR_CD-ROM_PX-4XCS__1 = "CD-ROM PX-4XCS"
+PLEXTOR_CD-ROM_PX-12TS__1 = "CD-ROM PX-12TS"
+PLEXTOR_CD-ROM_PX-20TS__1 = "CD-ROM PX-20TS"
+PLEXTOR_CD-ROM_PX-4XCH__1 = "CD-ROM PX-4XCH"
+PLEXTOR_CD-ROM_PX-6XCS__1 = "CD-ROM PX-6XCS"
+RICOH = "RICOH"
+RICOH___MP6200A_________1 = "MP6200A"
+RICOH___MP6201S_________2 = "MP6201S"
+SAMSUNG = "SAMSUNG"
+SAMSUNG_SCR-730_REV_M105M = "SCR-730"
+SANYO = "SANYO"
+SANYO___CRD-254P________1 = "CRD-254P"
+SONY = "SONY"
+SONY____CD-ROM_CDU55E___1 = "CD-ROM CDU55E 1"
+SONY____CD-ROM_CDU571___1 = "CD-ROM CDU571"
+SONY____CD-ROM_CDU77E___1 = "CD-ROM CDU77E"
+SONY____DVD-ROM_DDU100E_0 = "DVD-ROM DDU100E"
+SONY____CD-ROM_CDU511___1 = "CD-ROM CDU511"
+SONY____CD-ROM_CDU76E-S_1 = "CD-ROM CDU76E-S"
+SONY____CD-ROM_CDU76E-Q_1 = "CD-ROM CDU76E-Q"
+SONY____CD-ROM_CDU311___3 = "CD-ROM CDU311"
+SONY____DVD-ROM_DDU100E_1 = "DVD-ROM DDU100E"
+TEAC = "TEAC"
+TEAC____CD-524E_________0 = "CD-524E"
+TEAC____CD-55E__________0 = "CD-55E"
+TEAC____CD-512E_________1 = "CD-512E"
+TEAC____CD-56E__________0 = "CD-56E"
+TEAC____CD-220EA________0 = "CD-220EA"
+TEXEL = "TEXEL"
+TEXEL___CD-ROM_DM-XX24_K1 = "CD-ROM DM-XX24"
+TORISAN = "TORISAN"
+TORISAN_CD-ROM_CDR_S18__1 = "CD-ROM CDR_S18"
+TOSHIBA = "TOSHIBA"
+TOSHIBA_CD-ROM_XM-3501TA3 = "XM-3501TA"
+TOSHIBA_CD-ROM_XM-3601TA0 = "XM-3601TA"
+TOSHIBA_CD-ROM_XM-5702B_3 = "CD-ROM XM-5702B"
+TOSHIBA_CD-ROM_XM-5602B_1 = "CD-ROM XM-5602B"
+TOSHIBA_CD-ROM_XM-5302TA2 = "CD-ROM XM-5302TA"
+TOSHIBA_CD-ROM_XM-5702B_2 = "CD-ROM XM-5702B"
+TOSHIBA_CD-ROM_XM-6102B_1 = "CD-ROM XM-6102B"
+TOSHIBA_DVD-ROM_SD-M11021 = "DVD-ROM"
+WEARNES = "WEARNES"
+WEARNES_CDD-1020____ERE_B = "CDD-1020"
+WEARNES_CDD-620_____ERA_B = "CDD-620"
+WEARNES_CDD-620_____ERB_B = "CDD-620"
+WPI_____CDR-622_____E1__D = "CDR-622"
+WPI = "WPI"
+WPI_____CDD-820_____ERI_A = "CDD-820"
+

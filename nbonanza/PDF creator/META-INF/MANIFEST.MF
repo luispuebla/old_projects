@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Name: com/adobe/acrobat/Viewer.class
+Main-Class: com.adobe.acrobat.Viewer
+Java-Bean: True
+Created-By: 1.2.1 (Sun Microsystems Inc.)
+

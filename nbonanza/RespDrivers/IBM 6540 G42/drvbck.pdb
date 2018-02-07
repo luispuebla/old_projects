@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=IBM 6540 G42
+infpath=MONITOR6.INF                                                                    
+infsection=IBM_6540.Install
+MatchingDeviceId=Monitor\IBM198C
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Monitores
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

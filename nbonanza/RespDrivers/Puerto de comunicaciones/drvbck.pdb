@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Puerto de comunicaciones
+infpath=MSPORTS.INF                                                                     
+infsection=ComPort
+MatchingDeviceId=*PNP0501
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Puertos (COM y LPT)
+filenum=4
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

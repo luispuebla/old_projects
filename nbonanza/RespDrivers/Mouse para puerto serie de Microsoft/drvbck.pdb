@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Mouse para puerto serie de Microsoft
+infpath=MSMOUSE.INF                                                                     
+infsection=MSSerPnP
+MatchingDeviceId=SERENUM\PNP0F0A
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Mouse
+filenum=4
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

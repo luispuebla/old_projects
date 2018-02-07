@@ -1,0 +1,2271 @@
+
+
+; MONITOR3.INF
+;
+; This is a Setup information file for monitors
+; supported in the Windows 95 1 product.
+;
+; Copyright (c) 1994-1999, Microsoft Corporation
+
+[Version]
+LayoutFile= Layout.inf, Layout1.inf, Layout2.inf
+signature="$CHICAGO$"
+Class=Monitor
+ClassGUID={4d36e96e-e325-11ce-bfc1-08002be10318}
+Provider=%MS%
+SetupClass=BASE
+CatalogFile=monitor3.cat
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Acer%=Acer
+%AT&T%=AT&T
+%COMPAQ%=COMPAQ
+%CTX%=CTX
+%Dell%=Dell
+%Digital%=Digital
+%HITACHI%=HITACHI
+%HP%=HP
+
+
+; Manufacturer sections
+;-------------------------------------------------
+
+[Acer]
+%7111D%=7111D, Monitor\API440B
+%7133D%=7133D, Monitor\API4421
+%7133DL%=7133DL, Monitor\API4C21
+%7134T%=7134T, Monitor\API5422
+%7134TL%=7134TL, Monitor\API4C22
+%7155%=7155, Monitor\API0037
+%7155L%=7155L, Monitor\API4C37
+%7156L%=7156L, Monitor\API4C38
+%7176N%=7176N, Monitor\API4E4C
+%7176i%=7176i, Monitor\API494C
+%7178i%=7178i, Monitor\API494E
+%7198i%=7198i, Monitor\API4962
+%7133S%=7133s, Monitor\API5321
+%7134E%=7134e, Monitor\API4522
+%7134S%=7134s, Monitor\API5322
+%7154E%=7154e, Monitor\API4536
+%7154S%=7154s, Monitor\API5336
+%7156E%=7156e, Monitor\API4538
+%7156I%=7156i, Monitor\API4938
+%7156S%=7156s, Monitor\API5338
+%7156IS%=7156is, Monitor\API5338
+%7176IE%=7176ie, Monitor\API454C
+%7176IS%=7176is, Monitor\API534C
+%7178IE%=7178ie, Monitor\API454E
+%Acer_7015%=Acer_7015,MonID_Acer_7015
+%Acer_15P% =Acer_15P, MonID_Acer_15P
+%Acer_33%  =Acer_33,  MonID_Acer_33
+%Acer_35%  =Acer_35,  MonID_Acer_35
+
+[AT&T]
+%CRT-365% = CRT-365, MonID_ATT_CRT-365
+%CRT-395% = CRT-395, MonID_ATT_CRT-395
+%14Mono%  = 14Mono,  MonID_ATT_14Mono
+%14Econ%  = 14Econ,  MonID_ATT_14Econ
+%14Value% = 14Value, MonID_ATT_14Value
+%14ValLR% = 14Value, MonID_ATT_14ValLR
+%15Color% = 15Color, MonID_ATT_15Color
+%17Value% = 17Value, MonID_ATT_17Value
+%17Pro%   = 17Pro,   MonID_ATT_17Pro
+
+[COMPAQ]
+%CVGA%  =CVGA,  MonID_CVGA
+%IVGA%  =IVGA,  MonID_IVGA
+%AGS%   =AGS,   MonID_AGS
+%SVGA%  =SVGA,  MonID_SVGA
+%Pres%  =SVGA,  MonID_Pres
+%1024%  =C1024, Monitor\CPQ0100
+%1024%  =C1024, Monitor\CPQ0011
+%1024%  =C1024, Monitor\CPQ0012
+%1024%  =C1024, Monitor\CPQ0013
+%1024%  =C1024, Monitor\CPQ0014
+%1024%  =C1024, Monitor\CPQ0015
+%1024%  =C1024, Monitor\CPQ0016
+%1024%  =C1024, Monitor\CPQ0146
+%1024%  =C1024, Monitor\CPQ0147
+%151FS% =151FS, Monitor\CPQ0022
+%151FS% =151FS, Monitor\CPQ0023
+%151FS% =151FS, Monitor\CPQ0024
+%151FS% =151FS, Monitor\CPQ0025
+%151FS% =151FS, Monitor\CPQ0026
+%151FS% =151FS, Monitor\CPQ0027
+%151FS% =151FS, Monitor\CPQ0028
+%151FS% =151FS, Monitor\CPQ0346
+%151FS% =151FS, Monitor\CPQ0347
+%151FS% =151FS, Monitor\CPQ0348
+%151FS% =151FS, Monitor\CPQ0349
+%151FS% =151FS, Monitor\CPQ034A
+%151FS% =151FS, Monitor\CPQ034B
+%171FS% =171FS, Monitor\CPQ002D
+%171FS% =171FS, Monitor\CPQ002E
+%171FS% =171FS, Monitor\CPQ002F
+%171FS% =171FS, Monitor\CPQ0030
+%171FS% =171FS, Monitor\CPQ0031
+%171FS% =171FS, Monitor\CPQ0032
+%171FS% =171FS, Monitor\CPQ0033
+%171FS% =171FS, Monitor\CPQ0546
+%171FS% =171FS, Monitor\CPQ0547
+%171FS% =171FS, Monitor\CPQ0548
+%171FS% =171FS, Monitor\CPQ0549
+%172%   =172,   MonID_CPQ_172
+%140%   =140,   Monitor\CPQ0D46
+%140%   =140,   Monitor\CPQ0D47
+%140%   =140,   Monitor\CPQ0D48
+%140%   =140,   Monitor\CPQ0D49
+%140%   =140,   Monitor\CPQ0D4A
+%140%   =140,   Monitor\CPQ0D4B
+%140%   =140,   Monitor\CPQ0D4C
+%140%   =140,   Monitor\CPQ0D4D
+%150%   =150,   Monitor\CPQ0F46
+%150%   =150,   Monitor\CPQ0F47
+%150%   =150,   Monitor\CPQ0F48
+%150%   =150,   Monitor\CPQ0F49
+%150%   =150,   Monitor\CPQ0F4A
+%150%   =150,   Monitor\CPQ0F4B
+%150%   =150,   Monitor\CPQ0F4C
+%150%   =150,   Monitor\CPQ0F4D
+%PR140% =PRA,   Monitor\CPQ0846
+%PR140% =PRA,   Monitor\CPQ0847
+%PR140% =PRA,   Monitor\CPQ0848
+%PR140% =PRA,   Monitor\CPQ0849
+%PR140% =PRA,   Monitor\CPQ084A
+%PR140% =PRA,   Monitor\CPQ084B
+%PR140% =PRA,   Monitor\CPQ084C
+%PR140% =PRA,   Monitor\CPQ084D
+%PR140% =PRB,   Monitor\CPQ0746
+%PR140% =PRB,   Monitor\CPQ0747
+%PR140% =PRB,   Monitor\CPQ0017
+%PR140% =PRB,   Monitor\CPQ0018
+%PR140% =PRB,   Monitor\CPQ0019
+%PR140% =PRB,   Monitor\CPQ001A
+%PR140% =PRB,   Monitor\CPQ0020
+%PR140% =PRB,   Monitor\CPQ0021
+%PR150% =PRA,   Monitor\CPQ0A46
+%PR150% =PRA,   Monitor\CPQ0A47
+%PR150% =PRA,   Monitor\CPQ0A48
+%PR150% =PRA,   Monitor\CPQ0A49
+%PR150% =PRA,   Monitor\CPQ0A4A
+%PR150% =PRA,   Monitor\CPQ0A4B
+%PR150% =PRA,   Monitor\CPQ0A4C
+%PR150% =PRA,   Monitor\CPQ0A4D
+%PR150% =PRB,   Monitor\CPQ0946
+%PR150% =PRB,   Monitor\CPQ0947
+%PR150% =PRB,   Monitor\CPQ0948
+%PR150% =PRB,   Monitor\CPQ0949
+%PR150% =PRB,   Monitor\CPQ0029
+%PR150% =PRB,   Monitor\CPQ002A
+%PR150% =PRB,   Monitor\CPQ002B
+%PR150% =PRB,   Monitor\CPQ002C
+%QV150% =QV150, MonID_CPQ_QV150
+%QV170% =QV150, MonID_CPQ_QV170
+%QV172% =QV200, Monitor\CPQ0040
+%QV172% =QV200, Monitor\CPQ0041
+%QV172% =QV200, Monitor\CPQ0042
+%QV200% =QV200, Monitor\CPQ0043
+%QV200% =QV200, Monitor\CPQ0044
+%QV200% =QV200, Monitor\CPQ0045
+%QV210% =QV200, Monitor\CPQ0046
+%QV210% =QV200, Monitor\CPQ0047
+%QV210% =QV200, Monitor\CPQ0048
+%QV210% =QV200, Monitor\CPQ0049
+
+[CTX]
+%1451%=1451, Monitor\CTX1451
+%1551%=1551, Monitor\CTX1551
+%1562%=1562, Monitor\CTX1562
+%1565%=1565, Monitor\CTX1565
+%1765%=1765, Monitor\CTX1765
+%1785%=1785, Monitor\CTX1785
+%2085%=2085, Monitor\CTX2085
+%2185%=2185, Monitor\CTX2185
+%CTX-1562ES%=CTX-1562ES.Install, MonID_CTX-1562ES
+%CTX-1562GM%=CTX-1562GM.Install, MonID_CTX-1562GM
+%CTX-1565GM%=CTX-1565GM.Install, MonID_CTX-1565GM
+%CTX-1765GM%=CTX-1765GM.Install, MonID_CTX-1765GM
+%CTX-1785GM%=CTX-1785GM.Install, MonID_CTX-1785GM
+%CTX-1451ES%=CTX-1451ES.Install, MonID_CTX-1451ES
+%CTX-1451GM%=CTX-1451GM.Install, MonID_CTX-1451GM
+%CTX-1462GM%=CTX-1462GM.Install, MonID_CTX-1462
+%CPS-1460%=CPS-1460.Install, MonID_CPS-1460
+%CPS-1560%=CPS-1560.Install, MonID_CPS-1560
+%CPS-1750%=CPS-1750.Install, MonID_CPS-1750
+%CPS-1760%=CPS-1760.Install, MonID_CPS-1760
+%CPS-2160%=CPS-2160.Install, MonID_CPS-2160
+%CPS-2180%=CPS-2180.Install, MonID_CPS-2180
+%CVS-3450%=CVS-3450.Install, MonID_CVP-3450
+%CVS-3436%=CVS-3436.Install, MonID_CVP-3436
+%CVP-5439%=CVP-5439.Install, MonID_CVP-5439
+%CVP-5468%=CVP-5468.Install, MonID_CVP-5468
+%CVP-5468NL%=CVP-5468NL.Install, MonID_CVP-5468NL
+%CVP-5468NI%=CVP-5468NI.Install, MonID_CVP-5468NI
+%Multiscan-3436%=Multiscan-3436.Install, MonID_Multiscan-3436
+
+[Dell]
+%Dell_1024i%=Dell_1024i
+%Dell_1024i-P%=Dell_1024i-P
+%Dell_Eizo9080%=Dell_Eizo9080
+%Dell_GPD-16C%=Dell_GPD-16C
+%Dell_GPD-19C%=Dell_GPD-19C
+%Dell_Hewitt%=Dell_Hewitt
+%Dell_SVGA%=Dell_SVGA
+%Dell_SVGA-Colour%=Dell_SVGA-Colour
+%Dell_SVGA-DL%=Dell_SVGA-DL
+%Dell_Jostens%=Dell_Jostens
+%Dell_UGA%=Dell_UGA
+%Dell_U14C%=Dell_U14C
+%Dell_U14C-E%=Dell_U14C-E
+%Dell_U14C-EN%=Dell_U14C-EN
+%Dell_U14ES%=Dell_U14ES
+%Dell_U14LR%=Dell_U14LR
+%Dell_U15ES%=Dell_U15ES
+%Dell_U15FS-N%=Dell_U15FS-N
+%Dell_U15FS%=Dell_U15FS
+%Dell_U15LR%=Dell_U15LR
+%Dell_U15TE%=Dell_U15TE
+%Dell_U17ES%=Dell_U17ES
+%Dell_U17FS-ELR%=Dell_U17FS-ELR
+%Dell_U17FS-EN%=Dell_U17FS-EN
+%Dell_U17FS-LR%=Dell_U17FS-LR
+%Dell_U17FS-N%=Dell_U17FS-N
+%Dell_U21FS%=Dell_U21FS
+%Dell_V15X%=Dell_V15X
+%Dell_V17X%=Dell_V17X
+%Dell_VGA800%=Dell_VGA800
+%Dell_VGA_Color%=Dell_VGA_Color
+%Dell_VGA_Mono%=Dell_VGA_Mono
+%Dell_Vi14X%=Dell_Vi14X
+%Dell_VS14_15%=Dell_VS14_15
+%Dell_VS17%=Dell_VS17
+%Dell_VC15%=Dell_VC15
+%Dell_14XE-U%=Dell_14XE-U, Monitor\DEL139A
+%Dell_14XE-E%=Dell_14XE-E, Monitor\DEL139B
+%Dell_14XE-J%=Dell_14XE-J, Monitor\DEL139C
+%Dell_14XE-S%=Dell_14XE-S, Monitor\DEL139D
+%Dell_V17X-U%=Dell_V17X-U, Monitor\DEL2210
+%Dell_V17X-E%=Dell_V17X-E, Monitor\DEL2211
+%Dell_V17X-J%=Dell_V17X-J, Monitor\DEL2212
+%Dell_V17X-S%=Dell_V17X-S, Monitor\DEL2213
+%Dell_21TE-U%=Dell_21TE-U, Monitor\DEL2214
+%Dell_21TE-E%=Dell_21TE-E, Monitor\DEL2215
+%Dell_21TE-J%=Dell_21TE-J, Monitor\DEL2216
+%Dell_21TE-S%=Dell_21TE-S, Monitor\DEL2217
+%Dell_VS17X-U%=Dell_VS17X-U, Monitor\DEL3024
+%Dell_VS17X-E%=Dell_VS17X-E, Monitor\DEL3025
+%Dell_VS17X-J%=Dell_VS17X-J, Monitor\DEL3026
+%Dell_VS17X-S%=Dell_VS17X-S, Monitor\DEL3027
+
+[Digital]
+%FR-PC7XV-KA%=FR-PC7XV-KA, MonID_FR-PC7XV-KA
+%FR-PCXCV-GE%=FR-PCXCV-GE, MonID_FR-PCXCV-GE
+%FR-PCXBV-PF%=FR-PCXBV-PF, MonID_FR-PCXBV-PF
+%FR-PCXBV-SA%=FR-PCXBV-SA, MonID_FR-PCXBV-SA
+%FR-PCXBV-SC%=FR-PCXBV-SC, MonID_FR-PCXBV-SC
+%FR-PCXBV-PC%=FR-PCXBV-PC, MonID_FR-PCXBV-PC
+%FR-PCXBV-KA%=FR-PCXBV-KA, MonID_FR-PCXBV-KA
+%FR-PCXAV-EC%=FR-PCXAV-EC, MonID_FR-PCXAV-EC
+%FR-PCXAV-HA%=FR-PCXAV-HA, MonID_FR-PCXAV-HA
+%FR-PCXCV-AC%=FR-PCXCV-AC, MonID_FR-PCXCV-AC
+%FR-PCXCV-RA%=FR-PCXCV-RA, MonID_FR-PCXCV-RA
+%FR-PCXBV-RA%=FR-PCXBV-RA, MonID_FR-PCXBV-RA
+%FR-PCXBV-RD%=FR-PCXBV-RD, MonID_FR-PCXBV-RD
+%FR-PCXBV-RL%=FR-PCXBV-RL, MonID_FR-PCXBV-RL
+
+[HITACHI]
+%UX6821%=UX6821, Monitor\HIT6811
+%UX4921%=UX4921, Monitor\HIT4911
+%UX4721%=UX4721, Monitor\HIT4711
+%GX20H% =GX20H,  Monitor\HIT4830
+%GX20%  =GX20,   Monitor\HIT4810
+%GX21%  =GX21,   Monitor\HIT4811
+%GX17L% =GX17L,  Monitor\HIT1717
+%HM6821%=HM6821, Monitor\HIT6821
+%HM6421%=HM6421, Monitor\HIT6421
+%HM4921%=HM4921, Monitor\HIT2149
+%HM4821%=HM4821, Monitor\HIT4821
+%HM4820%=HM4820, Monitor\HIT4820
+%HM4721%=HM4721, Monitor\HIT2147
+%HM4021%=HM4021, Monitor\HIT4021
+%HM4020%=HM4020, Monitor\HIT4020
+%HM1782%=HM1782, Monitor\HIT1827
+%HM1764%=HM1764, Monitor\HIT1727
+%20-AS%  =20-AS,   MonID_20-AS
+%20-AP%  =20-AP,   MonID_20-AP
+%20-APF% =20-APF,  MonID_20-APF
+%21-AP%  =21-AP,   MonID_21-AP
+%HM-5219%=HM-5219, MonID_HM-5219
+%CM2198M%=CM2198M, MonID_CM2198M
+%CM2199M%=CM2199M, MonID_CM2199M
+%CM1798M%=CM1798M, MonID_CM1798M
+
+[HP]
+%D1187A%=D1187A, MonID_HP_D1187A
+%D1188A%=D1188A, MonID_HP_D1188A
+%D1192A%=D1192A, MonID_HP_D1192A
+%D1192B%=D1192A, MonID_HP_D1192B
+%D1193A%=D1193A, MonID_HP_D1193A
+%D1194A%=D1194A, MonID_HP_D1194A
+%D1195A%=D1195A, MonID_HP_D1195A
+%D1196A%=D1196A, MonID_HP_D1196A
+%D1197A%=D1197A, MonID_HP_D1197A
+%D1198A%=D1198A, MonID_HP_D1198A
+%D1199A%=D1199A, MonID_HP_D1199A
+%D2800A%=D2800A, Monitor\HWP0AF0
+%D2801A%=D2801A, MonID_HP_D2801A
+%D2802A%=D2802A, MonID_HP_D2802A
+%D2804A%=D2804A, MonID_HP_D2804A
+%D2805A%=D2805A, MonID_HP_D2805A
+%D2806A%=D2806A, Monitor\HWP0AF6
+%D2807A%=D2807A, MonID_HP_D2807A
+%D2808A%=D2808A, MonID_HP_D2808A
+%D2814A%=D2814A, MonID_HP_D2814A
+%D2815A%=D2815A, Monitor\HWP0AFF
+%D3857A%=D3857A, Monitor\HWP0F11
+%D3858A%=D3858A, Monitor\HWP0F12
+
+
+; Install sections
+;-------------------------------------------------
+
+; -------------- Acer
+[7111D]
+DelReg=DEL_CURRENT_REG
+AddReg=7111D.AddReg
+
+[7133D]
+DelReg=DEL_CURRENT_REG
+AddReg=7133D.AddReg
+
+[7133DL]
+DelReg=DEL_CURRENT_REG
+AddReg=7133DL.AddReg
+
+[7134T]
+DelReg=DEL_CURRENT_REG
+AddReg=7134T.AddReg
+
+[7134TL]
+DelReg=DEL_CURRENT_REG
+AddReg=7134TL.AddReg
+
+[7155]
+DelReg=DEL_CURRENT_REG
+AddReg=7155.AddReg
+
+[7155L]
+DelReg=DEL_CURRENT_REG
+AddReg=7155L.AddReg
+
+[7156L]
+DelReg=DEL_CURRENT_REG
+AddReg=7156L.AddReg
+
+[7176N]
+DelReg=DEL_CURRENT_REG
+AddReg=7176N.AddReg
+
+[7176i]
+DelReg=DEL_CURRENT_REG
+AddReg=7176i.AddReg
+
+[7178i]
+DelReg=DEL_CURRENT_REG
+AddReg=7178i.AddReg
+
+[7198i]
+DelReg=DEL_CURRENT_REG
+AddReg=7198i.AddReg
+
+[7133s]
+DelReg=DEL_CURRENT_REG
+AddReg=7133s.AddReg
+
+[7134e]
+DelReg=DEL_CURRENT_REG
+AddReg=7134e.AddReg
+
+[7134s]
+DelReg=DEL_CURRENT_REG
+AddReg=7134s.AddReg
+
+[7154e]
+DelReg=DEL_CURRENT_REG
+AddReg=7154e.AddReg
+
+[7154s]
+DelReg=DEL_CURRENT_REG
+AddReg=7154s.AddReg
+
+[7156e]
+DelReg=DEL_CURRENT_REG
+AddReg=7156e.AddReg
+
+[7156i]
+DelReg=DEL_CURRENT_REG
+AddReg=7156i.AddReg
+
+[7156s]
+DelReg=DEL_CURRENT_REG
+AddReg=7156s.AddReg
+
+[7156is]
+DelReg=DEL_CURRENT_REG
+AddReg=7156is.AddReg
+
+[7176ie]
+DelReg=DEL_CURRENT_REG
+AddReg=7176ie.AddReg
+
+[7176is]
+DelReg=DEL_CURRENT_REG
+AddReg=7176is.AddReg
+
+[7178ie]
+DelReg=DEL_CURRENT_REG
+AddReg=7178ie.AddReg
+
+[Acer_7015]
+DelReg=DEL_CURRENT_REG
+AddReg=Acer_7015.AddReg, 800
+
+[Acer_15P]
+DelReg=DEL_CURRENT_REG
+AddReg=Acer_15P.AddReg, 1024
+
+[Acer_33]
+DelReg=DEL_CURRENT_REG
+AddReg=Acer_33.AddReg, 1024
+
+[Acer_35]
+DelReg=DEL_CURRENT_REG
+AddReg=Acer_35.AddReg, 1024
+
+
+; -------------- AT&T
+[CRT-365]
+DelReg=DEL_CURRENT_REG
+AddReg=CRT-365.AddReg, 1280
+
+[CRT-395]
+DelReg=DEL_CURRENT_REG
+AddReg=CRT-395.AddReg, 1280
+
+[14Mono]
+DelReg=DEL_CURRENT_REG
+AddReg=14Mono.AddReg, 640
+
+[14Econ]
+DelReg=DEL_CURRENT_REG
+AddReg=14Econ.AddReg, 1024
+
+[14Value]
+DelReg=DEL_CURRENT_REG
+AddReg=14Value.AddReg, 1024, DPMS
+
+[15Color]
+DelReg=DEL_CURRENT_REG
+AddReg=15Color.AddReg, 1024, DPMS
+
+[17Value]
+DelReg=DEL_CURRENT_REG
+AddReg=17Value.AddReg, 1280, DPMS
+
+[17Pro]
+DelReg=DEL_CURRENT_REG
+AddReg=17Pro.AddReg, 1280, DPMS
+
+
+; -------------- Compaq
+[CVGA]
+DelReg=DEL_CURRENT_REG
+AddReg=CVGA.AddReg, 640
+
+[IVGA]
+DelReg=DEL_CURRENT_REG
+AddReg=IVGA.AddReg, 640
+
+[AGS]
+DelReg=DEL_CURRENT_REG
+AddReg=AGS.AddReg, 1024
+
+[SVGA]
+DelReg=DEL_CURRENT_REG
+AddReg=SVGA.AddReg, 800, DPMS
+
+[C1024]
+DelReg=DEL_CURRENT_REG
+AddReg=1024.AddReg, 1024, DPMS
+
+[151FS]
+DelReg=DEL_CURRENT_REG
+AddReg=151FS.AddReg, 1024, DPMS
+
+[171FS]
+DelReg=DEL_CURRENT_REG
+AddReg=171FS.AddReg, 1024, DPMS
+
+[172]
+DelReg=DEL_CURRENT_REG
+AddReg=172.AddReg, 1280, DPMS
+
+[140]
+DelReg=DEL_CURRENT_REG
+AddReg=140.AddReg, 1024, DPMS
+
+[150]
+DelReg=DEL_CURRENT_REG
+AddReg=150.AddReg, 1024, DPMS
+
+[PRA]
+DelReg=DEL_CURRENT_REG
+AddReg=PRA.AddReg, 1024, DPMS
+
+[PRB]
+DelReg=DEL_CURRENT_REG
+AddReg=PRB.AddReg, 1024, DPMS
+
+[QV150]
+DelReg=DEL_CURRENT_REG
+AddReg=QV150.AddReg, 1024
+
+[QV200]
+DelReg=DEL_CURRENT_REG
+AddReg=QV200.AddReg, 1280, DPMS
+
+; -------------- CTX
+[1451]
+DelReg=DEL_CURRENT_REG
+AddReg=1451.AddReg
+
+[1551]
+DelReg=DEL_CURRENT_REG
+AddReg=1551.AddReg
+
+[1562]
+DelReg=DEL_CURRENT_REG
+AddReg=1562.AddReg
+
+[1565]
+DelReg=DEL_CURRENT_REG
+AddReg=1565.AddReg
+
+[1765]
+DelReg=DEL_CURRENT_REG
+AddReg=1765.AddReg
+
+[1785]
+DelReg=DEL_CURRENT_REG
+AddReg=1785.AddReg
+
+[2085]
+DelReg=DEL_CURRENT_REG
+AddReg=2085.AddReg
+
+[2185]
+DelReg=DEL_CURRENT_REG
+AddReg=2185.AddReg
+
+[CTX-1562ES.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CTX-1562ES.AddReg, 1280, DPMS
+
+[CTX-1562GM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CTX-1562GM.AddReg, 1280, DPMS
+
+[CTX-1565GM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CTX-1565GM.AddReg, 1280, DPMS
+
+[CTX-1765GM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CTX-1765GM.AddReg, 1280
+
+[CTX-1785GM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CTX-1785GM.AddReg, 1280
+
+[CTX-1451ES.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CTX-1451ES.AddReg, 1024, DPMS
+
+[CTX-1451GM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CTX-1451GM.AddReg, 1024
+
+[CTX-1462GM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CTX-1462GM.AddReg, 1024
+
+[CPS-1460.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPS-1460.AddReg, 1024
+
+[CPS-1560.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPS-1560.AddReg, 1024
+
+[CPS-1750.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPS-1750.AddReg, 1024
+
+[CPS-1760.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPS-1760.AddReg, 1280
+
+[CPS-2160.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPS-2160.AddReg, 1280
+
+[CPS-2180.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPS-2180.AddReg, 1280
+
+[CVS-3450.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CVS-3450.AddReg, 1024
+
+[CVS-3436.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CVS-3436.AddReg, 1024
+
+[CVP-5439.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CVP-5439.AddReg, 1024
+
+[CVP-5468.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CVP-5468.AddReg, 1024
+
+[CVP-5468NL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CVP-5468NL.AddReg, 1024
+
+[CVP-5468NI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CVP-5468NI.AddReg, 1024
+
+[Multiscan-3436.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Multiscan-3436.AddReg, 1024
+
+
+; -------------- Dell
+[Dell_1024i]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_1024i.AddReg
+
+[Dell_1024i-P]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_1024i-P.AddReg
+
+[Dell_Eizo9080]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_Eizo9080.AddReg
+
+[Dell_GPD-16C]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_GPD-16C.AddReg
+
+[Dell_GPD-19C]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_GPD-19C.AddReg
+
+[Dell_Hewitt]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_Hewitt.AddReg
+
+[Dell_SVGA]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_SVGA.AddReg
+
+[Dell_SVGA-Colour]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_SVGA-Colour.AddReg
+
+[Dell_SVGA-DL]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_SVGA-DL.AddReg
+
+[Dell_Jostens]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_Jostens.AddReg
+
+[Dell_UGA]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_UGA.AddReg
+
+[Dell_U14C]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U14C.AddReg
+
+[Dell_U14C-E]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U14C-E.AddReg
+
+[Dell_U14C-EN]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U14C-EN.AddReg
+
+[Dell_U14ES]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U14ES.AddReg
+
+[Dell_U14LR]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U14LR.AddReg
+
+[Dell_U15ES]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U15ES.AddReg
+
+[Dell_U15FS-N]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U15FS-N.AddReg
+
+[Dell_U15FS]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U15FS.AddReg
+
+[Dell_U15LR]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U15LR.AddReg
+
+[Dell_U15TE]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U15TE.AddReg
+
+[Dell_U17ES]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U17ES.AddReg
+
+[Dell_U17FS-ELR]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U17FS-ELR.AddReg
+
+[Dell_U17FS-EN]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U17FS-EN.AddReg
+
+[Dell_U17FS-LR]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U17FS-LR.AddReg
+
+[Dell_U17FS-N]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U17FS-N.AddReg
+
+[Dell_U21FS]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_U21FS.AddReg
+
+[Dell_V15X]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_V15X.AddReg
+
+[Dell_V17X]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_V17X.AddReg
+
+[Dell_VGA800]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_VGA800.AddReg
+
+[Dell_VGA_Color]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_VGA_Color.AddReg
+
+[Dell_VGA_Mono]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_VGA_Mono.AddReg
+
+[Dell_Vi14X]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_Vi14X.AddReg
+
+[Dell_VS14_15]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_VS14_15.AddReg
+
+[Dell_VS17]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_VS17.AddReg
+
+[Dell_VC15]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_VC15.AddReg
+
+[Dell_14XE-U]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_14XE-U.AddReg
+
+[Dell_14XE-E]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_14XE-E.AddReg
+
+[Dell_14XE-J]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_14XE-J.AddReg
+
+[Dell_14XE-S]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_14XE-S.AddReg
+
+[Dell_V17X-U]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_V17X-U.AddReg
+
+[Dell_V17X-E]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_V17X-E.AddReg
+
+[Dell_V17X-J]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_V17X-J.AddReg
+
+[Dell_V17X-S]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_V17X-S.AddReg
+
+[Dell_21TE-U]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_21TE-U.AddReg
+
+[Dell_21TE-E]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_21TE-E.AddReg
+
+[Dell_21TE-J]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_21TE-J.AddReg
+
+[Dell_21TE-S]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_21TE-S.AddReg
+
+[Dell_VS17X-U]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_VS17X-U.AddReg
+
+[Dell_VS17X-E]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_VS17X-E.AddReg
+
+[Dell_VS17X-J]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_VS17X-J.AddReg
+
+[Dell_VS17X-S]
+DelReg=DEL_CURRENT_REG
+AddReg=Dell_VS17X-S.AddReg
+
+
+; -------------- Digital
+[FR-PC7XV-KA]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PC7XV-KA.AddReg, 640
+
+[FR-PCXCV-GE]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXCV-GE.AddReg, 1024, DPMS
+
+[FR-PCXBV-PF]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXBV-PF.AddReg, 1024, DPMS
+
+[FR-PCXBV-SA]                   
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXBV-SA.AddReg, 1024, DPMS
+
+[FR-PCXBV-SC]                   
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXBV-SC.AddReg, 1280, DPMS
+
+[FR-PCXBV-PC]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXBV-PC.AddReg, 1280, DPMS
+
+[FR-PCXBV-KA]                   
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXBV-KA.AddReg, 1280, DPMS
+
+[FR-PCXAV-EC]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXAV-EC.AddReg, 1280, DPMS
+
+[FR-PCXAV-HA]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXAV-HA.AddReg, 1280, DPMS
+
+[FR-PCXCV-AC]                   
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXCV-AC.AddReg, 1024, DPMS
+
+[FR-PCXCV-RA]                   
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXCV-RA.AddReg, 1024, DPMS
+
+[FR-PCXBV-RA]                   
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXBV-RA.AddReg, 1024, DPMS
+
+[FR-PCXBV-RD]                   
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXBV-RD.AddReg, 1024, DPMS
+
+[FR-PCXBV-RL]                   
+DelReg=DEL_CURRENT_REG
+AddReg=FR-PCXBV-RL.AddReg, 1024, DPMS
+
+; -------------- Hitachi
+[UX6821]
+DelReg=DEL_CURRENT_REG
+AddReg=UX6821.AddReg, ICM11
+
+[UX4921]
+DelReg=DEL_CURRENT_REG
+AddReg=UX4921.AddReg, ICM11
+
+[UX4721]
+DelReg=DEL_CURRENT_REG
+AddReg=UX4721.AddReg, ICM11
+
+[GX20H]
+DelReg=DEL_CURRENT_REG
+AddReg=GX20H.AddReg, ICM11
+
+[GX20]
+DelReg=DEL_CURRENT_REG
+AddReg=GX20.AddReg, ICM11
+
+[GX21]
+DelReg=DEL_CURRENT_REG
+AddReg=GX21.AddReg, ICM11
+
+[GX17L]
+DelReg=DEL_CURRENT_REG
+AddReg=GX17L.AddReg, ICM11
+
+[HM6821]
+DelReg=DEL_CURRENT_REG
+AddReg=HM6821.AddReg, ICM11
+
+[HM6421]
+DelReg=DEL_CURRENT_REG
+AddReg=HM6421.AddReg, ICM11
+
+[HM4921]
+DelReg=DEL_CURRENT_REG
+AddReg=HM4921.AddReg, ICM11
+
+[HM4821]
+DelReg=DEL_CURRENT_REG
+AddReg= HM4821.AddReg, ICM11
+
+[HM4820]
+DelReg=DEL_CURRENT_REG
+AddReg=HM4820.AddReg, ICM11
+
+[HM4721]
+DelReg=DEL_CURRENT_REG
+AddReg=HM4721.AddReg, ICM11
+
+[HM4021]
+DelReg=DEL_CURRENT_REG
+AddReg=HM4021.AddReg, ICM11
+
+[HM4020]
+DelReg=DEL_CURRENT_REG
+AddReg=HM4020.AddReg, ICM11
+
+[HM1782]
+DelReg=DEL_CURRENT_REG
+AddReg=HM1782.AddReg, ICM11
+
+[HM1764]
+DelReg=DEL_CURRENT_REG
+AddReg=HM1764.AddReg, ICM11
+
+[20-AS]
+DelReg=DEL_CURRENT_REG
+AddReg=20-AS.AddReg, 1280, ICM11
+
+[20-AP]
+DelReg=DEL_CURRENT_REG
+AddReg=20-AP.AddReg, 1280, ICM11
+
+[20-APF]
+DelReg=DEL_CURRENT_REG
+AddReg=20-APF.AddReg, 1280, ICM11
+
+[21-AP]
+DelReg=DEL_CURRENT_REG
+AddReg=21-AP.AddReg, 1280, ICM11
+
+[HM-5219]
+DelReg=DEL_CURRENT_REG
+AddReg=HM-5219.AddReg, 1600, ICM11
+
+[CM2198M]
+DelReg=DEL_CURRENT_REG
+AddReg=CM2198M.AddReg, 1600, DPMS, ICM11
+
+[CM2199M]
+DelReg=DEL_CURRENT_REG
+AddReg=CM2199M.AddReg, 1600, DPMS, ICM11
+
+[CM1798M]
+DelReg=DEL_CURRENT_REG
+AddReg=CM1798M.AddReg, 1600, DPMS, ICM11
+
+
+; -------------- HP
+[D1187A]
+DelReg=DEL_CURRENT_REG
+AddReg=D1187A.AddReg, 1280
+
+[D1188A]
+DelReg=DEL_CURRENT_REG
+AddReg=D1188A.AddReg, 1280
+
+[D1192A]
+DelReg=DEL_CURRENT_REG
+AddReg=D1192A.AddReg, 640
+
+[D1193A]
+DelReg=DEL_CURRENT_REG
+AddReg=D1193A.AddReg, 1024
+
+[D1194A]
+DelReg=DEL_CURRENT_REG
+AddReg=D1194A.AddReg, 800
+
+[D1195A]
+DelReg=DEL_CURRENT_REG
+AddReg=D1195A.AddReg, 800
+
+[D1196A]
+DelReg=DEL_CURRENT_REG
+AddReg=D1196A.AddReg, 1024
+
+[D1197A]
+DelReg=DEL_CURRENT_REG
+AddReg=D1197A.AddReg, 640
+
+[D1198A]
+DelReg=DEL_CURRENT_REG
+AddReg=D1198A.AddReg, 800
+
+[D1199A]
+DelReg=DEL_CURRENT_REG
+AddReg=D1199A.AddReg, 1600, DPMS
+
+[D2800A]
+DelReg=DEL_CURRENT_REG
+AddReg=D2800A.AddReg, 1600, DPMS
+
+[D2801A]
+DelReg=DEL_CURRENT_REG
+AddReg=D2801A.AddReg, 640
+
+[D2802A]
+DelReg=DEL_CURRENT_REG
+AddReg=D2802A.AddReg, 1024, DPMS
+
+[D2804A]
+DelReg=DEL_CURRENT_REG
+AddReg=D2804A.AddReg, 1024, DPMS
+
+[D2805A]
+DelReg=DEL_CURRENT_REG
+AddReg=D2805A.AddReg, 1024, DPMS
+
+[D2806A]
+DelReg=DEL_CURRENT_REG
+AddReg=D2806A.AddReg, 1280, DPMS
+
+[D2807A]
+DelReg=DEL_CURRENT_REG
+AddReg=D2807A.AddReg, 1280, DPMS
+
+[D2808A]
+DelReg=DEL_CURRENT_REG
+AddReg=D2808A.AddReg, 1024, DPMS
+
+[D2814A]
+DelReg=DEL_CURRENT_REG
+AddReg=D2814A.AddReg, 1024, DPMS
+
+[D2815A]
+DelReg=DEL_CURRENT_REG
+AddReg=D2815A.AddReg, 1024, DPMS
+
+[D3857A]
+DelReg=DEL_CURRENT_REG
+AddReg= D3857A.AddReg, 1024, DPMS
+
+[D3858A]
+DelReg=DEL_CURRENT_REG
+AddReg= D3858A.AddReg, 1024, DPMS
+
+
+; AddReg sections
+;-------------------------------------------------
+
+; -------------- Acer
+[7111D.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-40.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7133D.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-40.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7133DL.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-40.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7134T.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-50.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7134TL.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-50.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7155.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-70.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7155L.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-70.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7156L.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-70.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7176N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7176i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7178i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-90.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7198i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-90.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7133s.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-40.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7134e.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7134s.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7154e.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7154s.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7156e.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-70.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7156i.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-70.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7156s.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-70.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7156is.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-70.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7176ie.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7176is.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[7178ie.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-90.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Acer_7015.AddReg]
+HKR,"MODES\800,600",Mode1,,"15.0-36.0,45.0-90.0,+,+"
+
+[Acer_15P.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-70.0,45.0-90.0,+,+"
+
+[Acer_33.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-38.0,50.0-90.0,+,+"
+
+[Acer_35.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-55.0,45.0-90.0,+,+"
+
+
+; -------------- AT&T
+[CRT-365.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-75.0,60.0-70.0,+,+"
+
+[CRT-395.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-66.0,50.0-90.0,+,+"
+
+[14Mono.AddReg]
+HKR,"MODES\640,480",Mode1,,"31,55-75,-,-"
+
+[14Econ.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5,50-90,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.0,50-90,+,+"
+
+[14Value.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5,50-90,-,-"
+HKR,"MODES\1024,768",Mode2,,"38.0,50-90,-,-"
+HKR,"MODES\1024,768",Mode3,,"48.0,50-90,-,-"
+
+[15Color.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-64,50-90,-,-"
+
+[17Value.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-64,50-90,+,+"
+
+[17Pro.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-160,+,+"
+
+
+; -------------- Compaq
+[CVGA.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,50.0-70.0,-,-"
+
+[IVGA.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,50.0-70.0,-,-"
+
+[AGS.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,50.0-75.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"54.0,50.0-75.0,+,+"
+
+[SVGA.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-38.0,60.0-72.0,-,-"
+HKR,"MODES\800,600",Mode1,,"35.2-38.0,56.0-60.0,+,+"
+
+[1024.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-57.0,50.0-90.0,+,+"
+
+[151FS.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-57.0,50.0-90.0,+,+"
+
+[171FS.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-57.0,50.0-90.0,+,+"
+
+[172.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-82.0,50.0-90.0,+,+"
+
+[140.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-49,48-80,+,+"
+
+[150.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-49,48-80,+,+"
+
+[PRA.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-49,48-80,+,+"
+
+[PRB.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-62,48-90,+,+"
+
+[QV150.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-57.0,50.0-90.0,+,+"
+
+[QV200.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-82.0,50.0-90.0,+,+"
+
+
+; -------------- CTX
+[1451.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,45.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,9
+
+[1551.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,45.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,9
+
+[1562.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-62.0,45.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,9
+
+[1565.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,45.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,9
+
+[1765.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,45.0-110.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,9
+
+[1785.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,45.0-110.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,9
+
+[2085.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,45.0-110.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,9
+
+[2185.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,45.0-110.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,9
+
+[CTX-1562ES.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-62,50-90,+,+"
+
+[CTX-1562GM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-62,50-90,+,+"
+
+[CTX-1565GM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-90.0,+,+"
+
+[CTX-1765GM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-100.0,+,+"
+
+[CTX-1785GM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-100.0,+,+"
+
+[CTX-1451ES.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-50,50-90,+,+"
+
+[CTX-1451GM.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-50,50-90,+,+"
+
+[CTX-1462GM.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-62.0,50.0-90.0,+,+"
+
+[CPS-1460.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,50.0-90.0,+,+"
+
+[CPS-1560.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,50.0-90.0,+,+"
+
+[CPS-1750.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,50.0-90.0,+,+"
+
+[CPS-1760.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-90.0,+,+"
+
+[CPS-2160.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-100.0,+,+"
+
+[CPS-2180.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-100.0,+,+"
+
+[CVS-3450.AddReg]
+HKR,"MODES\1024,768",Mode1,,"20.0-38.0,50.0-90.0,+,+"
+
+[CVS-3436.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-38.0,50.0-90.0,+,+"
+
+[CVP-5439.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-35.0,50.0-90.0,+,+"
+
+[CVP-5468.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-38.0,50.0-90.0,+,+"
+
+[CVP-5468NL.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-38.0,50.0-90.0,+,+"
+
+[CVP-5468NI.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-38.0,50.0-90.0,+,+"
+HKR,"MODES\1024,768",Mode2,,"44.0-50.0,50.0-90.0,+,+"
+
+[Multiscan-3436.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-38.0,50.0-90.0,+,+"
+
+
+; -------------- Dell
+[Dell_1024i.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60.0,-,-"
+HKR,"MODES\800,600",Mode1,,"35.2,56.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.5,87.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,ICMProfile,1,1
+
+[Dell_1024i-P.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60.0,-,-"
+HKR,"MODES\640,480",Mode2,,"37.5,72.1,-,-"
+HKR,"MODES\800,600",Mode1,,"35.2,56.0,+,+"
+HKR,"MODES\800,600",Mode2,,"37.9,60.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.5,87.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+
+[Dell_Eizo9080.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+
+[Dell_GPD-16C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"20.0-50.0,50.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,1,7
+
+[Dell_GPD-19C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,1,1
+
+[Dell_Hewitt.AddReg]
+HKR,"MODES\800,600",Mode1,,"30.0-48.1,50.0-72.0,+,+"
+HKR,,MaxResolution,,"800,600"
+
+[Dell_SVGA.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-38.5,50.0-90.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+
+[Dell_SVGA-Colour.AddReg]
+HKR,"MODES\1024,768",Mode1,,"29.0-38.0,47.0-100.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,ICMProfile,1,7
+
+[Dell_SVGA-DL.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60.0,-,-"
+HKR,"MODES\800,600",Mode1,,"35.2,56.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.5,87.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+
+[Dell_Jostens.AddReg]
+HKR,"MODES\800,600",Mode1,,"30.0-48.1,50.0-72.0,+,+"
+HKR,,MaxResolution,,"800,600"
+
+[Dell_UGA.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-58.2,50.0-72.2,+,+"
+HKR,,MaxResolution,,"1024,768"
+
+[Dell_U14C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-50.0,50.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+
+[Dell_U14C-E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-60.0,50.0-100.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+
+[Dell_U14C-EN.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-60.0,50.0-100.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+
+[Dell_U14ES.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-62.0,50.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+
+[Dell_U14LR.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-58.0,50.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,1,1
+
+[Dell_U15ES.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-62.0,50.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+
+[Dell_U15FS-N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-60.0,50.0-100.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+
+[Dell_U15FS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-60.0,50.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+
+[Dell_U15LR.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-57.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,1,1
+
+[Dell_U15TE.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-64.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_U17ES.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-78.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,1,7
+
+[Dell_U17FS-ELR.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-100.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+
+[Dell_U17FS-EN.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,1,7
+
+[Dell_U17FS-LR.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,1,7
+
+[Dell_U17FS-N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,1,7
+
+[Dell_U21FS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-78.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,1,1
+
+[Dell_V15X.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,55.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[Dell_V17X.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-100.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_VGA800.AddReg]
+HKR,"MODES\1024,768",Mode1,,"29.0-38.0,50.0-87.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,ICMProfile,1,7
+
+[Dell_VGA_Color.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60.0,-,-"
+HKR,,MaxResolution,,"640,480"
+HKR,,ICMProfile,1,7
+
+[Dell_VGA_Mono.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60.0,-,-"
+HKR,,MaxResolution,,"640,480"
+
+[Dell_Vi14X.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60.0,-,-"
+HKR,"MODES\640,480",Mode2,,"37.5,72.0,-,-"
+HKR,"MODES\640,480",Mode3,,"37.5,75.0,-,-"
+HKR,"MODES\800,600",Mode1,,"35.2,56.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.5,87.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,ICMProfile,1,7
+
+[Dell_VS14_15.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-58.5,50.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+
+[Dell_VS17.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-62.0,50.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,1,7
+
+[Dell_VC15.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-64.0,50.0-90.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,1,7
+
+[Dell_14XE-U.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-62.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_14XE-E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-62.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_14XE-J.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-62.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_14XE-S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-62.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_V17X-U.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_V17X-E.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_V17X-J.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_V17X-S.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_21TE-U.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-93.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_21TE-E.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-93.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_21TE-J.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-93.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_21TE-S.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-93.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[Dell_VS17X-U.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[Dell_VS17X-E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[Dell_VS17X-J.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[Dell_VS17X-S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+; -------------- Digital
+[FR-PC7XV-KA.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.2-31.7,57.0-73.0,-,-"
+
+[FR-PCXCV-GE.AddReg]
+HKR,"MODES\1024,768",Mode1,,"35.0-36.0,86.0-88.0,+,+"
+HKR,"MODES\800,600",Mode1,,"37.3-38.4,59.0-61.0,+,+"
+HKR,"MODES\640,480",Mode1,,"37.3-38.4,71.5-73.0,-,-"
+HKR,"MODES\640,480",Mode2,,"31.0-32.0,59.0-61.0,-,-"
+
+[FR-PCXBV-PF.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,50.0-100.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-65.0,50.0-100.0,+,+"
+HKR,"MODES\640,480",Mode1,,"30.0-65.0,50.0-100.0,-,-"
+
+[FR-PCXBV-SA.AddReg]                            
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,50.0-100.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-65.0,50.0-100.0,+,+"
+HKR,"MODES\1024,768",Mode2,,"30.0-65.0,50.0-100.0,+,+"
+HKR,"MODES\640,480",Mode1,,"30.0-65.0,50.0-100.0,-,-"
+
+[FR-PCXBV-SC.AddReg]                            
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-100.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,50.0-100.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-65.0,50.0-100.0,+,+"
+HKR,"MODES\640,480",Mode1,,"30.0-65.0,50.0-100.0,-,-"
+HKR,"MODES\1024,768",Mode2,,"30.0-65.0,50.0-100.0,+,+"
+
+[FR-PCXBV-PC.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-66.0,50.0-110.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"30.0-66.0,50.0-110.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-66.0,50.0-110.0,+,+"
+HKR,"MODES\640,480",Mode1,,"30.0-66.0,50.0-110.0,-,-"
+
+[FR-PCXBV-KA.AddReg]                            
+HKR,"MODES\1280,1024",Mode1,,"30.0-66.0,50.0-130.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"30.0-66.0,50.0-130.0,+,+"
+HKR,"MODES\1024,768",Mode2,,"30.0-66.0,50.0-130.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-66.0,50.0-130.0,+,+"
+HKR,"MODES\640,480",Mode1,,"30.0-66.0,50.0-130.0,-,-"
+
+[FR-PCXAV-EC.AddReg]
+HKR,"MODES\1024,768",Mode1,,"29.0-82.0,50.0-150.0,-,-"
+HKR,"MODES\1280,1024",Mode1,,"29.0-82.0,50.0-150.0,-,-"
+HKR,"MODES\800,600",Mode1,,"29.0-82.0,50.0-150.0,+,+"
+HKR,"MODES\640,480",Mode1,,"29.0-82.0,50.0-150.0,-,-"
+
+[FR-PCXAV-HA.AddReg]
+HKR,"MODES\800,600",Mode1,,"30.0-85.0,50.0-152.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-152.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"30.0-85.0,50.0-152.0,-,-"
+HKR,"MODES\800,600",Mode2,,"30.0-85.0,50.0-152.0,+,+"
+HKR,"MODES\640,480",Mode1,,"30.0-85.0,50.0-152.0,-,-"
+
+[FR-PCXCV-AC.AddReg]                            
+HKR,"MODES\1024,768",Mode1,,"56.5,50.0-90.0,-,-"
+HKR,"MODES\1024,768",Mode2,,"48.4,50.0-90.0,-,-"
+HKR,"MODES\1024,768",Mode3,,"35.5,50.0-90.0,+,+"
+HKR,"MODES\800,600",Mode1,,"48.1,50.0-90.0,+,+"
+HKR,"MODES\800,600",Mode2,,"35.2,50.0-90.0,-,-"
+HKR,"MODES\800,600",Mode3,,"37.9,50.0-90.0,+,+"
+HKR,"MODES\640,480",Mode1,,"37.9,50.0-90.0,-,-"
+HKR,"MODES\640,480",Mode2,,"31.5,50.0-90.0,-,-"
+HKR,"MODES\640,480",Mode3,,"31.5,50.0-90.0,-,+"
+
+[FR-PCXCV-RA.AddReg]                            
+HKR,"MODES\1024,768",Mode1,,"35.0-36.0,86.0-88.0,+,+"
+HKR,"MODES\800,600",Mode1,,"37.3-38.4,59.0-61.0,+,+"
+HKR,"MODES\640,480",Mode1,,"37.3-38.4,74.0-76.0,-,-"
+HKR,"MODES\640,480",Mode2,,"31.0-32.0,59.0-61.0,-,-"
+
+[FR-PCXBV-RA.AddReg]                            
+HKR,"MODES\1024,768",Mode1,,"30.0-48.0,55.0-90.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-48.0,55.0-90.0,+,+"
+HKR,"MODES\640,480",Mode1,,"30.0-48.0,55.0-90.0,-,-"
+HKR,"MODES\1024,768",Mode2,,"30.0-48.0,55.0-90.0,-,-"
+
+[FR-PCXBV-RD.AddReg]                            
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-90.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-65.0,55.0-90.0,+,+"
+HKR,"MODES\640,480",Mode1,,"30.0-65.0,55.0-90.0,-,-"
+
+[FR-PCXBV-RL.AddReg]                            
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,50.0-100.0,-,-"
+HKR,"MODES\800,600",Mode1,"30.0-65.0,50.0-100.0,+,+"
+HKR,"MODES\1024,768",Mode2,,"30.0-65.0,50.0-100.0,+,+"
+HKR,"MODES\640,480",Mode1,,"30.0-65.0,50.0-100.0,-,-"
+
+; -------------- Hitachi
+
+[UX6821.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-107.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[UX4921.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-107.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[UX4721.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-95.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[GX20H.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"28.0-90.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[GX20.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"28.0-90.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[GX21.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"28.0-90.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[GX17L.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-100.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[HM6821.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-107.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[HM6421.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"100.0-102.0,72.0-77.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+
+[HM4921.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-107.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[HM4821.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"28.0-90.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[HM4820.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"28.0-90.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[HM4721.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-95.0,50.0-152.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[HM4021.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"60.0-85.0,60.0-120.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[HM4020.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"60.0-85.0,60.0-120.0,+,+"
+HKR,,MaxResolution,,"1600,1280"
+HKR,,DPMS,,1
+
+[HM1782.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,50.0-100.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[HM1764.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-100.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[20-AS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,55.0-80.0,+,+"
+
+[20-AP.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,55.0-80.0,+,+"
+
+[20-APF.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,55.0-80.0,+,+"
+
+[21-AP.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,55.0-80.0,+,+"
+
+[HM-5219.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"78.0-80.0,88.0-89.0,+,+"
+HKR,"MODES\1600,1280",Mode2,,"88.0-90.0,88.0-89.0,+,+"
+
+[CM2198M.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-94.0,50.0-150.0,+,+"
+
+[CM2199M.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"31.5-107.0,50.0-150,+,+"
+
+[CM1798M.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-82.0,50.0-120.0,+,+"
+
+
+; -------------- HP
+[D1187A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-90.0,+,+"
+
+[D1188A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-90.0,+,+"
+
+[D1192A.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60,+,+"
+HKR,"MODES\640,480",Mode2,,"31.5,70,+,+"
+
+[D1193A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-64.0,50.0-90.0,+,+"
+
+[D1194A.AddReg]
+HKR,"MODES\800,600",Mode1,,"31.5,60,+,+"
+HKR,"MODES\800,600",Mode2,,"37.9,72,+,+"
+
+[D1195A.AddReg]
+HKR,"MODES\800,600",Mode1,,"31.5,60,+,+"
+HKR,"MODES\800,600",Mode2,,"48.1,72,+,+"
+
+[D1196A.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60,+,+"
+HKR,"MODES\640,480",Mode2,,"37.9,60,+,+"
+HKR,"MODES\800,600",Mode1,,"48.1,70,+,+"
+HKR,"MODES\1024,768",Mode1,,"48.4,70,+,+"
+HKR,"MODES\1024,768",Mode2,,"56.4,72,+,+"
+
+[D1197A.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60,+,+"
+HKR,"MODES\800,600",Mode1,,"31.5,70,+,+"
+
+[D1198A.AddReg]
+HKR,"MODES\800,600",Mode1,,"31.5,60,+,+"
+HKR,"MODES\800,600",Mode2,,"37.9,70,+,+"
+
+[D1199A.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-82,50-152,+,+"
+
+[D2800A.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-82,50-160,+,+"
+
+[D2801A.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60,+,+"
+
+[D2802A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5,50-90,+,+"
+HKR,"MODES\1024,768",Mode2,,"35.2,50-90,+,+"
+HKR,"MODES\1024,768",Mode3,,"35.5,50-90,+,+"
+HKR,"MODES\1024,768",Mode4,,"37.9,50-90,+,+"
+
+[D2804A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5,50-90,+,+"
+HKR,"MODES\1024,768",Mode2,,"35.2,50-90,+,+"
+HKR,"MODES\1024,768",Mode3,,"35.5,50-90,+,+"
+HKR,"MODES\1024,768",Mode4,,"37.9,50-90,+,+"
+
+[D2805A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-62,50-100,+,+"
+
+[D2806A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-64,50-100,+,+"
+
+[D2807A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-64,50-160,+,+"
+
+[D2808A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-50,50-100,+,+"
+
+[D2814A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5,50-90,+,+"
+HKR,"MODES\1024,768",Mode2,,"35.2,50-90,+,+"
+HKR,"MODES\1024,768",Mode3,,"35.5,50-90,+,+"
+HKR,"MODES\1024,768",Mode4,,"37.9,50-90,+,+"
+
+[D2815A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-48.4,50-100,+,+"
+
+[D3857A.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-48.4,60.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.0-48.4,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-48.4,40.0-60.0,+,+"
+HKR,,ICMProfile,1,9
+
+[D3858A.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-48.4,60.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.0-48.4,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-48.4,40.0-60.0,+,+"
+HKR,,ICMProfile,1,9
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[ICM11]
+HKR,,ICMProfile,1,b
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MS = "Microsoft"
+
+Acer = "Acer"
+7111D = "AcerView 11D"
+7133D = "AcerView 33D"
+7133DL = "AcerView 33DL"
+7134T = "AcerView 34T"
+7134TL = "AcerView 34TL"
+7155 = "AcerView 55"
+7155L = "AcerView 55L"
+7156L = "AcerView 56L"
+7176N = "AcerView 76N"
+7176i = "AcerView 76i"
+7178i = "AcerView 78i"
+7198i = "AcerView 98i"
+7133s = "AcerView 7133s"
+7134e = "AcerView 7134e"
+7134s = "AcerView 7134s"
+7154e = "AcerView 7154e"
+7154s = "AcerView 7154s"
+7156e = "AcerView 7156e"
+7156i = "AcerView 7156i"
+7156s = "AcerView 7156s"
+7156is = "AcerView 7156is"
+7176ie = "AcerView 7176ie"
+7176is = "AcerView 7176is"
+7178ie = "AcerView 7178ie"
+Acer_7015 = "AcerView 7015"
+Acer_15P = "AcerView 15P"
+Acer_33 = "AcerView 33"
+Acer_35 = "AcerView 35"
+
+AT&T = "AT&T"
+CRT-365 = "AT&T CRT-365"
+CRT-395 = "AT&T CRT-395"
+14Mono = "AT&T monocromático de 14 pulgadas"
+14Econ = "AT&T Color Economy de 14 pulgadas"
+14Value = "AT&T Color Value de 14 pulgadas"
+14ValLR = "AT&T Color Value de 14 pulg.: baja radiación"
+15Color = "AT&T color de 15 pulgadas"
+17Value = "AT&T Color Value de 17 pulgadas"
+17Pro = "AT&T Color Professional de 17 pulgadas"
+
+Compaq = "COMPAQ"
+CVGA = "COMPAQ VGA"
+IVGA = "Panel interno VGA COMPAQ"
+AGS = "COMPAQ Advanced Graphics"
+SVGA = "COMPAQ SVGA"
+Pres = "Monitor integrado de COMPAQ Presario"
+1024 = "COMPAQ 1024"
+151FS = "COMPAQ 151FS"
+171FS = "COMPAQ 171FS"
+172 = "COMPAQ 172"
+140 = "COMPAQ 140"
+150 = "COMPAQ 150"
+PR140 = "COMPAQ Presario 140"
+PR150 = "COMPAQ Presario 150"
+QV150 = "COMPAQ QVision 150"
+QV170 = "COMPAQ QVision 170"
+QV172 = "COMPAQ QVision 172"
+QV200 = "COMPAQ QVision 200"
+QV210 = "COMPAQ QVision 210"
+
+CTX = "CTX: Chuntex Electronic"
+1451 = "CTX 1451"
+1551 = "CTX 1551"
+1562 = "CTX 1562"
+1565 = "CTX 1565"
+1765 = "CTX 1765"
+1785 = "CTX 1785"
+2085 = "CTX 2085"
+2185 = "CTX 2185"
+CTX-1562ES = "CTX 1562ES"
+CTX-1562GM = "CTX 1562GM"
+CTX-1565GM = "CTX 1565GM"
+CTX-1765GM = "CTX 1765GM"
+CTX-1785GM = "CTX 1785GM"
+CTX-1451ES = "CTX 1451ES"
+CTX-1451GM = "CTX 1451GM"
+CTX-1462GM = "CTX 1462GM"
+CPS-1460 = "CTX CPS-1460"
+CPS-1560 = "CTX CPS-1560"
+CPS-1750 = "CTX CPS-1750"
+CPS-1760 = "CTX CPS-1760"
+CPS-2160 = "CTX CPS-2160"
+CPS-2180 = "CTX CPS-2180"
+CVS-3450 = "CTX CVS-3450"
+CVS-3436 = "CTX CVS-3436"
+CVP-5439 = "CTX CVP-5439"
+CVP-5468 = "CTX CVP-5468"
+CVP-5468NL = "CTX CVP-5468NL"
+CVP-5468NI = "CTX CVP-5468NI"
+Multiscan-3436 = "CTX Multiscan 3436"
+
+Dell = "Dell Computer Corp."
+Dell_1024i = "Dell 1024i"
+Dell_1024i-P = "Dell 1024i-P/1024i-Color"
+Dell_Eizo9080 = "Dell Eizo 9080i"
+Dell_GPD-16C = "Dell GPD-16C"
+Dell_GPD-19C = "Dell GPD-19C"
+Dell_Hewitt = "Dell Hewitt"
+Dell_SVGA = "Dell Super VGA"
+Dell_SVGA-Colour = "Dell Super VGA Color"
+Dell_SVGA-DL = "Dell Super VGA DL 1428 I/L"
+Dell_Jostens = "Dell Super VGA Jostens"
+Dell_UGA = "Dell UGA DL 1460 NI"
+Dell_U14C = "Dell Ultrascan 14C"
+Dell_U14C-E = "Dell Ultrascan 14C-E"
+Dell_U14C-EN = "Dell Ultrascan 14C-EN"
+Dell_U14ES = "Dell Ultrascan 14ES"
+Dell_U14LR = "Dell Ultrascan 14LR"
+Dell_U15ES = "Dell Ultrascan 15ES/15ES-P"
+Dell_U15FS-N = "Dell Ultrascan 15FS-N/15FS-EN"
+Dell_U15FS = "Dell Ultrascan 15FS/15FS-E"
+Dell_U15LR = "Dell Ultrascan 15LR"
+Dell_U15TE = "Dell Ultrascan 15TE"
+Dell_U17ES = "Dell Ultrascan 17ES"
+Dell_U17FS-ELR = "Dell Ultrascan 17FS-ELR"
+Dell_U17FS-EN = "Dell Ultrascan 17FS-EN"
+Dell_U17FS-LR = "Dell Ultrascan 17FS-LR"
+Dell_U17FS-N = "Dell Ultrascan 17FS-N"
+Dell_U21FS = "Dell Ultrascan 21FS"
+Dell_V15X = "Dell V15X"
+Dell_V17X = "Dell V17X"
+Dell_VGA800 = "Dell VGA 800"
+Dell_VGA_Color = "Dell VGA Color/Color Plus"
+Dell_VGA_Mono = "Dell VGA Monochrome"
+Dell_Vi14X = "Dell Vi14X"
+Dell_VS14_15 = "Dell VS14/15"
+Dell_VS17 = "Dell VS17"
+Dell_VC15 = "Dell VC15 color"
+Dell_14XE-U = "Dell Ultrascan 14XE"
+Dell_14XE-E = "Dell Ultrascan 14XE"
+Dell_14XE-J = "Dell Ultrascan 14XE"
+Dell_14XE-S = "Dell Ultrascan 14XE"
+Dell_V17X-U = "Dell Ultrascan V17X"
+Dell_V17X-E = "Dell Ultrascan V17X"
+Dell_V17X-J = "Dell Ultrascan V17X"
+Dell_V17X-S = "Dell Ultrascan V17X"
+Dell_21TE-U = "Dell Ultrascan 21TE"
+Dell_21TE-E = "Dell Ultrascan 21TE"
+Dell_21TE-J = "Dell Ultrascan 21TE"
+Dell_21TE-S = "Dell Ultrascan 21TE"
+Dell_VS17X-U = "Dell VS17X"
+Dell_VS17X-E = "Dell VS17X"
+Dell_VS17X-J = "Dell VS17X"
+Dell_VS17X-S = "Dell VS17X"
+
+Digital = "Digital Equipment Corp."
+FR-PC7XV-KA = "Digital monocromático de 14 pulgadas (FR-PC7XV-KA)"
+FR-PCXCV-GE = "Digital Color de 14 pulg. (FR-PCXCV-GE)"
+FR-PCXBV-PF = "Digital Color de 14 pulg. (FR-PCXBV-PF)"
+FR-PCXBV-SA = "Digital Color de 14 pulg. (FR-PCXBV-SA)"
+FR-PCXBV-SC = "Digital Color de 15 pulg. (FR-PCXBV-SC)"
+FR-PCXBV-PC = "Digital Color de 15 pulg. (FR-PCXBV-PC)"
+FR-PCXBV-KA = "Digital Color de 17 pulg. (FR-PCXBV-KA)"
+FR-PCXAV-EC = "Digital Color de 17 pulg. (FR-PCXAV-EC)"
+FR-PCXAV-HA = "Digital Color de 21 pulg. (FR-PCXAV-HA)"
+FR-PCXCV-AC = "Digital Color de 15 pulg. (FR-PCXCV-AC)"
+FR-PCXCV-RA = "Digital Color de 14 pulg. (FR-PCXCV-RA)"
+FR-PCXBV-RA = "Digital Color de 15 pulg. (FR-PCXBV-RA)"
+FR-PCXBV-RD = "Digital Color de 15 pulg. (FR-PCXBV-RD)"
+FR-PCXBV-RL = "Digital Color de 15 pulg. (FR-PCXBV-RL)"
+
+HITACHI = "HITACHI, Ltd."
+UX6821 = "Hitachi Accuvue UX6821"
+UX4921 = "Hitachi Accuvue UX4921"
+UX4721 = "Hitachi Accuvue UX4721"
+GX20H = "Hitachi Accuvue GX20H"
+GX20 = "Hitachi Accuvue GX20"
+GX21 = "Hitachi Accuvue GX21"
+GX17L = "Hitachi Accuvue GX17L"
+HM6821 = "Hitachi HM6821"
+HM6421 = "Hitachi HM6421"
+HM4921 = "Hitachi HM4921"
+HM4821 = "Hitachi HM4821"
+HM4820 = "Hitachi HM4820"
+HM4721 = "Hitachi HM4721"
+HM4021 = "Hitachi HM4021"
+HM4020 = "Hitachi HM4020"
+HM1782 = "Hitachi HM1782"
+HM1764 = "Hitachi HM1764"
+20-AS = "Hitachi 20-AS"
+20-AP = "Hitachi 20-AP"
+20-APF = "Hitachi 20-APF"
+21-AP = "Hitachi 21-AP"
+HM-5219 = "Hitachi HM-5219"
+CM2198M = "Hitachi CM2198M"
+CM2199M = "Hitachi CM2199M"
+CM1798M = "Hitachi CM1798M"
+
+HP = "Hewlett Packard"
+D1187A = "Pantalla HP D1187A de 20 pulgadas"
+D1188A = "Pantalla HP D1188A de 20 pulgadas"
+D1192A = "Pant. VGA monocr. HP D1192A de 14 pulg."
+D1192B = "Pant. VGA monocr. HP D1192B de 14 pulg."
+D1193A = "Pant. Ultra VGA HP D1193A de 17 pulg."
+D1194A = "Pant. SVGA HP D1194A de 14 pulg."
+D1195A = "Pant. HP D1195A Ergo-SVGA de 14 pulg."
+D1196A = "Pant. HP D1196A Ergo Ultra VGA de 15 pulg."
+D1197A = "Pant. VGA de color HP D1197A de 14 pulg."
+D1198A = "Pant. SVGA HP D1198A de 14 pulg."
+D1199A = "Pant. HP D1199A Ultra VGA 1600 de 21 pulg."
+D2800A = "Pant. HP D2800A Ultra VGA 1600 de 21 pulg."
+D2801A = "Pant. VGA monocromática HP D2801A de 14 pulg."
+D2802A = "Pant. SVGA HP D2802A de 14 pulg."
+D2804A = "Pant. HP D2804A Super VGA y 1024i de 14 pulg."
+D2805A = "Pant. HP D2805A Ergo 1024 de 14 pulg."
+D2806A = "Pant. HP D2806A Ergo Ultra VGA de 15 pulg."
+D2807A = "Pant. Ultra VGA HP D2807A 1280 de 17 pulg."
+D2808A = "Pant. HP D2808A 1024 de baja rad. de 15 pulg."
+D2814A = "Pant. HP D2814A Super VGA y 1024I de 14 pulg."
+D2815A = "Pant. HP D1815A 1024 de baja rad. de 14 pulg."
+D3857A = "Pant. HP D3857A Multi Media de 15 pulg."
+D3858A = "Pant. HP D3858A Multi Media de 14 pulg."
+

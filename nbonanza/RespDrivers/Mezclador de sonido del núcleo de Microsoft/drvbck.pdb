@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Mezclador de sonido del núcleo de Microsoft
+infpath=WDMAUDIO.INF                                                                    
+infsection=WDM_KMIXER
+MatchingDeviceId=SW\{B7EAFDC0-A680-11D0-96D8-00AA0051E51D}
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sonido, vídeo y juegos
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

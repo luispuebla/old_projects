@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Tarjeta de sistema
+infpath=MACHINE.INF                                                                     
+infsection=SYSTEM_BOARD
+MatchingDeviceId=*PNP0C01
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sistema
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

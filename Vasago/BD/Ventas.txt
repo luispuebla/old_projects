@@ -1,0 +1,19 @@
+CREATE TABLE `ventas` (
+  `claveVenta` int(11) NOT NULL auto_increment,
+  `claveCliente` varchar(13) collate latin1_spanish_ci default NULL,
+  `fechaAlta` date default NULL,
+  `fechaEntrega` date default NULL,
+  `observaciones` varchar(250) collate latin1_spanish_ci default NULL,
+  `subtotal` double(8,2) default NULL,
+  `iva` double(8,2) default NULL,
+  `total` double(8,2) default NULL,
+  `activo` int(1) default NULL,
+  `tipo` int(1) default NULL,
+  `factura` varchar(11) collate latin1_spanish_ci default NULL,
+  `remision` int(11) default NULL,
+  `Entrega` int(1) default NULL,
+  `usuario` varchar(8) collate latin1_spanish_ci default NULL,
+  `pago` int(1) default NULL,
+  `repartidor` varchar(8) collate latin1_spanish_ci default NULL,
+  PRIMARY KEY  (`claveVenta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci

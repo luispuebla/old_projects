@@ -1,0 +1,12 @@
+jar cmvf mainClass digimaan.jar db.conf mysql.jar alphanet/reto/digimaan/*.class imas sounds
+
+
+// Esto es el contenido del archivo mainClass que debo crear:
+Main-Class: stln/alphanet/xulka/Interfaz  // La clase con el Main Principal
+Class-Path: kiwi.jar mysql.jar            // Otros jar con las dependencias necesarias
+
+
+java -jar digimaan.jar 
+
+
+

@@ -1,0 +1,721 @@
+
+; Copyright (c) 1993-1995 Microsoft Corporation
+
+[version]
+LayoutFile= Layout.inf, Layout1.inf, Layout2.inf
+signature="$CHICAGO$"
+Class=hdc
+ClassGUID={4d36e96a-e325-11ce-bfc1-08002be10318}
+Provider=%MS%
+
+;Class Install
+[ClassInstall]
+AddReg=HDC_Class
+
+[HDC_Class]
+HKR,,,,%HDCClassName%
+HKR,,Icon,,-9
+
+[Manufacturer]
+%MS-Drivers%=MS_HDC
+%ACTIONTEC%=ACTIONTEC_HDC
+%ALI%=ALI_HDC
+%AMD%=AMD_HDC
+%APPIAN%=APPIAN_HDC
+%CALLUNA%=CALLUNA_HDC
+%CMD%=CMD_HDC
+%COMPAQ%=COMPAQ_HDC
+%CREATIVELABS%=CREATIVELAB_HDC
+%DATATECH%=DATATECH_HDC
+%HITACHI%=HITACHI_HDC
+%IBM%=IBM_HDC
+%INTEGRAL%=INTEGRAL_HDC
+%INTEL%=INTEL_HDC
+%KINGSTON%=KINGSTON_HDC
+%LEXAR%=LEXAR_HDC
+%MAXTOR%=MAXTOR_HDC
+%MINISTOR%=MINISTOR_HDC
+%MITSUBISHI%=MITSUBISHI_HDC
+%NATSEMI%=NATSEMI_HDC
+%OPTI%=OPTI_HDC
+%PANASONIC%=PANASONIC_HDC
+%PCTECH%=PCTECH_HDC
+%SD%=SD_HDC
+%SIMPLE_TECH%=SIMPLE_TECH_HDC
+%SIS%=SIS_HDC
+%SYMPHONY%=SYMPHONY_HDC
+%TOSHIBA%=TOSHIBA_HDC
+%VIATECH%=VIATECH_HDC
+%ZENITH%=ZENITH_HDC
+
+[MS_HDC]
+%*pnp0601.DeviceDesc%   = HardCardII, *PNP0601     ;Plus_Hardcard_II
+%*PNP0602.DeviceDesc%   = HardCardIIXL, *PNP0602   ;Plus_Hardcard_IIXL/EZ
+%*PNP0600.DeviceDesc%   = BAD_IDE, *PNP0600        ;Generic_ESDI_Hard_Disk_Controller
+%*PNP0603.DeviceDesc%   = GOOD_IDE, *PNP0603       ;Generic_ESDI_Hard_Disk_Controller
+%*PNP0680.DeviceDesc%   = BAD_IDE, *PNP0680        ;Generic_ESDI_Hard_Disk_Controller
+%*PNP0683.DeviceDesc%   = GOOD_IDE, *PNP0683       ;Generic_ESDI_Hard_Disk_Controller
+%*ZDS2010.DeviceDesc%   = GOOD_IDE, *ZDS2010       ;Zeos EISA IDE
+%PCI\CC_0101.DeviceDesc%= UNKNOWN_PCI_IDE, PCI\CC_0101;Generic PCI IDE
+%MF\BADPRIMARY.DeviceDesc% = BAD_IDE, MF\BADPRIMARY
+%MF\BADSECONDARY.DeviceDesc% = BAD_IDE, MF\BADSECONDARY
+%MF\GOODPRIMARY.DeviceDesc% = GOOD_IDE, MF\GOODPRIMARY
+%MF\GOODSECONDARY.DeviceDesc% = GOOD_IDE, MF\GOODSECONDARY
+
+[ACTIONTEC_HDC]
+%ActionTec.DeviceDesc%=GOOD_IDE, PCMCIA\ActionTec_CameraCard-MXIC-7BC6
+%ActionTec1.DeviceDesc%=GOOD_IDE, PCMCIA\ActionTec_ATA_FLASH-MXIC-829B
+
+[ALI_HDC]
+%PCI\VEN_10B9&DEV_5215.DeviceDesc%=UNKNOWN_PCI_IDE, PCI\VEN_10B9&DEV_5215
+%PCI\VEN_10B9&DEV_5219.DeviceDesc%=UNKNOWN_PCI_IDE, PCI\VEN_10B9&DEV_5219
+%PCI\VEN_10B9&DEV_5229.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_10B9&DEV_5229
+
+[AMD_HDC]
+%PCI\VEN_1022&DEV_7409.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_1022&DEV_7409
+
+[APPIAN_HDC]
+%PCI\VEN_1097&DEV_0038.DeviceDesc%=BAD_IDE, PCI\VEN_1097&DEV_0038
+
+[CALLUNA_HDC]
+%CALLUNACARD260MC.DeviceDesc%=GOOD_IDE,PCMCIA\CALLUNA-CT260MC-551D
+%CALLUNACARD170MC.DeviceDesc%=GOOD_IDE,PCMCIA\CALLUNA-CT170MC-A620
+%CALLUNACARD130MC.DeviceDesc%=GOOD_IDE,PCMCIA\CALLUNA-CT130MC-66D1
+%CALLUNACARD520RM.DeviceDesc%=GOOD_IDE,PCMCIA\CALLUNA-CT520RM-86D8
+%CALLUNACARD260RM.DeviceDesc%=GOOD_IDE,PCMCIA\CALLUNA-CT260RM-F328
+
+[CMD_HDC]
+%PCI\VEN_1095&DEV_0640.DeviceDesc%=DUAL_BAD_IDE, PCI\VEN_1095&DEV_0640
+%PCI\VEN_1095&DEV_0646.DeviceDesc%=DUAL_BAD_IDE, PCI\VEN_1095&DEV_0646
+
+[COMPAQ_HDC]
+%*CPQA0DA.DeviceDesc%   = GOOD_IDE, *CPQA0DA       ;Compaq IDE
+%*CPQ4300.DeviceDesc%   = GOOD_IDE, *CPQ4300       ;Compaq EISA Advanced ESDI
+%PCI\VEN_0E11&DEV_AE33.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_0E11&DEV_AE33
+
+[CREATIVELAB_HDC]
+%*CTL2011.DeviceDesc%= GOOD_IDE, *CTL2011
+
+[DATATECH_HDC]
+%PCI\VEN_1C1C&DEV_0001.DeviceDesc%=GOOD_IDE, PCI\VEN_1C1C&DEV_0001
+
+[HITACHI_HDC]
+%PCMCIA\HITACHI-FLASH.DeviceDesc%=HITACHI_drv, PCMCIA\HITACHI-FLASH-7f83
+%PCMCIA\HITACHI-FLASH.DeviceDesc%=HITACHI_drv, PCMCIA\HITACHI-FLASH-9163
+%PCMCIA\HITACHI-FLASH.DeviceDesc%=HITACHI_drv, PCMCIA\HITACHI-FLASH-8975
+%PCMCIA\HITACHI-FLASH.DeviceDesc%=HITACHI_drv, PCMCIA\HITACHI-FLASH-0007-0000
+
+[IBM_HDC]
+%mca_df9f.DeviceDesc%   = IBMIDE,mca_df9f       ;IBM Integrated Fixed Disk
+
+[INTEL_HDC]
+%PCI\VEN_8086&DEV_1222.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_8086&DEV_1222
+%PCI\VEN_8086&DEV_1230.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_8086&DEV_1230
+%PCI\VEN_8086&DEV_2411.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_8086&DEV_2411
+%PCI\VEN_8086&DEV_2421.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_8086&DEV_2421
+%PCI\VEN_8086&DEV_7010.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_8086&DEV_7010
+%PCI\VEN_8086&DEV_7111.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_8086&DEV_7111
+%PCI\VEN_8086&DEV_7199.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_8086&DEV_7199
+%PCI\VEN_8086&DEV_7601.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_8086&DEV_7601
+
+[INTEGRAL_HDC]
+%Integral.DeviceDesc%=GOOD_IDE, PCMCIA\INTEGRAL_PERIPHERALS-ATA_CARD-456B
+
+[KINGSTON_HDC]
+%PCMCIA\KINGSTON_TECHNOLOGY-DATAPAK_170-3B77.DeviceDesc%=GOOD_IDE, PCMCIA\KINGSTON_TECHNOLOGY-DATAPAK_170-3B77
+%PCMCIA\KINGSTON_TECHNOLOGY-DATAPAK_520-61C7.DeviceDesc%=GOOD_IDE, PCMCIA\KINGSTON_TECHNOLOGY-DATAPAK_520-61C7
+
+[LEXAR_HDC]
+%LEXAR.DeviceDesc%=GOOD_IDE, PCMCIA\CL_ATA_FLASH_CARD_LEXAR__-HURRIC_-172F
+
+[MAXTOR_HDC]
+%PCMCIA\MAXTOR-MXL105-E950.DeviceDesc%=MAXTOR_drv, PCMCIA\MAXTOR-MXL105-E950
+%PCMCIA\MAXTOR-MXL105-352F.DeviceDesc%=GOOD_IDE, PCMCIA\MAXTOR-MXL105-352F
+%PCMCIA\MAXTOR-MXL131.DeviceDesc%=GOOD_IDE, PCMCIA\MAXTOR-MXL131-351E
+%PCMCIA\MAXTOR-MXL131.DeviceDesc%=GOOD_IDE, PCMCIA\MAXTOR-MXL131-84AD
+%PCMCIA\MAXTOR-MXL131.DeviceDesc%=GOOD_IDE, PCMCIA\MAXTOR-MXL131-BA9C
+%PCMCIA\MAXTOR-MXL171.DeviceDesc%=GOOD_IDE, PCMCIA\MAXTOR-MXL171-764B
+%PCMCIA\MAXTOR-MXL262.DeviceDesc%=GOOD_IDE, PCMCIA\MAXTOR-MXL262-13BA
+
+[MINISTOR_HDC]
+%PCMCIA\MINISTOR-MP130P-FEED.DeviceDesc%=GOOD_IDE, PCMCIA\MINISTOR-MP130P-FEED
+%Ministor170.DeviceDesc%=GOOD_IDE, PCMCIA\MINISTOR-MP170P-CF02
+
+[MITSUBISHI_HDC]
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI-ATA_CARD-7599
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI_ATA_CARD-MF007M5-03AA00-4B10
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI_ATA_CARD-MF0015M-03AA00-B843
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI_ATA_CARD-MF022M5-03AA00-5250
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI_ATA_CARD-MF007M5-03AT00-E94C
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI_ATA_CARD-MF0015M-03AT00-6C49
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI_ATA_CARD-MF0030M-03AT00-6661
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI_ATA_CARD-MF0045M-03AT00-D225
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI_ATA_CARD-MF0060M-03AT00-849F
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI_ATA_CARD-MF0075M-03AT00-F7E7
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI_ATA_CARD-MF0090M-03AT00-84D6
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI_ATA_CARD-MF0105M-03AT00-21B2
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI-MF0015M-3DCA
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI-MF0030M-86DB
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI-MF0045M-F1CA
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI-MF0060M-48DB
+%PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc%=MITSUBISHI_drv, PCMCIA\MITSUBISHI-MF0075M-B5CA
+
+[NATSEMI_HDC]
+%PCI\VEN_100B&DEV_D001.DeviceDesc%=DUAL_BAD_IDE, PCI\VEN_100B&DEV_D001
+
+[OPTI_HDC]
+%PCI\VEN_1045&DEV_C621.DeviceDesc%=DUAL_BAD_IDE, PCI\VEN_1045&DEV_C621
+%PCI\VEN_1045&DEV_D568.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_1045&DEV_D568
+
+[PANASONIC_HDC]
+%PCMCIA\PANASONIC.DeviceDesc%=PANASONIC_drv, PCMCIA\Panasonic-ATA-2373
+%PCMCIA\PANASONIC.DeviceDesc%=PANASONIC_drv, PCMCIA\Panasonic-ATA-9087
+
+[PCTECH_HDC]
+%PCI\VEN_1042&DEV_1000.DeviceDesc%=UNKNOWN_PCI_IDE, PCI\VEN_1042&DEV_1000
+
+[SD_HDC]
+%PCMCIA\SunDisk-SDP.DeviceDesc%=SUNDISK_drv, PCMCIA\SunDisk-SDP-1E2E
+%PCMCIA\SunDisk-SDP.DeviceDesc%=SUNDISK_drv, PCMCIA\SunDisk-SDP-1DD2
+%PCMCIA\SunDisk-SDP.DeviceDesc%=SUNDISK_drv, PCMCIA\SunDisk-SDP5-ADFD
+%PCMCIA\SunDisk-SDP.DeviceDesc%=SUNDISK_drv, PCMCIA\SunDisk-SDP-6DC7
+%PCMCIA\SunDisk-SDP.DeviceDesc%=SUNDISK_drvl5, PCMCIA\SunDisk-SDPL5-F150
+
+[SIMPLE_TECH_HDC]
+%PCMCIA\SimpleTechnology-STI-ATA.DeviceDesc%=GOOD_IDE, PCMCIA\SIMPLE_TECHNOLOGY-STI-ATA-7AE6
+%PCMCIA\SimpleTechnology-2M-ATA.DeviceDesc%=GOOD_IDE, PCMCIA\SIMPLE_TECHNOLOGY-ATA/FL02-93E6
+%PCMCIA\SimpleTechnology-ATA.DeviceDesc%=GOOD_IDE, PCMCIA\SIMPLE_TECHNOLOGY-ATA
+
+[SIS_HDC]
+%PCI\VEN_1039&DEV_5513.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_1039&DEV_5513
+%PCI\VEN_1039&DEV_0597.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_1039&DEV_0597
+
+[SYMPHONY_HDC]
+%PCI\VEN_10AD&DEV_0001.DeviceDesc%=BAD_IDE, PCI\VEN_10AD&DEV_0001
+
+[TOSHIBA_HDC]
+%PCI\VEN_1179&DEV_0103&SUBSYS_00011179.DeviceDesc%=DUAL_GOOD_IDE, PCI\VEN_1179&DEV_0103&SUBSYS_00011179
+
+[VIATECH_HDC]
+%PCI\VEN_1106&DEV_0561.DeviceDesc%=DUAL_BAD_IDE, PCI\VEN_1106&DEV_0561
+%PCI\VEN_1106&DEV_0571.DeviceDesc%= DUAL_GOOD_IDE, PCI\VEN_1106&DEV_0571 ;Generic bus master PCI IDE
+
+[ZENITH_HDC]
+%MF\EISA_ZDS2000_DEV0.DeviceDesc%=GOOD_IDE, MF\EISA_ZDS2000_DEV0
+
+[*pnp0601.det]          ;Plus Hardcard II
+LogConfig=hclc1,hclc2
+AddReg = HDC_HW_REG
+
+[HardCardII]
+LogConfig=hclc1,hclc2
+AddReg = HARDCARD_AddReg
+
+[hclc1]
+ConfigPriority=HARDWIRED
+IRQConfig=10,11,12
+MEMConfig=C800-C80F,CC00-CC0F,D000-D00F,D400-D40F
+IOConfig=170-177(3FF::)
+IOConfig=376-377(3FF::)
+
+[hclc2]
+ConfigPriority=HARDWIRED
+IRQConfig=10,11,12
+MEMConfig=CA00-CA0F,CE00-CE0F,D200-D20F,D600-D60F
+IOConfig=320-327(3FF::)
+IOConfig=32E-32F(3FF::)
+
+[*pnp0602.det]
+LogConfig=hclc1,hclc2
+AddReg = HDC_HW_REG
+
+[HardCardIIXL]
+LogConfig=hclc1,hclc2
+AddReg = HARDCARD_AddReg
+
+[*pnp0600.det]          ;ESDI Controller
+LogConfig=esdilc1,esdilc2
+AddReg = HDC_HW_REG
+
+[esdilc1]
+ConfigPriority=HARDWIRED
+IOConfig=1f0-1f7(3ff::)
+IOConfig=3f6-3f6(3ff::)
+IRQConfig=14
+
+[esdilc2]
+ConfigPriority=HARDWIRED
+IOConfig=170-177(3ff::)
+IOConfig=376-376(3ff::)
+IRQConfig=15
+
+[esdilcgen1]
+ConfigPriority=HARDWIRED
+IOConfig=10@0-ffff%fff0(ffff::)
+IRQConfig=3,4,5,7,9,10,11,12,14,15
+
+[esdilcgen2]
+ConfigPriority=HARDWIRED
+IOConfig=8@0-ffff%fff8(ffff::)
+IRQConfig=3,4,5,7,9,10,11,12,14,15
+
+[esdilcgen3]
+ConfigPriority=HARDWIRED
+IOConfig=8@0-ffff%fff8(ffff::)
+IOConfig=8@0-ffff%fff8(ffff::)
+IRQConfig=3,4,5,7,9,10,11,12,14,15
+
+[esdilcgen4]
+ConfigPriority=HARDWIRED
+IOConfig=8@0-ffff%fff8(ffff::)
+IOConfig=4@0-ffff%fffc(ffff::)
+IRQConfig=3,4,5,7,9,10,11,12,14,15
+
+[esdilcgen5]
+ConfigPriority=HARDWIRED
+IOConfig=8@0-ffff%fff8(ffff::)
+IOConfig=2@0-ffff%fffe(ffff::)
+IRQConfig=3,4,5,7,9,10,11,12,14,15
+
+[esdilcgen6]
+ConfigPriority=HARDWIRED
+IOConfig=8@0-ffff%fff8(ffff::)
+IOConfig=1@0-ffff%ffff(ffff::)
+IRQConfig=3,4,5,7,9,10,11,12,14,15
+
+[BAD_IDE]
+LogConfig=esdilc1,esdilc2,esdilcgen1,esdilcgen2,esdilcgen3,esdilcgen4,esdilcgen5,esdilcgen6
+AddReg = ESDI_AddReg
+
+[BAD_IDE.PosDup]
+*PNP0600
+
+[GOOD_IDE]
+LogConfig=esdilc1,esdilc2,esdilcgen1,esdilcgen2,esdilcgen3,esdilcgen4,esdilcgen5,esdilcgen6
+AddReg = ESDI_AddReg
+
+[GOOD_IDE.HW]
+AddReg = ESDI_FIFO_OK_AddReg
+
+[GOOD_IDE.PosDup]
+*PNP0600
+
+[UNKNOWN_PCI_IDE]
+AddReg=PCIMF.Reg,IDEProp.Reg
+
+[UNKNOWN_PCI_IDE.HW]
+AddReg=UNKNOWN_PCI_IDE.RegHW,DontStopChild.RegHW
+
+[UNKNOWN_PCI_IDE.RegHW]
+HKR,Child0000,HardwareID,,MF\BADPRIMARY
+HKR,Child0000,ResourceMap,1,00,01,02
+HKR,Child0000,VaryingResourceMap,1,06,00,00,00,00,08,00,00,00,01,00,00,00
+HKR,Child0000,MFFlags,1,0C,00,00,00
+HKR,Child0001,HardwareID,,MF\BADSECONDARY
+HKR,Child0001,ResourceMap,1,03,04,05
+HKR,Child0001,VaryingResourceMap,1,06,08,00,00,00,08,00,00,00,01,00,00,00
+HKR,Child0001,MFFlags,1,0C,00,00,00
+
+[UNKNOWN_PCI_IDE.PosDup]
+*PNP0600
+
+[DUAL_BAD_IDE]
+AddReg=PCIMF.Reg,IDEProp.Reg
+
+[DUAL_BAD_IDE.HW]
+AddReg=DUAL_BAD_IDE.RegHW,DontStopChild.RegHW
+
+[DUAL_BAD_IDE.RegHW]
+HKR,Child0000,HardwareID,,MF\BADPRIMARY
+HKR,Child0000,ResourceMap,1,00,01,02
+HKR,Child0000,VaryingResourceMap,1,06,00,00,00,00,08,00,00,00,01,00,00,00
+HKR,Child0000,MFFlags,1,0C,00,00,00
+HKR,Child0001,HardwareID,,MF\BADSECONDARY
+HKR,Child0001,ResourceMap,1,03,04,05
+HKR,Child0001,VaryingResourceMap,1,06,08,00,00,00,08,00,00,00,01,00,00,00
+HKR,Child0001,MFFlags,1,0C,00,00,00
+HKR,,PCIDualIDE,1,01
+
+[DUAL_BAD_IDE.PosDup]
+*PNP0600
+
+[DUAL_GOOD_IDE]
+AddReg=PCIMF.Reg,IDEProp.Reg
+
+[DUAL_GOOD_IDE.HW]
+AddReg=DUAL_GOOD_IDE.RegHW
+
+[DUAL_GOOD_IDE.RegHW]
+HKR,Child0000,HardwareID,,MF\GOODPRIMARY
+HKR,Child0000,ResourceMap,1,00,01,02
+HKR,Child0000,VaryingResourceMap,1,06,00,00,00,00,08,00,00,00,01,00,00,00
+HKR,Child0000,MFFlags,1,0C,00,00,00
+HKR,Child0001,HardwareID,,MF\GOODSECONDARY
+HKR,Child0001,ResourceMap,1,03,04,05
+HKR,Child0001,VaryingResourceMap,1,06,08,00,00,00,08,00,00,00,01,00,00,00
+HKR,Child0001,MFFlags,1,0C,00,00,00
+HKR,,PCIDualIDE,1,01
+
+[DUAL_GOOD_IDE.PosDup]
+*PNP0600
+
+[IDEProp.Reg]
+HKR,,EnumPropPages,,"sysclass.dll,IDEEnumPropPages"
+
+[PCIMF.Reg]
+HKR,,DevLoader,,*CONFIGMG
+HKR,,Enumerator,,*CONFIGMG
+HKR,,CMDrivFlags,1,03,00,00,00
+
+[DontStopChild.RegHW]
+HKR,,ConfigFlags,1,80,00,00,00
+
+[MAXTOR_drv]
+AddReg = ESDI_AddReg,MAXTOROVERRIDE
+
+[MAXTOROVERRIDE]
+HKR,Override,0000,1, \
+;
+; CONFIGMG_VERSION
+;
+00,04,00,00, \
+;
+; PRIORITY
+;
+00,00,00,00, \
+;
+; I/O
+;
+24,00,00,00, \
+02,00,00,00, \
+01,00,0C,00, \
+00,00,00,00, \
+00,00,00,00, \
+F0,FF,10,00, \
+00,00,FF,FF, \
+00,00,00,00, \
+40,00,00,00, \
+;
+; IRQ
+;
+14,00,00,00, \
+04,00,00,00, \
+00,00,00,00, \
+FF,FF,00,00, \
+20,00,00,00, \
+;
+; REQUEST_CONFIG_PKT
+;
+19,00,00,00, \
+7C,89,00,00, \
+00,00,02,00, \
+32,00,00,02, \
+00,02,00,00, \
+00,00,00,01, \
+0F, \
+;
+; TERMINATOR
+;
+00,00,00,00
+
+[HITACHI_drv]
+AddReg = ESDI_AddReg,HITACHI_ScanDisk
+
+[HITACHI_drv.HW]
+AddReg = ESDI_FIFO_OK_AddReg
+
+[PANASONIC_drv]
+AddReg = ESDI_AddReg,PANASONIC_ScanDisk
+
+[PANASONIC_drv.HW]
+AddReg = ESDI_FIFO_OK_AddReg
+
+[MITSUBISHI_drv]
+AddReg = ESDI_AddReg,MITSUBISHI_ScanDisk
+
+[MITSUBISHI_drv.HW]
+AddReg = ESDI_FIFO_OK_AddReg
+
+[SUNDISK_drv]
+AddReg = ESDI_AddReg,SUNDISK_ScanDisk
+
+[SUNDISK_drv.HW]
+AddReg = ESDI_FIFO_OK_AddReg
+
+[SUNDISK_drvl5]
+AddReg = ESDI_AddReg, SUNDISK_ScanDisk, SDL5_OVERRIDE
+
+[SUNDISK_drvl5.HW]
+AddReg = ESDI_FIFO_OK_AddReg
+
+[SDL5_OVERRIDE]
+HKR,Override,0000,1, \
+;
+00,04,00,00, \
+00,00,00,00, \
+;
+; IO Resource Descriptor
+;
+24,00,00,00, \
+02,00,00,00, \
+01,00,0c,00, \
+00,00,00,00, \
+00,00,00,00, \
+f0,ff,08,00, \
+00,00,ff,ff, \
+00,00,00,00, \
+40,00,00,00, \
+;
+; NO Memory Resource Descriptor
+;
+; IRQ Resource Descriptor
+;
+14,00,00,00, \
+04,00,00,00, \
+00,00,00,00, \
+ff,ff,00,00, \
+20,00,00,00, \
+;
+;
+;REQUEST_CONFIG_PKT Descriptor
+;
+;
+;Request Config Packet for SDPL5 Mode 1
+19,00,00,00, \
+7C,89,00,00, \
+00,00,02,00, \
+32,00,00,02, \
+00,02,00,00, \
+00,00,00,41, \
+0F, \
+;
+; Terminator
+;
+00,00,00,00
+
+[HARDCARD_AddReg]
+HKR,,No_Driver,,"Uses RMode Mapper"
+
+[IBMIDE]
+ 
+[ESDI_FIFO_OK_AddReg]
+HKR,,IDENoSerialize,3,01
+
+[ESDI_AddReg]
+HKR,,DriverDesc,,"ESDI Port Driver"
+HKR,,DevLoader,,*IOS
+HKR,,PortDriver,,ESDI_506.pdr
+
+
+
+
+
+[HITACHI_ScanDisk]
+HKR,,ScanOnlyFirstDrive,1,1
+
+[MITSUBISHI_ScanDisk]
+HKR,,ScanOnlyFirstDrive,1,1
+
+[PANASONIC_ScanDisk]
+HKR,,ScanOnlyFirstDrive,1,1
+
+[SUNDISK_ScanDisk]
+HKR,,ScanOnlyFirstDrive,1,1
+
+[HDC_HW_REG]
+HKR,,NoSetupUI,,1
+
+[ControlFlags]
+CopyFilesOnly=PCMCIA\HITACHI-FLASH-7f83
+CopyFilesOnly=PCMCIA\HITACHI-FLASH-9163
+CopyFilesOnly=PCMCIA\HITACHI-FLASH-8975
+CopyFilesOnly=PCMCIA\HITACHI-FLASH-0007-0000
+CopyFilesOnly=PCMCIA\KINGSTON_TECHNOLOGY-DATAPAK_520-61C7
+CopyFilesOnly=PCMCIA\KINGSTON_TECHNOLOGY-DATAPAK_170-3B77
+CopyFilesOnly=PCMCIA\MAXTOR-MXL105-E950,PCMCIA\MAXTOR-MXL105-352F
+CopyFilesOnly=PCMCIA\MAXTOR-MXL131-351E,PCMCIA\MAXTOR-MXL131-84AD
+CopyFilesOnly=PCMCIA\MAXTOR-MXL131-BA9C,PCMCIA\MAXTOR-MXL262-13BA
+CopyFilesOnly=PCMCIA\MAXTOR-MXL171-764B,PCMCIA\MINISTOR-MP130P-FEED
+CopyFilesOnly=PCMCIA\MITSUBISHI-ATA_CARD-7599,PCMCIA\MITSUBISHI_ATA_CARD-MF007M5-03AA00-4B10
+CopyFilesOnly=PCMCIA\MITSUBISHI_ATA_CARD-MF0015M-03AA00-B843,PCMCIA\MITSUBISHI_ATA_CARD-MF022M5-03AA00-5250
+CopyFilesOnly=PCMCIA\MITSUBISHI_ATA_CARD-MF007M5-03AT00-E94C,PCMCIA\MITSUBISHI_ATA_CARD-MF0015M-03AT00-6C49
+CopyFilesOnly=PCMCIA\MITSUBISHI_ATA_CARD-MF0030M-03AT00-6661,PCMCIA\MITSUBISHI_ATA_CARD-MF0045M-03AT00-D225
+CopyFilesOnly=PCMCIA\MITSUBISHI_ATA_CARD-MF0060M-03AT00-849F,PCMCIA\MITSUBISHI_ATA_CARD-MF0075M-03AT00-F7E7
+CopyFilesOnly=PCMCIA\MITSUBISHI_ATA_CARD-MF0090M-03AT00-84D6,PCMCIA\MITSUBISHI_ATA_CARD-MF0105M-03AT00-21B2
+CopyFilesOnly=PCMCIA\MITSUBISHI-MF0015M-3DCA,PCMCIA\MITSUBISHI-MF0030M-86DB
+CopyFilesOnly=PCMCIA\MITSUBISHI-MF0045M-F1CA,PCMCIA\MITSUBISHI-MF0060M-48DB
+CopyFilesOnly=PCMCIA\MITSUBISHI-MF0075M-B5CA
+CopyFilesOnly=PCMCIA\Panasonic-ATA-2373,PCMCIA\Panasonic-ATA-9087
+CopyFilesOnly=PCMCIA\SIMPLE_TECHNOLOGY-STI-ATA-7AE6
+CopyFilesOnly=PCMCIA\SunDisk-SDP-1E2E,PCMCIA\SunDisk-SDP-1DD2
+CopyFilesOnly=PCMCIA\SunDisk-SDP5-ADFD,PCMCIA\SunDisk-SDP-6DC7
+CopyFilesOnly=PCMCIA\SunDisk-SDPL5-F150
+CopyFilesOnly=*ZDS2010,*CPQA0DA,*CPQ4300
+CopyFilesOnly=MF\EISA_ZDS2000_DEV0
+CopyFilesOnly=PCI\CC_0101
+CopyFilesOnly=PCI\VEN_0E11&DEV_AE33
+CopyFilesOnly=PCI\VEN_1022&DEV_7409
+CopyFilesOnly=PCI\VEN_1039&DEV_0597
+CopyFilesOnly=PCI\VEN_1039&DEV_5513
+CopyFilesOnly=PCI\VEN_1042&DEV_1000
+CopyFilesOnly=PCI\VEN_1045&DEV_C621
+CopyFilesOnly=PCI\VEN_1045&DEV_D568
+CopyFilesOnly=PCI\VEN_1095&DEV_0640
+CopyFilesOnly=PCI\VEN_1095&DEV_0646
+CopyFilesOnly=PCI\VEN_1097&DEV_0038
+CopyFilesOnly=PCI\VEN_10AD&DEV_0001
+CopyFilesOnly=PCI\VEN_10B9&DEV_5215
+CopyFilesOnly=PCI\VEN_10B9&DEV_5219
+CopyFilesOnly=PCI\VEN_10B9&DEV_5229
+CopyFilesOnly=PCI\VEN_1106&DEV_0561
+CopyFilesOnly=PCI\VEN_1179&DEV_0103&SUBSYS_00011179
+CopyFilesOnly=PCI\VEN_1C1C&DEV_0001
+CopyFilesOnly=PCI\VEN_8086&DEV_1222
+CopyFilesOnly=PCI\VEN_8086&DEV_1230
+CopyFilesOnly=PCI\VEN_8086&DEV_2411
+CopyFilesOnly=PCI\VEN_8086&DEV_2421
+CopyFilesOnly=PCI\VEN_8086&DEV_7010
+CopyFilesOnly=PCI\VEN_8086&DEV_7111
+CopyFilesOnly=PCI\VEN_8086&DEV_7199
+CopyFilesOnly=PCI\VEN_8086&DEV_7601
+CopyFilesOnly=*CTL2011
+ExcludeFromSelect=MF\BADPRIMARY,MF\BADSECONDARY,MF\GOODPRIMARY,MF\GOODSECONDARY
+
+[PNP0600.update.fail]
+BTIDE.PDR       ; BusLogic driver
+PTIATAPI.MPD    ; Promise driver
+DC690.PDR       ; Tekram driver
+DC6X0.PDR       ; Tekram driver
+
+[Strings]
+HDCClassName = "Controladores de disco duro"
+MS = "Microsoft"
+MS-Drivers = "(Controladores estándar de disco duro)"
+*pnp0601.DeviceDesc = "Plus Hardcard II"
+*PNP0602.DeviceDesc = "Plus Hardcard IIXL/EZ"
+*PNP0600.DeviceDesc = "Controlador estándar IDE/ESDI de disco duro"
+*PNP0603.DeviceDesc = "Controlador estándar IDE/ESDI de disco duro (sin serie)"
+*PNP0680.DeviceDesc = "Controlador estándar para disco duro Bus Mastering IDE"
+*PNP0683.DeviceDesc = "Controlador estándar de disco duro Bus Mastering IDE (sin serie)"
+*ZDS2010.DeviceDesc = "Controlador IDE EISA Zeos"
+PCI\CC_0101.DeviceDesc = "Controlador estándar doble PCI IDE"
+MF\BADPRIMARY.DeviceDesc = "Controlador primario IDE (FIFO única)"
+MF\BADSECONDARY.DeviceDesc = "Controlador secundario IDE (FIFO única)"
+MF\GOODPRIMARY.DeviceDesc = "Controlador primario IDE (FIFO doble)"
+MF\GOODSECONDARY.DeviceDesc = "Controlador secundario IDE (FIFO doble)"
+
+ACTIONTEC = "ActionTec"
+ActionTec.DeviceDesc = "Tarjeta flash ActionTec CameraCard ATA"
+ActionTec1.DeviceDesc = "Tarjeta flash ActionTec PalmMate ATA"
+
+ALI = "Acer Labs Inc"
+PCI\VEN_10B9&DEV_5215.DeviceDesc = "Controlador ALI PCI IDE"
+PCI\VEN_10B9&DEV_5219.DeviceDesc = "Controladora ALi M5219 PCI Bus Master IDE"
+PCI\VEN_10B9&DEV_5229.DeviceDesc = "Controladora ALi M5229 PCI Bus Master IDE"
+
+AMD = "AMD"
+PCI\VEN_1022&DEV_7409.DeviceDesc = "Controladora IDE máster doble de bus PCI AMD 756"
+
+APPIAN = "Appian Technology"
+PCI\VEN_1097&DEV_0038.DeviceDesc = "Controlador Appian PCI IDE"
+
+Calluna = "Calluna"
+CALLUNACARD260MC.DeviceDesc = "Disco duro PC-Card CallunaCard de 260 MB"
+CALLUNACARD170MC.DeviceDesc = "Disco duro PC-Card CallunaCard de 170 MB"
+CALLUNACARD130MC.DeviceDesc = "Disco duro PC-Card CallunaCard de 130 MB"
+CALLUNACARD520RM.DeviceDesc = "Disco duro PC-Card CallunaCard de 520 MB"
+CALLUNACARD260RM.DeviceDesc = "Disco duro PC-Card CallunaCard de 260 MB"
+
+CMD = "CMD Technology"
+PCI\VEN_1095&DEV_0640.DeviceDesc = "Controlador CMD PCI-0640 PCI a IDE"
+PCI\VEN_1095&DEV_0646.DeviceDesc = "Controlador CMD PCI-0646 Bus Master PCI a IDE"
+
+COMPAQ = "Compaq"
+*CPQA0DA.DeviceDesc = "Controlador IDE Compaq"
+*CPQ4300.DeviceDesc = "Controlador avanzado ESDI Compaq"
+PCI\VEN_0E11&DEV_AE33.DeviceDesc = "Controladora Compaq PCI IDE"
+
+CREATIVELABS = "Creative Labs"
+*CTL2011.DeviceDesc = "Controlador IDE Creative Labs"
+
+DATATECH = "DTC Data Technology"
+PCI\VEN_1C1C&DEV_0001.DeviceDesc = "Controlador unipuerto de bus PCI a IDE DTC 2130S"
+
+HITACHI = "HITACHI"
+PCMCIA\HITACHI-FLASH.DeviceDesc = "HITACHI ATA FlashDisk"
+
+IBM = "IBM"
+mca_df9f.DeviceDesc = "Controlador y disco duro integrado IBM MCA"
+
+INTEGRAL = "Integral Peripherals"
+Integral.DeviceDesc = "Disco duro PCMCIA Integral Peripherals"
+
+INTEL = "Intel"
+PCI\VEN_8086&DEV_1222.DeviceDesc = "Controlador PCI IDE Intel 82092AA"
+PCI\VEN_8086&DEV_1230.DeviceDesc = "Controlador Intel 82371FB PCI Bus Master IDE"
+PCI\VEN_8086&DEV_2411.DeviceDesc = "Controladora IDE principal de bus Intel 82801AA"
+PCI\VEN_8086&DEV_2421.DeviceDesc = "Controladora IDE principal de bus Intel 82801AB"
+PCI\VEN_8086&DEV_7010.DeviceDesc = "Controlador Intel 82371SB PCI Bus Master IDE"
+PCI\VEN_8086&DEV_7111.DeviceDesc = "Controlador Intel 82371AB/EB PCI Bus Master IDE"
+PCI\VEN_8086&DEV_7199.DeviceDesc = "Controlador Intel 82440MX PCI Bus Master IDE"
+PCI\VEN_8086&DEV_7601.DeviceDesc = "Controlador Intel 82372FB PCI Bus Master IDE"
+
+KINGSTON = "Kingston Technology"
+PCMCIA\KINGSTON_TECHNOLOGY-DATAPAK_170-3B77.DeviceDesc = "Disco duro PCMCIA de 170 MB de Kingston Technology"
+PCMCIA\KINGSTON_TECHNOLOGY-DATAPAK_520-61C7.DeviceDesc = "Disco duro PCMCIA Kingston Technology de 520 MB"
+
+LEXAR = "Lexar Microsystems"
+LEXAR.DeviceDesc = "Tarjeta flash compacta Lexar Microsystems"
+
+MAXTOR = "Maxtor"
+PCMCIA\MAXTOR-MXL105-E950.DeviceDesc = "Disco duro MobileMax 105MB PCMCIA (1U3B)"
+PCMCIA\MAXTOR-MXL105-352F.DeviceDesc = "Disco duro MobileMax 105MB PCMCIA"
+PCMCIA\MAXTOR-MXL131.DeviceDesc = "Disco duro MobileMax 131MB PCMCIA"
+PCMCIA\MAXTOR-MXL171.DeviceDesc = "Disco duro MobileMax 171MB PCMCIA"
+PCMCIA\MAXTOR-MXL262.DeviceDesc = "Disco duro MobileMax 262MB PCMCIA"
+
+MINISTOR = "MiniStor"
+PCMCIA\MINISTOR-MP130P-FEED.DeviceDesc = "Disco duro MiniStor 131MB PCMCIA"
+MiniStor170.DeviceDesc = "Disco duro PCMCIA MiniStor de 170MB"
+
+MITSUBISHI = "MITSUBISHI"
+PCMCIA\MITSUBISHI-ATA_CARD.DeviceDesc = "MITSUBISHI Flash ATA Card"
+
+NATSEMI = "National Semiconductor"
+PCI\VEN_100B&DEV_D001.DeviceDesc = "Controlador National Semiconductor Dual PCI IDE (sólo compatible con RMM)"
+
+OPTI = "Opti"
+PCI\VEN_1045&DEV_C621.DeviceDesc = "Controlador Opti Opti 826612A o Viper-M/N+ Dual PCI IDE"
+PCI\VEN_1045&DEV_D568.DeviceDesc = "Controlador Opti Viper Max Dual PCI IDE"
+
+PANASONIC = "PANASONIC"
+PCMCIA\PANASONIC.DeviceDesc = "Panasonic PC Card ATA"
+
+PCTECH = "PC Technology"
+PCI\VEN_1042&DEV_1000.DeviceDesc = "Controlador de puerto simple o doble puerto PC Tech PCI IDE"
+
+SD = "SunDisk"
+PCMCIA\SunDisk-SDP.DeviceDesc = "SanDisk ATA FlashDisk"
+
+SIMPLE_TECH = "Simple Technology Incorporated"
+PCMCIA\SimpleTechnology-ATA.DeviceDesc = "PC Card ATA-Flash de Simple Technology Inc."
+PCMCIA\SimpleTechnology-STI-ATA.DeviceDesc = "PC Card  STI/ATA-Flash de Simple Technology Inc."
+PCMCIA\SimpleTechnology-2M-ATA.DeviceDesc = "PC Card ATA-Flash de 2 MB de Simple Technology Inc."
+
+SIS = "Silicon Integrated Systems"
+PCI\VEN_1039&DEV_5513.DeviceDesc = "Controlador SiS 5513 doble puerto PCI IDE"
+PCI\VEN_1039&DEV_0597.DeviceDesc = "Controlador SiS 5513 doble PCI IDE (C Stepping)"
+
+SYMPHONY = "Symphony Labs"
+PCI\VEN_10AD&DEV_0001.DeviceDesc = "Controlador PCI IDE Symphony"
+
+TOSHIBA = "Toshiba"
+PCI\VEN_1179&DEV_0103&SUBSYS_00011179.DeviceDesc = "Controladora PCI IDE extendida tipo B TOSHIBA"
+
+VIATECH = "VIA Tech"
+PCI\VEN_1106&DEV_0561.DeviceDesc = "Controlador PCI IDE VIA Tech doble"
+PCI\VEN_1106&DEV_0571.DeviceDesc = "Controlador VIA Bus Master PCI IDE"
+
+Zenith = "Zenith Data Systems"
+MF\EISA_ZDS2000_DEV0.DeviceDesc = "Controlador estándar IDE en tarjeta Zenith EISA"
+

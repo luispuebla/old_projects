@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Puerto de impresora ECP
+infpath=MSPORTS.INF                                                                     
+infsection=EcpPort
+MatchingDeviceId=*PNP0401
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Puertos (COM y LPT)
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

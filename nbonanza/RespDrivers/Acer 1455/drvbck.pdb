@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Acer 1455
+infpath=MONITR10.INF                                                                    
+infsection=api1455.install
+MatchingDeviceId=Monitor\API5514
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Monitores
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

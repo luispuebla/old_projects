@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=S3 Trio32/64 PCI (732/764)
+infpath=DXS3.INF                                                                        
+infsection=S3
+MatchingDeviceId=PCI\VEN_5333&DEV_8811
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Adaptadores de pantalla
+filenum=6
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

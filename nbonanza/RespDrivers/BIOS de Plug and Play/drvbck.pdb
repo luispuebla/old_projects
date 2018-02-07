@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=BIOS de Plug and Play
+infpath=MACHINE.INF                                                                     
+infsection=PNPBIOS_DRV
+MatchingDeviceId=*PNP0C00
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sistema
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

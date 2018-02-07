@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=Proxy del reloj de transferencia de Microsoft
+infpath=KSFILTER.INF                                                                    
+infsection=MSPCLOCK
+MatchingDeviceId=SW\{97ebaacc-95bd-11d0-a3ea-00a0c9223196}
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Dispositivos de sonido, vídeo y juegos
+filenum=3
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008

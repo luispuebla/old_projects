@@ -1,0 +1,13 @@
+[driver backup information]
+driverdesc=COMPAQ 140
+infpath=MONITOR3.INF                                                                    
+infsection=140
+MatchingDeviceId=Monitor\CPQ0D4A
+driverversion=null
+driverdate=5- 5-1999
+providername=Microsoft
+class=Monitores
+filenum=2
+signature=All Windows Operating Systems
+needrestore=no
+backuptime=Domingo, Marzo 02, 2008
